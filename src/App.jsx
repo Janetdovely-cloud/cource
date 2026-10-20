@@ -1,0 +1,44 @@
+import { useEffect } from 'react'
+import { Routes, Route, useLocation } from 'react-router-dom'
+import { AnimatePresence, motion, MotionConfig } from 'motion/react'
+import Cursor from './components/Cursor'
+import Home from './pages/Home'
+import CoursePage from './pages/CoursePage'
+
+// 換頁過場：金色與青綠色兩層紙片由下往上掃過，內容淡入
+function Page({ children }) {
+  useEffect(() => { window.scrollTo(0, 0) }, [])
+  return (
+    <>
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.35, ease: [0.2, 0.7, 0.2, 1] } }}
+        exit={{ opacity: 0, y: -16, transition: { duration: 0.25 } }}
+      >
+        {children}
+      </motion.div>
+      <motion.div aria-hidden="true" className="fixed inset-0 z-[9000] bg-gold pointer-events-none origin-top"
+        initial={{ scaleY: 1 }} animate={{ scaleY: 0, transition: { duration: 0.55, ease: [0.7, 0, 0.2, 1] } }}
+        exit={{ scaleY: 0 }} />
+      <motion.div aria-hidden="true" className="fixed inset-0 z-[9001] bg-brand pointer-events-none origin-bottom"
+        initial={{ scaleY: 0 }} animate={{ scaleY: 0 }}
+        exit={{ scaleY: 1, transition: { duration: 0.35, ease: [0.7, 0, 0.2, 1] } }} />
+    </>
+  )
+}
+
+export default function App() {
+  const location = useLocation()
+  return (
+    <MotionConfig reducedMotion="user">
+      <Cursor />
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<Page><Home /></Page>} />
+          <Route path="/course/:slug" element={<Page><CoursePage /></Page>} />
+          <Route path="*" element={<Page><Home /></Page>} />
+        </Routes>
+      </AnimatePresence>
+    </MotionConfig>
+  )
+}
