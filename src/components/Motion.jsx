@@ -35,12 +35,10 @@ export function ph(text) {
   return parts.map((p, i) => <span key={i} className="ph">{words(p)}</span>)
 }
 
-const SEG = typeof Intl !== 'undefined' && Intl.Segmenter ? new Intl.Segmenter('zh-Hant', { granularity: 'word' }) : null
-
-// 依詞切分，避免標題在詞中間斷行（例如「說／話」）
+// 依建置時加入的詞界標記（零寬空格）切分，避免標題在詞中間斷行
 function words(text) {
-  if (!SEG || !/[\u4e00-\u9fff]/.test(text)) return text
-  return [...SEG.segment(text)].map((s, i) => (/^\s+$/.test(s.segment) ? s.segment : <span key={i} className="w">{s.segment}</span>))
+  if (!text.includes('\u200B')) return text
+  return text.split('\u200B').map((w, i) => <span key={i} className="w">{w}</span>)
 }
 
 export function Section({ id, no, label, title, sub, children, className = '' }) {
