@@ -77,7 +77,7 @@ export default function Home() {
             <Squiggle className="absolute left-0 -bottom-2 w-full h-[18px]" />
           </div>
           <Stagger className="mt-8 max-w-[860px]">
-            <Item as="p" className="text-[18px] m-0">
+            <Item as="p" className="kp text-[18px] m-0">
               從入門到國際證照，實戰課程搭配<mark className="hl" style={{ '--hl': '100%' }}>真人教練與 AI 教練</mark>，結訓後還有 JOB580 就業服務陪你找工作。
             </Item>
             <Item className="flex flex-wrap gap-3 mt-7">

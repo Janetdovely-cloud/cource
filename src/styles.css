@@ -202,6 +202,7 @@ dialog[open].dlg { animation: dlgIn .3s ease; }
   .hand-label::after { --draw: 1; }
   mark.hl { --hl: 100%; }
 }
-p, li, .sub, blockquote { text-wrap: pretty; line-break: strict; word-break: keep-all; overflow-wrap: anywhere; }
+p, li, blockquote { text-wrap: pretty; line-break: strict; }
+.sub, .kp { text-wrap: pretty; word-break: keep-all; overflow-wrap: anywhere; }
 h1, h2, h3, h4 { text-wrap: balance; }
 .hand { text-wrap: balance; word-break: keep-all; overflow-wrap: anywhere; }

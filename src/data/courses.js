@@ -12,6 +12,7 @@ import aiPro from '../assets/ai-pro/mod-pro.webp'
 import bizHero from '../assets/biz-design/hero.webp'
 import avHero from '../assets/av-design/hero.webp'
 import aieHero from '../assets/ai-engineer/hero.webp'
+import agentHero from '../assets/ai-agent/hero.webp'
 import interiorHero from '../assets/interior/hero.webp'
 
 // AI 全應用證照班：商業整合設計師、室內設計師共用
@@ -54,7 +55,9 @@ export const courseIndex = [
   { slug: 'ai-engineer', ready: true, cat: 'it', name: 'AI 人工智慧工程師', en: 'Artificial Intelligence Engineer',
     line: '掌握 Python × AI 開發技術，打造善用 AI 的工程實力', img: aieHero,
     tags: ['Python', '機器學習', '深度學習', 'OpenCV', 'Django'] },
-  { slug: 'ai-agent', ready: false, cat: 'ai', name: 'AI Agent 應用開發工程師', en: 'AI Agent Developer' },
+  { slug: 'ai-agent', ready: true, cat: 'ai', name: 'AI Agent 應用開發工程師', en: 'AI Agent Developer',
+    line: 'RAG × MCP × AI Agent，把通用 AI 打造成企業專屬員工', img: agentHero,
+    tags: ['Python', 'RAG', 'MCP', 'LangChain', 'Fine-Tuning'] },
   { slug: 'ptc', ready: false, cat: 'eng', name: 'PTC 機構工程師', en: 'Mechanical Design Engineer' },
   { slug: 'infosec', ready: true, cat: 'it', name: '資訊安全工程師', en: 'Information Security Engineer',
     line: '資安分析 × 攻防實戰 × 國際證照，一站養成企業最搶手新星', img: heroImg,
@@ -1260,6 +1263,243 @@ export const courses = {
         a: 'Python 商業資料分析報告、自動化爬蟲資料擷取工具、互動式數據視覺化儀表板、AI 視覺辨識專案與深度學習模型應用。' },
       { q: '學完還能往哪裡延伸？',
         a: '如果你更喜歡快速打造 AI 應用，可以延伸學習 AI Agent 應用開發、Fine-Tuning 與模型優化實務、AI 解決方案規劃與專案管理。' },
+      { q: '結訓後有就業協助嗎？',
+        a: '有。結合 JOB580 提供 8 項求職服務，另有 AI 自傳生成、AI 媒合職缺、AI 求職追蹤等 AI 求職資源。' },
+    ],
+  },
+
+  'ai-agent': {
+    slug: 'ai-agent',
+    color: 'var(--color-violet)',
+    hero: {
+      badges: ['RAG × Agent × MCP', '獨家・產學培訓', '保證面試'],
+      title: 'AI Agent 應用開發工程師',
+      en: 'AI Agent Developer',
+      hand: '讓 AI 不只會回答，還會動手做事',
+      line: '從 Python 到 RAG、MCP 與 AI Agent，打造企業專屬的 AI 員工。',
+      sub: '本培訓課程通過數發部審核，符合國家《AI 產業人才認定指引》',
+      tags: ['24HR 自由彈性', '隨時隨地', '高效學習'],
+      img: agentHero,
+      imgAlt: '女孩抱著筆電，旁邊是對話框裡的友善機器人',
+    },
+
+    why: {
+      title: '從生成式 AI 走向 AI 代理人',
+      lead: '企業渴望導入 AI，卻常卡在落地的最後一哩路',
+      hl: '不是單純的提升效率，更是企業生存的關鍵。',
+      stats: [
+        { tag: '職缺多', kicker: 'AI 相關工作機會', num: 24000, unit: '個以上',
+          desc: '104 人力銀行「AI」關鍵字職缺已達 9,731 筆，以每筆平均需求 2.5 人估算，超過 24,000 個工作機會，且持續成長約 11%。' },
+        { tag: '自動化', kicker: '手動工作可自動化', num: 90, unit: '%',
+          desc: 'AI Agent 能把 90% 的手動工作自動化，剩下 10% 只需要人力介入確認與微調。' },
+        { tag: '高薪資', kicker: 'AI 架構師月薪', num: 120, unit: 'K 以上',
+          desc: '從 AI 工程師、AI Agent 工程師到 AI 架構師，掌握 AI Agent 與 LLM 技術，搶佔職涯至高點。' },
+      ],
+      compare: {
+        title: '薪資階梯：打造高影響力的職涯軌跡',
+        sub: '掌握 AI Agent 與 LLM 技術，一階一階往上走。',
+        bars: [
+          { name: 'AI 工程師', num: 55 },
+          { name: 'AI Agent 工程師', num: 60 },
+          { name: 'AI 架構師', num: 120, hot: true },
+        ],
+        unit: 'K／月以上',
+      },
+      facts: [
+        { num: 'RAG', title: '給 AI 更聰明的大腦', text: '先查資料再回答，提供正確、可追蹤的答案，大幅減少 AI 幻覺。' },
+        { num: 'MCP', title: '給 AI 會做事的雙手', text: '像 AI 界的 Type-C，讓 AI 安全又統一地串接各種工具。' },
+        { num: 'Agent', title: 'AI 數位員工', text: '具備感知、推理與行動能力，能獨立完成複雜任務。' },
+        { num: '對話', title: '對話式消費體驗', text: '當 AI 判斷消費者意圖明顯時，會主動啟動促銷機制。' },
+      ],
+      salaryTitle: '人力銀行職缺：月薪範圍',
+      salary: [
+        { role: 'AI Agent Presale', min: 50, max: 75 },
+        { role: 'AI Agent 工程師（自動化）', min: 60, max: 100 },
+        { role: 'AI 應用／自動化工程師', min: 50, max: 120, top: true },
+      ],
+      salaryNote: '參考來源：人力銀行職缺（單位：千元）。本表僅供參考，實際薪資依各公司職務待遇而有所不同。',
+    },
+
+    who: {
+      title: '想把 AI 變成真正能用的系統',
+      sub: '新興四大職缺：AI Agent 工程師、前端部署工程師（FDE）、AI 應用規劃師、資深數據分析師。',
+      cards: [
+        { icon: 'rocket', title: 'Python 學習者', pain: '會寫程式，想跨進 AI 應用', say: '從 Python 資料分析與爬蟲打底，一路做到 RAG 與 AI Agent 專案。', certs: ['Python 程式資料分析', 'AI Agent 應用開發'] },
+        { icon: 'briefcase', title: '想精進的 AI 開發者', pain: '做過 AI，想做出企業級系統', say: 'LangChain、向量資料庫、MCP，加上模型微調與部署。', certs: ['AI Agent 應用開發', 'Fine-Tuning 與模型優化實務'] },
+        { icon: 'target', title: '想主導專案的人', pain: '想從工程師升級為專案主導角色', say: '學會需求釐清、技術選型與風險效益評估，產出可提案的企劃書。', certs: ['AI 解決方案規劃與專案管理'] },
+        { icon: 'star', title: '想提升職場影響力的人', pain: '技術有了，還缺溝通與管理', say: 'AI 商業談判與 Notion × ChatGPT 專案管理，補齊軟實力。', certs: ['AI 商業談判技巧', 'Notion × ChatGPT 專案管理實戰'] },
+      ],
+    },
+
+    what: {
+      title: '從 AI 通識、Python 到 RAG、Agent 與 MCP',
+      sub: '職場必備 AI 通識打底，學好 Python 資料處理與爬蟲，再進入 LLM 系統開發、模型微調與解決方案規劃。',
+      analogyLabel: '一句話看懂：',
+      modules: [
+        { id: 'aipro', name: '職場必備｜AI 熟練師', color: 'var(--color-brand)',
+          tagline: '數發部核定 AI 實戰課程，10 張產業證照加持', desc: 'AI 工具 × 專業技能 × 工作應用，全面升級。',
+          analogy: '先學會在職場上用 AI，再進一步學會開發 AI。',
+          highlights: ['生成式 AI 與 AI 人工智慧核心能力認證', 'AI 辦公室應用與 AI 工作應用', 'AI 效率、行銷、職場、影音等專業技能'],
+          units: [
+            { t: 'AI 通識', items: ['生成式 AI 能力認證', 'AI 人工智慧核心能力認證', 'AI 辦公室應用'] },
+            { t: 'AI 工作應用', items: ['AI 廣告設計', 'AI 形象設計', '視覺行銷實作', 'AI 短影音創作'] },
+            { t: 'AI 專業技能', items: ['AI 效率應用', 'AI 行銷應用', 'AI 職場技能', 'AI 影音創作', 'AI 遊戲開發', 'AI Vibe Coding', '生活風格'] },
+          ] },
+        { id: 'py-data', name: 'Python 程式資料分析', color: 'var(--color-gold)',
+          tagline: 'AI 輔助撰寫程式 × 資料清理 × 數據判讀', desc: '用 Python 建立資料處理流程，支援 LLM 開發需求。',
+          analogy: '實戰成果：完成一套資料分析實作專案。',
+          highlights: ['Python 入門認識與開發環境建置', 'OpenData 資料蒐集、處理與分析', '資料庫應用與 Open Data 資料應用（成果）'],
+          units: [
+            { t: 'Python 入門認識', items: ['Python 認識應用', 'Python 開發環境建置', 'Anaconda 開發軟體安裝', 'Python 程式執行'] },
+            { t: 'Python 基礎語法', items: ['資料型態與變數', '判斷式與迴圈', '串列與元組', '字典與集合'] },
+            { t: 'Python 資料分析', items: ['資料分析簡介', 'OpenData 資料蒐集', 'Python 資料處理、分析', '模型建立應用'] },
+            { t: '資料分析實務演練', items: ['資料庫應用', 'Open Data 資料分析', 'Open Data 資料應用（成果）'] },
+          ] },
+        { id: 'py-crawl', name: 'Python 爬蟲程式與資料視覺化開發', color: 'var(--color-red)',
+          tagline: '網頁資料擷取 × 自動化流程 × 視覺化呈現', desc: '讓 LLM 不再只讀靜態資料，而能連接即時資訊來源。',
+          analogy: '實戰成果：全自動資料採集機器人與智慧訂位／搶票助理系統。',
+          highlights: ['Scraper、Beautiful Soup4 與網頁資料處理', '財經資訊、PTT、Facebook 爬行實務（成果）', 'Seaborn、Plotly、Bokeh 視覺化網頁實務（成果）'],
+          units: [
+            { t: '建構 Scraper', items: ['Scraper 程式原理', '建構爬蟲環境', 'HTML 和 JSON 解析', 'POST 和 GET 基礎概念'] },
+            { t: 'Beautiful Soup4 模組應用', items: ['Beautiful Soup 應用概念', 'Beautiful Soup4 剖析套件', 'urllib 應用概念', 'logging 應用概念'] },
+            { t: '網頁資料處理', items: ['網頁資料萃取', 'OpenRefine 應用概念', 'Filter 與 Facet 應用概念', '自然語言、動態網頁處理'] },
+            { t: '爬蟲程式實戰', items: ['驗證圖像處理', '爬行實務應用：財經資訊（成果）', '爬行實務應用：PTT 網站（成果）', '爬行實務應用：Facebook（成果）'] },
+            { t: '認識資料視覺化', items: ['視覺化觀念建立', 'Seaborn 應用概念', 'Plotly & Bokeh 應用', 'python-igraph 應用'] },
+            { t: '製作視覺化網頁', items: ['圖表建構 & style 控制', '程式色彩工具', '網頁元件 & 互動圖表', '視覺網頁實務（成果）'] },
+          ] },
+        { id: 'agent', name: 'AI Agent 應用開發', color: 'var(--color-violet)',
+          tagline: 'RAG 檢索增強 × MCP 資料互連 × Agent 任務編排', desc: '讓 LLM 從對話工具，升級為驅動流程的核心引擎。',
+          analogy: '實戰成果：產出 RAG 智慧問答客服系統與 AI Agent 實作專案。',
+          highlights: ['LLM 原理、ChatGPT API 與 LangChain', '向量資料庫與知識庫建構管理', 'MCP 架構、Function Calling 與智能行動助理（成果）'],
+          units: [
+            { t: 'LLM 基礎與模型理解', items: ['LLM 模型核心原理與架構', '生成式語言模型運作機制', '模型訓練與推理流程', '大型語言模型應用架構'] },
+            { t: 'LLM 應用層與流程整合', items: ['ChatGPT API 應用實作', 'LangChain 架構與流程', '多模態 AI 應用整合', 'RAG 檢索增強生成架構'] },
+            { t: '知識庫與資料管理', items: ['向量資料庫原理與應用', '向量化資料建置流程', '結構化資料整合方式', '知識庫建構與管理'] },
+            { t: 'AI Agent 應用與專案實作', items: ['MCP 架構設計與解析', 'Function Calling 工具整合', '企業級客服系統專案（成果）', '專屬智能行動助理專案實作（成果）'] },
+          ] },
+        { id: 'finetune', name: 'Fine-Tuning 與模型優化實務', color: 'var(--color-brand)',
+          tagline: 'PEFT／LoRA 微調 × RLHF 回饋訓練 × RAG 強化策略', desc: '讓模型從可生成，進階為可控、可優化的企業級能力。',
+          analogy: '實戰成果：垂直領域模型微調與部署。',
+          highlights: ['Transformer 架構與模型參數調整', '微調技術 PEFT、LoRA 與 RLHF', 'GraphRAG 與模型效能、準確度優化'],
+          units: [
+            { t: '機器學習核心基礎', items: ['機器學習基礎概念應用', '深度學習模型結構解析', '生成式 AI 與模型運作', '模型發展與技術趨勢'] },
+            { t: 'Transformer 模型實戰', items: ['Transformer 架構原理', '模型參數調整與效能評估', '微調技術（PEFT、LoRA）', 'RLHF 回饋學習實務解析'] },
+            { t: 'RAG 檢索增強模型調校', items: ['NLP／LLM 模型運作流程', 'Naive RAG 與進階策略', 'GraphRAG 架構設計', '模型效能與準確度優化'] },
+            { t: '應用整合與專案實作', items: ['自動化資料生成概念', '模型訓練與部署流程實務', '效能評估與成果分析方法', '專案成果展示與經驗分享（成果）'] },
+          ] },
+        { id: 'solution', name: 'AI 解決方案規劃與專案管理', color: 'var(--color-gold)',
+          tagline: '需求釐清 × 技術選型 × 風險效益評估', desc: '整合需求與技術選型，升級為專案主導角色。',
+          analogy: '實戰成果：可實際提案的 AI 解決方案企劃書。',
+          highlights: ['AI 解決方案框架與實戰案例拆解', '需求定義與技術可行性評估', 'AI 架構設計、指標訂定與商業價值溝通'],
+          units: [
+            { t: 'AI 解決方案設計概論', items: ['課程導論與期望管理', 'AI 解決方案框架解析', '實戰案例拆解與分析', '專案演練與實務操作'] },
+            { t: '需求定義與技術可行性評估', items: ['精準定義 AI 導入目標', '業務需求與目標設定', '技術可行性與限制評估', '商業資源整合與判斷'] },
+            { t: '方案設計與技術選型', items: ['AI 架構設計與模組規劃', '三層架構設計邏輯解析', '業務、技術與實施層規劃', '資料需求與選型策略規劃'] },
+            { t: '應用整合與專案實作', items: ['專案流程與風險控管', '指標訂定與成效追蹤', '商業語言與價值溝通', '專題成果發表（成果）'] },
+          ] },
+        { id: 'nego', name: '軟實力：AI 商業談判技巧', color: 'var(--color-red)',
+          tagline: '軟實力', desc: '掌握籌碼盤點與客訴應變，透過 AI 模擬對話，全方位提升職場決策影響力。',
+          analogy: '用 AI 模擬對話演練，談判前就先練好每一步。',
+          highlights: ['深度溝通與識人心理', '核心說服邏輯拆解', '策略性談判佈局與危機應變'],
+          units: [
+            { t: 'AI 賦能精準對頻', items: ['深度溝通與識人心理', '職場實戰與 AI 模擬應對'] },
+            { t: '深度說服力實戰', items: ['核心說服邏輯拆解', '針對性說服力包裝'] },
+            { t: '攻防策略談判學', items: ['策略性談判佈局', '攻防控權與危機應變'] },
+          ] },
+        { id: 'notion', name: '軟實力：Notion × ChatGPT 專案管理實戰', color: 'var(--color-violet)',
+          tagline: '軟實力', desc: '以 Notion 連結 AI 智能，賦能自動化流程，實現高效知識管理。',
+          analogy: '把專案、知識與進度都放進一個會思考的工作空間。',
+          highlights: ['精準指令實戰與跨平台整合', '多維度資料庫與目標進度追蹤', '全方位專案佈局與多媒體創意協作'],
+          units: [
+            { t: '建構智能化工作流', items: ['精準指令實戰', '跨平台無痛整合'] },
+            { t: '打造個人化知識體系', items: ['多維度資料庫應用', '目標與進度追蹤'] },
+            { t: '升級高階管理與創作', items: ['全方位專案佈局', '多媒體創意協作'] },
+          ] },
+      ],
+      certs: {
+        title: '相關認證',
+        sub: '依照不同選修科目，頒發結訓合格數位證書。',
+        list: [
+          { name: 'ITS Python', org: 'ITS' },
+          { name: 'TQC+ Python 3', org: 'TQC+' },
+          { name: 'TQC+ 網頁資料擷取與分析', org: 'TQC+' },
+          { name: '生成式 AI 能力認證', org: '數位證書' },
+          { name: '人工智慧工程素養認證', org: '數位證書' },
+        ],
+      },
+    },
+
+    how: {
+      title: '從 Python 打底到 AI Agent 專案落地',
+      sub: '每個階段都有成果作品，結訓帶走 RAG 與 AI Agent 兩大專案開發經驗。',
+      chain: [
+        { no: '01', title: 'AI 與 Python 打底', badge: 'AI 熟練師・Python・爬蟲', text: 'AI 通識、資料分析與爬蟲，讓 LLM 能連接即時資訊來源。', color: 'var(--color-gold)' },
+        { no: '02', title: 'LLM 系統開發', badge: 'RAG・MCP・Agent・LoRA', text: '智能客服機器人、專屬智能行動助理，以及垂直領域模型微調。', color: 'var(--color-violet)' },
+        { no: '03', title: '方案與軟實力', badge: '解決方案・談判・Notion', text: '產出可實際提案的 AI 解決方案企劃書，補齊溝通與管理能力。', color: 'var(--color-red)' },
+      ],
+      practice: '課中會帶領同學完成相關作品，並輔導考取相關證照。',
+      services: {
+        title: '訓前・訓中・訓後：8 項求職服務一路陪跑',
+        phases: [
+          { name: '訓前', items: ['專業顧問輔導', '短工轉介媒合'] },
+          { name: '訓中', items: ['帶領完成相關作品', '輔導考取相關證照', '專題成果發表會'] },
+          { name: '訓後', items: ['個人履歷健檢優化', '聯合徵才博覽會', '百大企業職缺引薦', '產學專班保送面試'] },
+        ],
+      },
+      aiTools: { title: '全方位 AI 資源助攻，就業 0 距離', items: ['AI 跨領域工作術', 'AI 自傳生成', 'AI 媒合職缺', 'AI 求職追蹤'] },
+      jobs: {
+        title: '工作大未來，你就是人才：上千聯成電腦學員成功就業',
+        note: '榮獲政府 TTQS 評鑑獎項，培訓就業有保障。',
+        stats: [
+          { label: '就業成功率', num: 93, unit: '%' },
+          { label: '就輔徵才推介會', num: 21, unit: '場' },
+          { label: '廠商徵才見面會', num: 266, unit: '場' },
+          { label: '廠商聯合徵才說明會', num: 47, unit: '場' },
+          { label: '合作廠商數約', num: 6347, unit: '家' },
+        ],
+      },
+    },
+
+    format: {
+      title: '線上真人，即時指導，跨區進修',
+      sub: '5 大教學系統依你的時間自由搭配，真人教練＋AI 教練陪你學到會。',
+      systems: [
+        { name: '實體教學系統', text: '課程程度分班' },
+        { name: '直播教學系統', text: '個人化排課即時互動' },
+        { name: '錄播教學系統', text: '24 小時隨時學' },
+        { name: '學習監控系統', text: '課後簽退、自我學習評價' },
+        { name: '真人教練系統', text: '線上線下搭配，即時解惑' },
+      ],
+      coach: [
+        { name: '真人教練', sub: '量身即時指導', points: ['預約 1 對 1 教學效果倍增', '雙向互動解決學習盲點'] },
+        { name: 'AI 教練', sub: '加速學習進程', points: ['免下載一鍵開啟即上課', '24hr 因材施教在線複習'] },
+        { name: '課後收穫', sub: '精準訓練計劃', points: ['客製化增進軟硬實力', '短期衝刺找到命定職業'] },
+      ],
+      perks: ['真人直播，即時互動', '師生互動，隨問即答', '學習不受地點限制', '14 天錄影檔免費看'],
+      upgrade: '升級 24hr，課程全面不加價',
+    },
+
+    teacher: {
+      title: '北中南名師獨家 Live',
+      sub: '多年 AI 系統開發與程式教學經驗，帶你做出企業級 LLM 系統。',
+      traits: [
+        { icon: 'live', title: '名師獨家 Live', text: '北中南名師獨家 Live，解決產業落差，接軌職場。' },
+        { icon: 'star', title: '實作導向', text: '直接接觸企業最需要的程式專案能力。' },
+        { icon: 'briefcase', title: '兩大專案', text: '智能客服機器人與專屬智能行動助理，作品直接對接職缺。' },
+      ],
+    },
+
+    faq: [
+      { q: 'RAG、MCP、AI Agent 有什麼不同？',
+        a: 'RAG 讓 AI 先查資料再回答，給 AI 更聰明的大腦；MCP 讓 AI 安全串接各種工具，給 AI 會做事的雙手；AI Agent 則能理解任務並自主執行。三者常互相搭配，課程都會教。' },
+      { q: '需要先會 Python 嗎？',
+        a: '課程會從 Python 程式資料分析與爬蟲程式開始打底，再進入 AI Agent 應用開發。已有 Python 基礎的同學也能直接銜接。' },
+      { q: '結訓會有哪些作品？',
+        a: '資料分析實作專案、全自動資料採集機器人、RAG 智慧問答客服系統、專屬智能行動助理、垂直領域模型微調專案，以及 AI 解決方案企劃書。' },
+      { q: '可以考哪些證照？',
+        a: '相關認證包含 ITS Python、TQC+ Python 3、TQC+ 網頁資料擷取與分析、生成式 AI 能力認證、人工智慧工程素養認證。依照不同選修科目，頒發結訓合格數位證書。' },
+      { q: '學完還能往哪裡延伸？',
+        a: '推薦延伸學習 Python 視覺辨識與機器學習、Python 深度學習與應用實務、Python Django Web 開發實務。' },
       { q: '結訓後有就業協助嗎？',
         a: '有。結合 JOB580 提供 8 項求職服務，另有 AI 自傳生成、AI 媒合職缺、AI 求職追蹤等 AI 求職資源。' },
     ],

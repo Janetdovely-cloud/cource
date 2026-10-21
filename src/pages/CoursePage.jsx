@@ -33,7 +33,7 @@ function Hero({ d, color }) {
           </div>
           <Stagger className="mt-7">
             <Item as="p" className="hand text-[clamp(22px,3vw,30px)] text-link m-0">{d.hand}</Item>
-            <Item as="p" className="text-[18px] mt-3 mb-0">{d.line}<br /><span className="text-muted">{d.sub}</span></Item>
+            <Item as="p" className="kp text-[18px] mt-3 mb-0">{d.line}<br /><span className="text-muted">{d.sub}</span></Item>
             <Item className="flex flex-wrap gap-3 mt-8">
               <button type="button" className="btn primary" data-cursor="報名！" onClick={() => scrollToId('apply')}>
                 立即報名 <Icon name="arrow" size={18} />
