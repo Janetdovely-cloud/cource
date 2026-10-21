@@ -8,9 +8,13 @@ function mark(text) {
   const raw = text.replaceAll(ZW, '')
   let out = ''
   let prevWord = false
+  let pair = false // 前一個是可以和下一個組成四字詞的兩字詞
   for (const s of SEG.segment(raw)) {
     const word = s.isWordLike && CJK.test(s.segment)
-    if (word && prevWord) out += ZW
+    const two = word && s.segment.length === 2
+    // 兩字＋兩字視為一個複合詞（場景建模、遊戲程式），中間不換行
+    if (word && prevWord && !(pair && two)) out += ZW
+    pair = two && !(pair && two)
     out += s.segment
     prevWord = word
   }
