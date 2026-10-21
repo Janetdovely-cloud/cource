@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useParams, Navigate } from 'react-router-dom'
 import { motion, AnimatePresence, useScroll, useTransform, MotionConfig } from 'motion/react'
 import { Nav, Footer, scrollToId } from '../components/Layout'
-import { Section, Stagger, Item, TiltCard, CountUp, SplitTitle, Squiggle, Doodles } from '../components/Motion'
+import { Section, Stagger, Item, TiltCard, CountUp, SplitTitle, Squiggle, Doodles, ph } from '../components/Motion'
 import Icon from '../components/Icon'
 import ApplyCta from '../components/ApplyCta'
 import { courses } from '../data/courses'
@@ -86,7 +86,7 @@ function Why({ d, color }) {
 
       <div className="grid gap-[18px] lg:grid-cols-[1.1fr_.9fr] mt-10">
         <div className="soft p-5 md:p-7">
-          <h3 className="text-[24px]">{bars.title}</h3>
+          <h3 className="text-[24px]">{ph(bars.title)}</h3>
           <p className="note mt-2 mb-6">{bars.sub}</p>
           <div className="flex items-end gap-6 h-[220px] px-2 border-b-2 border-ink">
             {bars.bars.map((b) => (
@@ -124,7 +124,7 @@ function Why({ d, color }) {
       {d.law && (
         <div className="grid gap-[18px] md:grid-cols-[1.4fr_1fr] mt-[18px]">
           <div className="card" style={{ '--c': 'var(--color-violet)' }}>
-            <h3 className="text-[22px] mb-3">{d.law.title}</h3>
+            <h3 className="text-[22px] mb-3">{ph(d.law.title)}</h3>
             <ul className="m-0 pl-5 grid gap-1 text-[15px]">{d.law.items.map((t) => <li key={t}>{t}</li>)}</ul>
           </div>
           <div className="card" style={{ '--c': 'var(--color-gold)' }}>
@@ -138,14 +138,14 @@ function Why({ d, color }) {
 
       {d.axes && (
         <div className="mt-10">
-          <h3 className="text-[26px]">{d.axes.title}</h3>
+          <h3 className="text-[26px]">{ph(d.axes.title)}</h3>
           <p className="sub !mb-5">{d.axes.sub}</p>
           <Stagger className={`grid gap-[18px] ${d.axes.list.length === 3 ? 'md:grid-cols-3' : 'md:grid-cols-2'}`}>
             {d.axes.list.map((a, i) => (
               <Item key={a.name}>
                 <TiltCard className="h-full" max={6}>
                   <div className="card card-hover h-full" style={{ '--c': i ? 'var(--color-brand)' : color }}>
-                    <h4 className="text-[26px]">{a.name}</h4>
+                    <h4 className="text-[26px]">{ph(a.name)}</h4>
                     <div className="flex flex-wrap gap-2 mt-3">{a.items.map((t) => <span key={t} className="chip">{t}</span>)}</div>
                   </div>
                 </TiltCard>
@@ -157,7 +157,7 @@ function Why({ d, color }) {
       )}
 
       <div className="soft mt-10 p-5 md:p-7">
-        <h3 className="text-[24px] mb-5">{d.salaryTitle}</h3>
+        <h3 className="text-[24px] mb-5">{ph(d.salaryTitle)}</h3>
         <div className="grid gap-3">
           {d.salary.map((s, i) => (
             <div key={`${s.role}-${i}`} className="grid gap-x-4 gap-y-1 items-center md:grid-cols-[190px_1fr]">
@@ -178,7 +178,7 @@ function Why({ d, color }) {
 
       {d.gigs && (
         <div className="soft mt-10 p-5 md:p-7">
-          <h3 className="text-[24px] mb-2">{d.gigs.title}</h3>
+          <h3 className="text-[24px] mb-2">{ph(d.gigs.title)}</h3>
           <p className="sub !mb-5">{d.gigs.sub}</p>
           <Stagger className="grid gap-3" amount={0.2}>
             {d.gigs.list.map((s) => {
@@ -204,7 +204,7 @@ function Why({ d, color }) {
 
       {d.timelines && (
         <div className="mt-10">
-          <h3 className="text-[26px]">{d.timelines.title}</h3>
+          <h3 className="text-[26px]">{ph(d.timelines.title)}</h3>
           <p className="sub !mb-5">{d.timelines.sub}</p>
           <div className="grid gap-[18px]">
             {d.timelines.list.map((t) => (
@@ -232,7 +232,7 @@ function Why({ d, color }) {
 
       {d.rates && (
         <div className="mt-10">
-          <h3 className="text-[26px]">{d.rates.title}</h3>
+          <h3 className="text-[26px]">{ph(d.rates.title)}</h3>
           <p className="sub !mb-5">{d.rates.sub}</p>
           <div className={`grid gap-[18px] ${d.rates.tables.length > 1 ? 'md:grid-cols-2' : ''}`}>
             {d.rates.tables.map((t) => (
@@ -285,7 +285,7 @@ function Who({ d, color }) {
                   whileHover={{ rotate: [0, -10, 8, 0] }}>
                   <Icon name={c.icon} size={34} className="text-link" />
                 </motion.div>
-                <h3 className="text-[26px] mt-4">{c.title}</h3>
+                <h3 className="text-[26px] mt-4">{ph(c.title)}</h3>
                 <p className="m-0 mt-1 text-[14px] font-bold text-muted">{c.pain}</p>
                 <p className="m-0 mt-3 text-[15px] flex-1">{c.say}</p>
                 <p className="m-0 mt-4 text-[12px] font-extrabold text-link">推薦課程</p>
@@ -297,7 +297,7 @@ function Who({ d, color }) {
       </Stagger>
       {d.roles && (
         <div className="soft mt-10 p-5 md:p-7">
-          <h3 className="text-[24px] mb-4">{d.rolesTitle}</h3>
+          <h3 className="text-[24px] mb-4">{ph(d.rolesTitle)}</h3>
           <div className="flex flex-wrap gap-2">
             {d.roles.map((t) => <motion.span key={t} className="chip-btn !text-[14px]" whileHover={{ y: -3, rotate: -2 }} data-cursor="用得上">{t}</motion.span>)}
           </div>
@@ -336,7 +336,7 @@ function What({ d }) {
                     <span className="chip gold !text-[12px] font-mono">{m.hours} 小時</span>
                     <span className="chip !text-[12px]" style={m.mode === '實體課程' ? { background: 'var(--color-ink)', color: 'var(--color-paper)' } : undefined}>{m.mode}</span>
                   </span>}
-                  <h3 className="text-[22px] sm:text-[24px] mt-2">{m.name}</h3>
+                  <h3 className="text-[22px] sm:text-[24px] mt-2">{ph(m.name)}</h3>
                   <p className="m-0 text-[14px] font-bold">{m.tagline}</p>
                 </div>
               </div>
@@ -375,7 +375,7 @@ function What({ d }) {
 function CertWall({ d }) {
   return (
     <div className="mt-14">
-      <h3 className="text-[28px]">{d.title}</h3>
+      <h3 className="text-[28px]">{ph(d.title)}</h3>
       <p className="sub !mb-5">{d.sub}</p>
       <Stagger as="ol" className={`list-none p-0 m-0 grid gap-3 grid-cols-2 ${d.list.length === 6 ? 'lg:grid-cols-3' : d.list.length === 4 ? 'lg:grid-cols-4' : 'lg:grid-cols-5'}`} amount={0.1}>
         {d.list.map((c, i) => (
@@ -398,7 +398,7 @@ function Teams({ d }) {
   const t = d.list.find((x) => x.id === team)
   return (
     <div className="mt-14">
-      <h3 className="text-[28px]">{d.title}</h3>
+      <h3 className="text-[28px]">{ph(d.title)}</h3>
       <p className="sub !mb-5">{d.sub}</p>
       <div className="tabs mb-5" role="tablist" aria-label="攻防角色">
         {d.list.map((x) => (
@@ -414,7 +414,7 @@ function Teams({ d }) {
                 initial={{ opacity: 0, y: 16, rotate: -2 }} animate={{ opacity: 1, y: 0, rotate: 0 }} transition={{ delay: i * 0.08 }}
                 whileHover={{ y: -4, rotate: -1 }}>
                 <span className="font-mono font-bold text-[13px] text-muted">STEP {i + 1}</span>
-                <h4 className="text-[24px] mt-1">{st.t}</h4>
+                <h4 className="text-[24px] mt-1">{ph(st.t)}</h4>
                 <p className="m-0 mt-1 text-[14px] text-muted">{st.d}</p>
               </motion.li>
             ))}
@@ -428,7 +428,7 @@ function Teams({ d }) {
 function Exams({ d }) {
   return (
     <div className="mt-14">
-      <h3 className="text-[28px] mb-4">{d.title}</h3>
+      <h3 className="text-[28px] mb-4">{ph(d.title)}</h3>
       <div className="soft overflow-x-auto">
         <table className="w-full border-collapse text-[15px] min-w-[560px]">
           <thead>
@@ -464,7 +464,7 @@ function Node({ no, track, title, text, color, stacked = false }) {
       </motion.span>
       <div className={`soft !shadow-none px-4 py-3 ${stacked ? 'w-full' : 'flex-1'}`}>
         {track && <span className="text-[12px] font-extrabold text-link">{track}</span>}
-        <h3 className="text-[21px]">{title}</h3>
+        <h3 className="text-[21px]">{ph(title)}</h3>
         <p className="m-0 mt-1 text-[14px] text-muted">{text}</p>
       </div>
     </div>
@@ -481,7 +481,7 @@ function How({ d }) {
               <TiltCard className="h-full" max={8}>
                 <div className="card card-hover h-full" style={{ '--c': c.color }}>
                   <span className="font-mono font-bold text-[13px] text-muted">STEP {c.no}</span>
-                  <p className="hand text-[40px] m-0 leading-tight">{c.title}</p>
+                  <p className="hand text-[40px] m-0 leading-tight">{ph(c.title)}</p>
                   <span className="chip ink !text-[12px] mt-1">{c.badge}</span>
                   <p className="m-0 mt-3 text-[15px] text-muted">{c.text}</p>
                 </div>
@@ -519,12 +519,12 @@ function How({ d }) {
       <p className="mt-8 mb-0 text-[17px]"><mark className="hl">{d.practice}</mark></p>
 
       <div className="mt-14">
-        <h3 className="text-[26px] mb-5">{d.services.title}</h3>
+        <h3 className="text-[26px] mb-5">{ph(d.services.title)}</h3>
         <Stagger className="grid gap-[18px] md:grid-cols-3">
           {d.services.phases.map((p, i) => (
             <Item key={p.name} className="relative">
               <div className="card h-full" style={{ '--c': ['var(--color-brand)', 'var(--color-gold)', 'var(--color-red)'][i] }}>
-                <p className="hand text-[30px] m-0 text-link">{p.name}</p>
+                <p className="hand text-[30px] m-0 text-link">{ph(p.name)}</p>
                 <ul className="list-none p-0 mt-2 mb-0 grid gap-1">
                   {p.items.map((it) => <li key={it} className="flex gap-2 items-start"><Icon name="check" size={18} className="text-brand shrink-0 mt-[5px]" />{it}</li>)}
                 </ul>
@@ -537,12 +537,12 @@ function How({ d }) {
 
       {d.partner && (
         <div className="mt-14">
-          <h3 className="text-[26px]">{d.partner.title}</h3>
+          <h3 className="text-[26px]">{ph(d.partner.title)}</h3>
           <p className="sub !mb-5">{d.partner.sub}</p>
           <div className="card grid gap-5 md:grid-cols-[1.2fr_1fr]" style={{ '--c': 'var(--color-gold)' }}>
             <div>
               <span className="chip ink !text-[12px]">合作企業</span>
-              <h4 className="text-[26px] mt-2">{d.partner.name}</h4>
+              <h4 className="text-[26px] mt-2">{ph(d.partner.name)}</h4>
               <p className="m-0 mt-2 text-[15px] text-muted">{d.partner.intro}</p>
             </div>
             <div className="grid gap-3 content-start">
@@ -560,7 +560,7 @@ function How({ d }) {
         <div className="soft mt-[18px] p-5 md:p-6 grid gap-4 md:grid-cols-[auto_1fr] items-center">
           <p className="m-0 flex items-baseline gap-3">
             <span className="font-mono font-bold text-[56px] leading-none">0</span>
-            <span className="hand text-[26px]">{d.aiTools.title}</span>
+            <span className="hand text-[26px]">{ph(d.aiTools.title)}</span>
           </p>
           <div className="flex flex-wrap gap-2 md:justify-end">
             {d.aiTools.items.map((t) => <span key={t} className="chip"><Icon name="bot" size={16} className="text-link" />{t}</span>)}
@@ -570,7 +570,7 @@ function How({ d }) {
 
       {d.jobs && (
         <div className="mt-14">
-          <h3 className="text-[26px] mb-5">{d.jobs.title}</h3>
+          <h3 className="text-[26px] mb-5">{ph(d.jobs.title)}</h3>
           <Stagger className="grid gap-3 grid-cols-2 md:grid-cols-5">
             {d.jobs.stats.map((j) => (
               <Item key={j.label} className="soft !shadow-none p-4 text-center">
@@ -594,7 +594,7 @@ function Format({ d }) {
             <TiltCard className="h-full" max={10}>
               <div className="soft h-full p-4">
                 <span className="font-mono font-bold text-[13px] w-7 h-7 rounded-full bg-ink text-paper inline-grid place-items-center">{i + 1}</span>
-                <h4 className="text-[22px] mt-2">{s.name}</h4>
+                <h4 className="text-[22px] mt-2">{ph(s.name)}</h4>
                 <p className="m-0 text-[14px] text-muted">{s.text}</p>
               </div>
             </TiltCard>
@@ -611,7 +611,7 @@ function Format({ d }) {
                   <Icon name={c.icon ?? ['user', 'bot', 'star'][i]} size={28} className="text-link" />
                 </span>
                 <div>
-                  <h4 className="text-[24px]">{c.name}</h4>
+                  <h4 className="text-[24px]">{ph(c.name)}</h4>
                   <p className="m-0 text-[14px] font-bold text-muted">{c.sub}</p>
                 </div>
               </div>
@@ -623,14 +623,14 @@ function Format({ d }) {
       </Stagger>
 
       {d.guarantee && <div className="mt-10">
-        <h3 className="text-[26px] mb-4">{d.guarantee.title}</h3>
+        <h3 className="text-[26px] mb-4">{ph(d.guarantee.title)}</h3>
         <Stagger className="grid gap-[18px] sm:grid-cols-2 lg:grid-cols-4">
           {d.guarantee.items.map((g) => (
             <Item key={g.t}>
               <TiltCard className="h-full" max={8}>
                 <div className="card card-hover h-full" style={{ '--c': 'var(--color-brand)' }}>
                   <Icon name={g.icon} size={34} className="text-link" />
-                  <h4 className="text-[22px] mt-2">{g.t}</h4>
+                  <h4 className="text-[22px] mt-2">{ph(g.t)}</h4>
                   <p className="m-0 mt-1 text-[14px] text-muted">{g.d}</p>
                 </div>
               </TiltCard>
@@ -650,7 +650,7 @@ function Format({ d }) {
           whileHover={{ rotate: -1.5, scale: 1.02 }} data-cursor="24hr">
           <div>
             <p className="font-mono font-bold text-[56px] leading-none m-0">24<span className="text-[24px]">hr</span></p>
-            <p className="hand text-[24px] m-0 mt-2">{d.upgrade}</p>
+            <p className="hand text-[24px] m-0 mt-2">{ph(d.upgrade)}</p>
           </div>
         </motion.div>
       </div>
@@ -667,7 +667,7 @@ function Teacher({ d }) {
             <TiltCard className="h-full">
               <div className="card card-hover h-full" style={{ '--c': 'var(--color-violet)' }}>
                 <Icon name={t.icon} size={36} className="text-link" />
-                <h3 className="text-[24px] mt-2">{t.title}</h3>
+                <h3 className="text-[24px] mt-2">{ph(t.title)}</h3>
                 <p className="mt-1 mb-0 text-muted">{t.text}</p>
               </div>
             </TiltCard>

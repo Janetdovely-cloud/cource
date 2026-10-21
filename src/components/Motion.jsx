@@ -26,6 +26,16 @@ export function Item({ as = 'div', className, children, ...rest }) {
 }
 
 // 章節區塊：進入畫面時加上 .in（觸發手寫標籤底線與螢光筆）
+// 標題斷句：在標點後切成片段，每段是 inline-block，換行優先發生在片段之間（標點處），
+// 片段本身過長時才在段內換行。
+const PUNCT = /([，、：；。！？・」』）〉》]\s*)/
+export function ph(text) {
+  if (typeof text !== 'string') return text
+  const parts = text.split(PUNCT).reduce((acc, p, i) => (i % 2 ? (acc[acc.length - 1] += p) : acc.push(p), acc), []).filter(Boolean)
+  if (parts.length < 2) return text
+  return parts.map((p, i) => <span key={i} className="ph">{p}</span>)
+}
+
 export function Section({ id, no, label, title, sub, children, className = '' }) {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, amount: 0.12 })
@@ -37,7 +47,7 @@ export function Section({ id, no, label, title, sub, children, className = '' })
             {no && <motion.span className="step-chip" animate={inView ? { rotate: [0, -8, 6, -3, 0] } : {}} transition={{ duration: 0.8, delay: 0.2 }}>{no}</motion.span>}
             <span className="hand-label">{label}</span>
           </Item>
-          {title && <Item as="h2">{title}</Item>}
+          {title && <Item as="h2">{ph(title)}</Item>}
           {sub && <Item as="p" className="sub">{sub}</Item>}
         </Stagger>
         {children}

@@ -204,6 +204,7 @@ dialog[open].dlg { animation: dlgIn .3s ease; }
 }
 p, li, blockquote, td, th, span { text-wrap-style: pretty; line-break: strict; word-break: keep-all; overflow-wrap: anywhere; }
 .sub, .kp { text-wrap-style: pretty; word-break: keep-all; overflow-wrap: anywhere; }
-h1, h2, h3, h4 { text-wrap-style: balance; word-break: keep-all; overflow-wrap: anywhere; }
+h1, h2, h3, h4 { text-wrap-style: balance; }
+.ph { display: inline-block; max-width: 100%; }
 .cell { word-break: keep-all; overflow-wrap: anywhere; line-break: strict; }
-.hand { text-wrap-style: balance; word-break: keep-all; overflow-wrap: anywhere; }
+.hand { text-wrap-style: balance; }

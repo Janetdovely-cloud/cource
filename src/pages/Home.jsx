@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence, useScroll, useTransform } from 'motion/react'
 import { Nav, Footer, scrollToId } from '../components/Layout'
-import { Section, Stagger, Item, TiltCard, CountUp, SplitTitle, Squiggle, Doodles } from '../components/Motion'
+import { Section, Stagger, Item, TiltCard, CountUp, SplitTitle, Squiggle, Doodles, ph } from '../components/Motion'
 import Icon from '../components/Icon'
 import { courseIndex, categories } from '../data/courses'
 
@@ -23,8 +23,8 @@ function FeaturedCard({ c }) {
           <motion.img src={c.img} alt="" className="w-full h-full object-cover" whileHover={{ scale: 1.06 }} transition={{ duration: 0.6 }} />
         </div>
         <div className="p-5 pl-6">
-          <p className="hand text-link text-[16px] m-0">{c.en}</p>
-          <h4 className="text-[22px] mt-1">{c.name}</h4>
+          <p className="hand text-link text-[16px] m-0">{ph(c.en)}</p>
+          <h4 className="text-[22px] mt-1">{ph(c.name)}</h4>
           <p className="mt-3 mb-0 text-[14px] font-extrabold flex items-center gap-2 text-link">
             看完整課程 <Icon name="arrow" size={20} />
           </p>
@@ -42,8 +42,8 @@ function UpcomingCard({ c }) {
         className="soft h-full p-5 flex flex-col justify-between min-h-[150px] relative overflow-hidden"
         style={{ borderTop: `5px solid ${cat.color}` }}>
         <div>
-          <p className="hand text-muted text-[16px] m-0">{c.en}</p>
-          <h4 className="text-[22px] mt-1">{c.name}</h4>
+          <p className="hand text-muted text-[16px] m-0">{ph(c.en)}</p>
+          <h4 className="text-[22px] mt-1">{ph(c.name)}</h4>
         </div>
         <div className="flex items-center justify-between mt-3">
           <span className="text-[13px] font-bold text-muted">{cat.name}</span>
@@ -141,7 +141,7 @@ export default function Home() {
                 <div className="card card-hover h-full" style={{ '--c': s.c }}>
                   <p className="m-0 flex items-baseline gap-2">
                     <span className="font-mono font-bold text-[56px] leading-none">{s.no}</span>
-                    <span className="hand text-[26px]">{s.title}</span>
+                    <span className="hand text-[26px]">{ph(s.title)}</span>
                   </p>
                   <p className="mt-3 mb-0 text-muted">{s.text}</p>
                 </div>

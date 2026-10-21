@@ -18,6 +18,7 @@ import javaHero from '../assets/java/hero.webp'
 import cloudHero from '../assets/cloud/hero.webp'
 import ipasHero from '../assets/ipas/hero.webp'
 import interiorBHero from '../assets/interior-b/hero.webp'
+import gameHero from '../assets/ai-game/hero.webp'
 import interiorHero from '../assets/interior/hero.webp'
 
 // AI 全應用證照班：商業整合設計師、室內設計師共用
@@ -76,7 +77,9 @@ export const courseIndex = [
     line: '讓 AI 上雲協助企業轉型，擁抱百億雲端運算產業', img: cloudHero,
     tags: ['Red Hat Linux', 'Ansible', 'AWS', 'OpenShift', 'K8S'] },
   { slug: 'anime', ready: false, cat: 'design', name: '動漫角色設計', en: 'Character Design' },
-  { slug: 'ai-game', ready: false, cat: 'it', name: 'AI 遊戲程式設計師', en: 'AI Game Programmer' },
+  { slug: 'ai-game', ready: true, cat: 'it', name: 'AI 遊戲程式設計師', en: 'AI Game Programmer',
+    line: '掌握遊戲程式 × AI 整合技術，打造新世代遊戲開發實力', img: gameHero,
+    tags: ['C#', 'Unity', 'Photon PUN', '3ds Max', 'MAYA'] },
   { slug: 'ipas', ready: true, cat: 'cert', name: 'iPAS 永續科技人才證照班', en: 'iPAS Certification',
     line: 'AI 應用 × 資訊安全 × 淨零碳，初級＋中級一次備戰', img: ipasHero,
     tags: ['AI 應用規劃師', '資訊安全工程師', '淨零碳規劃管理師', '經濟部發證'] },
@@ -2599,6 +2602,217 @@ export const courses = {
         a: '兩科各一年一梯次：12500 約每年 4～5 月報名，12600 約每年 8～9 月報名，實際日期以當年度簡章為準。' },
       { q: '結訓後有就業協助嗎？',
         a: '有。結訓保證面試室內設計公司，另有履歷健檢、徵才博覽會、AI 媒合職缺等求職服務。' },
+    ],
+  },
+  'ai-game': {
+    slug: 'ai-game',
+    color: 'var(--color-violet)',
+    hero: {
+      badges: ['遊戲程式 × AI 協作', '獨家・產學培訓', '保證面試'],
+      title: 'AI 遊戲程式設計師',
+      en: 'AI Game Programmer',
+      hand: '掌握開發流程，打造遊戲實戰力',
+      line: '掌握遊戲程式 × AI 整合技術，打造新世代遊戲開發實力。',
+      sub: '專屬・增能學習｜真人教練｜AI 教練',
+      tags: ['24HR 自由彈性', '隨時隨地', '高效學習'],
+      img: gameHero,
+      imgAlt: '戴著 VR 頭盔的玩家站在程式碼與未來城市背景前',
+    },
+
+    why: {
+      title: '用 AI 打造遊戲實戰力',
+      lead: 'AI 時代，遊戲開發門檻正在改變',
+      hl: '具備 Unity、多人連線、系統架構與專案實作能力，將更有機會提升職涯競爭力。',
+      stats: [
+        { tag: '高產值', kicker: '全球遊戲市場營收', num: 1888, unit: '億美元',
+          desc: 'Newzoo 預估 2025 年全球遊戲營收達 1,888 億美元、玩家數達 36 億人，遊戲已成為跨娛樂、科技與內容產業的重要市場。' },
+        { tag: '高職缺', kicker: '遊戲工程師相關職缺', num: 310, unit: '筆',
+          desc: '人力銀行薪資情報顯示，遊戲工程師相關職缺達 310 筆；Unity 工程師職缺也常見 Unity／C# 遊戲引擎開發等需求。' },
+        { tag: '高薪資', kicker: '遊戲工程師月薪中位數', num: 5.8, decimals: 1, unit: '萬',
+          desc: '人力銀行薪資情報顯示，遊戲工程師月薪中位數約 5.8 萬，薪資上四分位可達 7.3 萬。' },
+      ],
+      compare: {
+        title: '遊戲工程師月薪',
+        sub: '月薪中位數約 5.8 萬，具備專案實作能力者，上四分位可達 7.3 萬。',
+        bars: [
+          { name: '月薪中位數', num: 58 },
+          { name: '上四分位', num: 73, hot: true },
+        ],
+        unit: 'K／月',
+      },
+      facts: [
+        { num: '跨平台', title: '企業徵才首重', text: '手機、PC 與主機界線模糊，企業徵才首要看重跨平台整合能力。' },
+        { num: 'AI', title: 'AI 工具整合與應用', text: '利用 AI 進行環境建模、自動化 QA 或玩家行為預測。' },
+        { num: '連線', title: '多人連線與長線運營', text: '能根據玩家回饋即時調整遊戲數值的開發者，市場上相當短缺。' },
+        { num: '作品', title: '結訓帶走多樣專案作品', text: '遊戲互動系統、角色與場景建模、Unity 跨平台遊戲專案、多人連線遊戲 Demo。' },
+      ],
+      salaryTitle: '市場職缺：遊戲相關職務月薪範圍',
+      salary: [
+        { role: '遊戲企劃', min: 31, max: 45 },
+        { role: '3D 建模師', min: 30, max: 50 },
+        { role: '多媒體動畫設計師', min: 30, max: 60 },
+        { role: '遊戲特效設計師', min: 32, max: 60 },
+        { role: '遊戲 UI/UX 設計師', min: 35, max: 63 },
+        { role: 'Unity 工程師', min: 35, max: 70 },
+        { role: '遊戲程式設計師', min: 45, max: 73, top: true },
+      ],
+      salaryNote: '參考來源：人力銀行與公開接案平台（單位：千元）。本表僅供參考，實際金額依職務待遇、案件內容、開發難度與經驗條件而異。',
+    },
+
+    who: {
+      title: '從玩家到開發者的升級之路',
+      sub: '不只會用工具，更要具備領域專業＋AI 能力。',
+      cards: [
+        { icon: 'rocket', title: '愛玩遊戲、想自己做遊戲的人', pain: '有很多遊戲點子，卻不知道從哪裡開始', say: '從 C# 程式邏輯到 Unity，做出可遊玩的互動遊戲專案。', certs: ['C# 遊戲程式設計', 'Unity 跨平台遊戲製作'] },
+        { icon: 'target', title: '想轉職遊戲工程師的人', pain: '只會照著範例寫程式、操作軟體', say: '理解遊戲系統邏輯與製作流程，整合程式、模型、動畫與渲染成果。', certs: ['C# 遊戲程式設計', 'Photon PUN 多人遊戲製作'] },
+        { icon: 'star', title: '想做 3D 遊戲美術的人', pain: '功能與模型容易停留在單點練習', say: '從道具、角色到怪物建模，打造遊戲可用的 3D 美術資產。', certs: ['3ds Max 遊戲設計', 'MAYA 動畫模型設計'] },
+        { icon: 'bot', title: '想用 AI 加速開發的人', pain: '遇到錯誤多半靠試錯', say: '運用 AI 輔助除錯、發想與素材製作。', certs: ['AI 熟練師'] },
+      ],
+    },
+
+    what: {
+      title: '遊戲程式 × 3D 建模 × AI 應用',
+      sub: '從 C# 程式邏輯到 3D 遊戲建模，結合 AI 輔助開發流程，培養遊戲系統設計、角色場景製作與專案整合能力，完成可展示的遊戲作品集成果。',
+      analogyLabel: '一句話看懂：',
+      modules: [
+        { id: 'aipro', name: '職場必備｜AI 熟練師', color: 'var(--color-violet)',
+          tagline: '數發部核定 AI 實戰課程，10 張產業證照加持', desc: 'AI 工具 × 專業技能 × 工作應用，全面升級。',
+          analogy: '先學會在工作上用 AI，再把 AI 帶進遊戲開發。',
+          highlights: ['生成式 AI 與 AI 人工智慧核心能力認證', 'AI 辦公室應用與 AI 工作應用', 'AI 遊戲開發等專業技能'],
+          units: [
+            { t: 'AI 通識', items: ['生成式 AI 能力認證', 'AI 人工智慧核心能力認證', 'AI 辦公室應用'] },
+            { t: 'AI 工作應用', items: ['AI 廣告設計', 'AI 形象設計', '視覺行銷實作', 'AI 短影音創作'] },
+            { t: 'AI 專業技能', items: ['AI 效率應用', 'AI 行銷應用', 'AI 職場技能', 'AI 影音創作', 'AI 遊戲開發', '生活風格'] },
+          ] },
+        { id: 'csharp', name: 'C# 遊戲程式設計', color: 'var(--color-brand)',
+          tagline: 'C# × 遊戲邏輯 × 系統整合', desc: '建立模組化遊戲程式架構。',
+          analogy: '掌握遊戲業界最核心的開發語言，編寫高效能腳本。',
+          highlights: ['C# 語法基礎與流程控制', '物件導向與事件委派', '泛型、LINQ 與 C# 遊戲程式實作'],
+          units: [
+            { t: 'C# 程式基礎', items: ['C# 語法基礎概論', '變數、條件與迴圈邏輯', '陣列字串與流程控制'] },
+            { t: '物件導向應用', items: ['類別物件與繼承設計', '介面屬性與模組應用', '事件委派與例外處理'] },
+            { t: '遊戲專案實作', items: ['泛型、集合與 LINQ', 'XML、JSON 資料應用', 'C# 遊戲程式實作'] },
+          ] },
+        { id: 'max', name: '3ds Max 遊戲設計', color: 'var(--color-gold)',
+          tagline: '結合 AI 概念生成、3D 建模與動畫渲染', desc: '打造完整遊戲美術作品。',
+          analogy: '從 AI 概念發想到建模、骨架與渲染，做出完整的遊戲美術作品。',
+          highlights: ['AI 素材與武器建模', '場景與角色建模', '動畫與渲染輸出'],
+          units: [
+            { t: 'AI 素材與武器建模', items: ['AI 生成概念與應用', '武器模型製作與流程', 'UV 拆解與貼圖應用'] },
+            { t: '場景與角色建模', items: ['場景物件建模', '地形與場景貼圖', '生物與怪物建模'] },
+            { t: '動畫與渲染輸出', items: ['人物骨架綁定', '角色動作與鏡頭動畫', '材質整合與渲染輸出'] },
+          ] },
+        { id: 'unity', name: 'Unity 跨平台遊戲製作', color: 'var(--color-red)',
+          tagline: '從場景建置到跨平台發佈', desc: '完成可遊玩的互動遊戲專案。',
+          analogy: '一次開發，即可發佈至 PC、手機與主機平台。',
+          highlights: ['Unity 開發基礎與 URP 渲染', '角色控制、動畫系統與 AI 動捕', '核心玩法、關卡製作與專案發表'],
+          units: [
+            { t: 'Unity 開發基礎', items: ['專案建置與版本控管', 'Prefab 與場景配置', 'URP 視覺渲染應用'] },
+            { t: '遊戲互動設計', items: ['角色控制與物理互動', '動畫系統與 AI 動捕', 'UI 事件與音效整合'] },
+            { t: '專案整合發佈', items: ['專案架構與流程規劃', '核心玩法與關卡製作', '專案實作與成果發表'] },
+          ] },
+        { id: 'photon', name: 'Photon PUN 多人遊戲製作', color: 'var(--color-brand)',
+          tagline: '即時連線、玩家同步與房間系統', desc: '完成多人互動遊戲 Demo。',
+          analogy: '實作即時連線功能，為長線運營的伺服器技術打下基石。',
+          highlights: ['Photon PUN 環境與房主機制', '玩家清單、好友與流程同步', '角色狀態與物件互動同步'],
+          units: [
+            { t: '連線基礎架構', items: ['Photon PUN 環境設定', '玩家連線與房主機制', '房間建立與配對流程'] },
+            { t: '玩家資料同步', items: ['玩家清單與好友機制', '遊戲流程同步', 'PhotonView 資訊整合'] },
+            { t: '多人互動實作', items: ['角色狀態同步', '物件互動同步', 'Room UI 與連線整合'] },
+          ] },
+        { id: 'maya', name: 'MAYA 動畫模型設計', color: 'var(--color-gold)',
+          tagline: '從道具、角色到怪物建模', desc: '打造遊戲可用的 3D 美術資產。',
+          analogy: '掌握角色比例與造型建模，賦予遊戲角色生命力。',
+          highlights: ['Maya 建模流程與道具製作', '動態爬蟲與角色比例建模', '怪物造型與 AI 貼圖'],
+          units: [
+            { t: 'Maya 建模入門', items: ['Maya 建模流程', '道具模型製作', 'AI 三視圖應用'] },
+            { t: '動態爬蟲與資料處理', items: ['動物結構解析', '動物建模實作', '角色比例與肢體建模'] },
+            { t: '怪物造型與 AI 貼圖', items: ['怪物造型建構', 'AI 貼圖生成應用', '怪物四肢建模'] },
+          ] },
+      ],
+      certs: {
+        title: '相關認證',
+        sub: '依照不同選修科目，頒發結訓合格數位證書。',
+        list: [
+          { name: 'Adobe ACP Photoshop', org: 'Adobe' },
+          { name: 'Adobe ACP Illustrator', org: 'Adobe' },
+          { name: 'Autodesk ACU 3ds Max', org: 'Autodesk' },
+          { name: 'TQC+ 物件導向程式語言 C#', org: 'TQC+' },
+          { name: 'TQC+ 程式語言 Python 3', org: 'TQC+' },
+        ],
+      },
+    },
+
+    how: {
+      title: '從程式基底到跨平台整合，一步步做出遊戲',
+      sub: '每個階段都有成果作品，結訓帶走多樣專案作品。',
+      chain: [
+        { no: '01', title: '職場必備', badge: 'AI 熟練師', text: 'AI 通識、工作應用與專業技能，先學會用 AI 工作。', color: 'var(--color-violet)' },
+        { no: '02', title: '專業基底', badge: 'C#・3ds Max', text: '遊戲程式 × 3D 建模 × AI 應用：遊戲互動系統、角色與場景建模、專案整合展示作品。', color: 'var(--color-gold)' },
+        { no: '03', title: '專業進階', badge: 'Unity・Photon・MAYA', text: '跨平台開發與 3D 動畫整合：Unity 跨平台遊戲專案、多人連線遊戲 Demo、整合型遊戲作品集。', color: 'var(--color-brand)' },
+      ],
+      practice: '課中會帶領同學完成相關作品，並輔導考取相關證照。',
+      services: {
+        title: '訓前・訓中・訓後：8 項求職服務一路陪跑',
+        phases: [
+          { name: '訓前', items: ['專業顧問輔導', '短工轉介媒合'] },
+          { name: '訓中', items: ['帶領完成相關作品', '輔導考取相關證照', '專題成果發表會'] },
+          { name: '訓後', items: ['個人履歷健檢優化', '聯合徵才博覽會', '百大企業職缺引薦', '產學專班保送面試'] },
+        ],
+      },
+      aiTools: { title: '全方位 AI 資源助攻，就業 0 距離', items: ['AI 跨領域工作術', 'AI 自傳生成', 'AI 媒合職缺', 'AI 求職追蹤'] },
+      jobs: {
+        title: '工作大未來，你就是人才：上千聯成電腦學員成功就業',
+        note: '榮獲政府 TTQS 評鑑獎項，培訓就業有保障。',
+        stats: [
+          { label: '就業成功率', num: 93, unit: '%' },
+          { label: '就輔徵才推介會', num: 21, unit: '場' },
+          { label: '廠商徵才見面會', num: 266, unit: '場' },
+          { label: '廠商聯合徵才說明會', num: 47, unit: '場' },
+          { label: '合作廠商數約', num: 6347, unit: '家' },
+        ],
+      },
+    },
+
+    format: {
+      title: '線上真人，即時指導，跨區進修',
+      sub: '遊戲課程皆為線上直播與錄播課，北中南名師獨家 Live，地點不設限；真人教練＋AI 教練陪你學到會。',
+      systems: [
+        { name: '直播教學系統', text: '個人化排課即時互動' },
+        { name: '錄播教學系統', text: '24 小時隨時學' },
+        { name: '學習監控系統', text: '課後簽退、自我學習評價' },
+        { name: '真人教練系統', text: '線上即時解惑' },
+      ],
+      coach: [
+        { name: '真人教練', sub: '量身即時指導', points: ['預約 1 對 1 教學效果倍增', '雙向互動解決學習盲點'] },
+        { name: 'AI 教練', sub: '加速學習進程', points: ['免下載一鍵開啟即上課', '24hr 因材施教在線複習'] },
+        { name: '課後收穫', sub: '精準訓練計劃', points: ['客製化增進軟硬實力', '短期衝刺找到命定職業'] },
+      ],
+      perks: ['真人直播，即時互動', '師生互動，隨問即答', '學習不受地點限制', '14 天錄影檔免費看'],
+      upgrade: '升級 24hr，課程全面不加價',
+    },
+
+    teacher: {
+      title: '北中南名師獨家 Live',
+      sub: '解決產業落差，接軌職場；從程式邏輯到 AI 協作，帶你做出可展示的遊戲作品。',
+      traits: [
+        { icon: 'live', title: '名師獨家 Live', text: '北中南名師獨家 Live，解決產業落差，接軌職場。' },
+        { icon: 'star', title: '領域專業＋AI 能力', text: '能理解遊戲系統邏輯，並運用 AI 輔助除錯、發想與素材製作。' },
+        { icon: 'briefcase', title: '結訓帶走專案作品', text: '遊戲互動系統、角色場景建模、跨平台與多人連線專案。' },
+      ],
+    },
+
+    faq: [
+      { q: '沒有程式基礎，可以學嗎？',
+        a: '可以。課程從 C# 語法基礎、變數、條件與迴圈邏輯教起，再一路銜接到 Unity 遊戲製作。' },
+      { q: '課程會用到哪些工具？',
+        a: 'C#、Unity、Photon PUN、3ds Max 與 MAYA，並結合 AI 工具輔助概念生成、貼圖與除錯。' },
+      { q: '可以考哪些證照？',
+        a: '相關認證包含 Adobe ACP Photoshop、Adobe ACP Illustrator、Autodesk ACU 3ds Max、TQC+ 物件導向程式語言 C# 與 TQC+ 程式語言 Python 3。依照不同選修科目，頒發結訓合格數位證書。' },
+      { q: '結訓會有哪些作品？',
+        a: '遊戲互動系統開發、遊戲角色與場景建模、遊戲專案整合展示作品、Unity 跨平台遊戲專案、多人連線遊戲 Demo 與整合型遊戲作品集。' },
+      { q: '結訓後有就業協助嗎？',
+        a: '有。結合 JOB580 提供 8 項求職服務，另有 AI 自傳生成、AI 媒合職缺、AI 求職追蹤等 AI 求職資源。' },
     ],
   },
   interior: {

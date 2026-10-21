@@ -1,6 +1,6 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { motion, useScroll, useSpring } from 'motion/react'
+import { motion, AnimatePresence, useMotionValue, useScroll, useSpring } from 'motion/react'
 import { centers, centerCount } from '../data/centers'
 import Icon from './Icon'
 
@@ -12,6 +12,75 @@ export const scrollToId = (id) => {
   window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 76, behavior: reduce ? 'auto' : 'smooth' })
 }
 
+
+// 與空心圓游標同款的手繪圓：滑鼠靠近時被「吸」過去（磁吸），離開時彈回
+const BLOB = '50% 46% 52% 48% / 48% 52% 46% 50%'
+function useMagnet(strength = 0.35) {
+  const ref = useRef(null)
+  const mx = useMotionValue(0)
+  const my = useMotionValue(0)
+  const x = useSpring(mx, { stiffness: 260, damping: 18 })
+  const y = useSpring(my, { stiffness: 260, damping: 18 })
+  const onPointerMove = (e) => {
+    if (e.pointerType !== 'mouse' || !ref.current) return
+    const r = ref.current.getBoundingClientRect()
+    mx.set((e.clientX - (r.left + r.width / 2)) * strength)
+    my.set((e.clientY - (r.top + r.height / 2)) * strength)
+  }
+  const onPointerLeave = () => { mx.set(0); my.set(0) }
+  return { ref, style: { x, y }, onPointerMove, onPointerLeave }
+}
+
+function BackHome() {
+  const m = useMagnet(0.22)
+  return (
+    <motion.div {...m} className="shrink-0">
+      <Link to="/" className="group relative inline-flex items-center gap-2 no-underline text-ink pl-1 pr-4 py-1 border-2 border-ink bg-paper rounded-full shadow-[3px_3px_0_var(--color-ink)] transition-[transform,box-shadow,background-color] duration-200 -rotate-2 hover:rotate-0 hover:bg-gold hover:shadow-[1px_1px_0_var(--color-ink)] hover:translate-x-[2px] hover:translate-y-[2px] active:shadow-none"
+        data-cursor="回首頁">
+        <span className="grid place-items-center w-[34px] h-[34px] bg-brand text-paper border-2 border-ink transition-transform duration-300 group-hover:-rotate-[20deg] group-hover:-translate-x-[2px]"
+          style={{ borderRadius: BLOB }}>
+          <Icon name="back" size={16} />
+        </span>
+        <span className="hand text-[20px] leading-none pt-[2px]">回首頁</span>
+        <span aria-hidden="true" className="absolute -top-[9px] -right-[8px] text-[16px] text-gold transition-transform duration-300 group-hover:rotate-90 group-hover:scale-125 group-hover:text-brand">✦</span>
+      </Link>
+    </motion.div>
+  )
+}
+
+export function BackToTop() {
+  const [show, setShow] = useState(false)
+  const m = useMagnet(0.4)
+  useEffect(() => {
+    const on = () => setShow(window.scrollY > 600)
+    on(); window.addEventListener('scroll', on, { passive: true })
+    return () => window.removeEventListener('scroll', on)
+  }, [])
+  const toTop = () => {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' })
+  }
+  return (
+    <AnimatePresence>
+      {show && (
+        <motion.div className="fixed right-4 bottom-4 md:right-8 md:bottom-8 z-[60]"
+          initial={{ opacity: 0, y: 24, scale: 0.6 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 24, scale: 0.6 }}
+          transition={{ type: 'spring', stiffness: 320, damping: 22 }}>
+          <motion.button type="button" onClick={toTop} aria-label="回到頂端" data-cursor="回頂端"
+            ref={m.ref} style={{ ...m.style, borderRadius: BLOB }} onPointerMove={m.onPointerMove} onPointerLeave={m.onPointerLeave}
+            className="group grid place-items-center w-[58px] h-[58px] border-2 border-ink bg-paper text-ink shadow-[3px_4px_0_var(--color-ink)] transition-colors hover:bg-gold"
+            whileHover={{ rotate: 8 }} whileTap={{ scale: 0.85 }}>
+            <span className="grid place-items-center leading-none">
+              <span className="block -rotate-90 transition-transform group-hover:-translate-y-[3px]"><Icon name="arrow" size={20} /></span>
+              <span className="text-[11px] font-bold mt-[2px]">TOP</span>
+            </span>
+          </motion.button>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  )
+}
+
 export function Nav({ links = [], back = false }) {
   const { scrollYProgress } = useScroll()
   const scaleX = useSpring(scrollYProgress, { stiffness: 200, damping: 30 })
@@ -19,9 +88,7 @@ export function Nav({ links = [], back = false }) {
     <nav className="sticky top-0 z-50 bg-paper/95 backdrop-blur-[2px] border-b-2 border-dashed border-rule">
       <div className="wrap flex items-center gap-4 h-[64px]">
         {back ? (
-          <Link to="/" className="btn-sm ghost shrink-0" data-cursor="回首頁">
-            <Icon name="back" size={18} /> 返回首頁
-          </Link>
+          <BackHome />
         ) : (
           <Link to="/" className="flex items-center gap-2 no-underline text-ink shrink-0" data-cursor="首頁">
             <span className="w-3 h-3 rounded-full bg-brand inline-block" />
