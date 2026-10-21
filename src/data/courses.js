@@ -5,6 +5,11 @@ import modSecplus from '../assets/infosec/mod-secplus.webp'
 import modCysa from '../assets/infosec/mod-cysa.webp'
 import modIso from '../assets/infosec/mod-iso.webp'
 import modCissp from '../assets/infosec/mod-cissp.webp'
+import aiHero from '../assets/ai-pro/hero.webp'
+import aiGeneral from '../assets/ai-pro/mod-general.webp'
+import aiWork from '../assets/ai-pro/mod-work.webp'
+import aiPro from '../assets/ai-pro/mod-pro.webp'
+import aiLang from '../assets/ai-pro/mod-lang.webp'
 
 // 課程分類（首頁篩選用）；color 為卡片分類色
 export const categories = [
@@ -17,7 +22,9 @@ export const categories = [
 
 // 首頁卡片（依此順序顯示）：ready 為 false 的課程尚未有內頁
 export const courseIndex = [
-  { slug: 'ai-pro', ready: false, cat: 'ai', name: 'AI 熟練師', en: 'AI Practitioner' },
+  { slug: 'ai-pro', ready: true, cat: 'ai', name: 'AI 熟練師', en: 'AI Skills Specialist',
+    line: 'AI 已成職場標配，10 張證照對準企業選才新標準', img: aiHero,
+    tags: ['AI 通識', 'AI 工作應用', 'AI 專業技能', 'AI 外語'] },
   { slug: 'biz-design', ready: false, cat: 'design', name: '商業整合設計', en: 'Integrated Visual Design' },
   { slug: 'interior', ready: false, cat: 'eng', name: '室內設計', en: 'Interior Design' },
   { slug: 'ai-engineer', ready: false, cat: 'it', name: 'AI 人工智慧工程師', en: 'Artificial Intelligence Engineer' },
@@ -48,6 +55,7 @@ export const courses = {
       sub: '實戰、證照、效率，成就企業資安核心。',
       tags: ['24HR 自由彈性', '隨時隨地', '高效學習'],
       img: heroImg,
+      imgAlt: '資安防護示意圖：盾牌與鎖頭的數位介面',
     },
 
     why: {
@@ -312,6 +320,229 @@ export const courses = {
         a: '有。訓前有專業顧問輔導與短工轉介媒合；訓中有專題成果發表會；訓後提供履歷健檢優化、聯合徵才博覽會、百大企業職缺引薦與產學專班保送面試。' },
       { q: '可以申請職訓補助嗎？',
         a: '報名流程第一步就是「資格審核、職訓補助」評估，是否符合補助資格請洽各分校確認。' },
+    ],
+  },
+  'ai-pro': {
+    slug: 'ai-pro',
+    color: 'var(--color-violet)',
+    hero: {
+      badges: ['數發部 AI 能量登錄', '10 張證照', '24 小時彈性進修'],
+      title: 'AI 熟練師',
+      en: 'AI Skills Specialist',
+      hand: '會 AI，起薪高一階；懂應用，職涯快一步',
+      line: 'AI 已成職場標配，10 張證照對準企業選才新標準。',
+      sub: '本培訓課程通過數發部審核，符合國家《AI 產業人才認定指引》。',
+      tags: ['24 小時彈性進修', 'AI 隨身教練', '真人教練指導'],
+      img: aiHero,
+      imgAlt: '戴著耳機的白髮 AI 少女，背景是藍色海底與水母',
+    },
+
+    why: {
+      title: 'AI 升級熱潮，3 個數字看懂',
+      lead: 'AI 能力加值，薪資誘因更有感',
+      hl: '75% 企業願為 AI 開發人才加碼，平均薪資增幅達 9.5% 以上。',
+      stats: [
+        { tag: '市場需求突破', kicker: 'AI 升級熱潮', num: 99848, unit: '↑',
+          desc: 'AI 升級熱潮下，市場需求突破 99,848。' },
+        { tag: '5 年累計成長', kicker: '人才需求攀升', num: 97.6, decimals: 1, unit: '% ↑',
+          desc: 'AI 人才需求 5 年累計成長近一倍。' },
+        { tag: '增速領先市場', kicker: '成長動能加速', num: 4.3, decimals: 1, unit: '倍 ↑',
+          desc: 'AI 相關職缺成長動能加速，增速領先整體市場。' },
+      ],
+      compare: {
+        title: 'M 型薪資斷層：你選擇哪一座島？',
+        sub: '同樣是行政工作，會不會用 AI，月薪差距可達 53%。',
+        bars: [
+          { name: '行政', num: 36000 },
+          { name: 'AI 賦能', num: 57000, hot: true },
+        ],
+        unit: '元／月',
+      },
+      facts: [
+        { num: '6 成', title: '市場痛點', text: '6 成企業急缺 AI 應用人才。' },
+        { num: '20 萬', title: '政策優勢', text: '政府推動 20 萬 AI 人才培訓。' },
+        { num: '雙軸', title: '職涯機會', text: '應用 × 開發雙軸職能，對接熱門職缺。' },
+        { num: '3合1', title: '實戰成果', text: '作品、技能、認證三合一。' },
+      ],
+      quote: { text: '真正取代你的，是懂 AI 的人與企業。', by: 'NVIDIA 執行長 黃仁勳' },
+      axes: {
+        title: 'AI 職能新標準，對應產業最新趨勢',
+        sub: '依循數發部「AI 產業人才認定指引」，應用 × 開發雙軸並進，掌握未來主導權。',
+        list: [
+          { name: 'AI 應用人才', items: ['AI 應用素養', 'AI 工具應用'] },
+          { name: 'AI 開發人才', items: ['AI 模型訓練', 'AI 程式語言應用', 'AI 服務開發'] },
+        ],
+        note: '資料來源：數位發展部「AI 產業人才認定指引」',
+      },
+      salaryTitle: 'AI 相關職缺：平均月薪範圍',
+      salary: [
+        { role: '文案生成應用工程師', min: 38, max: 45 },
+        { role: '多媒體應用工程師', min: 38, max: 45 },
+        { role: '數據應用工程師', min: 45, max: 60 },
+        { role: '聲音／語音訊號處理工程師', min: 45, max: 60 },
+        { role: 'AI 模型訓練工程師', min: 50, max: 70 },
+        { role: 'AI 影像工程師', min: 50, max: 80, top: true },
+      ],
+      salaryNote: '薪資參考來源：人力銀行（單位：千元）。本表僅供參考，實際薪資依各公司職務待遇而有所不同。',
+    },
+
+    who: {
+      title: '每一種職務，都用得上 AI',
+      sub: '不論你在哪個部門，AI 都能幫你把工作做得更快、更好。從通識打底，再依工作需求選修。',
+      cards: [
+        { icon: 'briefcase', title: '辦公室上班族', pain: '文書、報表與重複作業做不完', say: '用 AI 快速完成文案、報表與重複作業，把時間留給更重要的事。', certs: ['AI 通識', 'AI 效率應用', 'AI 職場技能'] },
+        { icon: 'target', title: '行銷與社群小編', pain: '素材、廣告、社群都要自己來', say: '從 AI 廣告設計、品牌視覺到社群行銷，一條龍完成實務輸出。', certs: ['AI 工作應用', 'AI 行銷應用'] },
+        { icon: 'star', title: '個人創作者', pain: '有想法，但缺工具與技術', say: '用 AI 做出圖像、短影音、音樂，甚至自己的遊戲。', certs: ['AI 短影音創作', 'AI 影音創作', 'AI 遊戲開發'] },
+        { icon: 'flag', title: '想接軌國際的人', pain: '外語卡關，不敢開口', say: 'AI 口說陪練即時修正發音，加上真人互動教學，建立開口自信。', certs: ['AI 外語'] },
+      ],
+      rolesTitle: 'AI 全職能：找到你的職務',
+      roles: ['AI 人力資源', 'AI 財務會計', 'AI 業務銷售', 'AI 電子商務', 'AI 行銷企劃', 'AI 客服公關', 'AI 專案管理', 'AI 行政總務', 'AI 個人創作者', 'AI 音樂人'],
+    },
+
+    what: {
+      title: '4 大學習主軸，從理解 AI 到接軌國際',
+      sub: '理解 AI、活用 AI、掌握 AI、接軌國際，每個主軸都有三大學習亮點與完整課程大綱。',
+      analogyLabel: '學習目標：',
+      modules: [
+        { id: 'general', name: '01 AI 通識', img: aiGeneral, color: 'var(--color-brand)',
+          tagline: '理解 AI', desc: '從生成式 AI 的基礎概念開始，建立 AI 邏輯並取得 AI 認證。',
+          analogy: '掌握 AI 邏輯、優化辦公流程，並熟悉考試重點，取得 AI 認證。',
+          highlights: ['掌握 AI 邏輯：理解生成技術、提示設計與模型運作', '優化辦公流程：快速完成文案、報表與重複作業', '取得 AI 認證：熟悉考試重點、題型解析與答題技巧'],
+          units: [
+            { t: '生成式 AI 能力認證', items: ['生成式 AI 基礎概論：AI 趨勢、技術原理、產業應用', 'AI 工具與提示詞實作：圖文生成、影音應用、Prompt 設計', 'AI 導入與認證解析：企業應用、倫理法規、考題解析'] },
+            { t: 'AI 人工智慧核心能力認證', items: ['AI 基礎與資料應用：AI 發展趨勢、核心技術原理、資料處理分析', 'Python 與系統實務：Python 基礎、資料結構與流程控制、部署維運', 'AI 治理與認證解析：倫理法規、認證重點、模擬試題解析'] },
+            { t: 'AI 辦公室應用', items: ['Prompt 工程與 AI 工具基礎：提示詞設計、ChatGPT、Copilot', '辦公室文本與圖像應用實務：文案撰寫、圖像生成、數據資訊視覺化', '跨工具整合與綜合應用：工具串聯應用、AI 專案倡議、延伸應用'] },
+          ],
+          cert: '結訓可報考 AI 相關認證' },
+        { id: 'work', name: '02 AI 工作應用', img: aiWork, color: 'var(--color-gold)',
+          tagline: '活用 AI', desc: '從設計思維到商業情境，用 AI 完成圖像、影音、音樂與網頁。',
+          analogy: '建立設計思維、拓展創意工具，從社群素材到提案網站，強化實務輸出。',
+          highlights: ['建立設計思維：掌握色彩、構圖、排版與品牌規劃', '拓展創意工具：運用 AI 完成圖像、影音、音樂與網頁', '銜接商業情境：從社群素材到提案網站，強化實務輸出'],
+          units: [
+            { t: 'AI 廣告設計', items: ['介面環境與檔案管理：認識工具面板區、色彩管理與校正、圖層概念與應用', '商業影像整合設計：影像合成、排版修圖、商業構圖', '創意海報設計（成果）：AI 產出素材、海報創意實作、作品成果輸出'] },
+            { t: 'AI 形象設計', items: ['向量繪圖與插畫設計：物件路徑編輯、筆刷應用、插畫特效', '品牌視覺與識別設計：文字排版、版面設計、品牌識別', '創意發想與實作：AI 生成 Logo、名片設計實作、廣告 DM 實作'] },
+            { t: '視覺行銷實作', items: ['品牌視覺識別設計：品牌定位、主視覺設計、VI 系統應用', '社群品牌行銷實作：品牌素材延伸、社群經營、平台建置', '作品整合 Mockup（成果）：介面工具設定、文字編輯技巧、圖文整合應用'] },
+            { t: 'AI 短影音創作', items: ['AI 腳本企劃與分鏡：腳本生成、分鏡規劃、流程設計', '拍攝與剪輯實作：構圖運鏡、剪輯轉場、字幕音效', '影音整合與品牌輸出（成果）：動畫製作、虛擬 IP 打造、成品輸出'] },
+          ],
+          cert: '課中完成海報、Mockup、短影音等成果作品' },
+        { id: 'pro', name: '03 AI 專業技能', img: aiPro, color: 'var(--color-violet)',
+          tagline: '掌握 AI', desc: '全面整合生成式 AI 工具與職場實力，涵蓋程式、行銷、設計、投資理財與音樂創作。',
+          analogy: '整合最新 AI 工具，透過名師 Live 直播帶練，培養全方位 AI 實力。',
+          highlights: ['最新 AI 賦能：全面整合生成式 AI 工具與職場實力', '即時互動學習：專業名師 Live 直播帶練與疑難解答', '全方位 AI 實力：涵蓋程式、行銷、設計、投資理財與音樂創作'],
+          units: [
+            { t: 'AI 效率應用', items: ['辦公室必學的 AI 工作術', 'Z 專案管理實戰', 'AI 工作流'] },
+            { t: 'AI 行銷應用', items: ['Google Ads 廣告操作實務', 'facebook 廣告實戰全攻略', 'LINE 官方帳號操作經營實戰班'] },
+            { t: 'AI 職場技能', items: ['Power BI 資料視覺化與數據分析', '商業簡報提案術', 'Excel 高效工作術（圖表／樞紐／函數）'] },
+            { t: 'AI 影音創作', items: ['零基礎 AI 影片生成', 'AI 影音社群鍊金術', '你的第一堂爆款短影音課'] },
+            { t: 'AI 遊戲開發', items: ['Substance Painter 模型材質貼圖', '獨立遊戲開發企劃', 'Claude Code 遊戲製作'] },
+            { t: 'AI Vibe Coding', items: ['AI 程式：Vibe Coding 開發全流程', 'ChatGPT AI 聊天機器人開發', 'Claude Agent 實戰入門'] },
+            { t: '生活風格', items: ['塔羅牌：秘儀解析', '開運居家風水', '基礎魔術的觀念與呈現', 'AI × 選股：交易思維重塑', '3 堂心理諮商師教的強效溝通表達課', '打造你的投資策略（台股篇）', 'AI 詞曲創作', '全方位歌唱特訓班', 'Sample 音樂編曲入門'] },
+            { t: 'AI 全職能', items: ['AI 人力資源', 'AI 財務會計', 'AI 業務銷售', 'AI 電子商務', 'AI 行銷企劃', 'AI 客服公關', 'AI 專案管理', 'AI 行政總務', 'AI 個人創作者', 'AI 音樂人'] },
+          ] },
+        { id: 'lang', name: '04 AI 外語', img: aiLang, color: 'var(--color-red)',
+          tagline: '接軌國際', desc: '依照程度與學習目標彈性選課，從基礎發音、生活會話到旅遊、職場與檢定。',
+          analogy: '培養 AI 時代不可或缺的外語實戰力，英語、日語、韓語都能選。',
+          highlights: ['AI 口說陪練：即時修正發音與對話，建立開口自信', '真人互動教學：中外師資帶領，累積真實表達經驗', '情境實戰應用：生活、旅遊、職場情境反覆練習'],
+          units: [
+            { t: '英語系列', items: ['基礎會話：發音與生活情境會話、初級會話、中級會話、職場表達', '旅遊文化：台北城市導覽英語、在地文化導覽英語、國際節慶文化英語、15 堂情境字彙必修', '多益檢定：多益聽力衝刺、多益閱讀衝刺'] },
+            { t: '日語系列', items: ['入門基礎：日語五十音入門、日語 N5 基礎、商務日語', '旅遊文化：日本城市旅遊日語、旅日實用情境會話、自由行必備語言包、日本社會文化日語、動漫日語', '日語檢定：N4 高分解碼術、N3 破題技巧、N2／N1 閱讀解析、N2／N1 高頻陷阱破題'] },
+            { t: '韓語系列', items: ['基礎會話：韓語初級情境會話', '旅遊應用：旅韓實用情境會話', '進階溝通：韓語中高級會話'] },
+          ] },
+      ],
+      certs: {
+        title: '10 張證照，對準企業選才新標準',
+        sub: '課程對應國際與國內 AI 認證；依照不同選修科目，另頒發結訓合格數位證書。',
+        list: [
+          { name: 'Google Gemini Certified Educator', org: 'Google' },
+          { name: 'AI 創意設計專家', org: 'Adobe' },
+          { name: '生成式 AI 人工智慧核心能力國際認證', org: 'Pearson' },
+          { name: 'AI 人工智慧應用與技術（實用級）', org: 'TQC' },
+          { name: 'AI 素養人才認證', org: '台灣人工智慧學校' },
+          { name: '人工智慧工程素養認證', org: '資策會' },
+          { name: '生成式 AI 能力認證', org: '資策會' },
+          { name: '生成式 AI 美術設計能力認證', org: '資策會' },
+          { name: '生成式 AI 美術設計能力認證（中）', org: '資策會' },
+          { name: '生成式 AI 辦公室應用能力認證', org: '資策會' },
+        ],
+      },
+    },
+
+    how: {
+      title: '從培訓、考證到就業，一條龍養成',
+      sub: '全台唯一！串接產、官、學的 AI 人才基地：數發部認可培訓 × 資策會專業認證 × 1111 就業媒合。',
+      chain: [
+        { no: '01', title: '培訓', badge: 'AI 能量登錄核准', text: '通過數發部審查，為政府認可的 AI 教育培訓單位。', color: 'var(--color-brand)' },
+        { no: '02', title: '考證', badge: '官方認證中心', text: '攜手資策會推出 AI 專業認證，考取即獲具產業公信力的專業證書。', color: 'var(--color-gold)' },
+        { no: '03', title: '就業', badge: 'AI 媒合平台', text: '攜手 1111 人力銀行，完訓即享履歷健診與職缺精準媒合。', color: 'var(--color-red)' },
+      ],
+      practice: '課中會帶領同學完成相關作品，並輔導考取相關證照。',
+      services: {
+        title: 'AI 學到位，才真正開始：結合 JOB580 資源，提供後續就業支持',
+        phases: [
+          { name: '訓前', items: ['專業顧問輔導', '短工轉介媒合'] },
+          { name: '訓中', items: ['帶領完成相關作品', '輔導考取相關證照', '專題成果發表會'] },
+          { name: '訓後', items: ['個人履歷健檢優化', '聯合徵才博覽會', '百大企業職缺引薦', '產學專班保送面試'] },
+        ],
+      },
+      aiTools: { title: '全方位 AI 資源助攻，就業 0 距離', items: ['AI 跨領域工作術', 'AI 自傳生成', 'AI 媒合職缺', 'AI 求職追蹤'] },
+      jobs: {
+        title: '工作大未來，你就是人才：上千聯成電腦學員成功就業',
+        note: '榮獲政府 TTQS 評鑑獎項，培訓就業有保障。',
+        stats: [
+          { label: '就業成功率', num: 93, unit: '%' },
+          { label: '就輔徵才推介會', num: 21, unit: '場' },
+          { label: '廠商徵才見面會', num: 266, unit: '場' },
+          { label: '廠商聯合徵才說明會', num: 47, unit: '場' },
+          { label: '合作廠商數約', num: 6347, unit: '家' },
+        ],
+      },
+    },
+
+    format: {
+      title: '聯成 AI 輔學系統：學習更有方向，成長更有效率',
+      sub: '5 大教學系統搭配 AI 複習工具、AI 隨身教練與真人教練，24 小時彈性進修。',
+      systems: [
+        { name: '實體教學系統', text: '課程程度分班' },
+        { name: '直播教學系統', text: '個人化排課即時互動' },
+        { name: '錄播教學系統', text: '24 小時隨時學' },
+        { name: '學習監控系統', text: '課後簽退、自我學習評價' },
+        { name: '真人教練系統', text: '線上線下搭配，即時解惑' },
+      ],
+      coach: [
+        { name: 'AI 複習工具', icon: 'star', sub: '重點快速掌握', points: ['AI 講義、課後測驗', '精準節點、內容統整'] },
+        { name: 'AI 隨身教練', icon: 'bot', sub: '陪伴學習不中斷', points: ['即時解惑、操作協助', '隨問隨答、基礎輔導'] },
+        { name: '真人教練指導', icon: 'user', sub: '實戰能力養成', points: ['個人教學、觀念補強', '深度解題、專案指導'] },
+      ],
+      upgrade: '升級 24hr，課程全面不加價',
+    },
+
+    teacher: {
+      title: '專業名師 Live 帶練',
+      sub: '名師直播即時互動，搭配真人教練與 AI 隨身教練，學習不卡關。',
+      traits: [
+        { icon: 'live', title: '名師 Live 直播帶練', text: '專業名師 Live 直播帶練，現場解答疑難。' },
+        { icon: 'user', title: '中外師資帶領', text: 'AI 外語由中外師資帶領，累積真實表達經驗。' },
+        { icon: 'badge', title: '真人教練指導', text: '個人教學、觀念補強、深度解題與專案指導。' },
+      ],
+    },
+
+    faq: [
+      { q: '完全沒有 AI 基礎，學得來嗎？',
+        a: '可以。AI 通識從生成式 AI 基礎概論、AI 工具與提示詞實作開始，先建立 AI 邏輯，再依工作需求選修 AI 工作應用、AI 專業技能或 AI 外語。' },
+      { q: '可以考哪些證照？',
+        a: '課程對應 10 張 AI 相關證照，包含 Google Gemini Certified Educator、Adobe AI 創意設計專家、Pearson 生成式 AI 人工智慧核心能力國際認證、TQC AI 人工智慧應用與技術（實用級），以及資策會的生成式 AI 能力、辦公室應用、美術設計等認證。' },
+      { q: '課程是政府認可的嗎？',
+        a: '是。本培訓課程通過數發部審核，符合國家《AI 產業人才認定指引》，並取得 AI 能量登錄核准，是政府認可的 AI 教育培訓單位。' },
+      { q: '上班時間不固定，跟得上進度嗎？',
+        a: '課程提供 24 小時彈性進修：錄播教學系統 24 小時隨時學，AI 隨身教練隨問隨答，遇到難題再由真人教練深度解題。' },
+      { q: '外語課要怎麼選？',
+        a: '依照程度與學習目標彈性選課。英語、日語、韓語系列都有從基礎會話、旅遊應用到檢定或進階溝通的課程。' },
+      { q: '結訓有證書嗎？',
+        a: '有。依照不同選修科目，頒發結訓合格數位證書。' },
+      { q: '結訓後有就業協助嗎？',
+        a: '有。結合 JOB580 資源提供 8 項求職服務，並攜手 1111 人力銀行，完訓即享履歷健診與職缺精準媒合；另有 AI 自傳生成、AI 媒合職缺、AI 求職追蹤等 AI 求職資源。' },
+      { q: '可以申請職訓補助嗎？',
+        a: 'JOB580 就業服務的第一步就是「資格審核、職訓補助」評估，是否符合補助資格請洽各分校確認。' },
     ],
   },
 }

@@ -75,16 +75,16 @@ export function TiltCard({ children, className = '', max = 8, style, ...rest }) 
 }
 
 // 數字跳動
-export function CountUp({ to, duration = 1.1, className }) {
+export function CountUp({ to, duration = 1.1, decimals = 0, className }) {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true })
   const [val, setVal] = useState(0)
   useEffect(() => {
     if (!inView) return
-    const c = animate(0, to, { duration, ease: [0.2, 0.7, 0.2, 1], onUpdate: (v) => setVal(Math.round(v)) })
+    const c = animate(0, to, { duration, ease: [0.2, 0.7, 0.2, 1], onUpdate: setVal })
     return () => c.stop()
   }, [inView, to, duration])
-  return <span ref={ref} className={className}>{val.toLocaleString('en-US')}</span>
+  return <span ref={ref} className={className}>{val.toLocaleString('en-US', { minimumFractionDigits: decimals, maximumFractionDigits: decimals })}</span>
 }
 
 // 大標逐字登場
