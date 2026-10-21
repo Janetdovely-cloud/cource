@@ -11,22 +11,23 @@ export const categories = [
   { id: 'it', name: '資訊與程式', color: 'var(--color-red)' },
   { id: 'ai', name: 'AI 應用', color: 'var(--color-violet)' },
   { id: 'design', name: '設計', color: 'var(--color-gold)' },
-  { id: 'eng', name: '工程製造', color: 'var(--color-brand)' },
+  { id: 'eng', name: '室內與工業', color: 'var(--color-brand)' },
 ]
 
-// 首頁卡片：ready 為 false 的課程顯示「籌備中」
+// 首頁卡片（依此順序顯示）：ready 為 false 的課程尚未有內頁
 export const courseIndex = [
+  { slug: 'ai-pro', ready: false, cat: 'ai', name: 'AI 熟練師', en: 'AI Practitioner' },
+  { slug: 'biz-design', ready: false, cat: 'design', name: '商業整合設計', en: 'Integrated Visual Design' },
+  { slug: 'interior', ready: false, cat: 'eng', name: '室內設計', en: 'Interior Design' },
+  { slug: 'ai-engineer', ready: false, cat: 'ai', name: 'AI 人工智慧工程師', en: 'Artificial Intelligence Engineer' },
+  { slug: 'ai-agent', ready: false, cat: 'ai', name: 'AI Agent 應用開發工程師', en: 'AI Agent Developer' },
+  { slug: 'ptc', ready: false, cat: 'eng', name: 'PTC 機構工程師', en: 'Mechanical Design Engineer' },
   { slug: 'infosec', ready: true, cat: 'it', name: '資訊安全工程師', en: 'Information Security Engineer',
     line: '資安分析 × 攻防實戰 × 國際證照，一站養成企業最搶手新星', img: heroImg,
     tags: ['CCNA', 'Security+', 'CySA+', 'ISO 27001', 'CISSP'] },
-  { slug: 'cloud', ready: false, cat: 'it', name: '雲端系統', en: 'Cloud Systems' },
   { slug: 'java', ready: false, cat: 'it', name: 'Java 軟體工程師', en: 'Java Software Engineer' },
-  { slug: 'ai-agent', ready: false, cat: 'ai', name: 'AI Agent 應用開發工程師', en: 'AI Agent Developer' },
-  { slug: 'ai-pro', ready: false, cat: 'ai', name: 'AI 熟練師', en: 'AI Practitioner' },
+  { slug: 'cloud', ready: false, cat: 'it', name: '雲端系統', en: 'Cloud Systems' },
   { slug: 'anime', ready: false, cat: 'design', name: '動漫角色設計', en: 'Character Design' },
-  { slug: 'biz-design', ready: false, cat: 'design', name: '商業整合設計', en: 'Integrated Visual Design' },
-  { slug: 'interior', ready: false, cat: 'design', name: '室內設計', en: 'Interior Design' },
-  { slug: 'ptc', ready: false, cat: 'eng', name: 'PTC 機構工程師', en: 'Mechanical Design Engineer' },
 ]
 
 // ── 課程內頁資料（每門課一份，頁面由 CoursePage 依資料產生）──

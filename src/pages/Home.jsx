@@ -60,8 +60,6 @@ export default function Home() {
   const { scrollY } = useScroll()
   const parallax = useTransform(scrollY, [0, 600], [0, -80])
   const list = courseIndex.filter((c) => cat === 'all' || c.cat === cat)
-  const featured = list.find((c) => c.ready)
-  const rest = list.filter((c) => !c.ready)
 
   return (
     <>
@@ -108,7 +106,7 @@ export default function Home() {
 
       {/* ── 課程 Bento ── */}
       <Section id="courses" no="01" label="課程總覽" title="挑一條你想走的職涯路線"
-        sub="每門課都從入門開始，對應業界證照與實作作品。更多課程陸續上線中。">
+        sub="每門課都從入門開始，對應業界證照與實作作品。">
         <div className="tabs mb-7" role="tablist" aria-label="課程分類">
           {[{ id: 'all', name: '全部' }, ...categories].map((c) => {
             const n = c.id === 'all' ? courseIndex.length : courseIndex.filter((x) => x.cat === c.id).length
@@ -122,16 +120,10 @@ export default function Home() {
 
         <motion.div layout className="grid gap-[18px] grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 auto-rows-[minmax(150px,auto)]">
           <AnimatePresence mode="popLayout">
-            {featured && (
-              <motion.div key={featured.slug} layout
-                initial={{ opacity: 0, scale: 0.94 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.94 }}>
-                <FeaturedCard c={featured} />
-              </motion.div>
-            )}
-            {rest.map((c, i) => (
+            {list.map((c, i) => (
               <motion.div key={c.slug} layout
                 initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0, transition: { delay: i * 0.06 } }} exit={{ opacity: 0, scale: 0.9 }}>
-                <UpcomingCard c={c} />
+                {c.ready ? <FeaturedCard c={c} /> : <UpcomingCard c={c} />}
               </motion.div>
             ))}
           </AnimatePresence>
