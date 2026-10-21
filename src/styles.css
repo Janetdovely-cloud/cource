@@ -47,12 +47,14 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* 標題與強調字：一律手寫體＋合成粗體 */
+/* 標題與強調字：一律手寫體＋加粗
+   瀏覽器合成粗體在大字級會過粗而黏字，改用隨字級縮放的細描邊控制粗細 */
 h1, h2, h3, h4, h5, h6, .hand {
   font-family: var(--font-hand);
   font-weight: 700;
-  font-synthesis: weight;
-  letter-spacing: .5px;
+  font-synthesis: none;
+  -webkit-text-stroke: .022em currentColor;
+  letter-spacing: .03em;
 }
 h1, h2, h3, h4, h5, h6 { margin: 0; line-height: 1.25; }
 
@@ -72,8 +74,8 @@ h1, h2, h3, h4, h5, h6 { margin: 0; line-height: 1.25; }
   font-weight: 700; font-size: 14px; border-radius: 6px 4px 7px 3px;
 }
 .hand-label {
-  position: relative; font-family: var(--font-hand); font-weight: 700; font-synthesis: weight;
-  font-size: 30px; color: var(--color-link); line-height: 1.2;
+  position: relative; font-family: var(--font-hand); font-weight: 700; font-synthesis: none;
+  -webkit-text-stroke: .022em currentColor; letter-spacing: .03em; font-size: 30px; color: var(--color-link); line-height: 1.2;
 }
 .hand-label::after {
   content: ""; position: absolute; left: 0; right: 0; bottom: -6px; height: 8px;
