@@ -283,7 +283,7 @@ function CertWall({ d }) {
     <div className="mt-14">
       <h3 className="text-[28px]">{d.title}</h3>
       <p className="sub !mb-5">{d.sub}</p>
-      <Stagger as="ol" className={`list-none p-0 m-0 grid gap-3 grid-cols-2 ${d.list.length === 6 ? 'lg:grid-cols-3' : 'lg:grid-cols-5'}`} amount={0.1}>
+      <Stagger as="ol" className={`list-none p-0 m-0 grid gap-3 grid-cols-2 ${d.list.length === 6 ? 'lg:grid-cols-3' : d.list.length === 4 ? 'lg:grid-cols-4' : 'lg:grid-cols-5'}`} amount={0.1}>
         {d.list.map((c, i) => (
           <Item as="li" key={c.name}>
             <TiltCard className="h-full" max={10}>
@@ -440,6 +440,27 @@ function How({ d }) {
           ))}
         </Stagger>
       </div>
+
+      {d.partner && (
+        <div className="mt-14">
+          <h3 className="text-[26px]">{d.partner.title}</h3>
+          <p className="sub !mb-5">{d.partner.sub}</p>
+          <div className="card grid gap-5 md:grid-cols-[1.2fr_1fr]" style={{ '--c': 'var(--color-gold)' }}>
+            <div>
+              <span className="chip ink !text-[12px]">合作企業</span>
+              <h4 className="text-[26px] mt-2">{d.partner.name}</h4>
+              <p className="m-0 mt-2 text-[15px] text-muted">{d.partner.intro}</p>
+            </div>
+            <div className="grid gap-3 content-start">
+              <div><p className="m-0 mb-1 text-[12px] font-extrabold text-link">徵才職缺</p>
+                <div className="flex flex-wrap gap-1.5">{d.partner.jobs.map((t) => <span key={t} className="chip">{t}</span>)}</div></div>
+              <div><p className="m-0 mb-1 text-[12px] font-extrabold text-link">員工福利</p>
+                <div className="flex flex-wrap gap-1.5">{d.partner.perks.map((t) => <span key={t} className="chip !text-[12px]">{t}</span>)}</div></div>
+            </div>
+          </div>
+          <p className="note mt-3 mb-0">{d.partner.note}</p>
+        </div>
+      )}
 
       {d.aiTools && (
         <div className="soft mt-[18px] p-5 md:p-6 grid gap-4 md:grid-cols-[auto_1fr] items-center">
