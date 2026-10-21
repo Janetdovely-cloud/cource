@@ -13,6 +13,7 @@ import bizHero from '../assets/biz-design/hero.webp'
 import avHero from '../assets/av-design/hero.webp'
 import aieHero from '../assets/ai-engineer/hero.webp'
 import agentHero from '../assets/ai-agent/hero.webp'
+import ptcHero from '../assets/ptc/hero.webp'
 import interiorHero from '../assets/interior/hero.webp'
 
 // AI 全應用證照班：商業整合設計師、室內設計師共用
@@ -58,7 +59,9 @@ export const courseIndex = [
   { slug: 'ai-agent', ready: true, cat: 'ai', name: 'AI Agent 應用開發工程師', en: 'AI Agent Application Development Engineer',
     line: '從 Python 開發到 LLM 工作流建構，打造可上線 AI 系統', img: agentHero,
     tags: ['Python', 'RAG', 'MCP', 'LangChain', 'Fine-Tuning'] },
-  { slug: 'ptc', ready: false, cat: 'eng', name: 'PTC 機構工程師', en: 'Mechanical Design Engineer' },
+  { slug: 'ptc', ready: true, cat: 'eng', name: 'PTC 機構工程師', en: 'PTC Mechanical Engineer',
+    line: '透過 AI 運算輔助，用設計「智」造未來，取得研發硬實力', img: ptcHero,
+    tags: ['AutoCAD', 'PTC Creo', 'SolidWorks', '技術士證照'] },
   { slug: 'infosec', ready: true, cat: 'it', name: '資訊安全工程師', en: 'Information Security Engineer',
     line: '資安分析 × 攻防實戰 × 國際證照，一站養成企業最搶手新星', img: heroImg,
     tags: ['CCNA', 'Security+', 'CySA+', 'ISO 27001', 'CISSP'] },
@@ -1502,6 +1505,216 @@ export const courses = {
         a: '相關認證包含 ITS Python、TQC+ Python 3、TQC+ 網頁資料擷取與分析、生成式 AI 能力認證、人工智慧工程素養認證。依照不同選修科目，頒發結訓合格數位證書。' },
       { q: '學完還能往哪裡延伸？',
         a: '推薦延伸學習 Python 視覺辨識與機器學習、Python 深度學習與應用實務、Python Django Web 開發實務。' },
+      { q: '結訓後有就業協助嗎？',
+        a: '有。結合 JOB580 提供 8 項求職服務，另有 AI 自傳生成、AI 媒合職缺、AI 求職追蹤等 AI 求職資源。' },
+    ],
+  },
+
+  ptc: {
+    slug: 'ptc',
+    color: 'var(--color-brand)',
+    hero: {
+      badges: ['獨家・產學培訓', 'AI 職缺媒合', '結訓保證面試'],
+      title: 'PTC 機構工程師',
+      en: 'PTC Mechanical Engineer',
+      hand: '用設計「智」造未來',
+      line: '透過 AI 運算輔助，用設計「智」造未來，取得研發硬實力！',
+      sub: '專屬・增能學習｜真人教練｜智能助教',
+      tags: ['24HR 自由彈性', '隨時隨地', '高效學習'],
+      img: ptcHero,
+      imgAlt: '發光線框呈現的汽車機構透視圖',
+    },
+
+    why: {
+      title: '臺灣研發創新實力驚豔國際，開創產業 3 大趨勢',
+      lead: '台灣工業設計作品在國際間頻頻獲獎，展現研發軟硬實力',
+      hl: '愈來愈多新血選擇投入工業設計，正是產業持續蓬勃發展的關鍵力量。',
+      stats: [
+        { tag: '高產值', kicker: '工業設計產值破', num: 1.1, decimals: 2, unit: '兆',
+          desc: '工業設計技術應用廣泛，帶動產品／機構設計成長，下一步更要結合 AI 人工智慧，預計今年將站上新台幣 4.9 兆元的里程碑。' },
+        { tag: '高職缺', kicker: '工業 4.0 研發工作人才荒', num: 8000, unit: '個工作職缺',
+          desc: '工業 4.0 崛起，帶動全球機械產品新革命，加上台灣產業轉型升級與「5+2」產業創新計劃，人才需求倍增。' },
+        { tag: '高薪資', kicker: '前瞻性最高，均薪起跳', num: 3.9, decimals: 1, unit: '萬',
+          desc: '「專長職務」需求量高，薪資成長優於一般設計領域，任職五年後，平均薪資漲幅 11–35%！' },
+      ],
+      compare: {
+        title: '專長職務，薪資成長優於一般設計領域',
+        sub: '「專長職務」需求量高，任職五年後，平均薪資漲幅 11–35%。',
+        bars: [
+          { name: '工業設計師', num: 60 },
+          { name: '機構工程師', num: 70 },
+          { name: '工程研發主管', num: 101, hot: true },
+        ],
+        unit: 'K／月（月薪上限）',
+      },
+      facts: [
+        { num: '4.0', title: '智能自動化', text: '智慧工廠、IoT、AI、大數據，高度自動化、以數據推動決策。' },
+        { num: '5.0', title: '人機協作與永續', text: '客製化製造、數位孿生（Digital Twin）、協作型機器人與綠色技術。' },
+        { num: 'AI', title: 'AI 輔助人類', text: '提高靈活性與資源利用效益，人機共同決策。' },
+        { num: '創新', title: '創意設計是關鍵', text: '工業 5.0 的員工角色：創意設計、與 AI 協作、注重可持續性。' },
+      ],
+      salaryTitle: '機構與研發職務月薪範圍',
+      salary: [
+        { role: '工業設計師', min: 39, max: 60 },
+        { role: '機構工程師', min: 45, max: 70 },
+        { role: '產品管理師', min: 46, max: 74 },
+        { role: '產品企劃主管', min: 55, max: 95 },
+        { role: '工程研發主管', min: 66, max: 101, top: true },
+      ],
+      salaryNote: '薪資參考來源：人力銀行（單位：千元）。本表僅供參考，實際薪資依各公司職務待遇而有所不同。',
+    },
+
+    who: {
+      title: '想做產品研發，從製圖到 3D 建模',
+      sub: '從 2D 工業製圖、3D 產品造型到零組件機構設計，一步步養成研發硬實力。',
+      cards: [
+        { icon: 'rocket', title: '想入行的新手', pain: '沒畫過工程圖，不知道從哪開始', say: '從工業製圖觀念與 AutoCAD 開始，打好產品開發基本功。', certs: ['AutoCAD 工業製圖設計'] },
+        { icon: 'briefcase', title: '想轉職研發的人', pain: '想進製造業做設計', say: 'PTC Creo 與 SolidWorks 3D 建模，零組件到工程圖一應俱全。', certs: ['PTC Creo 產品造型設計', 'SolidWorks 零組件機構設計'] },
+        { icon: 'target', title: '想考國家證照的人', pain: '想有一張證照當敲門磚', say: '國家技術士考照訓練，題庫逐題練習。', certs: ['工業產品設計實務'] },
+        { icon: 'star', title: '想跟上工業 4.0 的人', pain: '擔心被 AI 取代', say: '結合 AI 與 Python 資料分析，從工具使用者升級為智慧製造人才。', certs: ['AI 全應用證照班', 'Python 程式資料分析'] },
+      ],
+    },
+
+    what: {
+      title: '從 AI 應用、工業製圖到 3D 機構設計',
+      sub: '先用 AI 全應用證照班打底，再學 AutoCAD、PTC Creo、SolidWorks 與產品設計實務，最後加上 Python 資料分析。',
+      analogyLabel: '一句話看懂：',
+      modules: [
+        { ...aiAllModule, color: 'var(--color-violet)' },
+        { id: 'cad', name: 'AutoCAD 工業製圖設計', color: 'var(--color-red)',
+          tagline: 'AutoCAD', desc: '工業設計必學，掌握製圖黃金法則。',
+          analogy: '業界最廣為使用的製圖軟體，掌握產品開發領域基本功，創造職場晉升之路！',
+          highlights: ['國家標準製圖規範與工業製圖基礎', '各類型視圖及量測', '2D 數位製圖與製圖實務練習'],
+          units: [
+            { t: '認識工業製圖', items: ['電腦製圖觀念建立', '正確製圖觀念建立', '國家標準製圖規範', '工業製圖的必備基礎', '辨別製圖工具與指令'] },
+            { t: '各類型視圖及量測', items: ['基本視圖觀念建立', '認識各類型視圖', '各種視圖線條練習', '各式量測工具練習', '標準零件設計訓練'] },
+            { t: '2D 數位製圖操作', items: ['AutoCAD 操作入門', '2D 繪圖工具技巧', '圖層應用尺寸標註', '圖框繪製文字編輯', '特殊物件製作訓練'] },
+            { t: '工業製圖實務練習', items: ['製圖範本檔案製作', '表格與剖面線建立', '出圖設定與演練'] },
+          ] },
+        { id: 'creo', name: 'PTC Creo 產品造型設計', color: 'var(--color-brand)',
+          tagline: 'PTC Creo', desc: '「流體設計美學」當道，創造驚艷產品。',
+          analogy: '工業界設計首選 PTC Creo，掌握工設關鍵心法，親手打造改變世界的偉大產品！',
+          highlights: ['ProCreo 流程與實體模型特徵', '草繪、引伸與旋轉應用', '工程圖與曲面幾何實作'],
+          units: [
+            { t: 'ProCreo 流程概要', items: ['基本軟體設定', '幾何圖形觀念', '基本設計流程', '實體模型特徵', '物件選取編輯'] },
+            { t: '產品／工業設計製圖', items: ['基本圖形繪製', '草繪圖形的限制', '草繪圖形的編輯', '引伸與旋轉應用', '內部與外部草繪'] },
+            { t: '產品／工業設計工程圖', items: ['工程圖特徵觀念', '工程圖建立操作流程', '符合國家標準的圖框', '尺寸標註與公差註記', '材料表的應用'] },
+            { t: '產品／工業設計曲面圖', items: ['非實體物件應用', '基準物件操作練習', '認識曲面特徵', '曲面應用與編輯操作', '曲面幾何實作訓練'] },
+          ] },
+        { id: 'sw', name: 'SolidWorks 零組件機構設計', color: 'var(--color-gold)',
+          tagline: 'SolidWorks', desc: '工業機構設計完整學習：草繪建模、零組件設計、到工程圖、鈑金曲面一應俱全。',
+          analogy: '結訓具備 SolidWorks 認證專業工程師證書 CSWP 及 TQC 認證的考照實力。',
+          highlights: ['3D 建模三架構與四大指令', '機械標準元件與組合件操作', '鈑金、曲面建模與專題作品演練'],
+          units: [
+            { t: '介面與草圖', items: ['行業需求條件及技能', 'SolidWorks 介面操作', '草圖幾何演練'] },
+            { t: '3D 建模', items: ['參考幾何工具介紹', '3D 建模三架構說明', '3D 建模四大指令說明及特徵操作'] },
+            { t: '特徵與組合件', items: ['編輯特徵指令介紹', '特徵複製排列', '機械標準元件操作', '組合件操作'] },
+            { t: '工程圖與專題', items: ['工程圖', '鈑金模組操作', '曲面建模應用', '專題作品演練'] },
+          ] },
+        { id: 'prod', name: '工業產品設計實務', color: 'var(--color-red)',
+          tagline: '專案實務演練', desc: '晉升專業工業設計師。',
+          analogy: '學習符合國家（工業）標準的產品研發流程與觀念，從創意發想到動手實踐，打造一流的工設人才！',
+          highlights: ['產品研發流程與國家工業標準製圖', '模具與產品組件機構設計', '國家技術士考照題庫訓練'],
+          units: [
+            { t: '產品開發就業訓練', items: ['產品研發流程觀念', '國家工業標準製圖', '各種圖面與視圖訓練', '產品設計商業應用'] },
+            { t: '模具組件設計訓練', items: ['模具設計基礎觀念', '模具設計流程實務', '模具及模型實務操作', '模具加工實務訓練'] },
+            { t: '產品組件設計訓練', items: ['產品組件設備研發', '產品組件機構設計', '機構零件設計實務', '機構運動設計實務'] },
+            { t: '國家技術士考照訓練', items: ['題庫練習：水泵、軸承支架', '題庫練習：擺動台、萬向接頭', '題庫練習：行星泵、卻水器', '題庫練習：管鉗扳手、支持架', '題庫練習：活動虎鉗、搖擺機構'] },
+          ] },
+        { id: 'py', name: 'Python 程式資料分析', color: 'var(--color-violet)',
+          tagline: 'Python', desc: '全球程式語言學習熱潮，未來必修第二外語。',
+          analogy: '全面解析 Python 基礎應用，成為 AI 工程師的第一步。',
+          highlights: ['Python 入門與開發環境建置', '資料型態、判斷式與迴圈', 'OpenData 資料蒐集與分析'],
+          units: [
+            { t: 'Python 入門認識', items: ['Python 認識應用', 'Python 開發環境建置', 'Anaconda 開發軟體安裝', 'Python 程式執行'] },
+            { t: 'Python 基礎語法', items: ['資料型態與變數', '判斷式與迴圈', '串列與元組', '字典與集合'] },
+            { t: 'Python 資料分析', items: ['資料分析簡介', 'OpenData 資料蒐集', 'Python 資料處理、分析', '模型建立應用'] },
+            { t: '資料分析實務演練', items: ['資料庫應用', 'Open Data 資料分析', 'Open Data 資料應用'] },
+          ] },
+      ],
+      certs: {
+        title: '相關認證',
+        sub: '依照不同選修科目，頒發結訓合格數位證書。',
+        list: [
+          { name: 'Autodesk 國際認證：AutoCAD', org: 'Autodesk' },
+          { name: 'TQC+ 專業設計人才認證', org: 'TQC+' },
+          { name: 'PTC Creo Parametric 原廠證書', org: 'PTC' },
+          { name: '乙／丙級國家技術士證照', org: '勞動部' },
+        ],
+      },
+    },
+
+    how: {
+      title: '從 2D 製圖到 3D 機構，一步步養成研發硬實力',
+      sub: '每個階段都有實作，結訓具備考照實力與專題作品。',
+      chain: [
+        { no: '01', title: 'AI 與製圖打底', badge: 'AI・AutoCAD', text: 'AI 全應用證照班與 AutoCAD 工業製圖，建立國家標準製圖觀念。', color: 'var(--color-red)' },
+        { no: '02', title: '3D 產品與機構', badge: 'PTC Creo・SolidWorks', text: '產品造型、曲面與零組件機構設計，完成工程圖與鈑金。', color: 'var(--color-brand)' },
+        { no: '03', title: '實務與考照', badge: '產品實務・技術士・Python', text: '模具與產品組件設計、國家技術士考照訓練，加上 Python 資料分析。', color: 'var(--color-gold)' },
+      ],
+      practice: '課中會帶領同學完成相關作品，並輔導考取相關證照。',
+      services: {
+        title: '訓前・訓中・訓後：8 項求職服務一路陪跑',
+        phases: [
+          { name: '訓前', items: ['專業顧問輔導', '短工轉介媒合'] },
+          { name: '訓中', items: ['帶領完成相關作品', '輔導考取相關證照', '專題成果發表會'] },
+          { name: '訓後', items: ['個人履歷健檢優化', '聯合徵才博覽會', '百大企業職缺引薦', '產學專班保送面試'] },
+        ],
+      },
+      aiTools: { title: '全方位 AI 資源助攻，就業 0 距離', items: ['AI 跨領域工作術', 'AI 自傳生成', 'AI 媒合職缺', 'AI 求職追蹤'] },
+      jobs: {
+        title: '工作大未來，你就是人才：上千聯成電腦學員成功就業',
+        note: '榮獲政府 TTQS 評鑑獎項，培訓就業有保障。',
+        stats: [
+          { label: '就業成功率', num: 93, unit: '%' },
+          { label: '就輔徵才推介會', num: 21, unit: '場' },
+          { label: '廠商徵才見面會', num: 266, unit: '場' },
+          { label: '廠商聯合徵才說明會', num: 47, unit: '場' },
+          { label: '合作廠商數約', num: 6347, unit: '家' },
+        ],
+      },
+    },
+
+    format: {
+      title: '線上真人，即時指導，跨區進修',
+      sub: '5 大教學系統依你的時間自由搭配，真人教練＋AI 教練陪你學到會。',
+      systems: [
+        { name: '實體教學系統', text: '課程程度分班' },
+        { name: '直播教學系統', text: '個人化排課即時互動' },
+        { name: '錄播教學系統', text: '24 小時隨時學' },
+        { name: '學習監控系統', text: '課後簽退、自我學習評價' },
+        { name: '真人教練系統', text: '線上線下搭配，即時解惑' },
+      ],
+      coach: [
+        { name: '真人教練', sub: '量身即時指導', points: ['預約 1 對 1 教學效果倍增', '雙向互動解決學習盲點'] },
+        { name: 'AI 教練', sub: '加速學習進程', points: ['免下載一鍵開啟即上課', '24hr 因材施教在線複習'] },
+        { name: '課後收穫', sub: '精準訓練計劃', points: ['客製化增進軟硬實力', '短期衝刺找到命定職業'] },
+      ],
+      perks: ['真人直播，即時互動', '師生互動，隨問即答', '學習不受地點限制', '14 天錄影檔免費看'],
+      upgrade: '升級 24hr，課程全面不加價',
+    },
+
+    teacher: {
+      title: '北中南名師獨家 Live',
+      sub: '解決產業落差，接軌職場；透過 AI 運算輔助，用設計「智」造未來。',
+      traits: [
+        { icon: 'live', title: '名師獨家 Live', text: '北中南名師獨家 Live，解決產業落差，接軌職場。' },
+        { icon: 'star', title: '符合國家標準', text: '學習符合國家（工業）標準的產品研發流程與觀念。' },
+        { icon: 'briefcase', title: '考照實力', text: '輔導考取國家技術士與專業認證，作品直接對接職缺。' },
+      ],
+    },
+
+    faq: [
+      { q: '沒有工程或設計背景，可以學嗎？',
+        a: '可以。課程從工業製圖觀念、國家標準製圖規範與 AutoCAD 操作開始，再一路學到 3D 建模與機構設計。' },
+      { q: '課程會用到哪些軟體？',
+        a: 'AutoCAD、PTC Creo、SolidWorks，以及 Python 與 AI 工具。' },
+      { q: '可以考哪些證照？',
+        a: '相關認證包含 Autodesk 國際認證 AutoCAD、TQC+ 專業設計人才認證、PTC Creo Parametric 原廠證書，以及乙／丙級國家技術士證照。依照不同選修科目，頒發結訓合格數位證書。' },
+      { q: '工業 4.0 和工業 5.0 有什麼不同？',
+        a: '工業 4.0 以「生產智慧化」為主，致力於用機器取代人類；工業 5.0 則強調「人機協作」，回歸人類本位與永續發展，重視人類的創造力與機械的靈活性。' },
+      { q: '上班時間不固定，跟得上進度嗎？',
+        a: '有直播、錄播、實體等 5 大教學系統可以自由搭配，錄影檔 14 天免費看，AI 教練 24 小時在線複習。' },
       { q: '結訓後有就業協助嗎？',
         a: '有。結合 JOB580 提供 8 項求職服務，另有 AI 自傳生成、AI 媒合職缺、AI 求職追蹤等 AI 求職資源。' },
     ],
