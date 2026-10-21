@@ -458,7 +458,7 @@ export const courses = {
           { name: '生成式 AI 人工智慧核心能力國際認證', org: 'Pearson' },
           { name: 'AI 人工智慧應用與技術（實用級）', org: 'TQC' },
           { name: 'AI 素養人才認證', org: '台灣人工智慧學校' },
-          { name: '人工智慧工程素養認證', org: '資策會' },
+          { name: '人工智慧工程素養認證' },
           { name: '生成式 AI 能力認證', org: '資策會' },
           { name: '生成式 AI 美術設計能力認證', org: '資策會' },
           { name: '生成式 AI 美術設計能力認證（中）', org: '資策會' },

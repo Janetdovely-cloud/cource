@@ -288,7 +288,7 @@ function CertWall({ d }) {
           <Item as="li" key={c.name}>
             <TiltCard className="h-full" max={10}>
               <div className="card card-hover h-full !pl-[24px]" style={{ '--c': ['var(--color-violet)', 'var(--color-gold)', 'var(--color-brand)', 'var(--color-red)'][i % 4] }} data-cursor="證照">
-                <span className="font-mono font-bold text-[13px] text-muted">{String(i + 1).padStart(2, '0')}・{c.org}</span>
+                <span className="font-mono font-bold text-[13px] text-muted">{String(i + 1).padStart(2, '0')}{c.org && `・${c.org}`}</span>
                 <p className="m-0 mt-1 font-extrabold text-[15px] leading-snug">{c.name}</p>
               </div>
             </TiltCard>
