@@ -174,6 +174,32 @@ function Why({ d, color }) {
         </Stagger>
         <p className="note mt-4 mb-0">{d.salaryNote}</p>
       </div>
+
+      {d.rates && (
+        <div className="mt-10">
+          <h3 className="text-[26px]">{d.rates.title}</h3>
+          <p className="sub !mb-5">{d.rates.sub}</p>
+          <div className="grid gap-[18px] md:grid-cols-2">
+            {d.rates.tables.map((t) => (
+              <div key={t.cols[0]} className="soft p-5 overflow-x-auto">
+                <table className="w-full text-[15px] border-collapse">
+                  <thead>
+                    <tr className="border-b-2 border-ink">{t.cols.map((c) => <th key={c} className="py-2 px-2 text-left font-bold">{c}</th>)}</tr>
+                  </thead>
+                  <tbody>
+                    {t.rows.map((r) => (
+                      <tr key={r[0]} className="border-b border-rule">
+                        {r.map((v, i) => <td key={i} className={`py-2 px-2 ${i ? 'font-mono' : 'font-bold'}`}>{v}</td>)}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            ))}
+          </div>
+          <p className="note mt-3 mb-0">{d.rates.note}</p>
+        </div>
+      )}
     </Section>
   )
 }

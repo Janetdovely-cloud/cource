@@ -10,6 +10,7 @@ import aiGeneral from '../assets/ai-pro/mod-general.webp'
 import aiWork from '../assets/ai-pro/mod-work.webp'
 import aiPro from '../assets/ai-pro/mod-pro.webp'
 import bizHero from '../assets/biz-design/hero.webp'
+import avHero from '../assets/av-design/hero.webp'
 import interiorHero from '../assets/interior/hero.webp'
 
 // AI 全應用證照班：商業整合設計師、室內設計師共用
@@ -43,7 +44,9 @@ export const courseIndex = [
   { slug: 'biz-design', ready: true, cat: 'design', name: '商業整合設計師', en: 'Branding Marketing Designer',
     line: '商業設計 × 品牌行銷 × AI 工具，啟動商業整合新風潮', img: bizHero,
     tags: ['Photoshop', 'Illustrator', 'UI/UX', 'RWD 網站', 'AI 協作'] },
-  { slug: 'av-design', ready: false, cat: 'design', name: '影音製作設計師', en: 'Audiovisual Production Designer' },
+  { slug: 'av-design', ready: true, cat: 'design', name: '影音製作設計師', en: 'Audiovisual Production Designer',
+    line: '影片剪輯 × 動畫特效 × AI 輔助，創造流量拼收益', img: avHero,
+    tags: ['Premiere', 'After Effects', 'Davinci', 'Cinema 4D', 'Unity'] },
   { slug: 'interior', ready: true, cat: 'eng', name: '室內設計師', en: 'Interior Designer',
     line: '善用 AI 協作，挑戰 6 個月取得乙級證照，合法執業', img: interiorHero,
     tags: ['AutoCAD', 'SketchUp', '3ds Max', '空間軟裝', '雙乙級證照'] },
@@ -790,6 +793,247 @@ export const courses = {
         a: 'JOB580 就業服務的第一步就是「資格審核、職訓補助」評估，是否符合補助資格請洽各分校確認。' },
     ],
   },
+  'av-design': {
+    slug: 'av-design',
+    color: 'var(--color-red)',
+    hero: {
+      badges: ['獨家・產學培訓', 'AI 職缺媒合', '結訓保證面試'],
+      title: '影音製作設計師',
+      en: 'Audiovisual Production Designer',
+      hand: '影音特效 × 虛擬實境，創造千萬流量密碼',
+      line: '影片剪輯 × 動畫特效 × AI 輔助，強化影音質感，創造流量拼收益。',
+      sub: '專屬・增能學習｜真人教練｜AI 教練',
+      tags: ['24HR 自由彈性', '隨時隨地', '高效學習'],
+      img: avHero,
+      imgAlt: '戴毛帽的剪輯師坐在電腦前，螢幕上是影片剪輯軟體的時間軸',
+    },
+
+    why: {
+      title: '影音特效結合虛擬實境技術，創造千萬流量密碼',
+      lead: '5G 時代來臨，影音流量直逼總網路流量 80%',
+      hl: '想把握商機，影音技能必須要會。',
+      stats: [
+        { tag: '市場熱', kicker: '影音占總網路流量', num: 80, unit: '%',
+          desc: 'YouTube、TikTok 等影音平台爭奇鬥艷，超過 50% 消費者認為社群影音廣告能提升購買意願。' },
+        { tag: '趨勢漲', kicker: '短影音每日觀看', num: 500, unit: '億次',
+          desc: '在流量＝錢的時代，如何在影片開始前 6 秒抓住消費者眼球，是新世代行銷人必須面對的挑戰。' },
+        { tag: '工作多', kicker: '薪水雙收', num: 60, unit: 'K',
+          desc: '各大公司與品牌紛紛開出影音相關職缺，懂影音會 3D，讓你到哪都成為炙手可熱人才。' },
+      ],
+      compare: {
+        title: '會 3D 動畫特效，月薪上限再往上跳',
+        sub: '從平面設計到 3D 動畫影音特效師，技能越完整，薪資天花板越高。',
+        bars: [
+          { name: '平面設計師', num: 40 },
+          { name: '影音剪輯師', num: 48 },
+          { name: '3D 動畫影音特效師', num: 65, hot: true },
+        ],
+        unit: 'K／月（月薪上限）',
+      },
+      facts: [
+        { num: '6秒', title: '抓住眼球', text: '爆紅不只靠內容，掌握動畫與特效，做出 6 秒吸睛影片。' },
+        { num: 'AI', title: 'AI 協作課程', text: 'ChatGPT AI 應用課：腳本修改、智慧剪輯、AI 圖文生成。' },
+        { num: '50%', title: '簡化工作流程', text: '影音結合 AI 工具，加速剪輯流程，最多節省 50% 時間。' },
+        { num: 'Z世代', title: '短影音密碼', text: '掌握 Z 世代爆紅密碼，打造高流量精彩視聽饗宴。' },
+      ],
+      salaryTitle: '影音相關職務月薪範圍',
+      salary: [
+        { role: '平面設計師', min: 32, max: 40 },
+        { role: '影音剪輯師', min: 32, max: 48 },
+        { role: '影音特效設計師', min: 35, max: 49 },
+        { role: '多媒體影音剪輯師', min: 35, max: 50 },
+        { role: '3D 動畫影音特效師', min: 36, max: 65, top: true },
+      ],
+      salaryNote: '薪資參考來源：人力銀行（單位：千元）。本表僅供參考，實際薪資報酬依各職務待遇、案件內容而有所不同。',
+      rates: {
+        title: '下班接案也能多一份收入',
+        sub: '影音剪輯後製與影音專案的接案行情。',
+        tables: [
+          { cols: ['影音剪輯後製類型', '平均時長', '接案行情'], rows: [
+            ['短影音', '30–60s', '1–2K'], ['企業形象影片', '2.5m', '1.2–6K'], ['廣告影片', '3m', '1.5–7K'], ['音樂 MV', '4m', '2–8K'],
+            ['動畫影片（短）', '10m', '30–60K'], ['YouTube 影片', '10m', '5–20K'], ['微電影（短片）', '15m', '7.5–30K'] ] },
+          { cols: ['影音專案類型', '接案行情'], rows: [
+            ['簡易廣告影片', '3–6K'], ['一般廣告影片', '6–70K'], ['專業廣告影片', '70K 以上'], ['企業影片', '4–56K'], ['活動影片', '3–20K'], ['動畫影片', '6–30K'] ] },
+        ],
+        note: '本表僅供參考，實際報酬依案件內容而有所不同。',
+      },
+    },
+
+    who: {
+      title: '想做影音，從幕後技能開始',
+      sub: '剪片、後製、特效、企劃都是幕後專業，不必上鏡也能靠影音技能就業或接案。',
+      cards: [
+        { icon: 'rocket', title: '想入行的新手', pain: '喜歡看影片，想學剪輯', say: '從 AI 全應用與 Premiere 剪輯開始，一步步做出完整作品。', certs: ['AI 全應用證照班', 'Adobe 創意影片剪輯'] },
+        { icon: 'briefcase', title: '平面設計師', pain: '只會平面，想往動態發展', say: '補上動畫特效與 3D，讓作品動起來，薪資天花板也更高。', certs: ['Adobe 數位影音特效', 'Cinema 4D 影視動畫'] },
+        { icon: 'target', title: '行銷與小編', pain: '短影音素材要自己來', say: '剪輯、調色、特效一次學會，自己就能產出吸睛影片。', certs: ['品牌設計實務', 'Davinci Resolve 調色攻略'] },
+        { icon: 'star', title: '想接案的斜槓族', pain: '想下班多一份收入', say: '影音案件需求多，學會 3D 與虛擬實境，接案範圍更廣。', certs: ['Cinema 4D 影視動畫', 'Unity 3D 虛擬實境製作'] },
+      ],
+    },
+
+    what: {
+      title: '從 AI 應用、品牌設計到影音特效與 3D',
+      sub: '先用 AI 全應用證照班與品牌設計實務打底，再學剪輯、調色、特效，最後挑戰 3D 動畫與虛擬實境。',
+      analogyLabel: '一句話看懂：',
+      modules: [
+        { ...aiAllModule, color: 'var(--color-violet)' },
+        { id: 'brand', name: '品牌設計實務', color: 'var(--color-gold)',
+          tagline: 'Photoshop × Illustrator', desc: '從設計方法到品牌經營策略，成就市場即戰力。',
+          analogy: '從行銷企劃到接案 × 斜槓流程，打造全方位設計接案人才。',
+          highlights: ['CIS 企業識別系統與品牌塑造', '品牌定位、行銷與文案撰寫', '學會商業談判與提案實務'],
+          units: [
+            { t: 'CIS 概述與品牌塑造', items: ['CIS 企業識別系統', '品牌塑造流程與概念', '品牌設計美學概述'] },
+            { t: '品牌創造與行銷實務', items: ['品牌定位策略', '品牌行銷與績效', '品牌文化塑造', '品牌文案撰寫'] },
+            { t: '整合行銷品牌管理', items: ['創意思考訓練', '業務開發及人脈管理', '市場分析與競爭分析'] },
+            { t: '設計經營思維 I', items: ['從創意到創業', '自我行銷', '接案藝術', '為你的作品定價'] },
+            { t: '設計經營思維 II', items: ['經營者的設計角度', '合適的客戶選擇', '商業談判技巧實務', '商業提案執行實務'] },
+          ] },
+        { id: 'pr', name: 'Adobe 創意影片剪輯', color: 'var(--color-red)',
+          tagline: 'Premiere', desc: '短影音流量爆發成長，流量變現時代來臨。',
+          analogy: '自媒體網紅新浪潮，創造吸睛影片抓住消費者眼球。',
+          highlights: ['拍攝基礎與構圖、運鏡技巧', 'AI 工具與腳本架構、AI 字幕', '影片剪輯成果發表（實作）'],
+          units: [
+            { t: '拍攝基礎與構圖', items: ['拍攝基礎與鏡頭語言', '拍攝器材與運鏡技巧', 'AI 工具與腳本架構', '分鏡稿與腳本格式'] },
+            { t: 'Premiere 影音剪輯', items: ['Premiere 環境介紹', 'Premiere 基礎剪輯', '音效使用與節奏掌握', '經典特效設定'] },
+            { t: 'Premiere 專案製作', items: ['影像與轉場特效', '綜藝特效字卡', 'AI 字幕與 SRT 使用', '影片剪輯成果發表（實作）'] },
+          ] },
+        { id: 'davinci', name: 'Davinci Resolve 調色攻略', color: 'var(--color-brand)',
+          tagline: 'Davinci Resolve', desc: '調色好麻煩？懶人調色救星！',
+          analogy: '電影等級調色手法，影片動人又吸睛。',
+          highlights: ['達文西介面與素材剪輯', '一級調色：色彩還原與示波圖判讀', '二級調色：風格調色與 VLOG 實作'],
+          units: [
+            { t: 'Davinci Resolve 基本操作', items: ['達文西介面介紹', '素材導入與基本瀏覽', '各式剪輯技巧'] },
+            { t: '一級調色：色彩還原', items: ['調色工作流程', '節點功能介紹', '示波圖判讀'] },
+            { t: '二級調色：風格調色', items: ['調色實用技巧', '經典色調掌握', 'VLOG 風格影片（實作）'] },
+          ] },
+        { id: 'ae', name: 'Adobe 數位影音特效', color: 'var(--color-gold)',
+          tagline: 'After Effects', desc: '透過 After Effects 強化影片，讓視覺效果再升級。',
+          analogy: '爆紅不只靠內容，掌握動畫與特效，做出 6 秒吸睛影片。',
+          highlights: ['關鍵影格與動畫、綠幕去背', '3D 粒子特效系統', 'ICON 與 LOGO 動畫、片頭片尾特效'],
+          units: [
+            { t: 'After Effects 基礎操作', items: ['After Effects 介面功能', '時間軸與圖層應用', '關鍵影格與動畫', '綠幕與 Rotobrush 去背', '動態與攝影機追蹤'] },
+            { t: 'After Effects 動畫特效', items: ['文字與圖形色彩調整', '常用特效集錦', '3D 粒子特效系統', '雜訊類特效', '基礎表達式應用'] },
+            { t: 'After Effects 成果發表', items: ['文字動畫特效', 'ICON 與 LOGO 動畫', '2D 圖形動畫', '片頭特效實作', '片尾特效實作'] },
+          ] },
+        { id: 'c4d', name: 'Cinema 4D 影視動畫', color: 'var(--color-violet)',
+          tagline: 'Cinema 4D', desc: '高速建模 3D 動態影像，完整表達作品意象。',
+          analogy: '2D 設計整合 3D 技術，快速產出業界高水準作品。',
+          highlights: ['建模、燈光與材質', 'VTuber 虛擬網紅製作', '粒子系統與 MoGraph 實作'],
+          units: [
+            { t: '建模入門', items: ['各類工具應用', '曲面建模', '多邊形建模', '雕刻建模'] },
+            { t: '燈光與材質', items: ['貼圖與座標系統', '材質製作運用', '燈光調校', '算圖輸出'] },
+            { t: 'VTuber 虛擬網紅製作', items: ['VTuber 角色設計', '3D 角色骨架綁定', '角色動作捕捉', '角色表情設定', '虛擬導播軟體使用'] },
+            { t: '動畫製作', items: ['攝影機設定運用', '骨架綁定與應用', 'Mixamo 整合製作', '動畫製作'] },
+            { t: '後製特效整合', items: ['粒子系統', 'MoGraph 實作', '音效處理', '影像後製'] },
+          ] },
+        { id: 'unity', name: 'Unity 3D 虛擬實境製作', color: 'var(--color-red)',
+          tagline: 'Unity', desc: '翻轉感官新革命，打造沉浸式體驗。',
+          analogy: '未來發展趨勢，虛擬導覽製作，3D 互動身歷其境。',
+          highlights: ['Unity 遊戲引擎與物件、元件', '光源材質、物理與動畫系統', '虛擬導覽與 AR 擴增實境製作'],
+          units: [
+            { t: 'Unity 遊戲引擎與物件／元件', items: ['Unity 遊戲引擎介紹', '遊戲編輯器／資源瀏覽器', '遊戲物件定義與介紹', '元件定義介紹', '攝影機使用', 'Skybox 元件'] },
+            { t: '光源材質上色', items: ['各式光源應用', '材質貼圖應用', '著色器應用', '效能調校'] },
+            { t: '物理／動畫系統', items: ['物理／粒子系統', '動畫編輯器', '效能議題', '動畫機制介紹'] },
+            { t: '聲音／地理系統', items: ['聲音系統', '地形系統／幾何', '材質編輯', '效能議題'] },
+            { t: 'UI 與外部資源', items: ['UI 實作', '匯入 3D 模型', '匯入貼圖／音效'] },
+            { t: '虛擬導覽／AR 擴增實境製作', items: ['場景制作', '互動操控設定', '輸出測試'] },
+          ] },
+      ],
+      certs: {
+        title: '相關認證',
+        sub: '依照不同選修科目，頒發結訓合格數位證書。',
+        list: [
+          { name: 'Adobe 原廠證書', org: 'Adobe' },
+          { name: 'Adobe ACP 國際認證', org: 'Adobe' },
+          { name: 'LINE 官方合作結訓證書', org: 'LINE' },
+          { name: 'Unity UCU', org: 'Unity' },
+          { name: 'Google Ads 認證', org: 'Google' },
+          { name: 'Photoshop 設計專家', org: 'Adobe' },
+          { name: 'Premiere 設計專家', org: 'Adobe' },
+          { name: 'After Effects 設計專家', org: 'Adobe' },
+          { name: '視覺設計專家', org: 'Adobe' },
+          { name: '影音設計專家', org: 'Adobe' },
+        ],
+      },
+    },
+
+    how: {
+      title: '剪輯、特效、3D，一步步疊出影音身價',
+      sub: '從品牌與剪輯打底，延伸到調色與特效，再挑戰 3D 動畫與虛擬實境。',
+      chain: [
+        { no: '01', title: '打底', badge: 'AI・Photoshop・Illustrator', text: 'AI 全應用證照班與品牌設計實務，建立設計與 AI 協作力。', color: 'var(--color-gold)' },
+        { no: '02', title: '剪輯與特效', badge: 'Premiere・Davinci・After Effects', text: '影片剪輯、電影級調色與數位影音特效。', color: 'var(--color-red)' },
+        { no: '03', title: '3D 與虛擬實境', badge: 'Cinema 4D・Unity', text: '3D 影視動畫、VTuber 與虛擬導覽／AR 製作。', color: 'var(--color-violet)' },
+      ],
+      practice: '課中會帶領同學完成相關作品，並輔導考取相關證照。',
+      services: {
+        title: '訓前・訓中・訓後：8 項求職服務一路陪跑',
+        phases: [
+          { name: '訓前', items: ['專業顧問輔導', '短工轉介媒合'] },
+          { name: '訓中', items: ['帶領完成相關作品', '輔導考取相關證照', '專題成果發表會'] },
+          { name: '訓後', items: ['個人履歷健檢優化', '聯合徵才博覽會', '百大企業職缺引薦', '產學專班保送面試'] },
+        ],
+      },
+      aiTools: { title: '全方位 AI 資源助攻，就業 0 距離', items: ['AI 跨領域工作術', 'AI 自傳生成', 'AI 媒合職缺', 'AI 求職追蹤'] },
+      jobs: {
+        title: '工作大未來，你就是人才：上千聯成電腦學員成功就業',
+        note: '榮獲政府 TTQS 評鑑獎項，培訓就業有保障。',
+        stats: [
+          { label: '就業成功率', num: 93, unit: '%' },
+          { label: '就輔徵才推介會', num: 21, unit: '場' },
+          { label: '廠商徵才見面會', num: 266, unit: '場' },
+          { label: '廠商聯合徵才說明會', num: 47, unit: '場' },
+          { label: '合作廠商數約', num: 6347, unit: '家' },
+        ],
+      },
+    },
+
+    format: {
+      title: '線上真人，即時指導，跨區進修',
+      sub: '5 大教學系統依你的時間自由搭配，真人教練＋AI 教練陪你學到會。',
+      systems: [
+        { name: '實體教學系統', text: '課程程度分班' },
+        { name: '直播教學系統', text: '個人化排課即時互動' },
+        { name: '錄播教學系統', text: '24 小時隨時學' },
+        { name: '學習監控系統', text: '課後簽退、自我學習評價' },
+        { name: '真人教練系統', text: '線上線下搭配，即時解惑' },
+      ],
+      coach: [
+        { name: '真人教練', sub: '量身即時指導', points: ['預約 1 對 1 教學效果倍增', '雙向互動解決學習盲點'] },
+        { name: 'AI 教練', sub: '加速學習進程', points: ['免下載一鍵開啟即上課', '24hr 因材施教在線複習'] },
+        { name: '課後收穫', sub: '精準訓練計劃', points: ['客製化增進軟硬實力', '短期衝刺找到命定職業'] },
+      ],
+      perks: ['真人直播，即時互動', '師生互動，隨問即答', '學習不受地點限制', '14 天錄影檔免費看'],
+      upgrade: '升級 24hr，課程全面不加價',
+    },
+
+    teacher: {
+      title: '北中南名師獨家 Live',
+      sub: '解決產業落差，接軌職場；影音結合 AI 工具，加速剪輯流程。',
+      traits: [
+        { icon: 'live', title: '名師獨家 Live', text: '北中南名師獨家 Live，解決產業落差，接軌職場。' },
+        { icon: 'star', title: 'AI 加速剪輯', text: '影音結合 AI 工具，加速剪輯流程，提升影片品質。' },
+        { icon: 'briefcase', title: '掌握 Z 世代密碼', text: '打造高流量精彩視聽饗宴。' },
+      ],
+    },
+
+    faq: [
+      { q: '沒有剪輯基礎，可以學嗎？',
+        a: '可以。課程從 AI 全應用證照班與品牌設計實務開始，再從拍攝基礎、Premiere 剪輯一路學到特效與 3D。' },
+      { q: '課程會用到哪些軟體？',
+        a: 'Photoshop、Illustrator、Premiere、After Effects、Davinci Resolve、Cinema 4D 與 Unity。' },
+      { q: '可以考哪些證照？',
+        a: '相關認證包含 Adobe 原廠證書、Adobe ACP 國際認證、LINE 官方合作結訓證書、Unity UCU、Google Ads 認證，以及 Photoshop、Premiere、After Effects、視覺設計、影音設計專家。依照不同選修科目，頒發結訓合格數位證書。' },
+      { q: '我不想露臉，也能做影音工作嗎？',
+        a: '可以。影音產業分幕前與幕後，剪片、後製、特效、企劃都是幕後技能，正是這門課的重點。' },
+      { q: '上班時間不固定，跟得上進度嗎？',
+        a: '有直播、錄播、實體等 5 大教學系統可以自由搭配，錄影檔 14 天免費看，AI 教練 24 小時在線複習。' },
+      { q: '結訓後有就業協助嗎？',
+        a: '有。結合 JOB580 提供 8 項求職服務，另有 AI 自傳生成、AI 媒合職缺、AI 求職追蹤等 AI 求職資源。' },
+      { q: '可以申請職訓補助嗎？',
+        a: 'JOB580 就業服務的第一步就是「資格審核、職訓補助」評估，是否符合補助資格請洽各分校確認。' },
+    ],
+  },
+
   interior: {
     slug: 'interior',
     color: 'var(--color-brand)',
