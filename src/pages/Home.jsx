@@ -19,19 +19,14 @@ function FeaturedCard({ c }) {
   return (
     <TiltCard className="h-full" max={5}>
       <Link to={`/course/${c.slug}`} data-cursor="看課程" className="card card-hover block h-full no-underline text-ink !p-0 overflow-hidden" style={{ '--c': cat.color }}>
-        <div className="relative h-[220px] md:h-[260px] overflow-hidden border-b-2 border-dashed" style={{ borderColor: cat.color }}>
+        <div className="relative h-[96px] overflow-hidden border-b-2 border-dashed" style={{ borderColor: cat.color }}>
           <motion.img src={c.img} alt="" className="w-full h-full object-cover" whileHover={{ scale: 1.06 }} transition={{ duration: 0.6 }} />
-          <span className="chip gold absolute top-4 left-5">招生中</span>
-          <span className="chip absolute top-4 right-4">{cat.name}</span>
+          <span className="chip gold absolute top-2 left-3 !text-[12px]">招生中</span>
         </div>
-        <div className="p-6 pl-7">
-          <p className="hand text-link text-[20px] m-0">{c.en}</p>
-          <h3 className="text-[34px] md:text-[40px] my-1">{c.name}</h3>
-          <p className="m-0 text-muted">{c.line}</p>
-          <div className="flex flex-wrap gap-2 mt-4">
-            {c.tags.map((t) => <span key={t} className="chip">{t}</span>)}
-          </div>
-          <p className="mt-5 mb-0 font-extrabold flex items-center gap-2 text-link">
+        <div className="p-5 pl-6">
+          <p className="hand text-link text-[16px] m-0">{c.en}</p>
+          <h4 className="text-[22px] mt-1">{c.name}</h4>
+          <p className="mt-3 mb-0 text-[14px] font-extrabold flex items-center gap-2 text-link">
             看完整課程 <Icon name="arrow" size={20} />
           </p>
         </div>
@@ -60,42 +55,6 @@ function UpcomingCard({ c }) {
   )
 }
 
-// 首屏主視覺：手繪剪貼簿拼貼（課程照片＋便利貼＋箭頭）
-function HeroCollage() {
-  const hot = courseIndex.find((c) => c.ready)
-  const notes = courseIndex.filter((c) => !c.ready).slice(0, 3)
-  return (
-    <div className="relative h-[420px] md:h-[480px] hidden sm:block" aria-hidden="true">
-      <motion.div className="absolute left-[4%] top-[6%] w-[78%]" initial={{ opacity: 0, rotate: 8, y: 40 }} animate={{ opacity: 1, rotate: -3, y: 0 }} transition={{ delay: 0.7, type: 'spring', stiffness: 120, damping: 14 }}>
-        <TiltCard max={7}>
-          <Link to={`/course/${hot.slug}`} tabIndex={-1} data-cursor="看課程" className="card plain block !p-3 no-underline text-ink" style={{ borderColor: 'var(--color-red)' }}>
-            <img src={hot.img} alt="" className="w-full h-[220px] md:h-[250px] object-cover block" style={{ borderRadius: 'var(--wob)' }} />
-            <p className="hand text-[28px] m-0 mt-2 px-1">{hot.name}</p>
-          </Link>
-        </TiltCard>
-        <span className="absolute -top-3 left-[38%] w-[90px] h-[26px] bg-gold/70 rotate-[-4deg]" />
-      </motion.div>
-      {notes.map((n, i) => (
-        <motion.div key={n.slug} className="absolute soft px-4 py-3 w-[170px]"
-          style={{ right: ['0%', '6%', '-2%'][i], top: ['0%', '52%', '78%'][i], background: ['#FFF4D6', '#E6F6F2', '#F0ECFF'][i] }}
-          initial={{ opacity: 0, scale: 0.6 }} animate={{ opacity: 1, scale: 1, rotate: [4, -5, 3][i] }}
-          transition={{ delay: 1.1 + i * 0.15, type: 'spring', stiffness: 200, damping: 12 }}
-          whileHover={{ rotate: 0, scale: 1.06 }} data-cursor="即將上線" data-cursor-tone="muted">
-          <p className="m-0 text-[12px] font-bold text-muted">即將上線</p>
-          <p className="hand m-0 text-[20px] leading-tight">{n.name}</p>
-        </motion.div>
-      ))}
-      <svg className="absolute left-[-6%] bottom-[2%] w-[160px] h-[90px]" viewBox="0 0 160 90">
-        <motion.path d="M10 20 C 40 90, 100 80, 140 50 M128 44 l14 4 -6 13" fill="none" stroke="var(--color-brand)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"
-          initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ delay: 1.6, duration: 1 }} />
-      </svg>
-      <motion.p className="hand absolute left-[-4%] bottom-[-4%] text-[22px] text-link m-0 rotate-[-6deg]" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2.2 }}>
-        先從這門開始！
-      </motion.p>
-    </div>
-  )
-}
-
 export default function Home() {
   const [cat, setCat] = useState('all')
   const { scrollY } = useScroll()
@@ -111,7 +70,7 @@ export default function Home() {
       {/* ── Hero ── */}
       <header className="relative overflow-hidden">
         <motion.div style={{ y: parallax }} className="absolute inset-0"><Doodles /></motion.div>
-        <div className="wrap relative pt-20 pb-16 md:pt-28 md:pb-24 grid gap-12 lg:grid-cols-[1.15fr_.85fr] items-center">
+        <div className="wrap relative pt-20 pb-16 md:pt-28 md:pb-24">
           <div>
           <motion.p className="hand text-link text-[clamp(22px,3vw,30px)] m-0" initial={{ opacity: 0, x: -12 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.5 }}>
             New world. New skills.
@@ -144,7 +103,6 @@ export default function Home() {
             ))}
           </Stagger>
           </div>
-          <HeroCollage />
         </div>
       </header>
 
@@ -165,7 +123,7 @@ export default function Home() {
         <motion.div layout className="grid gap-[18px] grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 auto-rows-[minmax(150px,auto)]">
           <AnimatePresence mode="popLayout">
             {featured && (
-              <motion.div key={featured.slug} layout className="sm:col-span-2 lg:row-span-2"
+              <motion.div key={featured.slug} layout
                 initial={{ opacity: 0, scale: 0.94 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.94 }}>
                 <FeaturedCard c={featured} />
               </motion.div>
