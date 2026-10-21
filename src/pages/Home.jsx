@@ -21,7 +21,6 @@ function FeaturedCard({ c }) {
       <Link to={`/course/${c.slug}`} data-cursor="看課程" className="card card-hover block h-full no-underline text-ink !p-0 overflow-hidden" style={{ '--c': cat.color }}>
         <div className="relative h-[96px] overflow-hidden border-b-2 border-dashed" style={{ borderColor: cat.color }}>
           <motion.img src={c.img} alt="" className="w-full h-full object-cover" whileHover={{ scale: 1.06 }} transition={{ duration: 0.6 }} />
-          <span className="chip gold absolute top-2 left-3 !text-[12px]">招生中</span>
         </div>
         <div className="p-5 pl-6">
           <p className="hand text-link text-[16px] m-0">{c.en}</p>
@@ -39,7 +38,7 @@ function UpcomingCard({ c }) {
   const cat = catOf(c.cat)
   return (
     <TiltCard className="h-full" max={6}>
-      <div aria-disabled="true" data-cursor="籌備中" data-cursor-tone="muted"
+      <div aria-disabled="true" data-cursor-tone="muted"
         className="soft h-full p-5 flex flex-col justify-between min-h-[150px] relative overflow-hidden"
         style={{ borderTop: `5px solid ${cat.color}` }}>
         <div>
@@ -48,7 +47,6 @@ function UpcomingCard({ c }) {
         </div>
         <div className="flex items-center justify-between mt-3">
           <span className="text-[13px] font-bold text-muted">{cat.name}</span>
-          <span className="chip" style={{ borderStyle: 'dashed', color: 'var(--color-muted)', borderColor: 'var(--color-muted)' }}>即將上線</span>
         </div>
       </div>
     </TiltCard>
