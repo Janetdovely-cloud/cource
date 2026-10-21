@@ -163,7 +163,7 @@ function Who({ d, color }) {
                 <h3 className="text-[26px] mt-4">{c.title}</h3>
                 <p className="m-0 mt-1 text-[14px] font-bold text-muted">{c.pain}</p>
                 <p className="m-0 mt-3 text-[15px] flex-1">{c.say}</p>
-                <p className="m-0 mt-4 text-[12px] font-extrabold text-link">推薦證照</p>
+                <p className="m-0 mt-4 text-[12px] font-extrabold text-link">推薦課程</p>
                 <div className="flex flex-wrap gap-1.5 mt-1">{c.certs.map((t) => <span key={t} className="chip !text-[12px]">{t}</span>)}</div>
               </div>
             </TiltCard>

@@ -97,16 +97,16 @@ export const courses = {
       title: '不是資工背景，也能切入資安',
       sub: '企業急缺資安人才，不只限於程式背景。透過系統化課程與證照，轉職者也能快速補齊基礎。',
       cards: [
-        { icon: 'rocket', title: '學生／新鮮人', pain: '沒有專長，怕履歷輸人', say: '資安證照是進入 IT 高薪產業的入門票。', certs: ['ISC2 CC', 'CCNA', 'Security+'] },
+        { icon: 'rocket', title: '學生／新鮮人', pain: '沒有專長，怕履歷輸人', say: '資安證照是進入 IT 高薪產業的入門票。', certs: ['資安攻防策略', 'CCNA', 'Security+'] },
         { icon: 'flag', title: 'IT 轉職者', pain: '有 IT 基礎，但缺資安能力', say: '加一張資安證照，履歷就能投資安職缺。', certs: ['CCNA', 'CySA+'] },
         { icon: 'target', title: '在職工程師', pain: '薪水停滯，想要升遷', say: '企業最缺治理與策略人才，ISO 與 CISSP 是升遷加薪的門票。', certs: ['ISO 27001', 'CISSP'] },
-        { icon: 'briefcase', title: '職涯卡關的上班族', pain: '想突破現況、培養第二專長', say: '資安是少數兼具技術與治理的藍海產業。', certs: ['ISC2 CC', 'CCNA', 'Security+', 'ISO 27001'] },
+        { icon: 'briefcase', title: '職涯卡關的上班族', pain: '想突破現況、培養第二專長', say: '資安是少數兼具技術與治理的藍海產業。', certs: ['資安攻防策略', 'CCNA', 'Security+', 'ISO 27001'] },
       ],
     },
 
     what: {
       title: '6 大模組，從攻防基礎到資安治理',
-      sub: '科科有證照：先修打底，再分「技術」與「管理」兩條路線，每門課都對應一張國際證照。',
+      sub: '先修打底，再分「技術」與「管理」兩條路線，技術與管理課程都對應國際證照。',
       tracks: [
         { id: 'pre', name: '先修養成' },
         { id: 'tech', name: '技術' },
@@ -114,11 +114,11 @@ export const courses = {
       ],
       modules: [
         { id: 'pre', track: 'pre', name: '資安攻防策略', img: modPre,
-          mode: '線上＋錄播', level: '初級', hours: 36, exam: 'ISC2 CC',
-          analogy: '零基礎轉職者、非 IT 背景，第一張可以放進履歷的資安認證。',
-          highlights: ['以 ISC2 CC 認證內容為基準設計', '從駭客思維出發：了解攻擊，才知道怎麼防禦', '實際操作 AI 聲音偽造與深度偽造，認識新型態攻擊', '提供 VM 環境安裝教學，在安全的環境動手實作'],
+          mode: '線上＋錄播', level: '初級', hours: 36, exam: '完課證明',
+          analogy: '專為零基礎設計，非 IT 背景也能先打好資安觀念，再挑戰國際證照。',
+          highlights: ['從駭客思維出發：了解攻擊，才知道怎麼防禦', '實際操作 AI 聲音偽造與深度偽造，認識新型態攻擊', '提供 VM 環境安裝教學，在安全的環境動手實作'],
           tagline: '資安新手入門首選，打好基礎最關鍵', desc: '從網路攻防到法規認知，建立完整資安視野',
-          cert: 'ISC2 CC 認證方向＋完課證明',
+          cert: '完課證明',
           units: [
             { t: '資安原則', items: ['資安三要素：CIA', '常見資安風險與類型', '資安法規與職場倫理'] },
             { t: '業務持續與事故應變', items: ['營運持續計劃與控制措施', '高可用性、容錯與備份機制', '資安事件應變與通報流程'] },
@@ -215,7 +215,6 @@ export const courses = {
       exams: {
         title: '認證考試一覽',
         rows: [
-          { name: 'ISC2 CC', time: 120, fee: 'USD 199', place: '專屬考場', valid: '三年' },
           { name: 'ISO 27001 主導稽核師', time: 180, fee: '學費內含', place: '上課教室', valid: '三年' },
           { name: 'CCNA', time: 120, fee: 'USD 300', place: 'VUE 考場／線上', valid: '三年' },
           { name: 'CompTIA Security+', time: 90, fee: 'USD 425', place: 'VUE 考場／線上', valid: '三年' },
