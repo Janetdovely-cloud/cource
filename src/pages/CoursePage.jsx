@@ -139,7 +139,7 @@ function Why({ d, color }) {
         <div className="mt-10">
           <h3 className="text-[26px]">{d.axes.title}</h3>
           <p className="sub !mb-5">{d.axes.sub}</p>
-          <Stagger className="grid gap-[18px] md:grid-cols-2">
+          <Stagger className={`grid gap-[18px] ${d.axes.list.length === 3 ? 'md:grid-cols-3' : 'md:grid-cols-2'}`}>
             {d.axes.list.map((a, i) => (
               <Item key={a.name}>
                 <TiltCard className="h-full" max={6}>
@@ -233,8 +233,8 @@ function What({ d }) {
             <motion.article key={m.id} layout className="card !p-0 overflow-hidden"
               style={{ '--c': modColor(m) }}
               initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0, transition: { delay: i * 0.05 } }} exit={{ opacity: 0, scale: 0.95 }}>
-              <div className="grid grid-cols-[110px_1fr] sm:grid-cols-[150px_1fr] gap-4 p-5 pl-7 items-center">
-                <img src={m.img} alt="" className="w-full h-[80px] sm:h-[96px] object-cover" style={{ borderRadius: 'var(--wob)' }} loading="lazy" />
+              <div className={`grid gap-4 p-5 pl-7 items-center ${m.img ? 'grid-cols-[110px_1fr] sm:grid-cols-[150px_1fr]' : ''}`}>
+                {m.img && <img src={m.img} alt="" className="w-full h-[80px] sm:h-[96px] object-cover" style={{ borderRadius: 'var(--wob)' }} loading="lazy" />}
                 <div>
                   {m.track && <span className="flex flex-wrap gap-1.5">
                     <span className="chip ink !text-[12px]">{trackName(m.track)}</span>
@@ -283,7 +283,7 @@ function CertWall({ d }) {
     <div className="mt-14">
       <h3 className="text-[28px]">{d.title}</h3>
       <p className="sub !mb-5">{d.sub}</p>
-      <Stagger as="ol" className="list-none p-0 m-0 grid gap-3 grid-cols-2 lg:grid-cols-5" amount={0.1}>
+      <Stagger as="ol" className={`list-none p-0 m-0 grid gap-3 grid-cols-2 ${d.list.length === 6 ? 'lg:grid-cols-3' : 'lg:grid-cols-5'}`} amount={0.1}>
         {d.list.map((c, i) => (
           <Item as="li" key={c.name}>
             <TiltCard className="h-full" max={10}>
