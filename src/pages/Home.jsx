@@ -84,7 +84,6 @@ export default function Home() {
               <button type="button" className="btn primary" data-cursor="出發" onClick={() => scrollToId('courses')}>
                 探索課程 <Icon name="arrow" size={18} />
               </button>
-              <Link to="/course/infosec" className="btn ghost" data-cursor="看看">熱門：資訊安全工程師</Link>
             </Item>
           </Stagger>
 
