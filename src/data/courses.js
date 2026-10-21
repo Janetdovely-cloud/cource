@@ -12,6 +12,7 @@ export const categories = [
   { id: 'ai', name: 'AI 應用', color: 'var(--color-violet)' },
   { id: 'design', name: '設計', color: 'var(--color-gold)' },
   { id: 'eng', name: '室內與工業', color: 'var(--color-brand)' },
+  { id: 'cert', name: '證照班', color: 'var(--color-ink)' },
 ]
 
 // 首頁卡片（依此順序顯示）：ready 為 false 的課程尚未有內頁
@@ -29,6 +30,7 @@ export const courseIndex = [
   { slug: 'cloud', ready: false, cat: 'it', name: '雲端系統', en: 'Cloud Systems' },
   { slug: 'anime', ready: false, cat: 'design', name: '動漫角色設計', en: 'Character Design' },
   { slug: 'ai-game', ready: false, cat: 'it', name: 'AI 遊戲程式設計師', en: 'AI Game Programmer' },
+  { slug: 'ipas', ready: false, cat: 'cert', name: 'iPAS 永續科技人才證照班', en: 'iPAS Certification' },
 ]
 
 // ── 課程內頁資料（每門課一份，頁面由 CoursePage 依資料產生）──
