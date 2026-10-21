@@ -200,6 +200,7 @@ function What({ d }) {
                     <span className="chip ink !text-[12px]">{trackName(m.track)}</span>
                     <span className="chip !text-[12px]">{m.level}</span>
                     <span className="chip gold !text-[12px] font-mono">{m.hours} 小時</span>
+                    <span className="chip !text-[12px]" style={m.mode === '實體課程' ? { background: 'var(--color-ink)', color: 'var(--color-paper)' } : undefined}>{m.mode}</span>
                   </span>
                   <h3 className="text-[22px] sm:text-[24px] mt-2">{m.name}</h3>
                   <p className="m-0 text-[14px] font-bold">{m.tagline}</p>
