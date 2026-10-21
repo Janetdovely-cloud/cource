@@ -92,12 +92,17 @@ export function SplitTitle({ text, className, delay = 0.12 }) {
   return (
     <motion.h1 className={className} initial="hidden" animate="show" aria-label={text}
       variants={{ show: { transition: { staggerChildren: 0.07, delayChildren: delay } } }}>
-      {[...text].map((ch, i) => (
-        <motion.span key={i} aria-hidden="true" style={{ display: 'inline-block', whiteSpace: 'pre' }}
-          variants={{ hidden: { opacity: 0, y: 28, rotate: -8 }, show: { opacity: 1, y: 0, rotate: 0, transition: { type: 'spring', stiffness: 260, damping: 16 } } }}
-          whileHover={{ rotate: [0, -6, 5, 0], transition: { duration: 0.4 } }}>
-          {ch}
-        </motion.span>
+      {text.split(/(\s+)/).map((word, w) => /^\s+$/.test(word) ? word : (
+        // 以詞為單位不換行，避免把「工程師」拆成「工／程師」
+        <span key={w} style={{ display: 'inline-block', whiteSpace: 'nowrap' }}>
+          {[...word].map((ch, i) => (
+            <motion.span key={i} aria-hidden="true" style={{ display: 'inline-block', whiteSpace: 'pre' }}
+              variants={{ hidden: { opacity: 0, y: 28, rotate: -8 }, show: { opacity: 1, y: 0, rotate: 0, transition: { type: 'spring', stiffness: 260, damping: 16 } } }}
+              whileHover={{ rotate: [0, -6, 5, 0], transition: { duration: 0.4 } }}>
+              {ch}
+            </motion.span>
+          ))}
+        </span>
       ))}
     </motion.h1>
   )

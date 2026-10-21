@@ -85,7 +85,7 @@ h1 { -webkit-text-stroke-width: .01em; } /* 大標題較細，Janet 2026-10-21 *
 }
 .in .hand-label::after, .hand-label.drawn::after { --draw: 1; }
 .sec h2 { font-size: clamp(28px, 4vw, 42px); margin: 6px 0 10px; }
-.sub { font-size: 17px; color: var(--color-muted); max-width: 68ch; margin: 0 0 32px; }
+.sub { font-size: 17px; color: var(--color-muted); max-width: none; margin: 0 0 32px; }
 .note { font-size: 14px; color: var(--color-muted); }
 
 mark.hl {
@@ -202,3 +202,6 @@ dialog[open].dlg { animation: dlgIn .3s ease; }
   .hand-label::after { --draw: 1; }
   mark.hl { --hl: 100%; }
 }
+p, li, .sub, blockquote { text-wrap: pretty; line-break: strict; word-break: keep-all; overflow-wrap: anywhere; }
+h1, h2, h3, h4 { text-wrap: balance; }
+.hand { text-wrap: balance; word-break: keep-all; overflow-wrap: anywhere; }

@@ -28,7 +28,7 @@ function Hero({ d, color }) {
             {d.en}
           </motion.p>
           <div className="relative inline-block">
-            <SplitTitle text={d.title} className="text-[clamp(44px,7.4vw,84px)] leading-[1.1] mt-1" delay={0.5} />
+            <SplitTitle text={d.title} className={`${[...d.title.replace(/\s/g, "")].length > 7 ? "text-[clamp(34px,5.2vw,62px)]" : "text-[clamp(36px,6.4vw,76px)]"} leading-[1.1] mt-1`} delay={0.5} />
             <Squiggle className="absolute left-0 -bottom-3 w-full h-[18px]" color={color} />
           </div>
           <Stagger className="mt-7">
@@ -174,6 +174,32 @@ function Why({ d, color }) {
         </Stagger>
         <p className="note mt-4 mb-0">{d.salaryNote}</p>
       </div>
+
+      {d.gigs && (
+        <div className="soft mt-10 p-5 md:p-7">
+          <h3 className="text-[24px] mb-2">{d.gigs.title}</h3>
+          <p className="sub !mb-5">{d.gigs.sub}</p>
+          <Stagger className="grid gap-3" amount={0.2}>
+            {d.gigs.list.map((s) => {
+              const top = Math.max(...d.gigs.list.map((g) => g.max))
+              return (
+                <Item key={s.role} className="grid gap-x-4 gap-y-1 items-center md:grid-cols-[190px_1fr]">
+                  <div className="font-bold text-[15px]">{s.role}</div>
+                  <div className="relative h-[30px] bg-rule/60 rounded-full overflow-hidden">
+                    <motion.div className="absolute inset-y-0 left-0 rounded-full flex items-center justify-end pr-3"
+                      style={{ background: s.max === top ? 'var(--color-gold)' : 'var(--color-brand)' }}
+                      initial={{ width: 0 }} whileInView={{ width: `${Math.max(s.max / top * 100, 18)}%` }} viewport={{ once: true }}
+                      transition={{ duration: 0.9, ease: [0.2, 0.7, 0.2, 1] }}>
+                      <span className="font-mono font-bold text-[13px] whitespace-nowrap" style={{ color: s.max === top ? '#1a1400' : '#06201C' }}>{s.min}–{s.max}K</span>
+                    </motion.div>
+                  </div>
+                </Item>
+              )
+            })}
+          </Stagger>
+          <p className="note mt-4 mb-0">{d.gigs.note}</p>
+        </div>
+      )}
 
       {d.rates && (
         <div className="mt-10">

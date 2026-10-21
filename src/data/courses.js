@@ -11,6 +11,7 @@ import aiWork from '../assets/ai-pro/mod-work.webp'
 import aiPro from '../assets/ai-pro/mod-pro.webp'
 import bizHero from '../assets/biz-design/hero.webp'
 import avHero from '../assets/av-design/hero.webp'
+import aieHero from '../assets/ai-engineer/hero.webp'
 import interiorHero from '../assets/interior/hero.webp'
 
 // AI 全應用證照班：商業整合設計師、室內設計師共用
@@ -50,7 +51,9 @@ export const courseIndex = [
   { slug: 'interior', ready: true, cat: 'eng', name: '室內設計師', en: 'Interior Designer',
     line: '善用 AI 協作，挑戰 6 個月取得乙級證照，合法執業', img: interiorHero,
     tags: ['AutoCAD', 'SketchUp', '3ds Max', '空間軟裝', '雙乙級證照'] },
-  { slug: 'ai-engineer', ready: false, cat: 'it', name: 'AI 人工智慧工程師', en: 'Artificial Intelligence Engineer' },
+  { slug: 'ai-engineer', ready: true, cat: 'it', name: 'AI 人工智慧工程師', en: 'Artificial Intelligence Engineer',
+    line: '掌握 Python × AI 開發技術，打造善用 AI 的工程實力', img: aieHero,
+    tags: ['Python', '機器學習', '深度學習', 'OpenCV', 'Django'] },
   { slug: 'ai-agent', ready: false, cat: 'ai', name: 'AI Agent 應用開發工程師', en: 'AI Agent Developer' },
   { slug: 'ptc', ready: false, cat: 'eng', name: 'PTC 機構工程師', en: 'Mechanical Design Engineer' },
   { slug: 'infosec', ready: true, cat: 'it', name: '資訊安全工程師', en: 'Information Security Engineer',
@@ -1031,6 +1034,234 @@ export const courses = {
         a: '有。結合 JOB580 提供 8 項求職服務，另有 AI 自傳生成、AI 媒合職缺、AI 求職追蹤等 AI 求職資源。' },
       { q: '可以申請職訓補助嗎？',
         a: 'JOB580 就業服務的第一步就是「資格審核、職訓補助」評估，是否符合補助資格請洽各分校確認。' },
+    ],
+  },
+
+  'ai-engineer': {
+    slug: 'ai-engineer',
+    color: 'var(--color-brand)',
+    hero: {
+      badges: ['程式 × AI 協作', '獨家・產學培訓', '保證面試'],
+      title: 'AI 人工智慧工程師',
+      en: 'Artificial Intelligence Engineer',
+      hand: '會用 AI 不夠，懂得與 AI 協作才是關鍵',
+      line: '掌握 Python × AI 開發技術，打造善用 AI 的工程實力。',
+      sub: '本培訓課程通過數發部審核，符合國家《AI 產業人才認定指引》',
+      tags: ['24HR 自由彈性', '隨時隨地', '高效學習'],
+      img: aieHero,
+      imgAlt: '機械手托起發光的 AI 資料分析介面',
+    },
+
+    why: {
+      title: 'AI 新浪潮加速，工作模式正在改寫',
+      lead: '從晶片、算力到應用開發，AI 產業鏈持續擴大',
+      hl: '會用 AI 不夠，懂得與 AI 協作才是關鍵。',
+      stats: [
+        { tag: '高產值', kicker: '輝達在台供應鏈年支出上看', num: 1500, unit: '億美元',
+          desc: 'AI 產業鏈持續擴大；從晶片、算力到應用開發，具備 AI 技術背景更有機會切入新領域。' },
+        { tag: '高職缺', kicker: 'AI 相關工作機會', num: 12.1, decimals: 1, unit: '萬',
+          desc: '台灣 AI 相關工作機會已突破 12.1 萬個，職缺從科技研發延伸至多元產業。' },
+        { tag: '高薪資', kicker: 'AI 工程師月薪中位數', num: 6.9, decimals: 1, unit: '萬',
+          desc: '隨著 AI 導入產業，具備資料處理、模型應用與開發能力，更有機會提升個人競爭力。' },
+      ],
+      compare: {
+        title: '只會 AI vs. 具備領域專業＋AI 能力',
+        sub: 'AI 都能生成程式了，為什麼還要學 Python？只有懂得程式底層邏輯，才具備判讀、修正 AI 生成失誤與落地應用的能力。',
+        bars: [
+          { name: '資料分析工程師', num: 60 },
+          { name: 'Python 開發工程師', num: 65 },
+          { name: '電腦視覺工程師', num: 85, hot: true },
+        ],
+        unit: 'K／月（月薪上限）',
+      },
+      facts: [
+        { num: '除錯', title: '掌握程式邏輯，精準糾錯', text: '只會 AI 只能下指令、無法除錯。' },
+        { num: '自動', title: '寫程式自動洗數據', text: '不再抓完資料仍靠人工，建立排程自動處理。' },
+        { num: '決策', title: '視覺化分析，精準決策', text: '不只產出圖表，更會判讀數據。' },
+        { num: 'AI', title: 'AI 時代拉開差距', text: '懂得駕馭 AI 的人，才會拉開差距。' },
+      ],
+      salaryTitle: '市場職缺：月薪範圍',
+      salary: [
+        { role: '資料分析工程師', min: 35, max: 60 },
+        { role: 'Python 開發工程師', min: 40, max: 65 },
+        { role: '後端工程師', min: 40, max: 65 },
+        { role: 'AI 軟體工程師', min: 45, max: 80 },
+        { role: '機器學習工程師', min: 50, max: 80 },
+        { role: '電腦視覺工程師', min: 50, max: 85, top: true },
+      ],
+      salaryNote: '參考來源：人力銀行與公開接案平台（單位：千元）。本表僅供參考，實際金額依職務待遇、案件內容、開發難度與經驗條件而異。',
+      gigs: {
+        title: '接案職缺：下班也能接案',
+        sub: '學會爬蟲、自動化與專案開發，接案範圍更廣。',
+        list: [
+          { role: '資料自動化抓取', min: 5, max: 15 },
+          { role: '軟體自動化工程', min: 20, max: 40 },
+          { role: '購物平台開發', min: 60, max: 120 },
+          { role: '客製化爬蟲應用整合', min: 60, max: 120 },
+          { role: '軟體專案開發', min: 100, max: 200 },
+        ],
+        note: '接案行情為參考區間（單位：千元），實際金額依案件內容、開發難度與經驗條件而異。',
+      },
+    },
+
+    who: {
+      title: '想進 AI 產業，先打好 Python 基底',
+      sub: '從程式基礎、資料分析到模型訓練與 Web 開發，一步步成為能落地應用的 AI 工程師。',
+      cards: [
+        { icon: 'rocket', title: '想轉職的新手', pain: '沒寫過程式，不知道從哪開始', say: '從 Python 基礎與 AI 協作開始，生活程式開發實戰帶你上手。', certs: ['AI 熟練師', 'Python 程式資料分析'] },
+        { icon: 'briefcase', title: '想用數據說話的上班族', pain: '每天手動整理報表', say: '學會爬蟲、自動化與視覺化儀表板，讓程式幫你做事。', certs: ['Python 爬蟲程式與資料視覺化開發'] },
+        { icon: 'target', title: '想往 AI 進階的工程師', pain: '想做模型，卻缺專案經驗', say: '影像辨識、深度學習、LLM 與 RAG，完成能放進履歷的專案。', certs: ['Python 視覺辨識與機器學習', 'Python 深度學習與應用實務'] },
+        { icon: 'star', title: '想做網站的人', pain: '分析做完，卻沒地方展示', say: '用 Django 把資料擷取、分析與圖表做成網站，作品一目了然。', certs: ['Python Django Web 開發實務'] },
+      ],
+    },
+
+    what: {
+      title: '從 AI 通識、Python 基底到 AI 專案開發',
+      sub: '職場必備 AI 通識打底，學好 Python 必修工具，再進階到視覺辨識、深度學習與 Web 開發。',
+      analogyLabel: '一句話看懂：',
+      modules: [
+        { id: 'aipro', name: '職場必備｜AI 熟練師', color: 'var(--color-violet)',
+          tagline: '數發部核定 AI 實戰課程，10 張產業證照加持', desc: 'AI 工具 × 專業技能 × 工作應用，全面升級。',
+          analogy: '先學會在職場上用 AI，再進一步學會開發 AI。',
+          highlights: ['生成式 AI 與 AI 人工智慧核心能力認證', 'AI 辦公室應用與 AI 工作應用', 'AI Vibe Coding、AI 遊戲開發等專業技能'],
+          units: [
+            { t: 'AI 通識', items: ['生成式 AI 能力認證', 'AI 人工智慧核心能力認證', 'AI 辦公室應用'] },
+            { t: 'AI 工作應用', items: ['AI 廣告設計', 'AI 形象設計', '視覺行銷實作', 'AI 短影音創作'] },
+            { t: 'AI 專業技能', items: ['AI 效率應用', 'AI 行銷應用', 'AI 職場技能', 'AI 影音創作', 'AI 遊戲開發', 'AI Vibe Coding', '生活風格'] },
+          ] },
+        { id: 'py-data', name: 'Python 程式資料分析', color: 'var(--color-gold)',
+          tagline: 'Python × AI 協作', desc: '建立資料處理、統計分析與商業洞察能力。',
+          analogy: '專業基底、必修工具：懂程式底層邏輯，才能判讀並修正 AI 的錯。',
+          highlights: ['開發環境建置與生活程式開發實戰', '多格式資料讀取與統計分析', 'SQL 串接與大數據分析報告'],
+          units: [
+            { t: 'Python 基礎與 AI 協作', items: ['開發環境建置與程式執行', '變數／判斷式／迴圈與函式', '生活程式開發實戰（成果）'] },
+            { t: '資料處理與分析應用', items: ['多格式資料讀取', '統計分析應用', '資料分析報告實務（成果）'] },
+            { t: '資料庫與大數據整合', items: ['SQL 資料串接', '自然語言查詢', '大數據分析報告（成果）'] },
+          ] },
+        { id: 'py-crawl', name: 'Python 爬蟲程式與資料視覺化開發', color: 'var(--color-red)',
+          tagline: '爬蟲 × 視覺化 × AI 協作', desc: '打造資料擷取、清理與圖表呈現能力。',
+          analogy: '讓程式自動抓資料、洗資料，再做成一眼看懂的儀表板。',
+          highlights: ['自動化爬蟲腳本設定', '動態網頁與登入驗證處理', '互動式圖表與商業分析儀表板'],
+          units: [
+            { t: '網頁爬蟲核心技術', items: ['爬蟲流程與環境建置', 'HTML／JSON 資料解析', '自動化爬蟲腳本設定（成果）'] },
+            { t: '動態網頁與自動化應用', items: ['動態資料擷取', '登入驗證處理', '跨領域即時比較工具（成果）'] },
+            { t: '資料清理與視覺化呈現', items: ['資料清理轉換', '互動式圖表設計', '商業分析儀表板（成果）'] },
+          ] },
+        { id: 'py-cv', name: 'Python 視覺辨識與機器學習', color: 'var(--color-brand)',
+          tagline: '專業進階｜整合應用', desc: '從影像處理到 AI 辨識模型，建立電腦視覺與機器學習的專案能力。',
+          analogy: '教電腦「看懂」影像，從物體偵測到人臉辨識。',
+          highlights: ['影像處理與視覺基礎', '分類、迴歸模型訓練', '物體偵測、人臉辨識與模型部屬實戰'],
+          units: [
+            { t: '影像處理與視覺基礎', items: ['影像色彩與通道處理', '濾鏡、銳化與幾何變換', '訓練影像預處理（成果）'] },
+            { t: '特徵擷取與模型訓練', items: ['分類模型訓練實作', '迴歸分析與趨勢預測', '數據分類器（成果）'] },
+            { t: 'AI 辨識專案與分析應用', items: ['物體偵測與動態監控', '人臉偵測與身分辨識', '視覺辨識模型部屬實戰（成果）'] },
+          ] },
+        { id: 'py-dl', name: 'Python 深度學習與應用實務', color: 'var(--color-violet)',
+          tagline: 'PyTorch', desc: '從 PyTorch 框架到企業級 AI 應用，訓練能落地的深度學習模型。',
+          analogy: '從神經網路到 LLM 與 RAG，做出端到端的 AI 程式。',
+          highlights: ['PyTorch 模型開發與訓練流程', 'CNN 影像分類與 YOLO 物件偵測', 'Transformer、RAG 與端到端 AI 程式'],
+          units: [
+            { t: '深度學習模型建構', items: ['PyTorch 模型開發環境建置', '神經網路訓練流程設計', '訓練／驗證程式實務（成果）'] },
+            { t: '電腦視覺與生成式 AI', items: ['CNN 影像分類模型應用', 'YOLO 物件偵測專案實作', '深度學習專案製作（成果）'] },
+            { t: 'LLM 應用與 AI 系統部署', items: ['Transformer 語言模型應用', 'RAG 知識庫檢索整合實作', '端到端的 AI 程式製作（成果）'] },
+          ] },
+        { id: 'django', name: 'Python Django Web 開發實務', color: 'var(--color-gold)',
+          tagline: 'Django', desc: '從網頁資料擷取到視覺化呈現，打造自動化資料分析與展示能力。',
+          analogy: '把分析成果做成網站，讓別人也能用。',
+          highlights: ['Scraper 架構與 HTML／JSON 解析', 'Beautiful Soup、Selenium 動態爬取', 'Plotly／Bokeh 圖表與企業級 Django 網站'],
+          units: [
+            { t: '網頁資料擷取工程', items: ['Scraper 架構與環境建置', 'HTML／JSON 資料解析應用', '靜態網頁作品展示（成果）'] },
+            { t: '動態爬蟲與資料處理', items: ['Beautiful Soup 資料萃取', 'Selenium 動態網頁爬取', '後端資料庫串接與設計（成果）'] },
+            { t: '視覺化分析與作品整合', items: ['Plotly／Bokeh 圖表設計', '網絡圖與階層圖分析應用', '企業級 Django 網站開發（成果）'] },
+          ] },
+      ],
+      certs: {
+        title: '相關認證',
+        sub: '依照不同選修科目，頒發結訓合格數位證書。',
+        list: [
+          { name: 'ITS Python', org: 'ITS' },
+          { name: 'TQC+ Python 3', org: 'TQC+' },
+          { name: 'TQC+ 網頁資料擷取與分析', org: 'TQC+' },
+          { name: 'TQC+ 人工智慧：機器學習', org: 'TQC+' },
+        ],
+      },
+    },
+
+    how: {
+      title: '從 Python 基底到 AI 專案，一步步落地',
+      sub: '每個階段都有成果作品，結訓帶走多樣專案作品。',
+      chain: [
+        { no: '01', title: '職場必備', badge: 'AI 熟練師', text: 'AI 通識、工作應用與專業技能，先學會在職場上用 AI。', color: 'var(--color-violet)' },
+        { no: '02', title: '專業基底', badge: 'Python・SQL・爬蟲', text: '資料分析、爬蟲與視覺化：商業資料分析報告、自動化爬蟲工具、互動式儀表板。', color: 'var(--color-gold)' },
+        { no: '03', title: '專業進階', badge: 'OpenCV・PyTorch・Django', text: '視覺辨識、深度學習與 Web 開發：AI 視覺辨識專案、深度學習模型應用。', color: 'var(--color-brand)' },
+      ],
+      practice: '課中會帶領同學完成相關作品，並輔導考取相關證照。',
+      services: {
+        title: '訓前・訓中・訓後：8 項求職服務一路陪跑',
+        phases: [
+          { name: '訓前', items: ['專業顧問輔導', '短工轉介媒合'] },
+          { name: '訓中', items: ['帶領完成相關作品', '輔導考取相關證照', '專題成果發表會'] },
+          { name: '訓後', items: ['個人履歷健檢優化', '聯合徵才博覽會', '百大企業職缺引薦', '產學專班保送面試'] },
+        ],
+      },
+      aiTools: { title: '全方位 AI 資源助攻，就業 0 距離', items: ['AI 跨領域工作術', 'AI 自傳生成', 'AI 媒合職缺', 'AI 求職追蹤'] },
+      jobs: {
+        title: '工作大未來，你就是人才：上千聯成電腦學員成功就業',
+        note: '榮獲政府 TTQS 評鑑獎項，培訓就業有保障。',
+        stats: [
+          { label: '就業成功率', num: 93, unit: '%' },
+          { label: '就輔徵才推介會', num: 21, unit: '場' },
+          { label: '廠商徵才見面會', num: 266, unit: '場' },
+          { label: '廠商聯合徵才說明會', num: 47, unit: '場' },
+          { label: '合作廠商數約', num: 6347, unit: '家' },
+        ],
+      },
+    },
+
+    format: {
+      title: '線上真人，即時指導，跨區進修',
+      sub: '5 大教學系統依你的時間自由搭配，真人教練＋AI 教練陪你學到會。',
+      systems: [
+        { name: '實體教學系統', text: '課程程度分班' },
+        { name: '直播教學系統', text: '個人化排課即時互動' },
+        { name: '錄播教學系統', text: '24 小時隨時學' },
+        { name: '學習監控系統', text: '課後簽退、自我學習評價' },
+        { name: '真人教練系統', text: '線上線下搭配，即時解惑' },
+      ],
+      coach: [
+        { name: '真人教練', sub: '量身即時指導', points: ['預約 1 對 1 教學效果倍增', '雙向互動解決學習盲點'] },
+        { name: 'AI 教練', sub: '加速學習進程', points: ['免下載一鍵開啟即上課', '24hr 因材施教在線複習'] },
+        { name: '課後收穫', sub: '精準訓練計劃', points: ['客製化增進軟硬實力', '短期衝刺找到命定職業'] },
+      ],
+      perks: ['真人直播，即時互動', '師生互動，隨問即答', '學習不受地點限制', '14 天錄影檔免費看'],
+      upgrade: '升級 24hr，課程全面不加價',
+    },
+
+    teacher: {
+      title: '北中南名師獨家 Live',
+      sub: '解決產業落差，接軌職場；從程式邏輯到 AI 協作，帶你做出能落地的專案。',
+      traits: [
+        { icon: 'live', title: '名師獨家 Live', text: '北中南名師獨家 Live，解決產業落差，接軌職場。' },
+        { icon: 'star', title: '程式 × AI 協作', text: '懂程式底層邏輯，才能判讀、修正 AI 生成的失誤。' },
+        { icon: 'briefcase', title: '結訓帶走專案作品', text: '每個階段都有成果，作品集直接對接職缺。' },
+      ],
+    },
+
+    faq: [
+      { q: 'AI 都能生成程式了，為什麼還要學 Python？',
+        a: '只有懂得程式底層邏輯，才具備判讀、修正 AI 生成失誤與落地應用的能力。只會下指令的人無法除錯，這正是拉開差距的地方。' },
+      { q: '沒有程式基礎，可以學嗎？',
+        a: '可以。課程先從 AI 熟練師的 AI 通識打底，再從 Python 開發環境建置、變數、判斷式與迴圈開始教起。' },
+      { q: '課程會用到哪些工具？',
+        a: 'Python、HTML5、CSS3、Selenium、MATLAB、OpenCV、Django、scikit-learn，以及 PyTorch 等 AI 開發工具。' },
+      { q: '可以考哪些證照？',
+        a: '相關認證包含 ITS Python、TQC+ Python 3、TQC+ 網頁資料擷取與分析、TQC+ 人工智慧：機器學習，AI 熟練師課程另有產業證照加持。依照不同選修科目，頒發結訓合格數位證書。' },
+      { q: '結訓會有哪些作品？',
+        a: 'Python 商業資料分析報告、自動化爬蟲資料擷取工具、互動式數據視覺化儀表板、AI 視覺辨識專案與深度學習模型應用。' },
+      { q: '學完還能往哪裡延伸？',
+        a: '如果你更喜歡快速打造 AI 應用，可以延伸學習 AI Agent 應用開發、Fine-Tuning 與模型優化實務、AI 解決方案規劃與專案管理。' },
+      { q: '結訓後有就業協助嗎？',
+        a: '有。結合 JOB580 提供 8 項求職服務，另有 AI 自傳生成、AI 媒合職缺、AI 求職追蹤等 AI 求職資源。' },
     ],
   },
 

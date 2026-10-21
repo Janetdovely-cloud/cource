@@ -76,7 +76,7 @@ export default function Home() {
             <SplitTitle text="走進下一份工作。" className="text-[clamp(40px,7vw,80px)] leading-[1.15]" delay={1.0} />
             <Squiggle className="absolute left-0 -bottom-2 w-full h-[18px]" />
           </div>
-          <Stagger className="mt-8 max-w-[640px]">
+          <Stagger className="mt-8 max-w-[860px]">
             <Item as="p" className="text-[18px] m-0">
               從入門到國際證照，實戰課程搭配<mark className="hl" style={{ '--hl': '100%' }}>真人教練與 AI 教練</mark>，結訓後還有 JOB580 就業服務陪你找工作。
             </Item>
