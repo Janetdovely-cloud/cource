@@ -43,6 +43,7 @@ export const courseIndex = [
   { slug: 'biz-design', ready: true, cat: 'design', name: '商業整合設計師', en: 'Branding Marketing Designer',
     line: '商業設計 × 品牌行銷 × AI 工具，啟動商業整合新風潮', img: bizHero,
     tags: ['Photoshop', 'Illustrator', 'UI/UX', 'RWD 網站', 'AI 協作'] },
+  { slug: 'av-design', ready: false, cat: 'design', name: '影音製作設計師', en: 'Audiovisual Production Designer' },
   { slug: 'interior', ready: true, cat: 'eng', name: '室內設計師', en: 'Interior Designer',
     line: '善用 AI 協作，挑戰 6 個月取得乙級證照，合法執業', img: interiorHero,
     tags: ['AutoCAD', 'SketchUp', '3ds Max', '空間軟裝', '雙乙級證照'] },
