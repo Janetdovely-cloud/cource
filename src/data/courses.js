@@ -14,6 +14,7 @@ import avHero from '../assets/av-design/hero.webp'
 import aieHero from '../assets/ai-engineer/hero.webp'
 import agentHero from '../assets/ai-agent/hero.webp'
 import ptcHero from '../assets/ptc/hero.webp'
+import javaHero from '../assets/java/hero.webp'
 import interiorHero from '../assets/interior/hero.webp'
 
 // AI 全應用證照班：商業整合設計師、室內設計師共用
@@ -65,7 +66,9 @@ export const courseIndex = [
   { slug: 'infosec', ready: true, cat: 'it', name: '資訊安全工程師', en: 'Information Security Engineer',
     line: '資安分析 × 攻防實戰 × 國際證照，一站養成企業最搶手新星', img: heroImg,
     tags: ['CCNA', 'Security+', 'CySA+', 'ISO 27001', 'CISSP'] },
-  { slug: 'java', ready: false, cat: 'it', name: 'Java 軟體工程師', en: 'Java Software Engineer' },
+  { slug: 'java', ready: true, cat: 'it', name: 'Java 軟體工程師', en: 'Java Engineer',
+    line: '不只會寫 Code，從 Java 到 AI 工作流，練出專案解題力', img: javaHero,
+    tags: ['Java', 'MySQL', 'JSP', 'MVC', 'Kotlin'] },
   { slug: 'cloud', ready: false, cat: 'it', name: '雲端系統', en: 'Cloud Systems' },
   { slug: 'anime', ready: false, cat: 'design', name: '動漫角色設計', en: 'Character Design' },
   { slug: 'ai-game', ready: false, cat: 'it', name: 'AI 遊戲程式設計師', en: 'AI Game Programmer' },
@@ -1189,6 +1192,7 @@ export const courses = {
           { name: 'TQC+ Python 3', org: 'TQC+' },
           { name: 'TQC+ 網頁資料擷取與分析', org: 'TQC+' },
           { name: 'TQC+ 人工智慧：機器學習', org: 'TQC+' },
+          { name: 'TQC 軟體開發知識（PSK3）', org: 'TQC' },
         ],
       },
     },
@@ -1261,7 +1265,7 @@ export const courses = {
       { q: '課程會用到哪些工具？',
         a: 'Python、HTML5、CSS3、Selenium、MATLAB、OpenCV、Django、scikit-learn，以及 PyTorch 等 AI 開發工具。' },
       { q: '可以考哪些證照？',
-        a: '相關認證包含 ITS Python、TQC+ Python 3、TQC+ 網頁資料擷取與分析、TQC+ 人工智慧：機器學習，AI 熟練師課程另有產業證照加持。依照不同選修科目，頒發結訓合格數位證書。' },
+        a: '相關認證包含 ITS Python、TQC+ Python 3、TQC+ 網頁資料擷取與分析、TQC+ 人工智慧：機器學習、TQC 軟體開發知識（PSK3），AI 熟練師課程另有產業證照加持。依照不同選修科目，頒發結訓合格數位證書。' },
       { q: '結訓會有哪些作品？',
         a: 'Python 商業資料分析報告、自動化爬蟲資料擷取工具、互動式數據視覺化儀表板、AI 視覺辨識專案與深度學習模型應用。' },
       { q: '學完還能往哪裡延伸？',
@@ -1715,6 +1719,218 @@ export const courses = {
         a: '工業 4.0 以「生產智慧化」為主，致力於用機器取代人類；工業 5.0 則強調「人機協作」，回歸人類本位與永續發展，重視人類的創造力與機械的靈活性。' },
       { q: '上班時間不固定，跟得上進度嗎？',
         a: '有直播、錄播、實體等 5 大教學系統可以自由搭配，錄影檔 14 天免費看，AI 教練 24 小時在線複習。' },
+      { q: '結訓後有就業協助嗎？',
+        a: '有。結合 JOB580 提供 8 項求職服務，另有 AI 自傳生成、AI 媒合職缺、AI 求職追蹤等 AI 求職資源。' },
+    ],
+  },
+
+  java: {
+    slug: 'java',
+    color: 'var(--color-brand)',
+    hero: {
+      badges: ['程式 × AI 協作', '獨家・產學培訓', '保證面試'],
+      title: 'Java 軟體工程師',
+      en: 'Java Engineer',
+      hand: '當 AI 加速寫 Code，工程師價值轉向系統整合',
+      line: '不只會寫 Code，從 Java 到 AI 工作流，練出專案解題力。',
+      sub: '本培訓課程通過數發部審核，符合國家《AI 產業人才認定指引》',
+      tags: ['24HR 彈性進修', '隨時隨地', '高效學習'],
+      img: javaHero,
+      imgAlt: '手指點著發光的 AI 晶片圖示，周圍是電路線條',
+    },
+
+    why: {
+      title: 'Java 仍是企業主力，AI 重塑工程師能力',
+      lead: 'AI 投資升溫，軟體開發需求擴大',
+      hl: '當 AI 加速寫 Code，工程師價值轉向系統整合！',
+      stats: [
+        { tag: '需求增', kicker: '職缺增加', num: 30, unit: '%',
+          desc: 'AI 投資升溫，帶動軟體工程師職缺增加 30%。企業導入 AI 後，更需要會開發、懂整合，能把工具落地的人才。' },
+        { tag: '能力升', kicker: 'AI 技能需求', num: 50, unit: '%',
+          desc: 'AI 加速寫 Code，但專案落地仍需要架構、整合與除錯能力。未來工程師不只會寫程式，更要懂得善用 AI 完成專案。' },
+        { tag: '薪資高', kicker: '軟體工程師月薪中位數', num: 6, unit: '萬',
+          desc: 'Java 常用於企業系統、後端服務與資料庫整合，具備開發與系統串接能力，仍有穩定薪資基本盤。' },
+      ],
+      compare: {
+        title: '只會 AI vs. 具備領域專業＋AI 能力',
+        sub: 'AI 能幫你生成程式，為什麼還要學 Java？因為懂得程式邏輯，才知道錯在哪、怎麼改。',
+        bars: [
+          { name: 'Java 程式設計師', num: 60 },
+          { name: 'Java 後端工程師', num: 73 },
+          { name: 'Android APP 工程師', num: 82, hot: true },
+        ],
+        unit: 'K／月（月薪上限）',
+      },
+      facts: [
+        { num: '修正', title: '看懂邏輯能修正', text: '只會 AI：產出 Code 卻難除錯。' },
+        { num: '維護', title: '拆解模組好維護', text: '只會 AI：功能生成卻難整合。' },
+        { num: '串接', title: '串接資料能應用', text: '只會 AI：資料串接容易卡關。' },
+        { num: 'AI', title: '善用 AI 完成專案', text: '未來工程師不只會寫程式，更要懂得與 AI 協作。' },
+      ],
+      salaryTitle: '市場職缺：月薪範圍',
+      salary: [
+        { role: 'Java 程式設計師', min: 40, max: 60 },
+        { role: 'Java 軟體工程師', min: 42, max: 65 },
+        { role: 'Java Web 工程師', min: 40, max: 68 },
+        { role: 'Java 後端工程師', min: 48, max: 73 },
+        { role: 'Android APP 工程師', min: 42, max: 82, top: true },
+      ],
+      salaryNote: '參考來源：人力銀行與公開接案平台（單位：千元）。本表僅供參考，實際金額依職務待遇、案件內容、開發難度與經驗條件而異。',
+      gigs: {
+        title: '接案職缺：下班也能接案',
+        sub: '學會網站、API 與 APP 開發，接案範圍更廣。',
+        list: [
+          { role: '網站架設', min: 10, max: 100 },
+          { role: 'API 串接整合', min: 10, max: 100 },
+          { role: '程式外包', min: 30, max: 100 },
+          { role: '後台系統開發', min: 30, max: 350 },
+          { role: 'APP 開發', min: 200, max: 1000 },
+        ],
+        note: '接案費用為參考區間（單位：千元），實際金額依案件內容、開發難度與經驗條件而異。',
+      },
+    },
+
+    who: {
+      title: '想進企業做系統，從 Java 打好基底',
+      sub: '從核心語法、資料庫到 Web 與 APP，一步步練出能落地的專案解題力。',
+      cards: [
+        { icon: 'rocket', title: '想轉職的新手', pain: '沒寫過程式，不知道從哪開始', say: '從 Java 平台與開發環境開始，一步步完成管理系統作品。', certs: ['AI 熟練師', 'Java 程式開發'] },
+        { icon: 'briefcase', title: '想做企業網站的人', pain: '會一點程式，卻做不出完整系統', say: 'Servlet／JSP、MVC 架構與 RESTful，完成可查詢、可操作的企業應用。', certs: ['Java Web 企業網站開發'] },
+        { icon: 'target', title: '想做 APP 的人', pain: '想把點子變成手機 APP', say: 'Kotlin 與 Android Studio，從介面到 Google Maps 與 APP 發布實作。', certs: ['Kotlin Android APP 程式開發'] },
+        { icon: 'star', title: '想跟上 AI 的工程師', pain: '擔心被 AI 取代', say: '懂程式邏輯，才能判讀與修正 AI 產出的程式，把工具落地。', certs: ['AI 熟練師', 'Java 程式開發'] },
+      ],
+    },
+
+    what: {
+      title: '從 AI 通識、Java 基底到網站系統與行動應用',
+      sub: '職場必備 AI 通識打底，學好 Java 必修工具，再進階到 Web 企業網站與 Android APP。',
+      analogyLabel: '一句話看懂：',
+      modules: [
+        { id: 'aipro', name: '職場必備｜AI 熟練師', color: 'var(--color-violet)',
+          tagline: '數發部核定 AI 實戰課程，10 張產業證照加持', desc: 'AI 工具 × 專業技能 × 工作應用，全面升級。',
+          analogy: '先學會在職場上用 AI，再進一步學會用 AI 開發。',
+          highlights: ['生成式 AI 與 AI 人工智慧核心能力認證', 'AI 辦公室應用與 AI 工作應用', 'AI 效率、行銷、職場、影音等專業技能'],
+          units: [
+            { t: 'AI 通識', items: ['生成式 AI 能力認證', 'AI 人工智慧核心能力認證', 'AI 辦公室應用'] },
+            { t: 'AI 工作應用', items: ['AI 廣告設計', 'AI 形象設計', '視覺行銷實作', 'AI 短影音創作'] },
+            { t: 'AI 專業技能', items: ['AI 效率應用', 'AI 行銷應用', 'AI 職場技能', 'AI 影音創作', 'AI 遊戲開發', 'AI Vibe Coding', '生活風格'] },
+          ] },
+        { id: 'java', name: 'Java 程式開發', color: 'var(--color-gold)',
+          tagline: 'Java × AI 協作', desc: '從核心語法到資料串接，做出管理系統作品。',
+          analogy: '專業基底、必修工具：懂得程式邏輯，才知道錯在哪、怎麼改。',
+          highlights: ['Java 核心語法與物件導向設計', 'JDBC 串接 MySQL 資料庫', '會員權限、商品庫存、人事薪資管理系統'],
+          units: [
+            { t: 'Java 核心語法', items: ['Java 平台與開發環境', '變數、型別與基礎運算', '完成帳號管理基礎功能（成果）'] },
+            { t: '物件導向設計', items: ['類別、物件與功能設計', '封裝、繼承與多型', '實作商品庫存管理邏輯（成果）'] },
+            { t: '資料處理應用', items: ['字串與日期時間處理', '例外處理與錯誤排除', '檔案讀寫與資料保存'] },
+            { t: '資料庫串接', items: ['SQL 資料查詢入門', 'JDBC 串接 MySQL 資料庫', '完成資料新增查改功能（成果）'] },
+            { t: '進階程式實作', items: ['集合、泛型與資料整理', 'Lambda 語法與條件判斷', '多工任務與效能處理'] },
+          ] },
+        { id: 'web', name: 'Java Web 企業網站開發', color: 'var(--color-brand)',
+          tagline: 'Servlet × JSP × MVC', desc: '從動態頁面到互動功能，完成可查詢、可操作的企業應用。',
+          analogy: '專業進階、整合應用：從 Web 系統練習資料串接、介面設計與專題實作。',
+          highlights: ['Java EE、Servlet／JSP 與 HTTP 表單處理', 'MVC 架構企業網站（成果）', 'JPA、RESTful 資料查詢系統（成果）'],
+          units: [
+            { t: 'Web 開發基礎', items: ['Java EE 與網站架構', 'Servlet／JSP 開發應用', 'HTTP 請求與表單處理'] },
+            { t: 'MVC 架構設計', items: ['JSP 動態網頁設計', '自訂標籤與錯誤頁面', 'MVC 架構企業網站（成果）'] },
+            { t: '互動功能設計', items: ['Session 使用者狀態管理', 'Cookie 資訊儲存應用', 'Filter 權限與編碼處理'] },
+            { t: '資料服務整合', items: ['JPA 串接 SQL 資料庫', 'RESTful 資料查詢系統（成果）', 'Email 發送與檔案上傳'] },
+          ] },
+        { id: 'kotlin', name: 'Kotlin Android APP 程式開發', color: 'var(--color-red)',
+          tagline: 'Kotlin × Android Studio', desc: '從 Web 系統到行動 APP，整合資料串接、介面設計與專題實作。',
+          analogy: '把點子做成手機 APP，從介面、資料到上架發布。',
+          highlights: ['Kotlin 語法、Git／GitHub 版本控制', 'Android Studio 介面與 Activity 事件控制', 'SQLite、Google Maps 與 APP 發布實作（成果）'],
+          units: [
+            { t: 'Kotlin 開發基礎', items: ['Kotlin 語法與環境建置', '條件、迴圈與類別應用', 'Git／GitHub 版本控制'] },
+            { t: 'APP 介面操作', items: ['Android Studio 專案建立', '版面配置與工具列設計', 'Activity 頁面與事件控制'] },
+            { t: 'APP 功能設計', items: ['訊息元件與選單設計', '使用者資料儲存', '多頁面程式專案（成果）'] },
+            { t: '資料服務整合', items: ['SQLite 資料庫應用', 'Google Maps 定位功能', 'APP 發布實作（成果）'] },
+          ] },
+      ],
+      certs: {
+        title: '相關認證',
+        sub: '依照不同選修科目，頒發結訓合格數位證書。',
+        list: [
+          { name: 'ITS Java', org: 'ITS' },
+          { name: 'TQC+ 物件導向程式語言 Java 17', org: 'TQC+' },
+          { name: 'TQC 軟體開發知識（PSK3）', org: 'TQC' },
+        ],
+      },
+    },
+
+    how: {
+      title: '從 Java 基底到網站系統與行動應用',
+      sub: '每個階段都有成果作品，結訓帶走多樣專案作品。',
+      chain: [
+        { no: '01', title: '職場必備', badge: 'AI 熟練師', text: 'AI 通識、工作應用與專業技能，先學會在職場上用 AI。', color: 'var(--color-violet)' },
+        { no: '02', title: '專業基底', badge: 'Java・MySQL', text: 'Java 程式開發：會員權限、商品庫存、人事薪資管理系統。', color: 'var(--color-gold)' },
+        { no: '03', title: '專業進階', badge: 'JSP・MVC・Kotlin', text: '網站系統 × 行動應用：MVC 企業網站、資料查詢介面、Android 多頁 APP。', color: 'var(--color-brand)' },
+      ],
+      practice: '課中會帶領同學完成相關作品，並輔導考取相關證照。',
+      services: {
+        title: '訓前・訓中・訓後：8 項求職服務一路陪跑',
+        phases: [
+          { name: '訓前', items: ['專業顧問輔導', '短工轉介媒合'] },
+          { name: '訓中', items: ['帶領完成相關作品', '輔導考取相關證照', '專題成果發表會'] },
+          { name: '訓後', items: ['個人履歷健檢優化', '聯合徵才博覽會', '百大企業職缺引薦', '產學專班保送面試'] },
+        ],
+      },
+      aiTools: { title: '全方位 AI 資源助攻，就業 0 距離', items: ['AI 跨領域工作術', 'AI 自傳生成', 'AI 媒合職缺', 'AI 求職追蹤'] },
+      jobs: {
+        title: '工作大未來，你就是人才：上千聯成電腦學員成功就業',
+        note: '榮獲政府 TTQS 評鑑獎項，培訓就業有保障。',
+        stats: [
+          { label: '就業成功率', num: 93, unit: '%' },
+          { label: '就輔徵才推介會', num: 21, unit: '場' },
+          { label: '廠商徵才見面會', num: 266, unit: '場' },
+          { label: '廠商聯合徵才說明會', num: 47, unit: '場' },
+          { label: '合作廠商數約', num: 6347, unit: '家' },
+        ],
+      },
+    },
+
+    format: {
+      title: '線上真人，即時指導，跨區進修',
+      sub: '5 大教學系統依你的時間自由搭配，真人教練＋AI 教練陪你學到會。',
+      systems: [
+        { name: '實體教學系統', text: '課程程度分班' },
+        { name: '直播教學系統', text: '個人化排課即時互動' },
+        { name: '錄播教學系統', text: '24 小時隨時學' },
+        { name: '學習監控系統', text: '課後簽退、自我學習評價' },
+        { name: '真人教練系統', text: '線上線下搭配，即時解惑' },
+      ],
+      coach: [
+        { name: '真人教練', sub: '量身即時指導', points: ['預約 1 對 1 教學效果倍增', '雙向互動解決學習盲點'] },
+        { name: 'AI 教練', sub: '加速學習進程', points: ['免下載一鍵開啟即上課', '24hr 因材施教在線複習'] },
+        { name: '課後收穫', sub: '精準訓練計劃', points: ['客製化增進軟硬實力', '短期衝刺找到命定職業'] },
+      ],
+      perks: ['真人直播，即時互動', '師生互動，隨問即答', '學習不受地點限制', '14 天錄影檔免費看'],
+      upgrade: '升級 24hr，課程全面不加價',
+    },
+
+    teacher: {
+      title: '北中南名師獨家 Live',
+      sub: '解決產業落差，接軌職場；從程式邏輯到系統整合，帶你做出能落地的專案。',
+      traits: [
+        { icon: 'live', title: '名師獨家 Live', text: '北中南名師獨家 Live，解決產業落差，接軌職場。' },
+        { icon: 'star', title: '程式 × AI 協作', text: '懂得程式邏輯，才知道 AI 錯在哪、怎麼改。' },
+        { icon: 'briefcase', title: '結訓帶走專案作品', text: '管理系統、企業網站、Android APP，作品直接對接職缺。' },
+      ],
+    },
+
+    faq: [
+      { q: 'AI 能幫你生成程式，為什麼還要學 Java？',
+        a: '因為懂得程式邏輯，才知道錯在哪、怎麼改。只會 AI 容易產出 Code 卻難除錯、功能生成卻難整合，這正是拉開差距的地方。' },
+      { q: '沒有程式基礎，可以學嗎？',
+        a: '可以。課程先從 AI 熟練師的 AI 通識打底，再從 Java 平台與開發環境、變數與型別開始教起。' },
+      { q: '課程會用到哪些工具？',
+        a: 'HTML5、CSS3、JavaScript、Java、MySQL、JSP 與 Kotlin。' },
+      { q: '可以考哪些證照？',
+        a: '相關認證包含 ITS Java、TQC+ 物件導向程式語言 Java 17 與 TQC 軟體開發知識（PSK3）。依照不同選修科目，頒發結訓合格數位證書。' },
+      { q: '結訓會有哪些作品？',
+        a: '會員權限管理系統、商品庫存管理系統、人事薪資管理系統、MVC 企業網站、資料查詢介面與 Android 多頁 APP。' },
+      { q: '學完還能往哪裡延伸？',
+        a: '如果想把 Java 專案做得更完整，可以延伸學習 MySQL 資料庫管理、跨平台商業網站設計與 Frontend 前端開發。' },
       { q: '結訓後有就業協助嗎？',
         a: '有。結合 JOB580 提供 8 項求職服務，另有 AI 自傳生成、AI 媒合職缺、AI 求職追蹤等 AI 求職資源。' },
     ],
