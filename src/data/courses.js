@@ -31,6 +31,7 @@ export const courseIndex = [
   { slug: 'anime', ready: false, cat: 'design', name: '動漫角色設計', en: 'Character Design' },
   { slug: 'ai-game', ready: false, cat: 'it', name: 'AI 遊戲程式設計師', en: 'AI Game Programmer' },
   { slug: 'ipas', ready: false, cat: 'cert', name: 'iPAS 永續科技人才證照班', en: 'iPAS Certification' },
+  { slug: 'interior-b', ready: false, cat: 'cert', name: '室內設計雙乙級班', en: 'Level B Technician' },
 ]
 
 // ── 課程內頁資料（每門課一份，頁面由 CoursePage 依資料產生）──
