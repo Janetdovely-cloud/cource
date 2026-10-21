@@ -3,7 +3,7 @@
 /* 辰宇落雁體 2.0：本地子集字型（scripts/subset-font.py 產生） */
 @font-face {
   font-family: "ChenYuluoyan";
-  src: url("/fonts/chenyuluoyan-subset.woff2") format("woff2");
+  src: url("./assets/fonts/chenyuluoyan-subset.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;

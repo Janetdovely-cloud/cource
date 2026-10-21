@@ -1,4 +1,4 @@
-"""把辰宇落雁體做成子集 woff2（只收網站用到的字），輸出到 public/fonts/。
+"""把辰宇落雁體做成子集 woff2（只收網站用到的字），輸出到 src/assets/fonts/。
 
 用法：python3 scripts/subset-font.py   （需要 pip install fonttools brotli）
 新增課程文案後重跑一次，新字才會套用手寫體。
@@ -9,7 +9,7 @@ from fontTools.ttLib import TTFont
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SRC = ROOT / "fonts-src" / "ChenYuluoyan-2.0-Thin.ttf"
-OUT = ROOT / "public" / "fonts" / "chenyuluoyan-subset.woff2"
+OUT = ROOT / "src" / "assets" / "fonts" / "chenyuluoyan-subset.woff2"  # 放 src 讓 Vite 產生帶 hash 的檔名，字有更新時瀏覽器才不會用到舊快取
 
 chars = {chr(cp) for cp in range(0x20, 0x7F)}
 chars |= {chr(cp) for cp in list(range(0x3000, 0x3040)) + list(range(0xFF00, 0xFFF0)) + list(range(0x2000, 0x2070))}
