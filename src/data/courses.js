@@ -16,6 +16,7 @@ import agentHero from '../assets/ai-agent/hero.webp'
 import ptcHero from '../assets/ptc/hero.webp'
 import javaHero from '../assets/java/hero.webp'
 import cloudHero from '../assets/cloud/hero.webp'
+import ipasHero from '../assets/ipas/hero.webp'
 import interiorHero from '../assets/interior/hero.webp'
 
 // AI 全應用證照班：商業整合設計師、室內設計師共用
@@ -75,7 +76,9 @@ export const courseIndex = [
     tags: ['Red Hat Linux', 'Ansible', 'AWS', 'OpenShift', 'K8S'] },
   { slug: 'anime', ready: false, cat: 'design', name: '動漫角色設計', en: 'Character Design' },
   { slug: 'ai-game', ready: false, cat: 'it', name: 'AI 遊戲程式設計師', en: 'AI Game Programmer' },
-  { slug: 'ipas', ready: false, cat: 'cert', name: 'iPAS 永續科技人才證照班', en: 'iPAS Certification' },
+  { slug: 'ipas', ready: true, cat: 'cert', name: 'iPAS 永續科技人才證照班', en: 'iPAS Certification',
+    line: 'AI 應用 × 資訊安全 × 淨零碳，初級＋中級一次備戰', img: ipasHero,
+    tags: ['AI 應用規劃師', '資訊安全工程師', '淨零碳規劃管理師', '經濟部發證'] },
   { slug: 'interior-b', ready: false, cat: 'cert', name: '室內設計雙乙級班', en: 'Level B Technician' },
 ]
 
@@ -2186,6 +2189,210 @@ export const courses = {
     ],
   },
 
+  ipas: {
+    slug: 'ipas',
+    color: 'var(--color-brand)',
+    hero: {
+      badges: ['經濟部發證', '3000+ 企業指定採用', '初級＋中級一次備戰'],
+      title: 'iPAS 永續科技人才證照班',
+      en: 'iPAS Certification',
+      hand: '不只把證照考下來，更把實力帶進職場',
+      line: 'AI 應用規劃師 × 資訊安全工程師 × 淨零碳規劃管理師，3 大領域 × 6 張證照。',
+      sub: '考證有策略 × 進階有實作 × 全程有陪跑',
+      tags: ['每科專屬陪跑', '重點題型解析', '線上實體授課'],
+      img: ipasHero,
+      imgAlt: '女性與人形機器人一同操作 AI 自動化流程與資料分析介面',
+    },
+
+    why: {
+      title: '證照不是紙上談兵，是職場入場券',
+      lead: 'AI、資安、淨零碳是企業當前最迫切的三大課題',
+      hl: '經濟部發證，3000+ 企業指定採用 iPAS 人才。',
+      stats: [
+        { tag: 'AI 應用', kicker: 'AI 人才需求持續升溫', num: 97, unit: '% 職缺 5 年成長',
+          desc: '從會用 AI 到能推動企業 AI 導入，企業認可 iPAS 人才超過 4,800 家。' },
+        { tag: '資訊安全', kicker: '資安人才需求成長', num: 41, unit: '% 中級報考成長',
+          desc: '企業積極強化資安防護，需求升溫的是進階資安能力。' },
+        { tag: '淨零碳', kicker: '綠領人才需求持續升溫', num: 3, unit: '萬個／月',
+          desc: '綠領工作機會平均每月近 3 萬個，各產業都需要淨零碳專業人才。' },
+      ],
+      compare: {
+        title: '人才需求成長',
+        sub: 'AI 職缺近 5 年成長 97%，iPAS 資安工程師中級報考人數成長 41%。',
+        bars: [
+          { name: '資安中級報考', num: 41 },
+          { name: 'AI 職缺（5 年）', num: 97, hot: true },
+        ],
+        unit: '% 成長',
+      },
+      facts: [
+        { num: '經濟部', title: '國家級能力鑑定', text: '經濟部產業人才能力鑑定，「師級」專業人才。' },
+        { num: '3000+', title: '企業指定採用', text: '獲企業認同，持證者可獲優先面試。' },
+        { num: '3×6', title: '3 大領域 × 6 張證照', text: 'AI 應用、資訊安全、淨零碳，初級＋中級一次備戰。' },
+        { num: '終身', title: '初級證照終身有效', text: '中級證照效期 5 年，累積相關訓練或工作經驗即可換證。' },
+      ],
+      salaryTitle: '三大領域薪資參考',
+      salary: [
+        { role: 'AI 應用規劃師', cert: '初階', min: 60, max: 90, label: '年薪 60–90 萬' },
+        { role: 'AI 應用規劃師', cert: '中階', min: 90, max: 150, label: '年薪 90–150 萬', top: true },
+        { role: '資安工程師', cert: '月薪中位數', min: 58, max: 70, label: '月薪 5.8 萬' },
+        { role: '資安工程師', cert: '10 年以上・月薪中位數', min: 71, max: 85, label: '月薪 7.1 萬' },
+        { role: '綠領專業技能人才', cert: '月薪中位數', min: 57, max: 68, label: '月薪 5.7 萬' },
+      ],
+      salaryNote: '實際薪資依職務、年資與企業而異，本表僅供參考。',
+      rates: {
+        title: 'iPAS 備考，差在準備方法',
+        sub: '找對範圍 × 抓對重點 × 練對題目。',
+        tables: [
+          { cols: ['', '自行準備', '聯成 iPAS 培訓'], rows: [
+            ['準備資料', '多平台搜尋，版本自己比對', '考綱、教材、題目集中整理'],
+            ['抓考試重點', '重點與範圍自己判斷', '依考科安排準備順序'],
+            ['遇到卡關', '查文章、看討論，再確認', '老師協助釐清觀念'],
+            ['題目練習', '題庫自己找、自己訂正', '按主題練題、找出弱項'],
+            ['進度安排', '時間與進度自己掌握', '跟著課程節奏逐步完成'],
+            ['考前整理', '到最後才發現還有範圍沒讀完', '重點回顧，集中補強弱點'] ] },
+        ],
+        note: '',
+      },
+    },
+
+    who: {
+      title: '適合準備考證、跨域轉職、在職進階的你',
+      sub: '初級打底、中級往實務應用延伸，不同起點都能找到合適的備考路線。',
+      cards: [
+        { icon: 'star', title: '想準備考證的人', pain: '資料太多太散，不知道從哪裡讀起', say: '考點整理、題型演練、考前檢核，每科都有輔考陪跑。', certs: ['初級', '中級'] },
+        { icon: 'rocket', title: '想跨域轉職的人', pain: '沒有技術背景，擔心跟不上', say: '初級從基礎觀念建立起，非技術背景也能循序準備。', certs: ['AI 應用規劃師', '淨零碳規劃管理師'] },
+        { icon: 'briefcase', title: '想在職進階的人', pain: '工作需要 AI、資安或減碳專業，卻缺乏系統化學習', say: '中級銜接實務：企業 AI 導入、防禦實務、企業減碳策略。', certs: ['中級', '實務應用'] },
+        { icon: 'target', title: '想提升求職競爭力的人', pain: '履歷少了一張被企業認可的證明', say: '經濟部發證、企業指定採用，結訓還有保證面試。', certs: ['經濟部發證', '保證面試'] },
+      ],
+    },
+
+    what: {
+      title: '3 大領域，初級＋中級一次備戰',
+      sub: '每個領域都從初階建立基礎，再到中階進入實務，懂觀念也會應用。',
+      analogyLabel: '一句話看懂：',
+      modules: [
+        { id: 'ai', name: 'iPAS AI 應用規劃師', color: 'var(--color-brand)',
+          tagline: '初級＋中級', desc: '從會用 AI 到能推動企業 AI 導入。',
+          analogy: '懂技術、會導入、能分析，成為企業推動 AI 的關鍵人才。',
+          highlights: ['AI 核心 × 生成應用', '導入評估 × 專案落地', '數據分析 × 決策應用'],
+          units: [
+            { t: '懂技術：AI 核心 × 生成應用', items: ['初階｜AI 概念與治理', '初階｜生成式 AI 與 Prompt', '初階｜機器學習原理、No Code／Low Code', '中階｜多模態 AI、生成式 AI 進階', '中階｜電腦視覺應用、NLP 自然語言處理'] },
+            { t: '會導入：導入評估 × 專案落地', items: ['初階｜AI 工具選擇、需求與資源盤點', '初階｜成本效益評估、導入風險管理', '中階｜AI 專案可行性、系統整合設計', '中階｜導入策略設計、投資效益評估'] },
+            { t: '能分析：數據分析 × 決策應用', items: ['初階｜資料整理與分析、模型成效評估', '初階｜清洗與視覺化、資料隱私安全', '中階｜SQL／NoSQL、統計與產業分析', '中階｜Hadoop／Spark、Tableau／Power BI'] },
+          ] },
+        { id: 'sec', name: 'iPAS 資訊安全工程師', color: 'var(--color-gold)',
+          tagline: '初級＋中級', desc: '從建立資安基礎到能執行企業防護。',
+          analogy: '懂治理、會防護、能檢測，守住企業的數位防線。',
+          highlights: ['資安治理 × 風險管理', '網路防護 × 事件應變', '弱點檢測 × 攻防實作'],
+          units: [
+            { t: '懂治理：資安治理 × 風險管理', items: ['初階｜ISMS 與資安管理、資產盤點與風險評估', '初階｜法律倫理與隱私、存取控制與密碼學', '中階｜零信任與安全架構、ISO 27001 與法規遵循', '中階｜風險分析與處理、威脅情境與攻擊手法'] },
+            { t: '會防護：網路防護 × 事件應變', items: ['初階｜網路與通訊安全、惡意程式與弱點管理', '初階｜系統與應用程式安全、事件處理與營運持續', '中階｜防火牆／IDS／IPS、SIEM／日誌判讀', '中階｜事件應變與通報、Nmap 網路掃描'] },
+            { t: '能檢測：弱點檢測 × 攻防實作', items: ['初階｜系統日誌管理、身分驗證與權限管理', '初階｜雲端／IoT 安全、資料安全與備份', '中階｜Kali Linux、弱掃報告判讀', '中階｜Burp Suite、SAST 源碼檢測'] },
+          ] },
+        { id: 'carbon', name: 'iPAS 淨零碳規劃管理師', color: 'var(--color-violet)',
+          tagline: '初級＋中級', desc: '從會做碳盤查到能制定企業減碳策略。',
+          analogy: '會盤查、懂減碳、能決策，帶領企業走向淨零。',
+          highlights: ['碳盤查 × 排放管理', '節能技術 × 效益評估', '碳管理 × 永續決策'],
+          units: [
+            { t: '會盤查：碳盤查 × 排放管理', items: ['初階｜溫室氣體基本概念、GHG Protocol 範疇 1–3', '初階｜碳盤查實務與查證、ISO 14064-1 類別 1–6', '中階｜BAU 基準情境、減碳目標設定', '中階｜碳排熱區辨識、改善方案排序'] },
+            { t: '懂減碳：節能技術 × 效益評估', items: ['初階｜排放趨勢分析、Excel 碳盤查實作', '初階｜部門碳排占比、Scope 1／2／3 計算', '中階｜綠電與再生能源、空調／空壓／設備節能', '中階｜ISO 50001／ESCO、NPV／IRR／回收期'] },
+            { t: '能決策：碳管理 × 永續決策', items: ['初階｜排放管理原則、國內外淨零政策', '初階｜淨零轉型方向、企業減碳策略', '中階｜Scope 3 管理、碳費／碳權／內部碳定價', '中階｜永續供應鏈、IFRS S1／S2、SBTi'] },
+          ] },
+      ],
+      certs: {
+        title: '相關認證',
+        sub: '經濟部產業人才能力鑑定，3 大領域 × 6 張證照，每科輔考陪跑。',
+        list: [
+          { name: 'AI 應用規劃師（初級）', org: 'iPAS' },
+          { name: 'AI 應用規劃師（中級）', org: 'iPAS' },
+          { name: '資訊安全工程師（初級）', org: 'iPAS' },
+          { name: '資訊安全工程師（中級）', org: 'iPAS' },
+          { name: '淨零碳規劃管理師（初級）', org: 'iPAS' },
+          { name: '淨零碳規劃管理師（中級）', org: 'iPAS' },
+        ],
+      },
+    },
+
+    how: {
+      title: '為什麼準備 iPAS 要選聯成？',
+      sub: '考證有策略 × 進階有實作 × 全程有陪跑。',
+      chain: [
+        { no: '01', title: '初階打底', badge: '初級證照', text: '建立 AI、資安、淨零碳的基礎觀念，考點整理與題型演練並行。', color: 'var(--color-brand)' },
+        { no: '02', title: '中階實務', badge: '中級證照', text: '往實務應用延伸：企業 AI 導入、防禦實務、減碳決策。', color: 'var(--color-gold)' },
+        { no: '03', title: '帶進職場', badge: '結訓保證面試', text: '履歷健檢、職缺媒合，結訓後安排企業面談。', color: 'var(--color-violet)' },
+      ],
+      practice: '每科都有考點整理、題型演練與考前檢核，協助同學有效率地準備考試。',
+      services: {
+        title: '訓前・訓中・訓後：8 項求職服務一路陪跑',
+        phases: [
+          { name: '訓前', items: ['專業顧問輔導', '短工轉介媒合'] },
+          { name: '訓中', items: ['每科輔考陪跑', '考題邏輯拆解', '專題成果發表會'] },
+          { name: '訓後', items: ['個人履歷健檢優化', '聯合徵才博覽會', '百大企業職缺引薦', '結訓保證面試'] },
+        ],
+      },
+      aiTools: { title: '全方位 AI 資源助攻，就業 0 距離', items: ['AI 跨領域工作術', 'AI 自傳生成', 'AI 媒合職缺', 'AI 求職追蹤'] },
+      jobs: {
+        title: '工作大未來，你就是人才：上千聯成電腦學員成功就業',
+        note: '榮獲政府 TTQS 評鑑獎項，培訓就業有保障。',
+        stats: [
+          { label: '就業成功率', num: 93, unit: '%' },
+          { label: '就輔徵才推介會', num: 21, unit: '場' },
+          { label: '廠商徵才見面會', num: 266, unit: '場' },
+          { label: '廠商聯合徵才說明會', num: 47, unit: '場' },
+          { label: '合作廠商數約', num: 6347, unit: '家' },
+        ],
+      },
+    },
+
+    format: {
+      title: '雙軌彈性授課，線上線下依需求安排',
+      sub: '線上直播跨區也能同步跟上進度，實體教室現場互動、問題即時釐清，課後資源補充教材協助複習。',
+      systems: [
+        { name: '實體教學系統', text: '現場互動，問題即時釐清' },
+        { name: '直播教學系統', text: '跨區也能同步跟上進度' },
+        { name: '錄播教學系統', text: '24 小時隨時學' },
+        { name: '學習監控系統', text: '課後簽退、自我學習評價' },
+        { name: '真人教練系統', text: '線上線下搭配，即時解惑' },
+      ],
+      coach: [
+        { name: '真人教練', sub: '量身即時指導', points: ['預約 1 對 1 教學效果倍增', '雙向互動解決學習盲點'] },
+        { name: 'AI 教練', sub: '加速學習進程', points: ['免下載一鍵開啟即上課', '24hr 因材施教在線複習'] },
+        { name: '課後資源', sub: '補充教材協助複習', points: ['不熟章節重新釐清', '下一次應試持續支援'] },
+      ],
+      perks: ['真人直播，即時互動', '師生互動，隨問即答', '學習不受地點限制', '兩年內可免費重修'],
+      upgrade: '錄播課程 24 小時隨時學',
+    },
+
+    teacher: {
+      label: '培訓特色',
+      title: '考證有策略，全程有陪跑',
+      sub: '不只練題，更要看懂命題方向。',
+      traits: [
+        { icon: 'target', title: '每科輔考陪跑', text: '正課、練題、考前檢核都有安排：考點整理、題型演練、找出弱項再集中補強。' },
+        { icon: 'star', title: '考題邏輯拆解', text: '觀念辨析、情境判讀、選項分析，釐清易混淆概念，避免常見誤判。' },
+        { icon: 'briefcase', title: '雙階實務養成', text: '初階打底，中階往實務應用延伸：AI 導入、資安防護、減碳策略。' },
+        { icon: 'live', title: '雙軌彈性授課', text: '線上直播、實體教室與課後資源，依需求安排。' },
+        { icon: 'badge', title: '兩年免費重修', text: '兩年內可免費重修，不熟章節重新釐清，下一次應試持續支援。' },
+        { icon: 'flag', title: '結訓保證面試', text: '履歷健檢、職缺媒合，結訓後安排企業面談。' },
+      ],
+    },
+
+    faq: [
+      { q: '什麼是 iPAS？',
+        a: 'iPAS 是經濟部產業人才能力鑑定（Industry Professional Assessment System），邀集企業依據產業能力規格規劃專業鑑定，協助企業客觀選才，並推動優先面試／聘用獲證者。' },
+      { q: '初級和中級有什麼不同？',
+        a: '初級人人可參加，適合想進入相關產業的人，證照終身有效；中級適合已具備初級程度或基礎能力、想直接從事相關工作的人，效期 5 年，累積相關訓練或工作經驗即可換證。' },
+      { q: '沒有技術背景也能準備嗎？',
+        a: '可以。初級著重基礎觀念，課程從考點整理、題型演練開始，循序帶你準備。' },
+      { q: '上課方式有哪些？',
+        a: '雙軌彈性授課：線上直播跨區也能同步，實體教室可現場互動，另有課後資源補充教材協助複習。' },
+      { q: '一次沒考過或沒跟上怎麼辦？',
+        a: '兩年內可免費重修，針對不熟的章節重新釐清，下一次應試持續支援。' },
+      { q: '結訓後有就業協助嗎？',
+        a: '有。提供履歷健檢、依專長媒合相關產業職缺，結訓後安排企業面談。' },
+    ],
+  },
   interior: {
     slug: 'interior',
     color: 'var(--color-brand)',

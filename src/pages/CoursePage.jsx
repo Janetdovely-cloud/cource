@@ -166,7 +166,7 @@ function Why({ d, color }) {
                   style={{ background: s.top ? 'var(--color-gold)' : 'var(--color-brand)' }}
                   initial={{ width: 0 }} whileInView={{ width: `${(s.max / maxK) * 100}%` }} viewport={{ once: true }}
                   transition={{ duration: 0.9, ease: [0.2, 0.7, 0.2, 1] }}>
-                  <span className="font-mono font-bold text-[13px] whitespace-nowrap" style={{ color: s.top ? '#1a1400' : '#06201C' }}>{s.min}–{s.max}K</span>
+                  <span className="font-mono font-bold text-[13px] whitespace-nowrap" style={{ color: s.top ? '#1a1400' : '#06201C' }}>{s.label ?? `${s.min}–${s.max}K`}</span>
                 </motion.div>
               </div>
             </Item>
@@ -190,7 +190,7 @@ function Why({ d, color }) {
                       style={{ background: s.max === top ? 'var(--color-gold)' : 'var(--color-brand)' }}
                       initial={{ width: 0 }} whileInView={{ width: `${Math.max(s.max / top * 100, 18)}%` }} viewport={{ once: true }}
                       transition={{ duration: 0.9, ease: [0.2, 0.7, 0.2, 1] }}>
-                      <span className="font-mono font-bold text-[13px] whitespace-nowrap" style={{ color: s.max === top ? '#1a1400' : '#06201C' }}>{s.min}–{s.max}K</span>
+                      <span className="font-mono font-bold text-[13px] whitespace-nowrap" style={{ color: s.max === top ? '#1a1400' : '#06201C' }}>{s.label ?? `${s.min}–${s.max}K`}</span>
                     </motion.div>
                   </div>
                 </Item>
@@ -223,7 +223,7 @@ function Why({ d, color }) {
               </div>
             ))}
           </div>
-          <p className="note mt-3 mb-0">{d.rates.note}</p>
+          {d.rates.note && <p className="note mt-3 mb-0">{d.rates.note}</p>}
         </div>
       )}
     </Section>
@@ -618,7 +618,7 @@ function Format({ d }) {
 
 function Teacher({ d }) {
   return (
-    <Section id="teacher" label="師資介紹" title={d.title} sub={d.sub}>
+    <Section id="teacher" label={d.label ?? '師資介紹'} title={d.title} sub={d.sub}>
       <Stagger className="grid gap-[18px] md:grid-cols-3">
         {d.traits.map((t) => (
           <Item key={t.title}>
