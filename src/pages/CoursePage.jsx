@@ -4,12 +4,12 @@ import { motion, AnimatePresence, useScroll, useTransform } from 'motion/react'
 import { Nav, Footer, scrollToId } from '../components/Layout'
 import { Section, Stagger, Item, TiltCard, CountUp, SplitTitle, Squiggle, Doodles } from '../components/Motion'
 import Icon from '../components/Icon'
-import ApplyForm from '../components/ApplyForm'
+import ApplyCta from '../components/ApplyCta'
 import { courses } from '../data/courses'
 
 const navLinks = [
   { id: 'why', name: '為什麼學' }, { id: 'who', name: '適合誰' }, { id: 'what', name: '學什麼' },
-  { id: 'how', name: '怎麼學' }, { id: 'portfolio', name: '作品' }, { id: 'format', name: '上課方式' },
+  { id: 'how', name: '怎麼學' }, { id: 'format', name: '上課方式' }, { id: 'teacher', name: '師資' },
   { id: 'faq', name: 'FAQ' }, { id: 'apply', name: '報名' },
 ]
 
@@ -179,27 +179,51 @@ function What({ d }) {
   )
 }
 
+function Node({ no, track, title, text, color, stacked = false }) {
+  return (
+    <div className={stacked ? 'grid gap-2 justify-items-start' : 'flex gap-3 items-start'}>
+      <motion.span className="relative z-[1] shrink-0 w-[48px] h-[48px] grid place-items-center font-mono font-bold text-[16px] border-2 border-ink"
+        style={{ background: color, borderRadius: '50% 44% 52% 46% / 46% 52% 44% 50%', boxShadow: '3px 3px 0 var(--color-ink)' }}
+        whileHover={{ scale: 1.15, rotate: -8 }} data-cursor={track || no}>
+        {no}
+      </motion.span>
+      <div className={`soft !shadow-none px-4 py-3 ${stacked ? 'w-full' : 'flex-1'}`}>
+        {track && <span className="text-[12px] font-extrabold text-link">{track}</span>}
+        <h3 className="text-[21px]">{title}</h3>
+        <p className="m-0 mt-1 text-[14px] text-muted">{text}</p>
+      </div>
+    </div>
+  )
+}
+
 function How({ d }) {
   return (
     <Section id="how" no="04" label="怎麼學？" title={d.title} sub={d.sub}>
-      <Stagger as="ol" className="relative list-none p-0 m-0 grid gap-5 md:grid-cols-6 md:gap-3">
-        <span aria-hidden="true" className="hidden md:block absolute top-[26px] left-[8%] right-[8%] border-t-[3px] border-dashed border-brand" />
-        <span aria-hidden="true" className="md:hidden absolute top-0 bottom-0 left-[25px] border-l-[3px] border-dashed border-brand" />
-        {d.steps.map((s) => (
-          <Item as="li" key={s.no} className="relative grid grid-cols-[52px_1fr] gap-4 md:grid-cols-1 md:gap-3 md:text-center">
-            <motion.span className="relative z-[1] w-[52px] h-[52px] grid place-items-center font-mono font-bold text-[18px] bg-gold border-2 border-ink md:mx-auto"
-              style={{ borderRadius: '50% 44% 52% 46% / 46% 52% 44% 50%', boxShadow: '3px 3px 0 var(--color-ink)' }}
-              whileHover={{ scale: 1.15, rotate: -8 }} data-cursor={s.no}>
-              {s.no}
-            </motion.span>
-            <div>
-              <span className="text-[12px] font-extrabold text-link">{s.track}</span>
-              <h3 className="text-[21px]">{s.title}</h3>
-              <p className="m-0 mt-1 text-[14px] text-muted">{s.text}</p>
+      <div className="grid gap-6 lg:grid-cols-[280px_1fr] items-center">
+        <Stagger>
+          <Item><Node no="先修" track={d.start.track} title={d.start.title} text={d.start.text} color="var(--color-gold)" /></Item>
+        </Stagger>
+        <div className="grid gap-6 relative">
+          <span aria-hidden="true" className="hidden lg:block absolute -left-[18px] top-[34px] bottom-[34px] border-l-[3px] border-dashed border-brand" />
+          {d.lines.map((line) => (
+            <div key={line.name} className="relative">
+              <span aria-hidden="true" className="hidden lg:block absolute -left-[18px] top-[34px] w-[18px] border-t-[3px] border-dashed border-brand" />
+              <p className="hand m-0 mb-2 text-[26px]" >
+                <span className="inline-block w-3 h-3 rounded-full mr-2 align-middle" style={{ background: line.color }} />{line.name}
+              </p>
+              <Stagger as="ol" className={`list-none p-0 m-0 grid gap-3 md:grid-cols-2 xl:grid-cols-4`}>
+                {line.steps.map((s, i) => (
+                  <Item as="li" key={s.title} className="relative">
+                    <Node stacked no={String(i + 1).padStart(2, '0')} title={s.title} text={s.text} color="var(--color-sheet)" />
+                    {i < line.steps.length - 1 && <span aria-hidden="true" className="hidden xl:block absolute -right-[11px] top-[10px] text-brand font-bold">→</span>}
+                  </Item>
+                ))}
+              </Stagger>
             </div>
-          </Item>
-        ))}
-      </Stagger>
+          ))}
+        </div>
+      </div>
+      <p className="mt-8 mb-0 text-[17px]"><mark className="hl">{d.practice}</mark></p>
 
       <div className="mt-14">
         <h3 className="text-[26px] mb-5">{d.services.title}</h3>
@@ -220,57 +244,10 @@ function How({ d }) {
     </Section>
   )
 }
-
-function Portfolio({ d }) {
-  return (
-    <Section id="portfolio" no="05" label="做出什麼作品" title={d.title} sub={d.sub}>
-      <Stagger className="grid gap-[18px] md:grid-cols-3">
-        {d.works.map((w) => (
-          <Item key={w.title}>
-            <TiltCard className="h-full" max={7}>
-              <article className="card plain card-hover h-full !p-0 overflow-hidden flex flex-col">
-                <div className="overflow-hidden h-[170px] border-b-2 border-dashed border-brand">
-                  <motion.img src={w.img} alt="" className="w-full h-full object-cover" whileHover={{ scale: 1.08 }} transition={{ duration: 0.5 }} loading="lazy" />
-                </div>
-                <div className="p-5 flex flex-col flex-1">
-                  <span className="text-[12px] font-extrabold text-link">{w.module}</span>
-                  <h3 className="text-[24px] mt-1">{w.title}</h3>
-                  <p className="mt-2 mb-4 text-[15px] text-muted flex-1">{w.text}</p>
-                  {w.link ? (
-                    <a href={w.link} target="_blank" rel="noopener noreferrer" className="btn-sm self-start" data-cursor="開啟">看作品 <Icon name="ext" size={16} /></a>
-                  ) : (
-                    <span className="btn-sm ghost self-start" aria-disabled="true" data-cursor="待補" data-cursor-tone="muted" style={{ borderStyle: 'dashed', opacity: 0.7 }}>
-                      作品連結待補 <Icon name="ext" size={16} />
-                    </span>
-                  )}
-                </div>
-              </article>
-            </TiltCard>
-          </Item>
-        ))}
-      </Stagger>
-      <p className="note mt-4">{d.worksNote}</p>
-
-      <div className="mt-10">
-        <h3 className="text-[24px] mb-4">可以準備的證照</h3>
-        <Stagger className="flex flex-wrap gap-3">
-          {d.certs.map((c) => (
-            <Item key={c}>
-              <motion.span className="chip-btn inline-flex items-center gap-2 font-bold" whileHover={{ y: -3, rotate: -2 }} data-cursor="證照">
-                <Icon name="badge" size={20} className="text-gold" />{c}
-              </motion.span>
-            </Item>
-          ))}
-        </Stagger>
-      </div>
-    </Section>
-  )
-}
-
 function Format({ d }) {
   return (
-    <Section id="format" no="06" label="上課方式" title={d.title} sub={d.sub}>
-      <Stagger className="grid gap-3 grid-cols-2 md:grid-cols-5">
+    <Section id="format" no="05" label="上課方式" title={d.title} sub={d.sub}>
+      <Stagger className="grid gap-3 grid-cols-2 md:grid-cols-4">
         {d.systems.map((s, i) => (
           <Item key={s.name}>
             <TiltCard className="h-full" max={10}>
@@ -339,7 +316,6 @@ function Teacher({ d }) {
           </Item>
         ))}
       </Stagger>
-      <p className="note mt-4 mb-0">{d.pending}</p>
     </Section>
   )
 }
@@ -389,11 +365,10 @@ export default function CoursePage() {
       <Who d={c.who} color={c.color} />
       <What d={c.what} />
       <How d={c.how} />
-      <Portfolio d={c.portfolio} />
       <Format d={c.format} />
       <Teacher d={c.teacher} />
       <Faq items={c.faq} />
-      <ApplyForm courseName={c.hero.title} />
+      <ApplyCta courseName={c.hero.title} />
       <Footer />
     </>
   )

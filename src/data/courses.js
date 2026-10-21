@@ -5,9 +5,6 @@ import modSecplus from '../assets/infosec/mod-secplus.webp'
 import modCysa from '../assets/infosec/mod-cysa.webp'
 import modIso from '../assets/infosec/mod-iso.webp'
 import modCissp from '../assets/infosec/mod-cissp.webp'
-import workNetwork from '../assets/infosec/work-network.webp'
-import workVuln from '../assets/infosec/work-vuln.webp'
-import workReport from '../assets/infosec/work-report.webp'
 
 // 課程分類（首頁篩選用）；color 為卡片分類色
 export const categories = [
@@ -150,49 +147,38 @@ export const courses = {
 
     how: {
       title: '一步一步，從零走到國際證照',
-      sub: '建議學習路徑：先修打底，再進技術實作，最後走向資安治理與管理。',
-      steps: [
-        { no: '01', track: '先修養成', title: '資安攻防策略', text: '建立 CIA 三要素、OSI 七層與攻擊手法等核心觀念。' },
-        { no: '02', track: '技術', title: 'CCNA 網路管理', text: '動手設定 VLAN、ACL、路由與防火牆，打好網路底子。' },
-        { no: '03', track: '技術', title: 'Security+', text: '從防護原理到威脅應對，對應企業初階資安職缺。' },
-        { no: '04', track: '技術', title: 'CySA+', text: '練習弱點管理與事件應變，對應企業 SOC 需求。' },
-        { no: '05', track: '管理', title: 'ISO 27001 主導稽核', text: '學會導入資安制度與規劃稽核流程。' },
-        { no: '06', track: '管理', title: 'CISSP', text: '整合策略、治理與控管，提升資安決策力。' },
+      sub: '先修打底後，依你的方向選擇路線：走管理線準備資安治理與稽核，或走技術線一路從網路實作到資安專家。',
+      start: { no: '00', title: '資安攻防策略', track: '先修養成', text: '建立 CIA 三要素、OSI 七層與攻擊手法等核心觀念。' },
+      lines: [
+        { name: '管理線', color: 'var(--color-violet)', steps: [
+          { title: 'ISO 27001 主導稽核', text: '學會導入資安制度與規劃稽核流程。' },
+        ] },
+        { name: '技術線', color: 'var(--color-red)', steps: [
+          { title: 'CCNA 網路管理', text: '動手設定 VLAN、ACL、路由與防火牆。' },
+          { title: 'Security+', text: '從防護原理到威脅應對，對應初階資安職缺。' },
+          { title: 'CySA+', text: '練習弱點管理與事件應變，對應 SOC 需求。' },
+          { title: 'CISSP', text: '整合策略、治理與控管，提升資安決策力。' },
+        ] },
       ],
+      practice: '課中會帶領同學完成相關作品，並輔導考取相關證照。',
       services: {
         title: '訓前・訓中・訓後：8 項求職服務一路陪跑',
         phases: [
           { name: '訓前', items: ['專業顧問輔導', '短工轉介媒合'] },
-          { name: '訓中', items: ['至少 3 張證照、3 件作品', '專題成果發表會'] },
+          { name: '訓中', items: ['帶領完成相關作品', '輔導考取相關證照', '專題成果發表會'] },
           { name: '訓後', items: ['個人履歷健檢優化', '聯合徵才博覽會', '百大企業職缺引薦', '產學專班保送面試'] },
         ],
       },
     },
 
-    portfolio: {
-      title: '結訓帶走：至少 3 張證照、3 件作品',
-      sub: '每個技術模組都有實作，作品可以直接放進求職作品集，並在專題成果發表會上展示。',
-      works: [
-        { title: '企業網路安全設定實作', module: 'CCNA 網路管理', img: workNetwork,
-          text: '規劃 VLAN 與路由，加上 ACL、SSH 連線加密與防火牆設定，完成一套可說明的網路防護架構。', link: null },
-        { title: '弱點管理報告', module: 'CySA+ 網路資安分析', img: workVuln,
-          text: '從弱點掃描、風險排序到修補建議，寫成主管看得懂的弱點管理報告。', link: null },
-        { title: '事件應變報告', module: 'CySA+ 網路資安分析', img: workReport,
-          text: '依事件生命週期整理偵測、通報與應變過程，產出完整的事件應變報告。', link: null },
-      ],
-      worksNote: '作品為課程實作方向，實際題目依開課內容為準。',
-      certs: ['完課證明', 'CCNA', 'CompTIA Security+', 'CompTIA CySA+', 'ISO 27001 主導稽核員', 'ISC2 CISSP'],
-    },
-
     format: {
       title: '線上真人＋AI 教練，24 小時都能學',
-      sub: '授課模式：實體＋線上＋雲端。北中南名師獨家 Live，地點不設限。',
+      sub: '以線上直播與錄播課為主，北中南名師獨家 Live，地點不設限。',
       systems: [
-        { name: '實體教學系統', text: '課程程度分班' },
         { name: '直播教學系統', text: '個人化排課即時互動' },
         { name: '錄播教學系統', text: '24 小時隨時學' },
         { name: '學習監控系統', text: '課後問卷優化上課體驗' },
-        { name: '真人教練系統', text: '線上線下搭配，即時解惑' },
+        { name: '真人教練系統', text: '線上即時解惑' },
       ],
       coach: [
         { name: '真人教練', sub: '量身即時指導', points: ['預約 1 對 1 教學效果倍增', '雙向互動解決學習盲點'] },
@@ -211,16 +197,15 @@ export const courses = {
         { icon: 'briefcase', title: '產業實務經驗', text: '用企業真實的資安流程授課，學到的就是職場用得到的。' },
         { icon: 'live', title: '北中南名師 Live', text: '線上真人即時指導，跨區也能上到名師的課。' },
       ],
-      pending: '講師個人介紹將於近期公布。',
     },
 
     faq: [
       { q: '完全沒有資安或網路基礎，可以學嗎？',
         a: '可以。課程從「資安攻防策略」先修開始，先建立 CIA 三要素、網路架構與 OSI 七層等觀念，再進入 CCNA、Security+ 等技術課程，適合初學者與轉職者。' },
       { q: '課程會準備哪些證照？',
-        a: '課程對應 CCNA、CompTIA Security+、CompTIA CySA+、ISO 27001 主導稽核員與 ISC2 CISSP 等國際證照，結訓目標為至少 3 張證照、3 件作品。實際考照安排請洽各分校確認。' },
+        a: '課程對應 CCNA、CompTIA Security+、CompTIA CySA+、ISO 27001 主導稽核員與 ISC2 CISSP 等國際證照，課中會輔導你考取相關證照。實際考照安排請洽各分校確認。' },
       { q: '上班時間不固定，跟得上進度嗎？',
-        a: '有實體、直播、錄播三種上課方式，錄播 24 小時隨時學；遇到問題可以預約真人教練 1 對 1，或用 AI 教練隨時複習。' },
+        a: '以線上直播與錄播課為主，錄播 24 小時隨時學；遇到問題可以預約真人教練 1 對 1，或用 AI 教練隨時複習。' },
       { q: '證照考試沒通過怎麼辦？',
         a: 'ISO 27001 課程附補考機會一次，另有補課保障與一年內免費重修。詳細條件請洽各分校確認。' },
       { q: '結訓後有就業協助嗎？',
