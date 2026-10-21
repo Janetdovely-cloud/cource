@@ -60,7 +60,7 @@ export function Footer() {
           </button>
         </div>
         {open && (
-          <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="grid gap-6 mt-8 md:grid-cols-3">
+          <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="grid gap-6 mt-8 md:grid-cols-2 lg:grid-cols-4">
             {centers.map((r) => (
               <div key={r.region}>
                 <p className="hand text-[22px] text-brand m-0 mb-2">{r.region}</p>
