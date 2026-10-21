@@ -6,19 +6,27 @@ const SEG = typeof Intl !== 'undefined' && Intl.Segmenter ? new Intl.Segmenter('
 
 function mark(text) {
   const raw = text.replaceAll(ZW, '')
-  let out = ''
-  let prevWord = false
-  let pair = false // 前一個是可以和下一個組成四字詞的兩字詞
-  for (const s of SEG.segment(raw)) {
-    const word = s.isWordLike && CJK.test(s.segment)
-    const two = word && s.segment.length === 2
-    // 兩字＋兩字視為一個複合詞（場景建模、遊戲程式），中間不換行
-    if (word && prevWord && !(pair && two)) out += ZW
-    pair = two && !(pair && two)
-    out += s.segment
-    prevWord = word
+  const segs = [...SEG.segment(raw)].map((s) => ({ t: s.segment, w: s.isWordLike && CJK.test(s.segment) }))
+  // glue[i] 為 true 代表第 i 段和第 i+1 段之間不能換行
+  const glue = segs.map(() => false)
+  for (let i = 0; i < segs.length - 1; i++) {
+    const a = segs[i], b = segs[i + 1]
+    if (!a.w || !b.w) continue
+    // 兩字＋兩字視為一個複合詞（場景建模、遊戲程式）
+    if (a.t.length === 2 && b.t.length === 2 && !(i > 0 && glue[i - 1] && segs[i - 1].t.length === 2)) glue[i] = true
+    // 單字詞黏著後面的詞（可＋遊玩、並＋輔導、跨＋平台）
+    if (a.t.length === 1) glue[i] = true
+    // 句尾的單字詞黏著前面的詞（能力＋者）
+    if (b.t.length === 1 && !(segs[i + 2] && segs[i + 2].w)) glue[i] = true
   }
-  return out
+  let out = ''
+  segs.forEach((s, i) => {
+    out += s.t
+    const n = segs[i + 1]
+    if (n && s.w && n.w && !glue[i]) out += ZW
+  })
+  // 短英文／數字與後面的中文詞不分開（AI 教練、8 項、Unity 跨平台）
+  return out.replace(/(^|[^A-Za-z0-9+#])([A-Za-z0-9+#.]{1,6}) (?=[㐀-鿿])/g, '$1$2 ')
 }
 
 function fix(node) {
