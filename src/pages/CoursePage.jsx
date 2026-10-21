@@ -81,6 +81,49 @@ function Why({ d, color }) {
         ))}
       </Stagger>
 
+      <div className="grid gap-[18px] lg:grid-cols-[1.1fr_.9fr] mt-10">
+        <div className="soft p-5 md:p-7">
+          <h3 className="text-[24px]">{d.attack.title}</h3>
+          <p className="note mt-2 mb-6">{d.attack.sub}</p>
+          <div className="flex items-end gap-6 h-[220px] px-2 border-b-2 border-ink">
+            {d.attack.bars.map((b) => (
+              <div key={b.name} className="flex-1 h-full flex flex-col justify-end items-center gap-2">
+                <span className="font-mono font-bold text-[18px]"><CountUp to={b.num} /></span>
+                <motion.div className="w-full max-w-[90px] border-2 border-ink border-b-0"
+                  style={{ background: b.hot ? 'var(--color-red)' : 'var(--color-rule)', borderRadius: '10px 6px 0 0', originY: 1 }}
+                  initial={{ height: 0 }} whileInView={{ height: `${(b.num / d.attack.bars[0].num) * 150}px` }} viewport={{ once: true }}
+                  transition={{ duration: 1, ease: [0.2, 0.7, 0.2, 1] }} data-cursor={b.name} />
+              </div>
+            ))}
+          </div>
+          <div className="flex gap-6 px-2 mt-2">
+            {d.attack.bars.map((b) => <span key={b.name} className="flex-1 text-center font-bold text-[14px]">{b.name}</span>)}
+          </div>
+          <p className="note mt-3 mb-0 text-right">單位：{d.attack.unit}</p>
+        </div>
+        <Stagger className="grid gap-3">
+          {d.facts.map((f) => (
+            <Item key={f.title} className="soft !shadow-none p-4 grid grid-cols-[96px_1fr] gap-3 items-center">
+              <span className="font-mono font-bold text-[30px] leading-none text-center">{f.num}</span>
+              <span><b className="block">{f.title}</b><span className="text-[14px] text-muted">{f.text}</span></span>
+            </Item>
+          ))}
+        </Stagger>
+      </div>
+
+      <div className="grid gap-[18px] md:grid-cols-[1.4fr_1fr] mt-[18px]">
+        <div className="card" style={{ '--c': 'var(--color-violet)' }}>
+          <h3 className="text-[22px] mb-3">{d.law.title}</h3>
+          <ul className="m-0 pl-5 grid gap-1 text-[15px]">{d.law.items.map((t) => <li key={t}>{t}</li>)}</ul>
+        </div>
+        <div className="card" style={{ '--c': 'var(--color-gold)' }}>
+          <h3 className="text-[22px] mb-3">哪些產業在找資安人才？</h3>
+          <div className="flex flex-wrap gap-2">
+            {d.industries.map((t) => <motion.span key={t} className="chip-btn !text-[14px]" whileHover={{ y: -3, rotate: -2 }} data-cursor="徵才中">{t}</motion.span>)}
+          </div>
+        </div>
+      </div>
+
       <div className="soft mt-10 p-5 md:p-7">
         <h3 className="text-[24px] mb-5">{d.salaryTitle}</h3>
         <Stagger className="grid gap-3" amount={0.2}>
@@ -107,20 +150,21 @@ function Why({ d, color }) {
 function Who({ d, color }) {
   return (
     <Section id="who" no="02" label="適合誰學習？" title={d.title} sub={d.sub}>
-      <Stagger className="grid gap-[18px] md:grid-cols-3">
+      <Stagger className="grid gap-[18px] sm:grid-cols-2 lg:grid-cols-4">
         {d.cards.map((c, i) => (
           <Item key={c.title}>
             <TiltCard className="h-full" max={10}>
-              <div className="card card-hover h-full text-center !pl-[22px]" style={{ '--c': [color, 'var(--color-brand)', 'var(--color-gold)'][i] }} data-cursor="就是我">
-                <motion.div className="mx-auto w-[76px] h-[76px] grid place-items-center bg-paper border-2 border-ink"
+              <div className="card card-hover h-full flex flex-col" style={{ '--c': [color, 'var(--color-brand)', 'var(--color-violet)', 'var(--color-gold)'][i] }} data-cursor="就是我">
+                <motion.div className="w-[64px] h-[64px] grid place-items-center bg-paper border-2 border-ink"
                   style={{ borderRadius: '50% 44% 52% 46% / 46% 52% 44% 50%', boxShadow: '3px 3px 0 var(--color-ink)' }}
                   whileHover={{ rotate: [0, -10, 8, 0] }}>
-                  <Icon name={c.icon} size={40} className="text-link" />
+                  <Icon name={c.icon} size={34} className="text-link" />
                 </motion.div>
-                <h3 className="text-[26px] mt-4 mb-3">{c.title}</h3>
-                <ul className="list-none p-0 m-0 grid gap-1 text-left w-max max-w-full mx-auto">
-                  {c.points.map((p) => <li key={p} className="flex gap-2 items-center"><Icon name="check" size={18} className="text-brand shrink-0" />{p}</li>)}
-                </ul>
+                <h3 className="text-[26px] mt-4">{c.title}</h3>
+                <p className="m-0 mt-1 text-[14px] font-bold text-muted">{c.pain}</p>
+                <p className="m-0 mt-3 text-[15px] flex-1">{c.say}</p>
+                <p className="m-0 mt-4 text-[12px] font-extrabold text-link">推薦證照</p>
+                <div className="flex flex-wrap gap-1.5 mt-1">{c.certs.map((t) => <span key={t} className="chip !text-[12px]">{t}</span>)}</div>
               </div>
             </TiltCard>
           </Item>
@@ -152,13 +196,24 @@ function What({ d }) {
               <div className="grid grid-cols-[110px_1fr] sm:grid-cols-[150px_1fr] gap-4 p-5 pl-7 items-center">
                 <img src={m.img} alt="" className="w-full h-[80px] sm:h-[96px] object-cover" style={{ borderRadius: 'var(--wob)' }} loading="lazy" />
                 <div>
-                  <span className="chip ink !text-[12px]">{trackName(m.track)}</span>
+                  <span className="flex flex-wrap gap-1.5">
+                    <span className="chip ink !text-[12px]">{trackName(m.track)}</span>
+                    <span className="chip !text-[12px]">{m.level}</span>
+                    <span className="chip gold !text-[12px] font-mono">{m.hours} 小時</span>
+                  </span>
                   <h3 className="text-[22px] sm:text-[24px] mt-2">{m.name}</h3>
                   <p className="m-0 text-[14px] font-bold">{m.tagline}</p>
                 </div>
               </div>
               <div className="px-5 pl-7 pb-5">
                 <p className="mt-0 mb-3 text-[15px] text-muted">{m.desc}</p>
+                <p className="mt-0 mb-3 px-4 py-2 text-[15px] border-l-[5px] border-gold bg-gold/10" style={{ borderRadius: '0 12px 12px 0' }}>
+                  <b>一句話看懂：</b>{m.analogy}
+                </p>
+                <ul className="list-none p-0 mt-0 mb-4 grid gap-1 text-[14px]">
+                  {m.highlights.map((h) => <li key={h} className="flex gap-2 items-start"><Icon name="star" size={16} className="text-gold shrink-0 mt-[5px]" />{h}</li>)}
+                </ul>
+                <p className="m-0 mb-2 text-[12px] font-extrabold text-link">課程大綱</p>
                 {m.units.map((u) => (
                   <details key={u.t} className="mod">
                     <summary data-cursor="展開">{u.t}<span className="pm" aria-hidden="true">+</span></summary>
@@ -175,7 +230,70 @@ function What({ d }) {
           ))}
         </AnimatePresence>
       </motion.div>
+      <Teams d={d.teams} />
+      <Exams d={d.exams} />
     </Section>
+  )
+}
+
+function Teams({ d }) {
+  const [team, setTeam] = useState(d.list[0].id)
+  const t = d.list.find((x) => x.id === team)
+  return (
+    <div className="mt-14">
+      <h3 className="text-[28px]">{d.title}</h3>
+      <p className="sub !mb-5">{d.sub}</p>
+      <div className="tabs mb-5" role="tablist" aria-label="攻防角色">
+        {d.list.map((x) => (
+          <button key={x.id} type="button" role="tab" aria-selected={team === x.id} onClick={() => setTeam(x.id)} data-cursor="切換">{x.name}</button>
+        ))}
+      </div>
+      <AnimatePresence mode="wait">
+        <motion.div key={team} role="tabpanel" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.3 }}>
+          <p className="hand text-[24px] m-0 mb-4" style={{ color: 'var(--color-link)' }}>比喻：{t.analogy}</p>
+          <ol className={`list-none p-0 m-0 grid gap-3 sm:grid-cols-2 ${t.steps.length === 4 ? 'lg:grid-cols-4' : 'lg:grid-cols-3'}`}>
+            {t.steps.map((st, i) => (
+              <motion.li key={st.t} className="card !pl-[24px] relative" style={{ '--c': t.color }}
+                initial={{ opacity: 0, y: 16, rotate: -2 }} animate={{ opacity: 1, y: 0, rotate: 0 }} transition={{ delay: i * 0.08 }}
+                whileHover={{ y: -4, rotate: -1 }}>
+                <span className="font-mono font-bold text-[13px] text-muted">STEP {i + 1}</span>
+                <h4 className="text-[24px] mt-1">{st.t}</h4>
+                <p className="m-0 mt-1 text-[14px] text-muted">{st.d}</p>
+              </motion.li>
+            ))}
+          </ol>
+        </motion.div>
+      </AnimatePresence>
+    </div>
+  )
+}
+
+function Exams({ d }) {
+  return (
+    <div className="mt-14">
+      <h3 className="text-[28px] mb-4">{d.title}</h3>
+      <div className="soft overflow-x-auto">
+        <table className="w-full border-collapse text-[15px] min-w-[560px]">
+          <thead>
+            <tr className="text-left text-[13px] text-muted">
+              {['證照', '考試時間', '考試費用', '考場', '有效期'].map((h) => <th key={h} className="px-4 py-3 border-b border-rule font-bold">{h}</th>)}
+            </tr>
+          </thead>
+          <tbody>
+            {d.rows.map((r) => (
+              <tr key={r.name} className="hover:bg-gold/10 transition-colors">
+                <td className="px-4 py-3 border-b border-rule font-extrabold whitespace-nowrap">{r.name}</td>
+                <td className="px-4 py-3 border-b border-rule font-mono">{r.time} 分鐘</td>
+                <td className="px-4 py-3 border-b border-rule font-mono">{r.fee}</td>
+                <td className="px-4 py-3 border-b border-rule">{r.place}</td>
+                <td className="px-4 py-3 border-b border-rule">{r.valid}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p className="note mt-3 mb-0">{d.note}</p>
+    </div>
   )
 }
 
@@ -214,7 +332,7 @@ function How({ d }) {
               <Stagger as="ol" className={`list-none p-0 m-0 grid gap-3 md:grid-cols-2 xl:grid-cols-4`}>
                 {line.steps.map((s, i) => (
                   <Item as="li" key={s.title} className="relative">
-                    <Node stacked no={String(i + 1).padStart(2, '0')} title={s.title} text={s.text} color="var(--color-sheet)" />
+                    <Node stacked no={String(i + 1).padStart(2, '0')} track={`${s.hours} 小時`} title={s.title} text={s.text} color="var(--color-sheet)" />
                     {i < line.steps.length - 1 && <span aria-hidden="true" className="hidden xl:block absolute -right-[11px] top-[10px] text-brand font-bold">→</span>}
                   </Item>
                 ))}
@@ -280,6 +398,23 @@ function Format({ d }) {
           i < 2 && <Item key={c.name + '-op'} as="span" aria-hidden="true" className="hand text-[40px] text-center text-brand leading-none">{i === 0 ? '＋' : '→'}</Item>,
         ])}
       </Stagger>
+
+      <div className="mt-10">
+        <h3 className="text-[26px] mb-4">{d.guarantee.title}</h3>
+        <Stagger className="grid gap-[18px] sm:grid-cols-2 lg:grid-cols-4">
+          {d.guarantee.items.map((g) => (
+            <Item key={g.t}>
+              <TiltCard className="h-full" max={8}>
+                <div className="card card-hover h-full" style={{ '--c': 'var(--color-brand)' }}>
+                  <Icon name={g.icon} size={34} className="text-link" />
+                  <h4 className="text-[22px] mt-2">{g.t}</h4>
+                  <p className="m-0 mt-1 text-[14px] text-muted">{g.d}</p>
+                </div>
+              </TiltCard>
+            </Item>
+          ))}
+        </Stagger>
+      </div>
 
       <div className="grid gap-[18px] md:grid-cols-[1.4fr_1fr] mt-10 items-stretch">
         <div className="soft p-5 md:p-6">
