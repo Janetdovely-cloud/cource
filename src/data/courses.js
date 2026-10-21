@@ -19,7 +19,7 @@ export const courseIndex = [
   { slug: 'ai-pro', ready: false, cat: 'ai', name: 'AI 熟練師', en: 'AI Practitioner' },
   { slug: 'biz-design', ready: false, cat: 'design', name: '商業整合設計', en: 'Integrated Visual Design' },
   { slug: 'interior', ready: false, cat: 'eng', name: '室內設計', en: 'Interior Design' },
-  { slug: 'ai-engineer', ready: false, cat: 'ai', name: 'AI 人工智慧工程師', en: 'Artificial Intelligence Engineer' },
+  { slug: 'ai-engineer', ready: false, cat: 'it', name: 'AI 人工智慧工程師', en: 'Artificial Intelligence Engineer' },
   { slug: 'ai-agent', ready: false, cat: 'ai', name: 'AI Agent 應用開發工程師', en: 'AI Agent Developer' },
   { slug: 'ptc', ready: false, cat: 'eng', name: 'PTC 機構工程師', en: 'Mechanical Design Engineer' },
   { slug: 'infosec', ready: true, cat: 'it', name: '資訊安全工程師', en: 'Information Security Engineer',
