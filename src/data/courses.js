@@ -437,10 +437,10 @@ export const courses = {
       ],
       certs: {
         title: '10 張證照，對準企業選才新標準',
-        sub: '課程對應國際與國內 AI 認證；依照不同選修科目，另頒發結訓合格數位證書。',
+        sub: '課程對應國際與國內證照；依照不同選修科目，另頒發結訓合格數位證書。',
         list: [
-          { name: 'Google Gemini Certified Educator', org: 'Google' },
-          { name: 'AI 創意設計專家', org: 'Adobe' },
+          { name: 'ACP Photoshop 國際證照', org: 'Adobe' },
+          { name: 'ACP Illustrator 國際證照', org: 'Adobe' },
           { name: '生成式 AI 人工智慧核心能力國際認證', org: 'Pearson' },
           { name: 'AI 人工智慧應用與技術（實用級）', org: 'TQC' },
           { name: 'AI 素養人才認證', org: '台灣人工智慧學校' },
@@ -516,7 +516,7 @@ export const courses = {
       { q: '完全沒有 AI 基礎，學得來嗎？',
         a: '可以。AI 通識從生成式 AI 基礎概論、AI 工具與提示詞實作開始，先建立 AI 邏輯，再依工作需求選修 AI 工作應用或 AI 專業技能。' },
       { q: '可以考哪些證照？',
-        a: '課程對應 10 張 AI 相關證照，包含 Google Gemini Certified Educator、Adobe AI 創意設計專家、Pearson 生成式 AI 人工智慧核心能力國際認證、TQC AI 人工智慧應用與技術（實用級），以及資策會的生成式 AI 能力、辦公室應用、美術設計等認證。AI 廣告設計與 AI 形象設計另輔導考取 ACP Photoshop、ACP Illustrator 國際證照，原地考照。' },
+        a: '課程對應 10 張證照，包含 Adobe ACP Photoshop 與 ACP Illustrator 國際證照（原地考照）、Pearson 生成式 AI 人工智慧核心能力國際認證、TQC AI 人工智慧應用與技術（實用級），以及資策會的生成式 AI 能力、辦公室應用、美術設計等認證。' },
       { q: '課程是政府認可的嗎？',
         a: '是。本培訓課程通過數發部審核，符合國家《AI 產業人才認定指引》，並取得 AI 能量登錄核准，是政府認可的 AI 教育培訓單位。' },
       { q: '上班時間不固定，跟得上進度嗎？',
