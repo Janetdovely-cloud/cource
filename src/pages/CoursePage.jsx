@@ -158,13 +158,13 @@ function Why({ d, color }) {
       <div className="soft mt-10 p-5 md:p-7">
         <h3 className="text-[24px] mb-5">{d.salaryTitle}</h3>
         <Stagger className="grid gap-3" amount={0.2}>
-          {d.salary.map((s) => (
-            <Item key={s.role} className="grid gap-x-4 gap-y-1 items-center md:grid-cols-[190px_1fr]">
+          {d.salary.map((s, i) => (
+            <Item key={`${s.role}-${i}`} className="grid gap-x-4 gap-y-1 items-center md:grid-cols-[190px_1fr]">
               <div className="font-bold text-[15px]">{s.role}{s.cert && <span className="block text-[12px] text-muted font-mono">{s.cert}</span>}</div>
               <div className="relative h-[30px] bg-rule/60 rounded-full overflow-hidden">
                 <motion.div className="absolute inset-y-0 left-0 rounded-full flex items-center justify-end pr-3"
                   style={{ background: s.top ? 'var(--color-gold)' : 'var(--color-brand)' }}
-                  initial={{ width: 0 }} whileInView={{ width: `${(s.max / maxK) * 100}%` }} viewport={{ once: true }}
+                  initial={{ width: 0 }} whileInView={{ width: `${(s.max / maxK) * 100}%` }} viewport={{ once: true, amount: 0.8 }}
                   transition={{ duration: 0.9, ease: [0.2, 0.7, 0.2, 1] }}>
                   <span className="font-mono font-bold text-[13px] whitespace-nowrap" style={{ color: s.top ? '#1a1400' : '#06201C' }}>{s.label ?? `${s.min}–${s.max}K`}</span>
                 </motion.div>
