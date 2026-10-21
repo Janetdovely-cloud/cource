@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useParams, Navigate } from 'react-router-dom'
-import { motion, AnimatePresence, useScroll, useTransform } from 'motion/react'
+import { motion, AnimatePresence, useScroll, useTransform, MotionConfig } from 'motion/react'
 import { Nav, Footer, scrollToId } from '../components/Layout'
 import { Section, Stagger, Item, TiltCard, CountUp, SplitTitle, Squiggle, Doodles } from '../components/Motion'
 import Icon from '../components/Icon'
@@ -64,6 +64,7 @@ function Why({ d, color }) {
   const bars = d.attack ?? d.compare
   const maxBar = bars && Math.max(...bars.bars.map((b) => b.num))
   return (
+    <MotionConfig reducedMotion="never">
     <Section id="why" no="01" label="為什麼要學？" title={d.title} sub={<>{d.lead}。<mark className="hl">{d.hl ?? '企業正在搶有證照的實戰人才。'}</mark></>}>
       <Stagger className="grid gap-[18px] md:grid-cols-3">
         {d.stats.map((s, i) => (
@@ -157,21 +158,21 @@ function Why({ d, color }) {
 
       <div className="soft mt-10 p-5 md:p-7">
         <h3 className="text-[24px] mb-5">{d.salaryTitle}</h3>
-        <Stagger className="grid gap-3" amount={0.2}>
+        <div className="grid gap-3">
           {d.salary.map((s, i) => (
-            <Item key={`${s.role}-${i}`} className="grid gap-x-4 gap-y-1 items-center md:grid-cols-[190px_1fr]">
+            <div key={`${s.role}-${i}`} className="grid gap-x-4 gap-y-1 items-center md:grid-cols-[190px_1fr]">
               <div className="font-bold text-[15px]">{s.role}{s.cert && <span className="block text-[12px] text-muted font-mono">{s.cert}</span>}</div>
-              <div className="relative h-[30px] bg-rule/60 rounded-full overflow-hidden">
+              <motion.div className="relative h-[30px] bg-rule/60 rounded-full overflow-hidden"
+                initial="off" whileInView="on" viewport={{ once: true, amount: 1 }}>
                 <motion.div className="absolute inset-y-0 left-0 rounded-full flex items-center justify-end pr-3"
                   style={{ background: s.top ? 'var(--color-gold)' : 'var(--color-brand)' }}
-                  initial={{ width: 0 }} whileInView={{ width: `${(s.max / maxK) * 100}%` }} viewport={{ once: true, amount: 0.8 }}
-                  transition={{ duration: 0.9, ease: [0.2, 0.7, 0.2, 1] }}>
+                  variants={{ off: { width: '0%' }, on: { width: `${(s.max / maxK) * 100}%`, transition: { duration: 1.2, delay: 0.1 + i * 0.12, ease: [0.2, 0.7, 0.2, 1] } } }}>
                   <span className="font-mono font-bold text-[13px] whitespace-nowrap" style={{ color: s.top ? '#1a1400' : '#06201C' }}>{s.label ?? `${s.min}–${s.max}K`}</span>
                 </motion.div>
-              </div>
-            </Item>
+              </motion.div>
+            </div>
           ))}
-        </Stagger>
+        </div>
         <p className="note mt-4 mb-0">{d.salaryNote}</p>
       </div>
 
@@ -201,21 +202,61 @@ function Why({ d, color }) {
         </div>
       )}
 
+      {d.timelines && (
+        <div className="mt-10">
+          <h3 className="text-[26px]">{d.timelines.title}</h3>
+          <p className="sub !mb-5">{d.timelines.sub}</p>
+          <div className="grid gap-[18px]">
+            {d.timelines.list.map((t) => (
+              <div key={t.name} className="soft p-5 md:p-7" style={{ '--c': t.color }}>
+                <h4 className="text-[22px] mb-5"><span className="chip ink !text-[13px] mr-2 align-middle font-sans">{t.code}</span>{t.name}</h4>
+                <ol className="m-0 p-0 list-none grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-y-6">
+                  {t.steps.map((st, i) => (
+                    <motion.li key={st.label} className="relative text-center"
+                      initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.6 }}
+                      transition={{ duration: 0.5, delay: i * 0.1 }}>
+                      <span className={`inline-block rounded-full px-3 py-1 font-bold text-[14px] text-white ${st.when ? '' : 'invisible'}`} style={{ background: t.color }}>{st.when || '—'}</span>
+                      <div className="relative my-3 h-[6px]" style={{ background: t.color, opacity: 0.35 + i * 0.13 }}>
+                        <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[14px] h-[14px] rounded-full border-2 border-ink bg-paper" />
+                      </div>
+                      <span className="block font-bold text-[15px] whitespace-pre-line">{st.label}</span>
+                    </motion.li>
+                  ))}
+                </ol>
+              </div>
+            ))}
+          </div>
+          {d.timelines.note && <p className="note mt-3 mb-0">{d.timelines.note}</p>}
+        </div>
+      )}
+
       {d.rates && (
         <div className="mt-10">
           <h3 className="text-[26px]">{d.rates.title}</h3>
           <p className="sub !mb-5">{d.rates.sub}</p>
-          <div className="grid gap-[18px] md:grid-cols-2">
+          <div className={`grid gap-[18px] ${d.rates.tables.length > 1 ? 'md:grid-cols-2' : ''}`}>
             {d.rates.tables.map((t) => (
-              <div key={t.cols[0]} className="soft p-5 overflow-x-auto">
-                <table className="w-full text-[15px] border-collapse">
+              <div key={t.cols.join()} className="soft p-5 overflow-x-auto">
+                {t.cols[0] === '' && (
+                  <div className="md:hidden grid gap-4">
+                    {t.rows.map((r) => (
+                      <div key={r[0]} className="border-b border-rule pb-3">
+                        <b className="block text-[16px] mb-1">{r[0]}</b>
+                        {r.slice(1).map((v, i) => (
+                          <p key={i} className="m-0 mt-1 text-[15px]"><span className="text-muted text-[13px] font-bold block">{t.cols[i + 1]}</span>{v}</p>
+                        ))}
+                      </div>
+                    ))}
+                  </div>
+                )}
+                <table className={`w-full text-[15px] border-collapse ${t.cols[0] === '' ? 'hidden md:table' : ''}`}>
                   <thead>
                     <tr className="border-b-2 border-ink">{t.cols.map((c) => <th key={c} className="py-2 px-2 text-left font-bold">{c}</th>)}</tr>
                   </thead>
                   <tbody>
                     {t.rows.map((r) => (
                       <tr key={r[0]} className="border-b border-rule">
-                        {r.map((v, i) => <td key={i} className={`py-2 px-2 ${i ? 'font-mono' : 'font-bold'}`}>{v}</td>)}
+                        {r.map((v, i) => <td key={i} className={`py-2 px-2 cell ${i ? (t.cols.length > 2 && t.cols[0] === '' ? '' : 'font-mono') : 'font-bold whitespace-nowrap'}`}>{v}</td>)}
                       </tr>
                     ))}
                   </tbody>
@@ -227,6 +268,7 @@ function Why({ d, color }) {
         </div>
       )}
     </Section>
+    </MotionConfig>
   )
 }
 

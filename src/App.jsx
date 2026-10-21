@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useLayoutEffect } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion, MotionConfig } from 'motion/react'
 import Cursor from './components/Cursor'
@@ -7,7 +7,8 @@ import CoursePage from './pages/CoursePage'
 
 // 換頁過場：金色與青綠色兩層紙片由下往上掃過，內容淡入
 function Page({ children }) {
-  useEffect(() => { window.scrollTo(0, 0) }, [])
+  // 換頁前就回到頂端（instant），避免新頁在舊捲動位置先觸發進場動畫
+  useLayoutEffect(() => { window.scrollTo({ top: 0, behavior: 'instant' }) }, [])
   return (
     <>
       <motion.div
@@ -32,7 +33,7 @@ export default function App() {
   return (
     <MotionConfig reducedMotion="user">
       <Cursor />
-      <AnimatePresence mode="wait">
+      <AnimatePresence mode="wait" onExitComplete={() => window.scrollTo({ top: 0, behavior: 'instant' })}>
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Page><Home /></Page>} />
           <Route path="/course/:slug" element={<Page><CoursePage /></Page>} />
