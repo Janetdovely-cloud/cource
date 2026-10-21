@@ -57,6 +57,7 @@ h1, h2, h3, h4, h5, h6, .hand {
   letter-spacing: .03em;
 }
 h1, h2, h3, h4, h5, h6 { margin: 0; line-height: 1.25; }
+h1 { -webkit-text-stroke-width: .01em; } /* 大標題較細，Janet 2026-10-21 */
 
 :focus-visible { outline: 3px solid var(--color-gold); outline-offset: 3px; }
 ::selection { background: rgba(242, 177, 52, .45); }
