@@ -28,6 +28,7 @@ export const courseIndex = [
   { slug: 'java', ready: false, cat: 'it', name: 'Java 軟體工程師', en: 'Java Software Engineer' },
   { slug: 'cloud', ready: false, cat: 'it', name: '雲端系統', en: 'Cloud Systems' },
   { slug: 'anime', ready: false, cat: 'design', name: '動漫角色設計', en: 'Character Design' },
+  { slug: 'ai-game', ready: false, cat: 'it', name: 'AI 遊戲程式設計師', en: 'AI Game Programmer' },
 ]
 
 // ── 課程內頁資料（每門課一份，頁面由 CoursePage 依資料產生）──
