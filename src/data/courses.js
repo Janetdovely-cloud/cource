@@ -15,6 +15,7 @@ import aieHero from '../assets/ai-engineer/hero.webp'
 import agentHero from '../assets/ai-agent/hero.webp'
 import ptcHero from '../assets/ptc/hero.webp'
 import javaHero from '../assets/java/hero.webp'
+import cloudHero from '../assets/cloud/hero.webp'
 import interiorHero from '../assets/interior/hero.webp'
 
 // AI 全應用證照班：商業整合設計師、室內設計師共用
@@ -69,7 +70,9 @@ export const courseIndex = [
   { slug: 'java', ready: true, cat: 'it', name: 'Java 軟體工程師', en: 'Java Engineer',
     line: '不只會寫 Code，從 Java 到 AI 工作流，練出專案解題力', img: javaHero,
     tags: ['Java', 'MySQL', 'JSP', 'MVC', 'Kotlin'] },
-  { slug: 'cloud', ready: false, cat: 'it', name: '雲端系統', en: 'Cloud Systems' },
+  { slug: 'cloud', ready: true, cat: 'it', name: '雲端系統整合工程師', en: 'Cloud System Administrator',
+    line: '讓 AI 上雲協助企業轉型，擁抱百億雲端運算產業', img: cloudHero,
+    tags: ['Red Hat Linux', 'Ansible', 'AWS', 'OpenShift', 'K8S'] },
   { slug: 'anime', ready: false, cat: 'design', name: '動漫角色設計', en: 'Character Design' },
   { slug: 'ai-game', ready: false, cat: 'it', name: 'AI 遊戲程式設計師', en: 'AI Game Programmer' },
   { slug: 'ipas', ready: false, cat: 'cert', name: 'iPAS 永續科技人才證照班', en: 'iPAS Certification' },
@@ -1931,6 +1934,253 @@ export const courses = {
         a: '會員權限管理系統、商品庫存管理系統、人事薪資管理系統、MVC 企業網站、資料查詢介面與 Android 多頁 APP。' },
       { q: '學完還能往哪裡延伸？',
         a: '如果想把 Java 專案做得更完整，可以延伸學習 MySQL 資料庫管理、跨平台商業網站設計與 Frontend 前端開發。' },
+      { q: '結訓後有就業協助嗎？',
+        a: '有。結合 JOB580 提供 8 項求職服務，另有 AI 自傳生成、AI 媒合職缺、AI 求職追蹤等 AI 求職資源。' },
+    ],
+  },
+
+  cloud: {
+    slug: 'cloud',
+    color: 'var(--color-red)',
+    hero: {
+      badges: ['獨家・產學培訓', 'AI 職缺媒合', '結訓保證面試'],
+      title: '雲端系統整合工程師',
+      en: 'Cloud System Administrator',
+      hand: '選對賽道，比努力奔跑更重要',
+      line: '讓 AI 上雲協助企業轉型，擁抱百億雲端運算產業。',
+      sub: '專屬・增能學習｜真人教練｜AI 教練',
+      tags: ['24HR 自由彈性', '隨時隨地', '高效學習'],
+      img: cloudHero,
+      imgAlt: '手掌觸碰發光的地球儀，周圍是雲端與數據圖表介面',
+    },
+
+    why: {
+      title: '生成式 AI 熱潮帶動雲端佈局新藍海，產業吸金 3 大趨勢爆發',
+      lead: '傳統 MIS 正在消失，雲端工程師正在崛起',
+      hl: '超過 90% 世界百大企業皆使用 Red Hat Linux 進行產品開發與維運。',
+      stats: [
+        { tag: '高產值', kicker: '雲端將是下個兆元產業', num: 12.8, decimals: 1, unit: '兆',
+          desc: '雲端服務產業受到大數據、人工智慧、物聯網等新興科技驅動，年度較同期成長 34%，全球雲端用戶花費將近 4 千億美元！' },
+        { tag: '高職缺', kicker: '雲端正在改寫 IT 人才版圖', num: 15, unit: '萬工作機會',
+          desc: '超過 90% 世界百大企業皆使用 Red Hat Linux 進行產品開發與維運，學習 Red Hat Linux 關鍵技術，搶進世界百大公司。' },
+        { tag: '高薪資', kicker: '雲端產業急缺跨領域人才', num: 13, unit: '萬',
+          desc: '企業上雲趨勢銳不可擋，雲端工作數年增近 2 成，相關業者祭出 13 萬高薪攬才，其中有證照者更吃香，薪資平均多 $5,733 元！' },
+      ],
+      compare: {
+        title: '各職類對雲端技能的需求成長',
+        sub: '雲端已成為跨產業的基本能力：近 5 年要求雲端技能的職缺在各職類都大幅成長，連設計、行銷類也不例外。其中軟體開發類占 29%、行銷／產品企劃類占 27%。',
+        bars: [
+          { name: '生產製造類', num: 89 },
+          { name: '軟體開發類', num: 123 },
+          { name: '行銷／產品企劃類', num: 170 },
+          { name: '藝術設計類', num: 223, hot: true },
+        ],
+        unit: '% 成長',
+      },
+      facts: [
+        { num: '90%', title: '財富 500 強的共同選擇', text: '穩定、安全、不可取代，企業核心都選 Red Hat。' },
+        { num: 'CLI', title: '駕馭指令列', text: 'Linux 系統管理是所有雲端技術的起點。' },
+        { num: '自動化', title: '一人抵十人的效率', text: 'Ansible 自動化維運，告別手工時代。' },
+        { num: 'AI', title: 'AI 協作課程', text: 'ChatGPT AI 應用課：程式編譯、API 串接、自然語言處理。' },
+      ],
+      salaryTitle: '雲端相關職務月薪範圍',
+      salary: [
+        { role: '系統管理工程師', min: 38, max: 55 },
+        { role: '系統維運工程師', min: 40, max: 60 },
+        { role: 'SRE 工程師', min: 53, max: 77 },
+        { role: '雲端架構工程師', min: 60, max: 80 },
+        { role: '雲端維運工程師', min: 80, max: 120, top: true },
+      ],
+      salaryNote: '薪資參考來源：人力銀行（單位：千元）。本表僅供參考，實際薪資依各公司職務待遇而有所不同。',
+    },
+
+    who: {
+      title: '從 MIS 升級為雲端工程師',
+      sub: '從程式基礎、Linux 系統管理到自動化部署與 OpenShift 容器平台，一步步走上雲端職涯階梯。',
+      cards: [
+        { icon: 'rocket', title: '想轉職 IT 的新手', pain: '沒碰過 Linux，看到黑底白字就怕', say: '程式設計先修打底，Linux 伺服器維運免基礎入門。', certs: ['程式設計先修養成', 'Linux 伺服器維運'] },
+        { icon: 'briefcase', title: '傳統 MIS', pain: '修電腦、拉網路線，薪水天花板低', say: 'Ansible 自動化部署與 AWS 雲端運算，進入大廠實戰職能。', certs: ['Linux 自動化部署與 AWS 雲端運算'] },
+        { icon: 'target', title: '想做容器與 K8s 的人', pain: '想學最高薪的雲端架構技術', say: '用 Kubernetes 與 OpenShift 建構、部署與管理容器化應用。', certs: ['OpenShift 系統管理 I', 'OpenShift 系統管理 II'] },
+        { icon: 'star', title: '想考硬實力證照的人', pain: '想要一張業界認可的證照', say: 'Red Hat 原廠 RHCSA、RHCE 到 RHCA，加上 AWS CCP。', certs: ['RHCSA', 'RHCE', 'RHCA'] },
+      ],
+    },
+
+    what: {
+      title: '從程式基礎、Linux 到 OpenShift 雲端平台',
+      sub: '程式設計與 Python 打底，Red Hat Linux 系統管理與自動化，再進階到 OpenShift 容器、AI 與虛擬化。',
+      analogyLabel: '一句話看懂：',
+      modules: [
+        { id: 'pre', name: '程式設計先修養成', color: 'var(--color-gold)',
+          tagline: '進入資訊工程領域，搞定基礎語法', desc: '由淺入深建立程式架構，強化邏輯及解題能力。',
+          analogy: '先把程式邏輯打穩，之後學 Linux 與雲端更順手。',
+          highlights: ['APCS 程式先修檢定與 Python 量化投資分析', 'C#、Java、C/C++ 與 APP 開發', 'HTML5、JavaScript、SQL 與 Google 雲端應用'],
+          units: [
+            { t: '程式設計菜鳥系列', items: ['APCS 程式先修檢定', 'Python 程式量化投資分析', 'GPTXAI 聊天機器人開發', 'ChatGPT AI 實戰詠唱之術'] },
+            { t: 'APP 程式開發系列', items: ['C# 程式設計入門', 'Java 程式設計概論', 'APP 開發趨勢與應用', 'C/C++ 語言程式應用'] },
+            { t: '網頁語法設計系列', items: ['JavaScript 網頁特效', 'HTML5 前端語法應用', 'ASP.NET 動態網頁設計', 'PHP 網頁程式設計入門'] },
+            { t: '雲端管理應用系列', items: ['SQL 結構性查詢語言', 'Red Hat Linux 系統管理', '基礎學 Google 文件應用', 'Google 雲端應用大解密'] },
+          ] },
+        { id: 'py', name: 'Python 程式資料分析', color: 'var(--color-violet)',
+          tagline: 'Python', desc: '全球程式語言學習熱潮，未來必修第二外語。',
+          analogy: '全面解析 Python 基礎應用，成為 AI 工程師的第一步。',
+          highlights: ['Python 入門與開發環境建置', '資料型態、判斷式與迴圈', 'OpenData 資料蒐集與分析'],
+          units: [
+            { t: 'Python 入門認識', items: ['Python 認識應用', 'Python 開發環境建置', 'Anaconda 開發軟體安裝', 'Python 程式執行'] },
+            { t: 'Python 基礎語法', items: ['資料型態與變數', '判斷式與迴圈', '串列與元組', '字典與集合'] },
+            { t: 'Python 資料分析', items: ['資料分析簡介', 'OpenData 資料蒐集', 'Python 資料處理、分析', '模型建立應用'] },
+            { t: '資料分析實務演練', items: ['資料庫應用', 'Open Data 資料分析', 'Open Data 資料應用'] },
+          ] },
+        { id: 'rhcsa', name: 'Linux 伺服器維運（RHCSA）', color: 'var(--color-red)',
+          tagline: '紅帽系統管理 I + II', desc: '學市占率最高的 Linux，打好網管專業底子。',
+          analogy: '免基礎入門課！透過指令介面學專業級企業系統管理工具。',
+          highlights: ['Linux 視窗環境、指令與權限管理', 'systemd、sshd、網路與 Log 管理', 'SELinux、container 與 Podman、Linux 防火牆'],
+          units: [
+            { t: 'RH124-1', items: ['Linux 視窗環境操作', '指令下達與處理器', '文字編輯器', '用戶管理', '權限及身份', '程序管理'] },
+            { t: 'RH124-2', items: ['systemd 與 sshd 服務', '新增移除軟體', '網路設定、管理', 'Log 分析及管理'] },
+            { t: 'RH134-1', items: ['系統啟動管理', 'BASH 命令稿', '虛擬記憶體系統管理', 'NFS 搭配 autofs 應用', '邏輯卷宗', 'SELinux 使用管理'] },
+            { t: 'RH134-2', items: ['Stratis／VFO Volume', 'container and Podman', '排程工作', '效能參數調整', 'Linux 系統防火牆'] },
+          ] },
+        { id: 'rhce', name: 'Linux 自動化部署與 AWS 雲端運算（RHCE）', color: 'var(--color-brand)',
+          tagline: '紅帽系統管理 III、AWS EC2', desc: '國際大廠大舉招募維運工程師，進入大廠實戰職能養成。',
+          analogy: '學習撰寫自動化腳本（playbook），應用自動化優先原則來解決問題，提高工作效率。',
+          highlights: ['Ansible 部署與 playbooks', '使用 Roles 簡化 playbooks、自動執行管理任務', 'AWS EC2 架設網頁伺服器、安裝 Nextcloud'],
+          units: [
+            { t: 'RH294-1', items: ['Ansible 介紹', 'Ansible 部署', '使用 Ansible playbooks', 'Ansible 變數管理'] },
+            { t: 'RH294-2', items: ['任務管理與控制', '部署檔案至受管主機', '大型專案管理'] },
+            { t: 'RH294-3', items: ['使用 Roles 簡化 playbooks', 'Ansible 除錯', '自動執行管理任務'] },
+            { t: 'RH294-4', items: ['AWS 會員註冊', 'EC2 架設網頁伺服器', '建立資料伺服器', '建立網頁伺服器', '安裝 Nextcloud 服務'] },
+          ] },
+        { id: 'do180', name: 'OpenShift 系統管理 I（DO180）', color: 'var(--color-red)',
+          tagline: 'OpenShift 前導課程', desc: '使用 K8S 和 OpenShift 技術架構。',
+          analogy: '學習如何建構和管理容器並部署在 Kubernetes（K8S）集群上。',
+          highlights: ['K8S 與 OpenShift 介紹', '應用程式容器和 Pod 運行', '部署容器化應用'],
+          units: [
+            { t: 'DO180：OpenShift 架構 I', items: ['K8S 與 OpenShift 介紹', 'OpenShift 指令介面與 API', '應用程式容器和 Pod 運行', 'K8S 上部屬管理與網路化應用程式', '程式配置與資料的儲存', '配置應用程式可靠信', '管理應用程式更新', '部署容器化應用'] },
+          ] },
+        { id: 'do280', name: 'OpenShift 系統管理 II（DO280）', color: 'var(--color-brand)',
+          tagline: 'OpenShift 進階課程', desc: '學習安裝、管理 OpenShift 集群，並部署應用。',
+          analogy: '利用 Kubernetes 管理並擴展應用程序，縮短產品上市時間。',
+          highlights: ['RHOCP 架構與集群健康', '身份驗證、授權與應用安全', '開發者自助服務與 OpenShift 更新'],
+          units: [
+            { t: 'DO280：OpenShift 架構 II', items: ['RHOCP 架構', '驗證集群健康', '身份驗證和授權', '應用安全性配置', '公開非 HTTP／SNI 應用程式', '啟用開發者自助服務', '應用程式安全', 'OpenShift 更新'] },
+          ] },
+        { id: 'do188', name: 'OpenShift 開發 I（DO188）', color: 'var(--color-gold)',
+          tagline: '容器化應用程式', desc: '運行、管理容器化應用程式並進行故障排除。',
+          analogy: '如何使用 Podman 和紅帽 OpenShift 來建構、運行和管理容器。',
+          highlights: ['Podman 基礎與容器鏡像', '持久儲存與容器故障診斷', 'Compose 多容器應用與 K8S 開發'],
+          units: [
+            { t: 'DO188：OpenShift 開發 I', items: ['容器簡介和概述', 'Podman 基礎知識', '容器鏡像', '自訂容器鏡像', '持久儲存資料', '對容器進行故障診斷', '使用 Compose 的多容器應用', '使用 K8S 和 OpenShift 開發容器'] },
+          ] },
+        { id: 'ai267', name: 'OpenShift AI（AI267）', color: 'var(--color-violet)',
+          tagline: 'AI／ML 模型部署實務', desc: '建構 OpenShift AI 實戰力，掌握 AI／ML 模型部署實務。',
+          analogy: '快速掌握 OpenShift AI 全生命週期：開發、訓練與部署應用。',
+          highlights: ['平台基礎環境建置', '資料科學開發與互動式建模', '模型訓練、部署與 MLOps'],
+          units: [
+            { t: 'AI267：AI／ML 開發部屬實務', items: ['平台基礎環境建置', '模型訓練與部署實務', '資料科學開發與互動式建模', '資料科學管線與 MLOps'] },
+          ] },
+        { id: 'do316', name: 'OpenShift 虛擬化管理（DO316）', color: 'var(--color-red)',
+          tagline: '虛擬化技能全攻略', desc: '精通雙重技術：整合 VM 與容器。',
+          analogy: '打造高效低成本的雲原生平台。',
+          highlights: ['OpenShift 虛擬化基礎與部署', '網路與儲存配置', '虛擬機管理與高可用性設計'],
+          units: [
+            { t: 'DO316：OpenShift 虛擬化實戰指南', items: ['OpenShift 虛擬化基礎與部署', '網路與儲存配置', '虛擬機管理與操作', '高可用性與容錯設計'] },
+          ] },
+        { id: 'rh358', name: 'Red Hat 服務管理與自動化（RH358）', color: 'var(--color-brand)',
+          tagline: 'Ansible Playbook', desc: '編寫 Ansible Playbook 縮短部署時間。',
+          analogy: '手動管理服務並編寫自動化腳本完成部署。',
+          highlights: ['網路與連線管理', '伺服器配置與優化', '儲存與存取管理、服務應用與支援'],
+          units: [
+            { t: 'RH358：Linux 伺服器自動化管理實戰課', items: ['網路與連線管理', '伺服器配置與優化', '儲存與存取管理', '服務應用與支援'] },
+          ] },
+        { id: 'rh342', name: 'Red Hat 診斷與故障排除（RH342）', color: 'var(--color-gold)',
+          tagline: '故障排除實戰課', desc: '打造系統維運關鍵力。',
+          analogy: '企業級 Linux 故障排除技術，打造系統穩定關鍵力。',
+          highlights: ['系統與啟動問題診斷', '資源與網路管理故障排除', '故障排除策略與實作演練'],
+          units: [
+            { t: 'RH342：Linux 故障排除實戰課', items: ['系統與啟動問題診斷', '資源與網路管理故障排除', '故障排除策略與實作演練'] },
+          ] },
+      ],
+      certs: {
+        title: '相關認證',
+        sub: '課程內容與國際原廠認證體系接軌，所學技能可延伸挑戰下列認證，作為職涯進階的能力指標；依照不同選修科目，頒發結訓合格數位證書。',
+        list: [
+          { name: 'AWS CCP 認證', org: 'AWS' },
+          { name: 'RHCSA 紅帽認證系統管理員', org: 'Red Hat' },
+          { name: 'RHCE 紅帽認證工程師', org: 'Red Hat' },
+          { name: 'RHCA 紅帽認證架構師', org: 'Red Hat' },
+        ],
+      },
+    },
+
+    how: {
+      title: 'Red Hat 雲端職涯進化階梯',
+      sub: '從地基到雲端，每一步都是身價的跳板。',
+      chain: [
+        { no: '01', title: 'Linux 系統管理', badge: '系統工程師 38K–55K', text: '程式先修打底，RH124、RH134 考取 RHCSA：駕馭指令列，掌握企業運作的靈魂。', color: 'var(--color-red)' },
+        { no: '02', title: '自動化維運', badge: 'SRE 工程師 53K–77K', text: 'RH294 考取 RHCE：Ansible 自動化與 AWS 雲端運算，一人抵十人的效率。', color: 'var(--color-gold)' },
+        { no: '03', title: '雲端架構設計', badge: '雲端架構師 80K–120K', text: 'OpenShift、Kubernetes 容器平台與虛擬化，挑戰 RHCA，邁向年薪百萬。', color: 'var(--color-brand)' },
+      ],
+      practice: '課中會帶領同學完成相關作品，並輔導考取相關證照。',
+      services: {
+        title: '訓前・訓中・訓後：8 項求職服務一路陪跑',
+        phases: [
+          { name: '訓前', items: ['專業顧問輔導', '短工轉介媒合'] },
+          { name: '訓中', items: ['帶領完成相關作品', '輔導考取相關證照', '專題成果發表會'] },
+          { name: '訓後', items: ['個人履歷健檢優化', '聯合徵才博覽會', '百大企業職缺引薦', '產學專班保送面試'] },
+        ],
+      },
+      aiTools: { title: '全方位 AI 資源助攻，就業 0 距離', items: ['AI 跨領域工作術', 'AI 自傳生成', 'AI 媒合職缺', 'AI 求職追蹤'] },
+      jobs: {
+        title: '工作大未來，你就是人才：上千聯成電腦學員成功就業',
+        note: '榮獲政府 TTQS 評鑑獎項，培訓就業有保障。',
+        stats: [
+          { label: '就業成功率', num: 93, unit: '%' },
+          { label: '就輔徵才推介會', num: 21, unit: '場' },
+          { label: '廠商徵才見面會', num: 266, unit: '場' },
+          { label: '廠商聯合徵才說明會', num: 47, unit: '場' },
+          { label: '合作廠商數約', num: 6347, unit: '家' },
+        ],
+      },
+    },
+
+    format: {
+      title: '線上真人，即時指導，跨區進修',
+      sub: '5 大教學系統依你的時間自由搭配，真人教練＋AI 教練陪你學到會。',
+      systems: [
+        { name: '實體教學系統', text: '課程程度分班' },
+        { name: '直播教學系統', text: '個人化排課即時互動' },
+        { name: '錄播教學系統', text: '24 小時隨時學' },
+        { name: '學習監控系統', text: '課後簽退、自我學習評價' },
+        { name: '真人教練系統', text: '線上線下搭配，即時解惑' },
+      ],
+      coach: [
+        { name: '真人教練', sub: '量身即時指導', points: ['預約 1 對 1 教學效果倍增', '雙向互動解決學習盲點'] },
+        { name: 'AI 教練', sub: '加速學習進程', points: ['免下載一鍵開啟即上課', '24hr 因材施教在線複習'] },
+        { name: '課後收穫', sub: '精準訓練計劃', points: ['客製化增進軟硬實力', '短期衝刺找到命定職業'] },
+      ],
+      perks: ['真人直播，即時互動', '師生互動，隨問即答', '學習不受地點限制', '14 天錄影檔免費看'],
+      upgrade: '升級 24hr，課程全面不加價',
+    },
+
+    teacher: {
+      title: '北中南名師獨家 Live',
+      sub: '解決產業落差，接軌職場；生成式 AI 協作技術升級，加速雲端科技創新流程。',
+      traits: [
+        { icon: 'live', title: '名師獨家 Live', text: '北中南名師獨家 Live，解決產業落差，接軌職場。' },
+        { icon: 'star', title: 'AI 協作升級', text: '生成式 AI 協作技術升級，加速雲端科技創新流程。' },
+        { icon: 'briefcase', title: '上雲關鍵人才', text: '導入 AI 服務，加速訓練模型，成為上雲關鍵人才。' },
+      ],
+    },
+
+    faq: [
+      { q: 'Linux 版本那麼多，為什麼要學 Red Hat？',
+        a: '全球 90% 的財富五百強企業都依賴 Red Hat。企業最怕系統當機，Red Hat 提供的是極致的穩定與安全。' },
+      { q: '沒有 Linux 經驗，可以學嗎？',
+        a: '可以。課程先從程式設計先修與 Python 打底，Linux 伺服器維運也是免基礎入門課。' },
+      { q: '課程可銜接哪些認證？',
+        a: '課程內容與國際認證體系接軌，學員可依個人規劃自行報考 Red Hat 原廠 RHCSA（初級）、RHCE（中級，需取得 RHCSA）、RHCA（高級，需取得 RHCE），以及 AWS CCP 認證。依照不同選修科目，頒發結訓合格數位證書。' },
+      { q: '上班時間不固定，跟得上進度嗎？',
+        a: '有直播、錄播、實體等 5 大教學系統可以自由搭配，錄影檔 14 天免費看，AI 教練 24 小時在線複習。' },
       { q: '結訓後有就業協助嗎？',
         a: '有。結合 JOB580 提供 8 項求職服務，另有 AI 自傳生成、AI 媒合職缺、AI 求職追蹤等 AI 求職資源。' },
     ],
