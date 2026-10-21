@@ -9,7 +9,6 @@ import aiHero from '../assets/ai-pro/hero.webp'
 import aiGeneral from '../assets/ai-pro/mod-general.webp'
 import aiWork from '../assets/ai-pro/mod-work.webp'
 import aiPro from '../assets/ai-pro/mod-pro.webp'
-import aiLang from '../assets/ai-pro/mod-lang.webp'
 
 // 課程分類（首頁篩選用）；color 為卡片分類色
 export const categories = [
@@ -24,7 +23,7 @@ export const categories = [
 export const courseIndex = [
   { slug: 'ai-pro', ready: true, cat: 'ai', name: 'AI 熟練師', en: 'AI Skills Specialist',
     line: 'AI 已成職場標配，10 張證照對準企業選才新標準', img: aiHero,
-    tags: ['AI 通識', 'AI 工作應用', 'AI 專業技能', 'AI 外語'] },
+    tags: ['AI 通識', 'AI 工作應用', 'AI 專業技能'] },
   { slug: 'biz-design', ready: false, cat: 'design', name: '商業整合設計', en: 'Integrated Visual Design' },
   { slug: 'interior', ready: false, cat: 'eng', name: '室內設計', en: 'Interior Design' },
   { slug: 'ai-engineer', ready: false, cat: 'it', name: 'AI 人工智慧工程師', en: 'Artificial Intelligence Engineer' },
@@ -393,15 +392,12 @@ export const courses = {
         { icon: 'briefcase', title: '辦公室上班族', pain: '文書、報表與重複作業做不完', say: '用 AI 快速完成文案、報表與重複作業，把時間留給更重要的事。', certs: ['AI 通識', 'AI 效率應用', 'AI 職場技能'] },
         { icon: 'target', title: '行銷與社群小編', pain: '素材、廣告、社群都要自己來', say: '從 AI 廣告設計、品牌視覺到社群行銷，一條龍完成實務輸出。', certs: ['AI 工作應用', 'AI 行銷應用'] },
         { icon: 'star', title: '個人創作者', pain: '有想法，但缺工具與技術', say: '用 AI 做出圖像、短影音、音樂，甚至自己的遊戲。', certs: ['AI 短影音創作', 'AI 影音創作', 'AI 遊戲開發'] },
-        { icon: 'flag', title: '想接軌國際的人', pain: '外語卡關，不敢開口', say: 'AI 口說陪練即時修正發音，加上真人互動教學，建立開口自信。', certs: ['AI 外語'] },
       ],
-      rolesTitle: 'AI 全職能：找到你的職務',
-      roles: ['AI 人力資源', 'AI 財務會計', 'AI 業務銷售', 'AI 電子商務', 'AI 行銷企劃', 'AI 客服公關', 'AI 專案管理', 'AI 行政總務', 'AI 個人創作者', 'AI 音樂人'],
     },
 
     what: {
-      title: '4 大學習主軸，從理解 AI 到接軌國際',
-      sub: '理解 AI、活用 AI、掌握 AI、接軌國際，每個主軸都有三大學習亮點與完整課程大綱。',
+      title: '3 大學習主軸，從理解 AI 到掌握 AI',
+      sub: '理解 AI、活用 AI、掌握 AI，每個主軸都有三大學習亮點與完整課程大綱。',
       analogyLabel: '學習目標：',
       modules: [
         { id: 'general', name: '01 AI 通識', img: aiGeneral, color: 'var(--color-brand)',
@@ -419,12 +415,12 @@ export const courses = {
           analogy: '建立設計思維、拓展創意工具，從社群素材到提案網站，強化實務輸出。',
           highlights: ['建立設計思維：掌握色彩、構圖、排版與品牌規劃', '拓展創意工具：運用 AI 完成圖像、影音、音樂與網頁', '銜接商業情境：從社群素材到提案網站，強化實務輸出'],
           units: [
-            { t: 'AI 廣告設計', items: ['介面環境與檔案管理：認識工具面板區、色彩管理與校正、圖層概念與應用', '商業影像整合設計：影像合成、排版修圖、商業構圖', '創意海報設計（成果）：AI 產出素材、海報創意實作、作品成果輸出'] },
-            { t: 'AI 形象設計', items: ['向量繪圖與插畫設計：物件路徑編輯、筆刷應用、插畫特效', '品牌視覺與識別設計：文字排版、版面設計、品牌識別', '創意發想與實作：AI 生成 Logo、名片設計實作、廣告 DM 實作'] },
+            { t: 'AI 廣告設計', items: ['介面環境與檔案管理：認識工具面板區、色彩管理與校正、圖層概念與應用', '商業影像整合設計：影像合成、排版修圖、商業構圖', '創意海報設計（成果）：AI 產出素材、海報創意實作、作品成果輸出', '使用 Photoshop，輔導考取 ACP Photoshop 國際證照（原地考照）'] },
+            { t: 'AI 形象設計', items: ['向量繪圖與插畫設計：物件路徑編輯、筆刷應用、插畫特效', '品牌視覺與識別設計：文字排版、版面設計、品牌識別', '創意發想與實作：AI 生成 Logo、名片設計實作、廣告 DM 實作', '使用 Illustrator，輔導考取 ACP Illustrator 國際證照（原地考照）'] },
             { t: '視覺行銷實作', items: ['品牌視覺識別設計：品牌定位、主視覺設計、VI 系統應用', '社群品牌行銷實作：品牌素材延伸、社群經營、平台建置', '作品整合 Mockup（成果）：介面工具設定、文字編輯技巧、圖文整合應用'] },
             { t: 'AI 短影音創作', items: ['AI 腳本企劃與分鏡：腳本生成、分鏡規劃、流程設計', '拍攝與剪輯實作：構圖運鏡、剪輯轉場、字幕音效', '影音整合與品牌輸出（成果）：動畫製作、虛擬 IP 打造、成品輸出'] },
           ],
-          cert: '課中完成海報、Mockup、短影音等成果作品' },
+          cert: '輔導考取 ACP Photoshop、ACP Illustrator 國際證照（原地考照）' },
         { id: 'pro', name: '03 AI 專業技能', img: aiPro, color: 'var(--color-violet)',
           tagline: '掌握 AI', desc: '全面整合生成式 AI 工具與職場實力，涵蓋程式、行銷、設計、投資理財與音樂創作。',
           analogy: '整合最新 AI 工具，透過名師 Live 直播帶練，培養全方位 AI 實力。',
@@ -437,16 +433,6 @@ export const courses = {
             { t: 'AI 遊戲開發', items: ['Substance Painter 模型材質貼圖', '獨立遊戲開發企劃', 'Claude Code 遊戲製作'] },
             { t: 'AI Vibe Coding', items: ['AI 程式：Vibe Coding 開發全流程', 'ChatGPT AI 聊天機器人開發', 'Claude Agent 實戰入門'] },
             { t: '生活風格', items: ['塔羅牌：秘儀解析', '開運居家風水', '基礎魔術的觀念與呈現', 'AI × 選股：交易思維重塑', '3 堂心理諮商師教的強效溝通表達課', '打造你的投資策略（台股篇）', 'AI 詞曲創作', '全方位歌唱特訓班', 'Sample 音樂編曲入門'] },
-            { t: 'AI 全職能', items: ['AI 人力資源', 'AI 財務會計', 'AI 業務銷售', 'AI 電子商務', 'AI 行銷企劃', 'AI 客服公關', 'AI 專案管理', 'AI 行政總務', 'AI 個人創作者', 'AI 音樂人'] },
-          ] },
-        { id: 'lang', name: '04 AI 外語', img: aiLang, color: 'var(--color-red)',
-          tagline: '接軌國際', desc: '依照程度與學習目標彈性選課，從基礎發音、生活會話到旅遊、職場與檢定。',
-          analogy: '培養 AI 時代不可或缺的外語實戰力，英語、日語、韓語都能選。',
-          highlights: ['AI 口說陪練：即時修正發音與對話，建立開口自信', '真人互動教學：中外師資帶領，累積真實表達經驗', '情境實戰應用：生活、旅遊、職場情境反覆練習'],
-          units: [
-            { t: '英語系列', items: ['基礎會話：發音與生活情境會話、初級會話、中級會話、職場表達', '旅遊文化：台北城市導覽英語、在地文化導覽英語、國際節慶文化英語、15 堂情境字彙必修', '多益檢定：多益聽力衝刺、多益閱讀衝刺'] },
-            { t: '日語系列', items: ['入門基礎：日語五十音入門、日語 N5 基礎、商務日語', '旅遊文化：日本城市旅遊日語、旅日實用情境會話、自由行必備語言包、日本社會文化日語、動漫日語', '日語檢定：N4 高分解碼術、N3 破題技巧、N2／N1 閱讀解析、N2／N1 高頻陷阱破題'] },
-            { t: '韓語系列', items: ['基礎會話：韓語初級情境會話', '旅遊應用：旅韓實用情境會話', '進階溝通：韓語中高級會話'] },
           ] },
       ],
       certs: {
@@ -521,22 +507,20 @@ export const courses = {
       sub: '名師直播即時互動，搭配真人教練與 AI 隨身教練，學習不卡關。',
       traits: [
         { icon: 'live', title: '名師 Live 直播帶練', text: '專業名師 Live 直播帶練，現場解答疑難。' },
-        { icon: 'user', title: '中外師資帶領', text: 'AI 外語由中外師資帶領，累積真實表達經驗。' },
         { icon: 'badge', title: '真人教練指導', text: '個人教學、觀念補強、深度解題與專案指導。' },
+        { icon: 'bot', title: 'AI 隨身教練', text: '陪伴學習不中斷：即時解惑、操作協助、隨問隨答、基礎輔導。' },
       ],
     },
 
     faq: [
       { q: '完全沒有 AI 基礎，學得來嗎？',
-        a: '可以。AI 通識從生成式 AI 基礎概論、AI 工具與提示詞實作開始，先建立 AI 邏輯，再依工作需求選修 AI 工作應用、AI 專業技能或 AI 外語。' },
+        a: '可以。AI 通識從生成式 AI 基礎概論、AI 工具與提示詞實作開始，先建立 AI 邏輯，再依工作需求選修 AI 工作應用或 AI 專業技能。' },
       { q: '可以考哪些證照？',
-        a: '課程對應 10 張 AI 相關證照，包含 Google Gemini Certified Educator、Adobe AI 創意設計專家、Pearson 生成式 AI 人工智慧核心能力國際認證、TQC AI 人工智慧應用與技術（實用級），以及資策會的生成式 AI 能力、辦公室應用、美術設計等認證。' },
+        a: '課程對應 10 張 AI 相關證照，包含 Google Gemini Certified Educator、Adobe AI 創意設計專家、Pearson 生成式 AI 人工智慧核心能力國際認證、TQC AI 人工智慧應用與技術（實用級），以及資策會的生成式 AI 能力、辦公室應用、美術設計等認證。AI 廣告設計與 AI 形象設計另輔導考取 ACP Photoshop、ACP Illustrator 國際證照，原地考照。' },
       { q: '課程是政府認可的嗎？',
         a: '是。本培訓課程通過數發部審核，符合國家《AI 產業人才認定指引》，並取得 AI 能量登錄核准，是政府認可的 AI 教育培訓單位。' },
       { q: '上班時間不固定，跟得上進度嗎？',
         a: '課程提供 24 小時彈性進修：錄播教學系統 24 小時隨時學，AI 隨身教練隨問隨答，遇到難題再由真人教練深度解題。' },
-      { q: '外語課要怎麼選？',
-        a: '依照程度與學習目標彈性選課。英語、日語、韓語系列都有從基礎會話、旅遊應用到檢定或進階溝通的課程。' },
       { q: '結訓有證書嗎？',
         a: '有。依照不同選修科目，頒發結訓合格數位證書。' },
       { q: '結訓後有就業協助嗎？',

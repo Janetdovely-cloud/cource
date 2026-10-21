@@ -181,7 +181,7 @@ function Why({ d, color }) {
 function Who({ d, color }) {
   return (
     <Section id="who" no="02" label="適合誰學習？" title={d.title} sub={d.sub}>
-      <Stagger className="grid gap-[18px] sm:grid-cols-2 lg:grid-cols-4">
+      <Stagger className={`grid gap-[18px] sm:grid-cols-2 ${d.cards.length === 3 ? 'lg:grid-cols-3' : 'lg:grid-cols-4'}`}>
         {d.cards.map((c, i) => (
           <Item key={c.title}>
             <TiltCard className="h-full" max={10}>
