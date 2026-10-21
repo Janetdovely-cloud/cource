@@ -151,7 +151,7 @@ export default function Home() {
         </Stagger>
 
         <Stagger className="mt-10 flex flex-wrap gap-x-2 gap-y-3 items-center">
-          {['資格審核・職訓補助', '職能培訓・實務應用', '履歷健診・面試模擬', '課中就業・機會通知', 'AI 就業媒合・徵才見面會', '高薪獵頭・職缺引薦', '成功搶進知名企業'].map((t, i, a) => (
+          {['資格審核・職訓補助', '職能培訓・實務應用', '課後成果發表・鍛鍊作品集介紹能力', '履歷健診・面試模擬', 'AI 就業媒合・徵才見面會', '高薪獵頭・職缺引薦', '成功搶進知名企業'].map((t, i, a) => (
             <Item key={t} className="flex items-center gap-2">
               <span className={`chip ${i === a.length - 1 ? 'gold' : ''} !text-[14px] !py-1`}>{t}</span>
               {i < a.length - 1 && <span className="text-brand font-bold" aria-hidden="true">→</span>}
