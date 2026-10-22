@@ -4,6 +4,7 @@ import { motion, AnimatePresence, useScroll, useTransform } from 'motion/react'
 import { Nav, Footer, scrollToId } from '../components/Layout'
 import { Section, Stagger, Item, TiltCard, CountUp, SplitTitle, Squiggle, Doodles, ph } from '../components/Motion'
 import Icon from '../components/Icon'
+import About from '../components/About'
 import { courseIndex, categories } from '../data/courses'
 
 const stats = [
@@ -61,7 +62,7 @@ export default function Home() {
 
   return (
     <>
-      <Nav links={[{ id: 'courses', name: '課程總覽' }, { id: 'services', name: '就業服務' }]} />
+      <Nav links={[{ id: 'about', name: '認識聯成' }, { id: 'disc', name: '適性測驗' }, { id: 'courses', name: '課程總覽' }, { id: 'services', name: '就業服務' }]} />
 
       {/* ── Hero ── */}
       <header className="relative overflow-hidden">
@@ -101,8 +102,34 @@ export default function Home() {
         </div>
       </header>
 
+      {/* ── 認識聯成 ── */}
+      <Section id="about" no="01" label="認識聯成" title="值得信賴的職訓品牌"
+        sub="通過政府多項評核認證，用教學品質與就業成果說話。">
+        <About />
+      </Section>
+
+      {/* ── 職涯適性測驗 ── */}
+      <Section id="disc" no="02" label="職涯適性測驗" title="先認識自己，再挑路線">
+        <Stagger>
+          <Item>
+            <div className="card grid gap-6 md:grid-cols-[1fr_auto] items-center" style={{ '--c': 'var(--color-violet)' }}>
+              <div>
+                <p className="hand text-[26px] m-0">DISC 職涯適性問卷</p>
+                <p className="m-0 mt-2 text-muted">18 題、約 3 分鐘，找出你是老虎、孔雀、無尾熊還是貓頭鷹型，更了解自己適合的工作風格。</p>
+                <div className="flex flex-wrap gap-2 mt-4">
+                  {['D 支配型', 'I 影響型', 'S 穩健型', 'C 分析型'].map((t) => <span key={t} className="chip !text-[14px] !py-1">{t}</span>)}
+                </div>
+              </div>
+              <a href="#/disc" target="_blank" rel="noopener" className="btn primary justify-self-start md:justify-self-end">
+                開始測驗 <Icon name="arrow" size={18} />
+              </a>
+            </div>
+          </Item>
+        </Stagger>
+      </Section>
+
       {/* ── 課程 Bento ── */}
-      <Section id="courses" no="01" label="課程總覽" title="挑一條你想走的職涯路線"
+      <Section id="courses" no="03" label="課程總覽" title="挑一條你想走的職涯路線"
         sub="每門課都從入門開始，對應業界證照與實作作品。">
         <div className="tabs mb-7" role="tablist" aria-label="課程分類">
           {[{ id: 'all', name: '全部' }, ...categories].map((c) => {
@@ -128,7 +155,7 @@ export default function Home() {
       </Section>
 
       {/* ── 就業服務 ── */}
-      <Section id="services" no="02" label="JOB580 就業服務" title="找工作，我幫你"
+      <Section id="services" no="04" label="JOB580 就業服務" title="找工作，我幫你"
         sub="不只教你技能，從報名、上課到求職，每一步都有人陪。">
         <Stagger className="grid gap-[18px] md:grid-cols-3">
           {[
