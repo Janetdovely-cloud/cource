@@ -1,6 +1,8 @@
 import { useState, useRef } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
+import { Link } from 'react-router-dom'
 import { ph } from './Motion'
+import { courseIndex } from '../data/courses'
 
 // 奇數題：行動步調（慢／快）；偶數題：關注焦點（任務／人際）
 const qs = [
@@ -28,6 +30,14 @@ const types = {
   I: { name: '影響型', animal: '孔雀', desc: '具備主動且人際導向的特質。', c: 'var(--color-gold)' },
   S: { name: '穩健型', animal: '無尾熊', desc: '具備內斂且人際導向的特質。', c: 'var(--color-brand)' },
   C: { name: '分析型', animal: '貓頭鷹', desc: '具備內斂且任務導向的特質。', c: 'var(--color-violet)' },
+}
+
+// 各風格推薦課程
+const REC = {
+  D: { why: '果斷、重目標，適合規劃系統與帶領專案的方向', slugs: ['ai-agent', 'cloud', 'ipas'] },
+  I: { why: '表達力強、富創意，適合需要溝通與創作的方向', slugs: ['av-design', 'biz-design', 'anime', 'ai-game'] },
+  S: { why: '穩定細心、重協作，適合按部就班累積專業的方向', slugs: ['interior', 'interior-b', 'ptc', 'ai-pro'] },
+  C: { why: '邏輯嚴謹、重精確，適合程式分析與資安的方向', slugs: ['infosec', 'java', 'ai-engineer'] },
 }
 
 export default function Disc() {
@@ -111,6 +121,18 @@ export default function Disc() {
                   </div>
                 ))}
               </div>
+              <p className="hand m-0 mt-5 text-[22px]">{ph('推薦你優先了解的課程')}</p>
+              <p className="m-0 mt-1 text-muted text-[14px]">{res.top.map((k) => REC[k].why).join('；')}</p>
+              <ul className="m-0 mt-3 p-0 list-none grid gap-2">
+                {[...new Set(res.top.flatMap((k) => REC[k].slugs))].map((sl) => courseIndex.find((c) => c.slug === sl)).filter((c) => c?.ready).map((c) => (
+                  <li key={c.slug}>
+                    <Link to={`/course/${c.slug}`} className="soft card-hover block no-underline text-ink px-3 py-2">
+                      <span className="text-[12px] text-link block">{c.en}</span>
+                      <span className="hand text-[18px]">{ph(c.name)}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
               <button type="button" className="btn ghost w-full mt-4 justify-center" onClick={reset}>重新測驗</button>
             </motion.div>
           )}
