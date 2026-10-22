@@ -16,6 +16,7 @@
   "license": "ISC",
   "dependencies": {
     "motion": "^12.43.0",
+    "qrcode": "^1.5.4",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
     "react-router-dom": "^7.18.4"
@@ -27,7 +28,8 @@
     "opencc-js": "^1.4.2",
     "sharp": "^0.35.5",
     "tailwindcss": "^4.3.3",
-    "vite": "^7.3.7"
+    "vite": "^7.3.7",
+    "vite-plugin-pwa": "^2.0.0"
   },
   "private": true,
   "type": "module"

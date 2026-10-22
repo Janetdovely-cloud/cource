@@ -1,4 +1,6 @@
 import { useState, useRef } from 'react'
+import { useSearchParams, useNavigate } from 'react-router-dom'
+import ResultQR from './ResultQR'
 import { motion, AnimatePresence } from 'motion/react'
 import { Link } from 'react-router-dom'
 import { ph } from './Motion'
@@ -42,7 +44,15 @@ const REC = {
 
 export default function Disc() {
   const [ans, setAns] = useState({})
-  const [res, setRes] = useState(null)
+  const [params] = useSearchParams()
+  const navigate = useNavigate()
+  // 結果可由網址 ?r=D-I-S-C 分數直接開啟（給 QR Code 用）
+  const [res, setRes] = useState(() => {
+    const v = (params.get('r') || '').split('-').map(Number)
+    if (v.length !== 4 || !v.every((n) => n >= 0 && n <= 18)) return null
+    const s = { D: v[0], I: v[1], S: v[2], C: v[3] }, max = Math.max(...v)
+    return { s, top: Object.keys(s).filter((k) => s[k] === max), shared: true }
+  })
   const resRef = useRef(null)
   const done = Object.keys(ans).length
 
@@ -56,11 +66,11 @@ export default function Disc() {
     setRes({ s, top: Object.keys(s).filter((k) => s[k] === max) })
     setTimeout(() => resRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' }), 50)
   }
-  const reset = () => { setAns({}); setRes(null) }
+  const reset = () => { setAns({}); setRes(null); if (params.get('r')) navigate('/disc', { replace: true }) }
 
   return (
-    <div className="grid gap-8 lg:grid-cols-[1fr_380px] items-start">
-      <form onSubmit={submit} className="grid gap-3">
+    <div className={res?.shared ? 'grid max-w-[480px] mx-auto' : 'grid gap-8 lg:grid-cols-[1fr_380px] items-start'}>
+      <form onSubmit={submit} className={res?.shared ? 'hidden' : 'grid gap-3'}>
         {qs.map(([a, b], i) => {
           const name = `q${i + 1}`
           const vals = i % 2 === 0 ? ['Slow', 'Fast'] : ['Task', 'People']
@@ -87,7 +97,7 @@ export default function Disc() {
       </form>
 
       <aside className="lg:sticky lg:top-24 grid gap-4">
-        <div className="card" style={{ '--c': 'var(--color-brand)' }}>
+        <div className={res?.shared ? 'hidden' : 'card'} style={{ '--c': 'var(--color-brand)' }}>
           <p className="m-0 font-bold">請依平常最自然的行為表現，每題選一個最符合你的描述。</p>
           <div className="mt-4 h-3 rounded-full border-2 border-ink overflow-hidden bg-paper">
             <motion.div className="h-full bg-brand" animate={{ width: `${(done / qs.length) * 100}%` }} />
@@ -133,6 +143,12 @@ export default function Disc() {
                   </li>
                 ))}
               </ul>
+              {!res.shared && <ResultQR text={[
+                '【聯成電腦｜DISC 職涯適性測驗結果】',
+                `主要風格：${res.top.map((k) => `${k} ${types[k].name}（${types[k].animal}）`).join('／')}`,
+                `分數：${Object.entries(res.s).map(([k, n]) => `${k} ${n}`).join('｜')}`,
+                `推薦課程：${[...new Set(res.top.flatMap((k) => REC[k].slugs))].map((sl) => courseIndex.find((c) => c.slug === sl)).filter((c) => c?.ready).map((c) => c.name).join('、')}`,
+              ].join('\n')} />}
               <button type="button" className="btn ghost w-full mt-4 justify-center" onClick={reset}>重新測驗</button>
             </motion.div>
           )}

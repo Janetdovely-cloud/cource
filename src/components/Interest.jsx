@@ -1,8 +1,9 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useSearchParams, useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'motion/react'
 import { ph } from './Motion'
 import { courseIndex } from '../data/courses'
+import ResultQR from './ResultQR'
 
 // 何倫碼（Holland RIASEC）職涯興趣測驗：每型 4 題、1–5 分
 const HOLLAND = [
@@ -61,11 +62,19 @@ export default function Interest() {
     const a = [...ans]; a[i] = v; setAns(a)
     setTimeout(() => setI((x) => Math.min(x + 1, QLIST.length - 1)), 160)
   }
-  const reset = () => { setAns([]); setI(0) }
+  const [params] = useSearchParams()
+  const navigate = useNavigate()
+  const reset = () => { setAns([]); setI(0); if (params.get('r')) navigate('/interest', { replace: true }) }
 
-  if (done && i === QLIST.length - 1 && ans[i]) {
+  // 結果可由網址 ?r=六型分數 直接開啟（給 QR Code 用）
+  const shared = (params.get('r') || '').split('-').map(Number)
+  const fromUrl = shared.length === HOLLAND.length && shared.every((n) => n >= 0 && n <= 10)
+  if (fromUrl || (done && i === QLIST.length - 1 && ans[i])) {
     const s = {}
-    HOLLAND.forEach((h) => { const v = QLIST.reduce((t, q, j) => t + (q.k === h.k ? ans[j] : 0), 0); s[h.k] = Math.round((Math.max(0, v - 4) / 16) * 10) })
+    HOLLAND.forEach((h, n) => {
+      if (fromUrl) { s[h.k] = shared[n]; return }
+      const v = QLIST.reduce((t, q, j) => t + (q.k === h.k ? ans[j] : 0), 0); s[h.k] = Math.round((Math.max(0, v - 4) / 16) * 10)
+    })
     const top = HOLLAND.map((h) => ({ ...h, v: s[h.k] })).filter((h) => h.v > 0).sort((a, b) => b.v - a.v).slice(0, 3)
     const w = {}; top.forEach((h, n) => h.cats.forEach((c) => { w[c] = (w[c] || 0) + (3 - n) }))
     const cats = Object.entries(w).sort((a, b) => b[1] - a[1]).map((x) => x[0]).slice(0, 3)
@@ -103,6 +112,13 @@ export default function Interest() {
             ))}
           </ul>
         </div>
+        {!fromUrl && <div className="card max-w-[520px]" style={{ '--c': 'var(--color-gold)' }}><ResultQR text={[
+          '【聯成電腦｜職涯興趣測驗結果】',
+          `興趣代碼：${top.map((h) => h.k).join('')}`,
+          ...top.map((h, n) => `${n + 1}. ${h.name}（${h.v} 分）`),
+          `推薦方向：${cats.map((c) => CAT[c].name).join('、')}`,
+          `推薦課程：${recs.map((c) => c.name).join('、')}`,
+        ].join('\n')} /></div>}
         <div><button type="button" className="btn ghost" onClick={reset}>重新測驗</button></div>
       </motion.div>
     )

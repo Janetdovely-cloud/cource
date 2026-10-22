@@ -2,6 +2,7 @@ import { useLayoutEffect } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion, MotionConfig } from 'motion/react'
 import { BackToTop } from './components/Layout'
+import QuickNav from './components/QuickNav'
 import Home from './pages/Home'
 import CoursePage from './pages/CoursePage'
 import DiscPage from './pages/DiscPage'
@@ -35,6 +36,7 @@ export default function App() {
   return (
     <MotionConfig reducedMotion="user">
       <BackToTop />
+      <QuickNav />
       <AnimatePresence mode="wait" onExitComplete={() => window.scrollTo({ top: 0, behavior: 'instant' })}>
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Page><Home /></Page>} />
