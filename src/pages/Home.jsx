@@ -113,21 +113,24 @@ export default function Home() {
 
       {/* ── 職涯適性測驗 ── */}
       <Section id="disc" no="02" label="職涯適性測驗" title="先認識自己，再挑路線">
-        <Stagger>
-          <Item>
-            <div className="card grid gap-6 md:grid-cols-[1fr_auto] items-center" style={{ '--c': 'var(--color-violet)' }}>
-              <div>
-                <p className="hand text-[26px] m-0">DISC 職涯適性問卷</p>
-                <p className="m-0 mt-2 text-muted">18 題、約 3 分鐘，找出你是老虎、孔雀、無尾熊還是貓頭鷹型，更了解自己適合的工作風格。</p>
+        <Stagger className="grid gap-[18px] md:grid-cols-2">
+          {[
+            { href: '#/interest', title: '職涯興趣測驗', text: '24 題、約 3 分鐘，依何倫碼六型分析你的興趣，畫出雷達圖並推薦適合的課程。', chips: ['R 實踐者', 'I 思考者', 'A 創造者', 'S 助人者', 'E 影響者', 'C 組織者'], c: 'var(--color-brand)' },
+            { href: '#/disc', title: 'DISC 職涯適性問卷', text: '18 題、約 3 分鐘，找出你是老虎、孔雀、無尾熊還是貓頭鷹型，更了解自己適合的工作風格。', chips: ['D 支配型', 'I 影響型', 'S 穩健型', 'C 分析型'], c: 'var(--color-violet)' },
+          ].map((t) => (
+            <Item key={t.href}>
+              <div className="card h-full flex flex-col" style={{ '--c': t.c }}>
+                <p className="hand text-[26px] m-0">{t.title}</p>
+                <p className="m-0 mt-2 text-muted">{t.text}</p>
                 <div className="flex flex-wrap gap-2 mt-4">
-                  {['D 支配型', 'I 影響型', 'S 穩健型', 'C 分析型'].map((t) => <span key={t} className="chip !text-[14px] !py-1">{t}</span>)}
+                  {t.chips.map((c) => <span key={c} className="chip !text-[14px] !py-1">{c}</span>)}
                 </div>
+                <a href={t.href} target="_blank" rel="noopener" className="btn primary self-start mt-auto translate-y-0 !mt-5">
+                  開始測驗 <Icon name="arrow" size={18} />
+                </a>
               </div>
-              <a href="#/disc" target="_blank" rel="noopener" className="btn primary justify-self-start md:justify-self-end">
-                開始測驗 <Icon name="arrow" size={18} />
-              </a>
-            </div>
-          </Item>
+            </Item>
+          ))}
         </Stagger>
       </Section>
 

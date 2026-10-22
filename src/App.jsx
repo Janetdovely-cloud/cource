@@ -5,6 +5,7 @@ import { BackToTop } from './components/Layout'
 import Home from './pages/Home'
 import CoursePage from './pages/CoursePage'
 import DiscPage from './pages/DiscPage'
+import InterestPage from './pages/InterestPage'
 
 // 換頁過場：金色與青綠色兩層紙片由下往上掃過，內容淡入
 function Page({ children }) {
@@ -38,6 +39,7 @@ export default function App() {
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Page><Home /></Page>} />
           <Route path="/course/:slug" element={<Page><CoursePage /></Page>} />
+          <Route path="/interest" element={<Page><InterestPage /></Page>} />
           <Route path="/disc" element={<Page><DiscPage /></Page>} />
           <Route path="*" element={<Page><Home /></Page>} />
         </Routes>
