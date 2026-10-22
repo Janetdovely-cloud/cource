@@ -5,6 +5,9 @@ import { Nav, Footer, scrollToId } from '../components/Layout'
 import { Section, Stagger, Item, TiltCard, CountUp, SplitTitle, Squiggle, Doodles, ph } from '../components/Motion'
 import Icon from '../components/Icon'
 import About from '../components/About'
+import VideoGrid from '../components/VideoGrid'
+import { coop } from '../data/coop'
+import techCert from '../assets/about/tech-cert.webp'
 import { courseIndex, categories } from '../data/courses'
 
 const stats = [
@@ -184,6 +187,44 @@ export default function Home() {
               {i < a.length - 1 && <span className="text-brand font-bold" aria-hidden="true">→</span>}
             </Item>
           ))}
+        </Stagger>
+
+        <Stagger className="mt-10 flex flex-wrap items-center justify-between gap-x-8 gap-y-4 border-y-2 border-dashed border-rule py-6">
+          <Item className="max-w-[760px]">
+            <p className="hand text-[26px] m-0">JOB580 聯成學員專屬就業網站</p>
+            <p className="m-0 mt-2 text-muted">AI 求職、儲存工作、應徵紀錄一站搞定，兼職、全職到獵才職缺都找得到，還能看學長姐的產學合作成果。</p>
+          </Item>
+          <Item>
+            <a href="https://www.job580.com.tw/" target="_blank" rel="noopener noreferrer" className="btn ghost">
+              前往 JOB580 <Icon name="arrow" size={18} />
+            </a>
+          </Item>
+        </Stagger>
+
+        <div className="mt-10 grid gap-6 md:grid-cols-[minmax(0,1.1fr)_minmax(0,.9fr)] items-center">
+          <VideoGrid list={[{ id: 'FBURRdAPp0k', t: '合作企業主管真心話：精準媒合，幫 HR 過濾無效履歷', co: '' }]} cols="grid-cols-1" />
+          <div>
+            <p className="hand text-[26px] m-0">聯成徵才會</p>
+            <p className="m-0 mt-2 text-muted">「從聯成面試來的學員，穩定度高、態度好！」每年舉辦徵才會，邀請合作企業現場面試，直接幫你媒合工作機會。</p>
+          </div>
+        </div>
+
+        <div className="mt-10">
+          <p className="hand text-[26px] m-0">產學合作影片</p>
+          <p className="m-0 mt-2 mb-6 text-muted">企業主管親自分享產業需求與人才養成，產學專班帶你直接接軌業界實務。</p>
+          <VideoGrid list={coop} label="合作企業" />
+        </div>
+
+        <Stagger className="mt-10">
+          <Item>
+            <div className="card grid gap-6 md:grid-cols-[minmax(0,320px)_minmax(0,1fr)] items-center" style={{ '--c': 'var(--color-gold)' }}>
+              <img src={techCert} alt="乙級就業服務技術士證" loading="lazy" className="block w-full max-w-[320px] rounded-md border-2 border-ink" />
+              <div>
+                <p className="hand text-[26px] m-0">{ph('專業證照的就業服務團隊')}</p>
+                <p className="m-0 mt-2 text-muted">就業服務人員持有勞動部「乙級就業服務技術士」證照，從職涯諮詢、履歷健診到職缺媒合，用專業陪你走完求職每一步。</p>
+              </div>
+            </div>
+          </Item>
         </Stagger>
       </Section>
 

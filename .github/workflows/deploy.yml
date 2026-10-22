@@ -33,6 +33,9 @@ jobs:
       - name: 抓取最新就業影片
         run: npm run videos
         continue-on-error: true
+      - name: 抓取近期開班
+        run: npm run classes
+        continue-on-error: true
       - run: npm run build
       - uses: actions/upload-pages-artifact@v3
         with:

@@ -8,12 +8,15 @@ import ApplyCta from '../components/ApplyCta'
 import { courses } from '../data/courses'
 import { works } from '../data/works'
 import { videos } from '../data/videos'
+import { classes } from '../data/classes'
+import VideoGrid from '../components/VideoGrid'
 
-const navLinks = (hasWorks, hasVideos) => [
+const navLinks = (hasWorks, hasVideos, hasClasses) => [
   { id: 'why', name: '為什麼學' }, { id: 'who', name: '適合誰' }, { id: 'what', name: '學什麼' },
   { id: 'how', name: '怎麼學' }, { id: 'format', name: '上課方式' }, { id: 'teacher', name: '師資' },
   ...(hasWorks ? [{ id: 'works', name: '學員作品' }] : []),
   ...(hasVideos ? [{ id: 'videos', name: '就業影片' }] : []),
+  ...(hasClasses ? [{ id: 'classes', name: '近期開班' }] : []),
   { id: 'faq', name: 'FAQ' }, { id: 'apply', name: '報名' },
 ]
 
@@ -709,40 +712,33 @@ function Works({ list }) {
 }
 
 function Videos({ list }) {
-  const [more, setMore] = useState(false)
-  const [play, setPlay] = useState(null)
-  const shown = more ? list : list.slice(0, 6)
   return (
     <Section id="videos" label="就業影片" title="聽學長姐說轉職故事" sub="成功就業的學員現身分享，點擊即可播放。">
-      <ul className="m-0 p-0 list-none grid gap-[18px] sm:grid-cols-2 lg:grid-cols-3">
-        {shown.map((v) => (
-          <li key={v.id} className="soft overflow-hidden">
-            <div className="relative aspect-video border-b-2 border-ink bg-ink">
-              {play === v.id ? (
-                <iframe src={`https://www.youtube-nocookie.com/embed/${v.id}?autoplay=1&rel=0`} title={v.t} allow="autoplay; encrypted-media; picture-in-picture" allowFullScreen className="absolute inset-0 w-full h-full border-0" />
-              ) : (
-                <button type="button" onClick={() => setPlay(v.id)} className="absolute inset-0 w-full h-full p-0 border-0 bg-transparent group" aria-label={`播放：${v.t}`} data-cursor="播放">
-                  <img src={`${import.meta.env.BASE_URL}videos/${v.id}.webp`} alt="" loading="lazy" className="w-full h-full object-cover" />
-                  <span className="absolute inset-0 grid place-items-center" aria-hidden="true">
-                    <span className="w-14 h-14 rounded-full bg-brand border-2 border-ink grid place-items-center text-white text-xl transition-transform group-hover:scale-110">▶</span>
-                  </span>
-                </button>
-              )}
-            </div>
-            <div className="px-4 py-3">
-              <p className="m-0 font-bold text-[16px] leading-snug">{v.t}</p>
-              {v.co && <p className="m-0 mt-1 text-[14px] text-ink/70">就職：{v.co}</p>}
-            </div>
+      <VideoGrid list={list} />
+    </Section>
+  )
+}
+
+// 近三個月內開課的班級（以瀏覽當天計算）
+function upcoming(slug) {
+  const now = new Date(); now.setHours(0, 0, 0, 0)
+  const until = new Date(now); until.setMonth(until.getMonth() + 3)
+  return (classes[slug] || []).filter((c) => { const d = new Date(c.start); return d >= now && d <= until })
+}
+
+function Classes({ list }) {
+  const md = (s) => s.slice(5).replace('/', '/')
+  return (
+    <Section id="classes" label="近期開班" title="最近一期什麼時候開？" sub="以下為近三個月內開課的線上直播班級，皆有錄影可複習，實際開課資訊以分校公告為準。">
+      <ul className="m-0 p-0 list-none grid gap-3">
+        {list.map((c, i) => (
+          <li key={i} className="soft !shadow-none px-4 py-3 md:px-5 grid gap-x-6 gap-y-1 md:grid-cols-[170px_1fr_auto] md:items-center">
+            <span className="font-mono font-bold text-link text-[18px]">{md(c.start)}<span className="text-muted text-[14px] font-normal"> ~ {md(c.end)}</span></span>
+            <span className="font-bold">{c.name}</span>
+            <span className="text-[14px] text-muted">{c.slot}・{c.time}・{c.hours} 小時{c.branch && `・${c.branch}開班`}</span>
           </li>
         ))}
       </ul>
-      {list.length > 6 && (
-        <div className="mt-6 text-center">
-          <button type="button" className="btn ghost" onClick={() => setMore(!more)} data-cursor={more ? '收合' : '展開'}>
-            {more ? '收合影片' : `看全部 ${list.length} 支影片`}
-          </button>
-        </div>
-      )}
     </Section>
   )
 }
@@ -786,7 +782,7 @@ export default function CoursePage() {
   if (!c) return <Navigate to="/" replace />
   return (
     <>
-      <Nav back links={navLinks(!!works[slug], !!videos[slug])} />
+      <Nav back links={navLinks(!!works[slug], !!videos[slug], upcoming(slug).length > 0)} />
       <Hero d={c.hero} color={c.color} />
       <Why d={c.why} color={c.color} />
       <Who d={c.who} color={c.color} />
@@ -796,6 +792,7 @@ export default function CoursePage() {
       <Teacher d={c.teacher} />
       {works[slug] && <Works list={works[slug]} />}
       {videos[slug] && <Videos list={videos[slug]} />}
+      {upcoming(slug).length > 0 && <Classes list={upcoming(slug)} />}
       <Faq items={c.faq} />
       <ApplyCta courseName={c.hero.title} />
       <Footer />

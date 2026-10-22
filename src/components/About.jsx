@@ -6,6 +6,8 @@ import award from '../assets/about/a-award.webp'
 import license from '../assets/about/job-license.webp'
 import assoc from '../assets/about/edu-assoc.webp'
 import moda from '../assets/about/moda.webp'
+import checkout from '../assets/about/checkout.webp'
+import coach from '../assets/about/coach.webp'
 
 const honors = [
   { no: 'TTQS', title: '人才發展品質認證', text: '出席率、考照數與作品、培訓後就業人數、課程大綱與授課品質，通過勞動部評核並頒發證書。', img: ttqs, c: 'var(--color-brand)' },
@@ -25,6 +27,10 @@ const lines = [
   { name: '課務組：中壢分校', id: '@cbq6416b', href: 'https://lin.ee/N6JMt8J' },
   { name: '聯成教育', id: '@lccedu', href: 'https://line.me/R/ti/p/@361wbyat' },
 ]
+const track = [
+  { img: checkout, title: '課後簽退，追蹤學習狀況', text: '每堂課後簽退時填寫自我評價與學習狀況，聽不懂、跟不上都能即時反應，勾選「與我聯絡」就有專人協助。', c: 'var(--color-brand)' },
+  { img: coach, title: '兩大教練機制', text: '真人教練＋AI 教練雙軌陪學，還能預約各科教練直播間，有問題直接問到會。', c: 'var(--color-gold)', vid: 'VBpnrf7KSts', vidTitle: '教練系統操作介紹' },
+]
 const vid = 'Qsprlu3QxKk'
 
 export default function About() {
@@ -32,6 +38,16 @@ export default function About() {
   const [zoom, setZoom] = useState(null)
   return (
     <>
+      <Stagger className="grid gap-3 mb-10 max-w-[900px]">
+        {[
+          ['願景', '期許成為台灣資訊人才及電腦技能培訓的推手。'],
+          ['使命', '讓每一位聯成學員都學到一技之長，並以此找到理想的工作。'],
+        ].map(([k, t]) => (
+          <Item key={k} as="p" className="hand m-0 text-[clamp(20px,2.2vw,24px)] leading-snug">
+            <span className="text-link">{k}：</span>{t}
+          </Item>
+        ))}
+      </Stagger>
       <Stagger className="grid gap-[18px] grid-cols-2 lg:grid-cols-5">
         {honors.map((h) => (
           <Item key={h.title}>
@@ -77,6 +93,25 @@ export default function About() {
         </Item>
       </Stagger>
 
+      <Stagger className="grid gap-[18px] mt-10 md:grid-cols-2">
+        {track.map((t) => (
+          <Item key={t.title}>
+            <div className="card h-full !p-4" style={{ '--c': t.c }}>
+              <button type="button" onClick={() => setZoom(t)} className="block w-full p-0 border-0 bg-white rounded-md overflow-hidden cursor-zoom-in" aria-label={`放大看 ${t.title}`}>
+                <img src={t.img} alt={t.title} loading="lazy" className="block w-full aspect-[16/10] object-contain" />
+              </button>
+              <p className="hand text-[24px] m-0 mt-3">{ph(t.title)}</p>
+              <p className="m-0 mt-1 text-muted" style={{ textWrap: 'pretty' }}>{t.text}</p>
+              {t.vid && (
+                <button type="button" className="btn ghost mt-4" onClick={() => setZoom({ vid: t.vid, title: t.vidTitle })}>
+                  ▶ 看{t.vidTitle}影片
+                </button>
+              )}
+            </div>
+          </Item>
+        ))}
+      </Stagger>
+
       <Stagger className="mt-10">
         <Item>
           <div className="soft p-5 md:p-6 grid gap-6 lg:grid-cols-[1.2fr_.8fr]">
@@ -106,7 +141,13 @@ export default function About() {
         {zoom && (
           <motion.div className="fixed inset-0 z-[9500] bg-ink/80 grid place-items-center p-4" onClick={() => setZoom(null)}
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} role="dialog" aria-label={`${zoom.title}證書`}>
-            <img src={zoom.img} alt={`${zoom.title}證書`} className="max-w-full max-h-[88vh] rounded-lg bg-white" />
+            {zoom.vid ? (
+              <div className="w-full max-w-[960px] aspect-video" onClick={(e) => e.stopPropagation()}>
+                <iframe src={`https://www.youtube-nocookie.com/embed/${zoom.vid}?autoplay=1&rel=0`} title={zoom.title} allow="autoplay; encrypted-media; picture-in-picture" allowFullScreen className="w-full h-full border-0 rounded-lg" />
+              </div>
+            ) : (
+              <img src={zoom.img} alt={zoom.title} className="max-w-full max-h-[88vh] rounded-lg bg-white" />
+            )}
             <button type="button" className="absolute top-4 right-4 w-11 h-11 rounded-full bg-white border-2 border-ink text-xl" aria-label="關閉">✕</button>
           </motion.div>
         )}

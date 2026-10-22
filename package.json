@@ -8,7 +8,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "works": "node scripts/fetch-works.mjs",
-    "videos": "node scripts/fetch-videos.mjs"
+    "videos": "node scripts/fetch-videos.mjs",
+    "classes": "python3 scripts/build-classes.py"
   },
   "keywords": [],
   "author": "",
