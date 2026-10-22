@@ -17,7 +17,7 @@ const navLinks = (hasWorks, hasVideos, hasClasses) => [
   ...(hasWorks ? [{ id: 'works', name: '學員作品' }] : []),
   ...(hasVideos ? [{ id: 'videos', name: '就業影片' }] : []),
   ...(hasClasses ? [{ id: 'classes', name: '近期開班' }] : []),
-  { id: 'faq', name: 'FAQ' }, { id: 'apply', name: '報名' },
+  { id: 'faq', name: 'FAQ' }, { id: 'apply', name: '全台分校' },
 ]
 
 function Hero({ d, color }) {
@@ -42,8 +42,8 @@ function Hero({ d, color }) {
             <Item as="p" className="hand text-[clamp(22px,3vw,30px)] text-link m-0">{d.hand}</Item>
             <Item as="p" className="kp text-[18px] mt-3 mb-0">{d.line}<br /><span className="text-muted">{d.sub}</span></Item>
             <Item className="flex flex-wrap gap-3 mt-8">
-              <button type="button" className="btn primary" data-cursor="報名！" onClick={() => scrollToId('apply')}>
-                立即報名 <Icon name="arrow" size={18} />
+              <button type="button" className="btn primary" data-cursor="查詢" onClick={() => scrollToId('apply')}>
+                查詢全台分校 <Icon name="arrow" size={18} />
               </button>
               <button type="button" className="btn ghost" data-cursor="往下" onClick={() => scrollToId('what')}>看課程大綱</button>
             </Item>

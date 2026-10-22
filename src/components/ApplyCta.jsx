@@ -1,16 +1,14 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
 import { Section } from './Motion'
-import Icon from './Icon'
 import { centers } from '../data/centers'
 
-// 底部報名 CTA：前往官網，或直接撥打就近分校電話
+// 底部全台分校查詢：依地區列出分校電話與地址
 export default function ApplyCta({ courseName }) {
   const [region, setRegion] = useState(centers[0].region)
   const list = centers.find((r) => r.region === region).items
   return (
-    <Section id="apply" label="立即報名" title={`預約「${courseName}」免費諮詢`}
-      sub={<>選一間離你最近的分校，<mark className="hl">分校顧問會幫你規劃學習路線與補助資格</mark>。</>}>
+    <Section id="apply" label="全台分校" title="查詢全台分校">
       <div className="card" style={{ '--c': 'var(--color-gold)' }}>
         <div className="flex flex-wrap items-center justify-between gap-4 mb-5">
           <div className="tabs" role="tablist" aria-label="分校地區">
@@ -20,9 +18,6 @@ export default function ApplyCta({ courseName }) {
               </button>
             ))}
           </div>
-          <a href="https://www.lccnet.com.tw" target="_blank" rel="noopener noreferrer" className="btn primary" data-cursor="前往">
-            前往官網報名 <Icon name="ext" size={18} />
-          </a>
         </div>
         <AnimatePresence mode="wait">
           <motion.ul key={region} className="list-none p-0 m-0 grid gap-3 sm:grid-cols-2 lg:grid-cols-3"

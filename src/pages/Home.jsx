@@ -201,11 +201,11 @@ export default function Home() {
           </Item>
         </Stagger>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-[minmax(0,1.1fr)_minmax(0,.9fr)] items-center">
+        <div className="mt-10 grid gap-6 md:grid-cols-[minmax(0,420px)_minmax(0,1fr)] items-center">
           <VideoGrid list={[{ id: 'FBURRdAPp0k', t: '合作企業主管真心話：精準媒合，幫 HR 過濾無效履歷', co: '' }]} cols="grid-cols-1" />
           <div>
             <p className="hand text-[26px] m-0">聯成徵才會</p>
-            <p className="m-0 mt-2 text-muted">「從聯成面試來的學員，穩定度高、態度好！」每年舉辦徵才會，邀請合作企業現場面試，直接幫你媒合工作機會。</p>
+            <p className="m-0 mt-2 text-muted">「從聯成面試來的學員，穩定度高、態度好！」每年舉辦徵才會，邀請合作企業參與面試，直接幫你媒合工作機會。</p>
           </div>
         </div>
 
