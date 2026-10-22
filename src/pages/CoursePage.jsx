@@ -7,13 +7,16 @@ import Icon from '../components/Icon'
 import ApplyCta from '../components/ApplyCta'
 import { courses } from '../data/courses'
 import { works } from '../data/works'
+import { know } from '../data/know'
+import Know from '../components/Know'
 import { videos } from '../data/videos'
 import { classes } from '../data/classes'
 import VideoGrid from '../components/VideoGrid'
 
-const navLinks = (hasWorks, hasVideos, hasClasses) => [
+const navLinks = (hasWorks, hasVideos, hasClasses, hasKnow) => [
   { id: 'why', name: '為什麼學' }, { id: 'who', name: '適合誰' }, { id: 'what', name: '學什麼' },
   { id: 'how', name: '怎麼學' }, { id: 'format', name: '上課方式' }, { id: 'teacher', name: '師資' },
+  ...(hasKnow ? [{ id: 'know', name: '小百科' }] : []),
   ...(hasWorks ? [{ id: 'works', name: '學員作品' }] : []),
   ...(hasVideos ? [{ id: 'videos', name: '就業影片' }] : []),
   ...(hasClasses ? [{ id: 'classes', name: '近期開班' }] : []),
@@ -782,7 +785,7 @@ export default function CoursePage() {
   if (!c) return <Navigate to="/" replace />
   return (
     <>
-      <Nav back links={navLinks(!!works[slug], !!videos[slug], upcoming(slug).length > 0)} />
+      <Nav back links={navLinks(!!works[slug], !!videos[slug], upcoming(slug).length > 0, !!know[slug])} />
       <Hero d={c.hero} color={c.color} />
       <Why d={c.why} color={c.color} />
       <Who d={c.who} color={c.color} />
@@ -790,6 +793,7 @@ export default function CoursePage() {
       <How d={c.how} />
       <Format d={c.format} />
       <Teacher d={c.teacher} />
+      {know[slug] && <Know d={know[slug]} color={c.color} />}
       {works[slug] && <Works list={works[slug]} />}
       {videos[slug] && <Videos list={videos[slug]} />}
       {upcoming(slug).length > 0 && <Classes list={upcoming(slug)} />}

@@ -2275,7 +2275,7 @@ export const courses = {
         { icon: 'star', title: '想準備考證的人', pain: '資料太多太散，不知道從哪裡讀起', say: '考點整理、題型演練、考前檢核，每科都有輔考陪跑。', certs: ['初級', '中級'] },
         { icon: 'rocket', title: '想跨域轉職的人', pain: '沒有技術背景，擔心跟不上', say: '初級從基礎觀念建立起，非技術背景也能循序準備。', certs: ['AI 應用規劃師', '淨零碳規劃管理師'] },
         { icon: 'briefcase', title: '想在職進階的人', pain: '工作需要 AI、資安或減碳專業，卻缺乏系統化學習', say: '中級銜接實務：企業 AI 導入、防禦實務、企業減碳策略。', certs: ['中級', '實務應用'] },
-        { icon: 'target', title: '想提升求職競爭力的人', pain: '履歷少了一張被企業認可的證明', say: '經濟部發證、企業指定採用，結訓還有保證面試。', certs: ['經濟部發證', '保證面試'] },
+        { icon: 'target', title: '想提升求職競爭力的人', pain: '履歷少了一張被企業認可的證明', say: '經濟部發證、企業指定採用，結訓後還有就業服務協助求職。', certs: ['經濟部發證', '就業服務'] },
       ],
     },
 
@@ -2332,7 +2332,7 @@ export const courses = {
       chain: [
         { no: '01', title: '初階打底', badge: '初級證照', text: '建立 AI、資安、淨零碳的基礎觀念，考點整理與題型演練並行。', color: 'var(--color-brand)' },
         { no: '02', title: '中階實務', badge: '中級證照', text: '往實務應用延伸：企業 AI 導入、防禦實務、減碳決策。', color: 'var(--color-gold)' },
-        { no: '03', title: '帶進職場', badge: '結訓保證面試', text: '履歷健檢、職缺媒合，結訓後安排企業面談。', color: 'var(--color-violet)' },
+        { no: '03', title: '帶進職場', badge: '就業服務', text: '履歷健檢、職缺媒合，協助你帶著證照求職。', color: 'var(--color-violet)' },
       ],
       practice: '每科都有考點整理、題型演練與考前檢核，協助同學有效率地準備考試。',
       services: {
@@ -2340,7 +2340,7 @@ export const courses = {
         phases: [
           { name: '訓前', items: ['專業顧問輔導', '短工轉介媒合'] },
           { name: '訓中', items: ['每科輔考陪跑', '考題邏輯拆解', '專題成果發表會'] },
-          { name: '訓後', items: ['個人履歷健檢優化', '聯合徵才博覽會', '百大企業職缺引薦', '結訓保證面試'] },
+          { name: '訓後', items: ['個人履歷健檢優化', '聯合徵才博覽會', '百大企業職缺引薦', 'AI 媒合職缺'] },
         ],
       },
       aiTools: { title: '全方位 AI 資源助攻，就業 0 距離', items: ['AI 跨領域工作術', 'AI 自傳生成', 'AI 媒合職缺', 'AI 求職追蹤'] },
@@ -2385,7 +2385,7 @@ export const courses = {
         { icon: 'star', title: '考題邏輯拆解', text: '觀念辨析、情境判讀、選項分析，釐清易混淆概念，避免常見誤判。' },
         { icon: 'briefcase', title: '雙階實務養成', text: '初階打底，中階往實務應用延伸：AI 導入、資安防護、減碳策略。' },
         { icon: 'live', title: '雙軌彈性授課', text: '線上直播、實體教室與課後資源，依需求安排。' },
-        { icon: 'flag', title: '結訓保證面試', text: '履歷健檢、職缺媒合，結訓後安排企業面談。' },
+        { icon: 'flag', title: '就業服務', text: '履歷健檢、職缺媒合，協助你帶著證照求職。' },
       ],
     },
 
@@ -2406,7 +2406,7 @@ export const courses = {
     slug: 'interior-b',
     color: 'var(--color-brand)',
     hero: {
-      badges: ['乙級技術士', '12500＋12600', '結訓保證面試'],
+      badges: ['乙級技術士', '12500＋12600', '學科＋術科'],
       title: '室內設計雙乙級班',
       en: 'Level B Technician',
       hand: '專業技術士親領，完整學習・衝刺不中斷',
@@ -2547,7 +2547,7 @@ export const courses = {
         phases: [
           { name: '訓前', items: ['專業顧問輔導', '短工轉介媒合'] },
           { name: '訓中', items: ['歷屆考古題解析', '擬真模擬測驗', '個別指導與評圖'] },
-          { name: '訓後', items: ['個人履歷健檢優化', '聯合徵才博覽會', '百大企業職缺引薦', '結訓保證面試室內設計公司'] },
+          { name: '訓後', items: ['個人履歷健檢優化', '聯合徵才博覽會', '百大企業職缺引薦', 'AI 媒合職缺'] },
         ],
       },
       aiTools: { title: '全方位 AI 資源助攻，就業 0 距離', items: ['AI 跨領域工作術', 'AI 自傳生成', 'AI 媒合職缺', 'AI 求職追蹤'] },
@@ -2593,7 +2593,7 @@ export const courses = {
         { icon: 'badge', title: '獨家術科心法', text: '不再死背題型。' },
         { icon: 'check', title: '擬真模擬測驗', text: '傳授破題秘訣。' },
         { icon: 'live', title: '優質教學環境', text: '軟硬體齊全，實體＋雲端。' },
-        { icon: 'briefcase', title: '結訓保證面試', text: '室內設計專業技術士親授，結訓保證面試室內設計公司。' },
+        { icon: 'briefcase', title: '專業師資', text: '室內設計專業技術士親授。' },
       ],
     },
 
@@ -2607,7 +2607,7 @@ export const courses = {
       { q: '一年可以考幾次？',
         a: '兩科各一年一梯次：12500 約每年 4～5 月報名，12600 約每年 8～9 月報名，實際日期以當年度簡章為準。' },
       { q: '結訓後有就業協助嗎？',
-        a: '有。結訓保證面試室內設計公司，另有履歷健檢、徵才博覽會、AI 媒合職缺等求職服務。' },
+        a: '有。提供履歷健檢、徵才博覽會、AI 媒合職缺等求職服務。' },
     ],
   },
   'ai-game': {

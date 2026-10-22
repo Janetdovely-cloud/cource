@@ -7,7 +7,7 @@ import { courseIndex } from '../data/courses'
 const SECTIONS = [
   ['about', '認識聯成'], ['disc', '適性測驗'], ['courses', '課程總覽'], ['services', '就業服務'],
   ['why', '為什麼學'], ['who', '適合誰'], ['what', '學什麼'], ['how', '怎麼學'], ['format', '上課方式'],
-  ['teacher', '師資'], ['works', '學員作品'], ['videos', '就業影片'], ['classes', '近期開班'],
+  ['teacher', '師資'], ['know', '專業小百科'], ['works', '學員作品'], ['videos', '就業影片'], ['classes', '近期開班'],
   ['faq', 'FAQ'], ['apply', '全台分校'],
 ]
 
