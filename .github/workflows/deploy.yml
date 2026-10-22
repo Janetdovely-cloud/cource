@@ -4,6 +4,9 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  # 每週一台灣時間 09:00 抓取最新學員作品並重新部署
+  schedule:
+    - cron: '0 1 * * 1'
 
 permissions:
   contents: read
@@ -24,6 +27,9 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      - name: 抓取最新學員作品
+        run: npm run works
+        continue-on-error: true
       - run: npm run build
       - uses: actions/upload-pages-artifact@v3
         with:

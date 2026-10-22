@@ -6,10 +6,12 @@ import { Section, Stagger, Item, TiltCard, CountUp, SplitTitle, Squiggle, Doodle
 import Icon from '../components/Icon'
 import ApplyCta from '../components/ApplyCta'
 import { courses } from '../data/courses'
+import { works } from '../data/works'
 
-const navLinks = [
+const navLinks = (hasWorks) => [
   { id: 'why', name: '為什麼學' }, { id: 'who', name: '適合誰' }, { id: 'what', name: '學什麼' },
   { id: 'how', name: '怎麼學' }, { id: 'format', name: '上課方式' }, { id: 'teacher', name: '師資' },
+  ...(hasWorks ? [{ id: 'works', name: '學員作品' }] : []),
   { id: 'faq', name: 'FAQ' }, { id: 'apply', name: '報名' },
 ]
 
@@ -678,6 +680,32 @@ function Teacher({ d }) {
   )
 }
 
+function Works({ list }) {
+  const [more, setMore] = useState(false)
+  const shown = more ? list : list.slice(0, 8)
+  return (
+    <Section id="works" label="學員作品" title="看看學長姐做出了什麼" sub="課程中完成的實戰作品，點擊可看完整作品介紹。">
+      <ul className="m-0 p-0 list-none grid gap-[18px] grid-cols-2 lg:grid-cols-4">
+        {shown.map((w) => (
+          <li key={w.img}>
+            <a href={w.href} target="_blank" rel="noopener noreferrer" className="soft card-hover block h-full overflow-hidden no-underline text-ink" data-cursor="看作品">
+              <img src={import.meta.env.BASE_URL + w.img} alt={w.t} loading="lazy" className="block w-full aspect-[4/3] object-cover border-b-2 border-ink" />
+              <p className="m-0 px-3 py-2.5 font-bold text-[15px] leading-snug">{w.t}</p>
+            </a>
+          </li>
+        ))}
+      </ul>
+      {list.length > 8 && (
+        <div className="mt-6 text-center">
+          <button type="button" className="btn ghost" onClick={() => setMore(!more)} data-cursor={more ? '收合' : '展開'}>
+            {more ? '收合作品' : `看全部 ${list.length} 件作品`}
+          </button>
+        </div>
+      )}
+    </Section>
+  )
+}
+
 function Faq({ items }) {
   const [open, setOpen] = useState(0)
   return (
@@ -717,7 +745,7 @@ export default function CoursePage() {
   if (!c) return <Navigate to="/" replace />
   return (
     <>
-      <Nav back links={navLinks} />
+      <Nav back links={navLinks(!!works[slug])} />
       <Hero d={c.hero} color={c.color} />
       <Why d={c.why} color={c.color} />
       <Who d={c.who} color={c.color} />
@@ -725,6 +753,7 @@ export default function CoursePage() {
       <How d={c.how} />
       <Format d={c.format} />
       <Teacher d={c.teacher} />
+      {works[slug] && <Works list={works[slug]} />}
       <Faq items={c.faq} />
       <ApplyCta courseName={c.hero.title} />
       <Footer />

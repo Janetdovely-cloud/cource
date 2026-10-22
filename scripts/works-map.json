@@ -1,0 +1,17 @@
+{
+  "_說明": "學員作品分類規則：categories 為作品網站分類對應的課程頁；overrides 指定個別作品（以作品編號）放到哪些課程頁，優先於 categories。",
+  "categories": {
+    "design": ["biz-design"],
+    "video": ["av-design"],
+    "painter": ["anime"],
+    "game": ["ai-game"],
+    "interior": ["interior"],
+    "program": ["ai-engineer"]
+  },
+  "overrides": {
+    "421": ["ptc"], "388": ["ptc"], "335": ["ptc"], "330": ["ptc"], "279": ["ptc"], "324": ["ptc"], "315": ["ptc"], "307": ["ptc"], "291": ["ptc"],
+    "299": ["interior-b", "interior"], "425": ["interior-b", "interior"], "290": ["interior-b", "interior"],
+    "418": ["ai-agent"], "378": ["ai-agent"], "402": ["ai-agent"], "411": ["ai-agent"], "311": ["ai-agent"],
+    "389": ["java"], "300": ["java"], "286": ["java"], "368": ["java"], "373": ["java"], "386": ["java"], "400": ["java"], "265": ["java"]
+  }
+}
