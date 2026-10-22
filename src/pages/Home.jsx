@@ -115,8 +115,8 @@ export default function Home() {
       <Section id="disc" no="02" label="職涯適性測驗" title="先認識自己，再挑路線">
         <Stagger className="grid gap-[18px] md:grid-cols-2">
           {[
-            { href: '#/interest', title: '職涯興趣測驗', text: '24 題、約 3 分鐘，依何倫碼六型分析你的興趣，畫出雷達圖並推薦適合的課程。', chips: ['R 實踐者', 'I 思考者', 'A 創造者', 'S 助人者', 'E 影響者', 'C 組織者'], c: 'var(--color-brand)' },
             { href: '#/disc', title: 'DISC 職涯適性問卷', text: '18 題、約 3 分鐘，找出你是老虎、孔雀、無尾熊還是貓頭鷹型，更了解自己適合的工作風格。', chips: ['D 支配型', 'I 影響型', 'S 穩健型', 'C 分析型'], c: 'var(--color-violet)' },
+            { href: '#/interest', title: '職涯興趣測驗', text: '24 題、約 3 分鐘，依何倫碼六型分析你的興趣，畫出雷達圖並推薦適合的課程。', chips: ['R 實踐者', 'I 思考者', 'A 創造者', 'S 助人者', 'E 影響者', 'C 組織者'], c: 'var(--color-brand)' },
           ].map((t) => (
             <Item key={t.href}>
               <div className="card h-full flex flex-col" style={{ '--c': t.c }}>
