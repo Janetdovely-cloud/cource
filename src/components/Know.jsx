@@ -59,7 +59,7 @@ export default function Know({ d, color }) {
             <ul className="m-0 p-0 list-none grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {d.terms.map((t) => (
                 <li key={t.t} className="soft h-full px-5 py-4">
-                  <p className="m-0 font-mono font-bold text-[20px] text-link">{t.t}</p>
+                  <p className="hand m-0 text-[24px] text-link">{ph(t.t)}</p>
                   <p className="m-0 mt-1 text-[15px]">{t.d}</p>
                 </li>
               ))}

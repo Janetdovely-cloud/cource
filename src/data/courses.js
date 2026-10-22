@@ -623,14 +623,14 @@ export const courses = {
         { num: 'ACP', title: '國際原廠認證', text: 'ACP 證照＋作品集，是企業搶手的門票。' },
       ],
       axes: {
-        title: '全方位設計技能金字塔：從平面到 3D 的進化之路',
+        title: '全方位設計技能金字塔：從平面到網頁與介面',
         sub: '一層一層往上疊技能，身價也跟著往上走。',
         list: [
           { name: '平面視覺設計（32K–40K）', items: ['Photoshop', 'Illustrator'] },
-          { name: '動態與介面設計（42K–50K）', items: ['After Effects', 'Premiere', 'UI 介面'] },
-          { name: '3D 視覺總監（55K 以上）', items: ['Cinema 4D'] },
+          { name: '網頁設計（35K–47K）', items: ['HTML5', 'CSS3', 'RWD'] },
+          { name: 'UI/UX 與前端整合（41K–58K）', items: ['Adobe XD', 'JavaScript', 'Vue.js'] },
         ],
-        note: '薪資為參考範圍，實際依公司與個人條件而異。',
+        note: '薪資參考來源：人力銀行職缺月薪範圍。僅供參考，實際依公司與個人條件而異。',
       },
       salaryTitle: '職涯廣：設計相關職務月薪範圍',
       salary: [
@@ -3114,7 +3114,7 @@ export const courses = {
           { name: '表現：3D 擬真渲染（45K–60K）', items: ['SketchUp', '3ds Max', 'V-Ray'] },
           { name: '價值：軟裝＋證照（60K 起）', items: ['空間軟裝', '乙級雙證照'] },
         ],
-        note: '薪資為參考範圍，實際依公司與個人條件而異。',
+        note: '薪資參考來源：人力銀行職缺月薪範圍。僅供參考，實際依公司與個人條件而異。',
       },
       salaryTitle: '室內設計相關職務月薪範圍',
       salary: [

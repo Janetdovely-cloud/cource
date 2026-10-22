@@ -162,7 +162,7 @@ function Why({ d, color }) {
               </Item>
             ))}
           </Stagger>
-          <p className="note mt-3 mb-0">{d.axes.note}</p>
+          <p className="note mt-3 mb-0 !text-[12px] opacity-80">{d.axes.note}</p>
         </div>
       )}
 

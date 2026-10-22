@@ -97,7 +97,9 @@ export const know = {
       { stage: '延伸發展', name: 'Unity 3D 虛擬實境', text: '跨入互動與虛擬實境內容製作，拓展更多應用領域。', job: '多媒體影音剪輯師' },
     ] },
     certs: [
-      {"name": "Adobe ACP 國際認證", "org": "Adobe", "what": "Adobe 創意軟體的實務操作能力，例如影像、剪輯與特效軟體。", "who": "想從事影音與視覺設計的人", "help": "Adobe 原廠國際認證，證明具備業界標準軟體的操作能力。"},
+      {"name": "Adobe ACP Photoshop", "org": "Adobe", "what": "影像編修、合成、圖層與色彩管理等 Photoshop 實務操作。", "who": "想做影片縮圖、海報與視覺素材的人", "help": "影音設計也需要平面素材能力，證明能獨立完成影像處理。"},
+      {"name": "Adobe ACP Illustrator", "org": "Adobe", "what": "向量繪圖、路徑編輯、文字排版與 Logo 等 Illustrator 實務操作。", "who": "想做片頭字卡、圖示與品牌視覺的人", "help": "向量素材可直接用在動態設計，證明具備完整的視覺設計能力。"},
+      {"name": "Adobe ACP Premiere", "org": "Adobe", "what": "影片剪輯、轉場、字幕、音訊處理與輸出設定等 Premiere 實務操作。", "who": "想從事影片剪輯與短影音製作的人", "help": "Premiere 是業界最常用的剪輯軟體，國際證照能直接證明剪輯實力。"},
       {"name": "TQC 色彩學", "org": "TQC", "what": "色彩原理、配色方法與色彩在設計上的應用。", "who": "所有視覺、空間與產品設計相關的人", "help": "證明具備專業配色觀念，讓作品更有說服力。"},
     ],
     terms: [
@@ -184,7 +186,6 @@ export const know = {
     ] },
     certs: [
       {"name": "Autodesk AutoCAD 國際認證", "org": "Autodesk", "what": "AutoCAD 2D 繪圖、編修、圖層與出圖等實務操作。", "who": "想從事製圖、機構或室內設計的人", "help": "AutoCAD 是業界最普及的製圖軟體，原廠認證最有說服力。"},
-      {"name": "TQC+ 專業設計人才認證", "org": "TQC+", "what": "電腦輔助設計軟體的繪圖與建模實作。", "who": "想從事機構與產品設計的人", "help": "證明具備工程設計軟體的實作能力。"},
       {"name": "TQC 色彩學", "org": "TQC", "what": "色彩原理、配色方法與色彩在設計上的應用。", "who": "所有視覺、空間與產品設計相關的人", "help": "證明具備專業配色觀念，讓作品更有說服力。"},
     ],
     terms: [
@@ -373,7 +374,7 @@ export const know = {
       { stage: '延伸發展', name: 'Revit BIM＋軟裝設計', text: '加上 BIM 建築整合與軟裝能力，擴大接案範圍。', job: '軟裝設計師、展場設計師' },
     ] },
     certs: [
-      {"name": "Autodesk AutoCAD 國際認證", "org": "Autodesk", "what": "AutoCAD 2D 繪圖、編修、圖層與出圖等實務操作。", "who": "想從事製圖、機構或室內設計的人", "help": "AutoCAD 是業界最普及的製圖軟體，原廠認證最有說服力。"},
+      {"name": "Autodesk ACU AutoCAD", "org": "Autodesk", "what": "AutoCAD 2D 繪圖、編修、圖層與出圖等實務操作。", "who": "想從事製圖、機構或室內設計的人", "help": "AutoCAD 是業界最普及的製圖軟體，原廠認證最有說服力。"},
       {"name": "Autodesk ACU 3ds Max", "org": "Autodesk", "what": "3ds Max 建模、材質、燈光與渲染等實務操作。", "who": "想做 3D 建模、遊戲美術或室內渲染的人", "help": "原廠國際認證，證明具備 3D 製作能力。"},
       {"name": "建築物室內設計乙級技術士（12500）", "org": "勞動部", "what": "室內設計規劃、繪圖與相關法規，分學科與術科。", "who": "想成為室內設計師或自行接案的人", "help": "可作為室內裝修專業技術人員資格，是合法執業的重要條件。"},
       {"name": "建築物室內裝修工程管理乙級技術士（12600）", "org": "勞動部", "what": "室內裝修施工管理、材料工法與相關法規，分學科與術科。", "who": "想從事施工管理或承攬工程的人", "help": "可作為室內裝修專業技術人員資格，與設計乙級搭配最完整。"},
