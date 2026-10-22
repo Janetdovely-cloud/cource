@@ -7,7 +7,8 @@
     "font": "python3 scripts/subset-font.py",
     "build": "vite build",
     "preview": "vite preview",
-    "works": "node scripts/fetch-works.mjs"
+    "works": "node scripts/fetch-works.mjs",
+    "videos": "node scripts/fetch-videos.mjs"
   },
   "keywords": [],
   "author": "",

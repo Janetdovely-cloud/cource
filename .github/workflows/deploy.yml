@@ -30,6 +30,9 @@ jobs:
       - name: 抓取最新學員作品
         run: npm run works
         continue-on-error: true
+      - name: 抓取最新就業影片
+        run: npm run videos
+        continue-on-error: true
       - run: npm run build
       - uses: actions/upload-pages-artifact@v3
         with:
