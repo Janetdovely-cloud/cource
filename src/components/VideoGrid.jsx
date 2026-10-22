@@ -3,7 +3,11 @@ import { useState } from 'react'
 export default function VideoGrid({ list, label = '就職', more: moreText = '支影片', cols = 'sm:grid-cols-2 lg:grid-cols-3' }) {
   const [more, setMore] = useState(false)
   const [play, setPlay] = useState(null)
-  const shown = more ? list : list.slice(0, 6)
+  // 有分類時，收合狀態每個類別先顯示一支
+  const preview = list.some((v) => v.cat)
+    ? list.filter((v, i) => list.findIndex((x) => x.cat === v.cat) === i)
+    : list.slice(0, 6)
+  const shown = more ? list : preview
   return (
     <>
       <ul className={`m-0 p-0 list-none grid gap-[18px] ${cols}`}>
@@ -22,13 +26,14 @@ export default function VideoGrid({ list, label = '就職', more: moreText = '�
               )}
             </div>
             <div className="px-4 py-3">
+              {v.cat && <span className="chip !text-[12px] !py-0.5 mb-2 inline-block">{v.cat}</span>}
               <p className="m-0 font-bold text-[16px] leading-snug">{v.t}</p>
               {v.co && <p className="m-0 mt-1 text-[14px] text-ink/70">{label}：{v.co}</p>}
             </div>
           </li>
         ))}
       </ul>
-      {list.length > 6 && (
+      {list.length > preview.length && (
         <div className="mt-6 text-center">
           <button type="button" className="btn ghost" onClick={() => setMore(!more)} data-cursor={more ? '收合' : '展開'}>
             {more ? '收合影片' : `看全部 ${list.length} ${moreText}`}
