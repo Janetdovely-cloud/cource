@@ -1,7 +1,6 @@
 import { useLayoutEffect } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion, MotionConfig } from 'motion/react'
-import Cursor from './components/Cursor'
 import { BackToTop } from './components/Layout'
 import Home from './pages/Home'
 import CoursePage from './pages/CoursePage'
@@ -33,7 +32,6 @@ export default function App() {
   const location = useLocation()
   return (
     <MotionConfig reducedMotion="user">
-      <Cursor />
       <BackToTop />
       <AnimatePresence mode="wait" onExitComplete={() => window.scrollTo({ top: 0, behavior: 'instant' })}>
         <Routes location={location} key={location.pathname}>

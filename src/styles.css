@@ -188,11 +188,6 @@ dialog[open].dlg { animation: dlgIn .3s ease; }
 .doodle { position: absolute; pointer-events: none; animation: floaty 7s ease-in-out infinite; }
 @media (max-width: 760px) { .doodle { display: none; } }
 
-/* ── 自訂游標：只在有滑鼠的裝置隱藏預設游標 ── */
-@media (hover: hover) and (pointer: fine) {
-  html.has-cursor, html.has-cursor * { cursor: none !important; }
-}
-
 .no-scrollbar { scrollbar-width: none; }
 .no-scrollbar::-webkit-scrollbar { display: none; }
 
