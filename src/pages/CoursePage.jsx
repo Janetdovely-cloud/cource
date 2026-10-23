@@ -738,7 +738,7 @@ function Classes({ list }) {
           <li key={i} className="soft !shadow-none px-4 py-3 md:px-5 grid gap-x-6 gap-y-1 md:grid-cols-[170px_1fr_auto] md:items-center">
             <span className="font-mono font-bold text-link text-[18px]">{md(c.start)}<span className="text-muted text-[14px] font-normal"> ~ {md(c.end)}</span></span>
             <span className="font-bold">{c.name}</span>
-            <span className="text-[14px] text-muted">{c.slot}・{c.time}・{c.hours} 小時{c.branch && `・${c.branch}開班`}</span>
+            <span className="text-[14px] text-muted">{c.slot}・{c.time}・{c.hours} 小時{c.branch && `・${c.branch}`}</span>
           </li>
         ))}
       </ul>
