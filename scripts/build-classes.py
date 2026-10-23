@@ -8,7 +8,7 @@ RULES = [
   ('infosec', r'資安|CISSP|CCNA'),
   ('cloud', r'Do188|RHCE|RHCSA|RH358|RH342|OpenShift|Linux|AWS'),
   ('ai-agent', r'AI Agent|OpenClaw|n8n|AI自媒體|Fine-Tuning|AI解決方案'),
-  ('ai-engineer', r'Python|Django|程式解決方案|Fine-Tuning|深度學習'),
+  ('ai-engineer', r'Python|Django|程式解決方案|深度學習'),
   ('java', r'Java|Frontend|前端|SQL|資料庫工程師|程式解決方案'),
   ('ai-game', r'Unity|C#遊戲|2D美術|遊戲設計|遊戲開發|MAYA|UE5'),
   ('anime', r'Live2D|Comic|漫畫|角色|電繪|2D美術|ACP國際認證輔考班-Illustrator'),

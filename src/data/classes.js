@@ -327,15 +327,6 @@ export const classes = {
    "branch": "中壢分校實體課"
   },
   {
-   "name": "Fine-Tuning與模型優化實務",
-   "start": "2026/11/03",
-   "end": "2026/12/10",
-   "slot": "夜間 二四",
-   "time": "18:40 ~ 21:40",
-   "hours": "36",
-   "branch": "線上直播"
-  },
-  {
    "name": "Python爬蟲程式與資料視覺化開發",
    "start": "2026/11/12",
    "end": "2027/01/21",
