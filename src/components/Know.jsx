@@ -2,13 +2,12 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
 import { Section, ph } from './Motion'
 
-const TABS = [['path', '學習路徑'], ['certs', '證照小百科'], ['terms', '產業小知識'], ['qa', '轉職疑問']]
+const TABS = [['path', '學習路徑'], ['certs', '證照小百科'], ['terms', '產業小知識']]
 
 export default function Know({ d, color }) {
   const [tab, setTab] = useState('path')
-  const [open, setOpen] = useState(0)
   return (
-    <Section id="know" label="專業小百科" title="帶你快速看懂這個領域" sub="從學習路徑、證照到產業知識，一次了解轉職需要知道的事。">
+    <Section id="know" label="專業小百科" title="帶你快速看懂這個領域" sub="從學習路徑、證照到產業知識，一次了解這個領域。">
       <div role="tablist" className="flex flex-wrap gap-2 mb-6">
         {TABS.filter(([k]) => d[k]?.length !== 0).map(([k, n]) => (
           <button key={k} role="tab" aria-selected={tab === k} type="button" onClick={() => setTab(k)}
@@ -64,19 +63,6 @@ export default function Know({ d, color }) {
                 </li>
               ))}
             </ul>
-          )}
-          {tab === 'qa' && (
-            <div className="grid gap-3 max-w-[860px]">
-              {d.qa.map((x, i) => (
-                <div key={x.q} className="soft !shadow-none">
-                  <button type="button" aria-expanded={open === i} onClick={() => setOpen(open === i ? -1 : i)}
-                    className="w-full text-left px-5 py-3 font-bold text-[17px] flex justify-between gap-3 bg-transparent border-0 cursor-pointer">
-                    <span>Q. {x.q}</span><span aria-hidden="true">{open === i ? '−' : '+'}</span>
-                  </button>
-                  {open === i && <p className="m-0 px-5 pb-4 text-muted">{x.a}</p>}
-                </div>
-              ))}
-            </div>
           )}
         </motion.div>
       </AnimatePresence>
