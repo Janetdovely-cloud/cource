@@ -53,6 +53,7 @@ export default function QuickNav() {
                 <button type="button" className={chip} onClick={() => go('/')}>首頁</button>
                 <button type="button" className={chip} onClick={() => go('/disc')}>DISC 測驗</button>
                 <button type="button" className={chip} onClick={() => go('/interest')}>職涯興趣測驗</button>
+                <button type="button" className={chip} onClick={() => go('/ideal')}>理想工作條件</button>
               </div>
               </div></div>
             </motion.nav>

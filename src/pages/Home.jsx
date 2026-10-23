@@ -113,10 +113,11 @@ export default function Home() {
 
       {/* ── 職涯適性測驗 ── */}
       <Section id="disc" no="02" label="職涯適性測驗" title="先認識自己，再挑路線">
-        <Stagger className="grid gap-[18px] md:grid-cols-2">
+        <Stagger className="grid gap-[18px] md:grid-cols-2 lg:grid-cols-3">
           {[
             { href: '#/disc', title: 'DISC 職涯適性問卷', text: '18 題、約 3 分鐘，找出你是老虎、孔雀、無尾熊還是貓頭鷹型，更了解自己適合的工作風格。', chips: ['D 支配型', 'I 影響型', 'S 穩健型', 'C 分析型'], c: 'var(--color-violet)' },
             { href: '#/interest', title: '職涯興趣測驗', text: '24 題、約 3 分鐘，依何倫碼六型分析你的興趣，畫出雷達圖並推薦適合的課程。', chips: ['R 實踐者', 'I 思考者', 'A 創造者', 'S 助人者', 'E 影響者', 'C 組織者'], c: 'var(--color-brand)' },
+            { href: '#/ideal', title: '理想工作條件', text: '從薪資、時間、發展性等 9 個條件中，選出最在意的 3 項，看看要具備哪些能力才能達成。', chips: ['薪資', '時間', '發展性', '教育訓練'], c: 'var(--color-gold)', btn: '開始選擇' },
           ].map((t) => (
             <Item key={t.href}>
               <div className="card h-full flex flex-col" style={{ '--c': t.c }}>
@@ -126,7 +127,7 @@ export default function Home() {
                   {t.chips.map((c) => <span key={c} className="chip !text-[14px] !py-1">{c}</span>)}
                 </div>
                 <a href={t.href} target="_blank" rel="noopener" className="btn primary self-start mt-auto translate-y-0 !mt-5">
-                  開始測驗 <Icon name="arrow" size={18} />
+                  {t.btn ?? '開始測驗'} <Icon name="arrow" size={18} />
                 </a>
               </div>
             </Item>
