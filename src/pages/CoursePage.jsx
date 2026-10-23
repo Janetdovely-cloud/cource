@@ -729,14 +729,16 @@ const ONLINE_ONLY = ['ai-game', 'anime', 'ipas', 'infosec', 'java']
 function upcoming(slug) {
   const now = new Date(); now.setHours(0, 0, 0, 0)
   const until = new Date(now); until.setMonth(until.getMonth() + 3)
-  return (classes[slug] || []).filter((c) => { const d = new Date(c.start); return d >= now && d <= until && !(ONLINE_ONLY.includes(slug) && c.branch.includes('實體')) })
+  return (classes[slug] || []).filter((c) => { const d = new Date(c.start); return d >= now && d <= until && !(ONLINE_ONLY.includes(slug) && c.branch.includes('實體') && !c.name.includes('27001')) })
 }
 
 function Classes({ list, slug }) {
   const hl = { color: 'var(--color-gold)' }
   const md = (s) => s.slice(5).replace('/', '/')
   return (
-    <Section id="classes" label="近期開班" title="最近一期什麼時候開？" sub={ONLINE_ONLY.includes(slug)
+    <Section id="classes" label="近期開班" title="最近一期什麼時候開？" sub={slug === 'infosec'
+      ? <>以下為近三個月內開課的<strong style={hl}>線上直播班</strong>；ISO 27001 僅有<strong style={hl}>實體課</strong>，列出全台開課分校。實際開課資訊以分校公告為準。</>
+      : ONLINE_ONLY.includes(slug)
       ? <>以下為近三個月內開課的<strong style={hl}>線上直播班</strong>，實際開課資訊以分校公告為準。</>
       : <>以下為近三個月內開課的班級，包含<strong style={hl}>中壢、桃園分校實體課</strong>與<strong style={hl}>線上直播班</strong>，實際開課資訊以分校公告為準。</>}>
       <ul className="m-0 p-0 list-none grid gap-3">

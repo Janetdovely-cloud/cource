@@ -21,6 +21,9 @@ RULES = [
 SKIP = r'亮點|^Short_|一人動畫公司|專題製作|說明會|徵才|教育訓練|履歷健診|廠商|教練直播間|前導'
 d = json.load(open(sys.argv[1] if len(sys.argv) > 1 else 'scripts/classes-lcc.json', encoding='utf-8'))
 if len(d) < 20: sys.exit(f'only {len(d)} classes, abort')
+# ISO 27001 只有實體課且中壢、桃園不開，另外從學管查全台分校（scripts/classes-iso.json）
+try: d += json.load(open('scripts/classes-iso.json', encoding='utf-8'))
+except FileNotFoundError: pass
 # 輔考／模擬測驗只看括號備註以前的課名，避免「AI廣告設計 (11/18輔考班)」這類正式課被排除
 d = [x for x in d if x['類別'] not in ('說明會', '產學') and not re.search(SKIP, x['課程'])
      and not re.search(r'輔考|模擬測驗', re.split(r'[（(【]', x['課程'], maxsplit=1)[0])]
@@ -33,6 +36,7 @@ for x in d:
     name = re.sub(r'\s*[（(【※].*$', '', name)
     name = re.sub(r'^區\s*', '', name)
     name = re.sub(r'^就業認證直播-+\s*', '', name).strip()
+    name = re.sub(r'_資安$', '', name)
     hit = [s for s, p in RULES if re.search(p, raw, re.I)]
     if 'interior-b' in hit and 'interior' in hit: hit.remove('interior')
     for s in dict.fromkeys(hit):
