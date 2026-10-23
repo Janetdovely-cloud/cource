@@ -723,16 +723,22 @@ function Videos({ list }) {
 }
 
 // 近三個月內開課的班級（以瀏覽當天計算）
+// 只有線上直播＋錄播、沒有實體課的課程
+const ONLINE_ONLY = ['ai-game', 'anime', 'ipas']
+
 function upcoming(slug) {
   const now = new Date(); now.setHours(0, 0, 0, 0)
   const until = new Date(now); until.setMonth(until.getMonth() + 3)
-  return (classes[slug] || []).filter((c) => { const d = new Date(c.start); return d >= now && d <= until })
+  return (classes[slug] || []).filter((c) => { const d = new Date(c.start); return d >= now && d <= until && !(ONLINE_ONLY.includes(slug) && c.branch.includes('實體')) })
 }
 
-function Classes({ list }) {
+function Classes({ list, slug }) {
+  const hl = { color: 'var(--color-gold)' }
   const md = (s) => s.slice(5).replace('/', '/')
   return (
-    <Section id="classes" label="近期開班" title="最近一期什麼時候開？" sub={<>以下為近三個月內開課的班級，包含<strong style={{ color: 'var(--color-gold)' }}>中壢、桃園分校實體課</strong>與<strong style={{ color: 'var(--color-gold)' }}>線上直播班</strong>，實際開課資訊以分校公告為準。</>}>
+    <Section id="classes" label="近期開班" title="最近一期什麼時候開？" sub={ONLINE_ONLY.includes(slug)
+      ? <>以下為近三個月內開課的<strong style={hl}>線上直播班</strong>，實際開課資訊以分校公告為準。</>
+      : <>以下為近三個月內開課的班級，包含<strong style={hl}>中壢、桃園分校實體課</strong>與<strong style={hl}>線上直播班</strong>，實際開課資訊以分校公告為準。</>}>
       <ul className="m-0 p-0 list-none grid gap-3">
         {list.map((c, i) => (
           <li key={i} className="soft !shadow-none px-4 py-3 md:px-5 grid gap-x-6 gap-y-1 md:grid-cols-[170px_1fr_auto] md:items-center">
@@ -796,7 +802,7 @@ export default function CoursePage() {
       {know[slug] && <Know d={know[slug]} color={c.color} />}
       {works[slug] && <Works list={works[slug]} />}
       {videos[slug] && <Videos list={videos[slug]} />}
-      {upcoming(slug).length > 0 && <Classes list={upcoming(slug)} />}
+      {upcoming(slug).length > 0 && <Classes list={upcoming(slug)} slug={slug} />}
       <Faq items={c.faq} />
       <ApplyCta courseName={c.hero.title} />
       <Footer />
