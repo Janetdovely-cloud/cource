@@ -18,7 +18,7 @@ RULES = [
   ('biz-design', r'品牌設計|ACP國際認證輔考班-Illustrator|視覺行銷|AI廣告|UI/UX|商業網站|印刷|Photoshop|AI形象|潮流風格'),
   ('ai-pro', r'生成式AI|AI高效行銷|AI神隊友|AI人工智慧核心能力|LINE官方|LINE Ads|Google Ads|ITS輔考|AI職場'),
 ]
-SKIP = r'^Short_|說明會|徵才|教育訓練|履歷健診|廠商|教練直播間|前導'
+SKIP = r'^Short_|輔考|模擬測驗|說明會|徵才|教育訓練|履歷健診|廠商|教練直播間|前導'
 d = json.load(open(sys.argv[1] if len(sys.argv) > 1 else 'scripts/classes-lcc.json', encoding='utf-8'))
 if len(d) < 20: sys.exit(f'only {len(d)} classes, abort')
 d = [x for x in d if x['類別'] not in ('說明會', '產學') and not re.search(SKIP, x['課程'])]
