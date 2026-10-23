@@ -732,7 +732,7 @@ function upcoming(slug) {
 function Classes({ list }) {
   const md = (s) => s.slice(5).replace('/', '/')
   return (
-    <Section id="classes" label="近期開班" title="最近一期什麼時候開？" sub={<>以下為近三個月內開課的<strong style={{ color: 'var(--color-gold)' }}>線上直播班級</strong>，皆有錄影可複習，實際開課資訊以分校公告為準。</>}>
+    <Section id="classes" label="近期開班" title="最近一期什麼時候開？" sub={<>以下為近三個月內開課的班級，包含<strong style={{ color: 'var(--color-gold)' }}>中壢、桃園分校實體課</strong>與<strong style={{ color: 'var(--color-gold)' }}>線上直播班</strong>，實際開課資訊以分校公告為準。</>}>
       <ul className="m-0 p-0 list-none grid gap-3">
         {list.map((c, i) => (
           <li key={i} className="soft !shadow-none px-4 py-3 md:px-5 grid gap-x-6 gap-y-1 md:grid-cols-[170px_1fr_auto] md:items-center">
