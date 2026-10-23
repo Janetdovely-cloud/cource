@@ -724,7 +724,7 @@ function Videos({ list }) {
 
 // 近三個月內開課的班級（以瀏覽當天計算）
 // 只有線上直播＋錄播、沒有實體課的課程
-const ONLINE_ONLY = ['ai-game', 'anime', 'ipas']
+const ONLINE_ONLY = ['ai-game', 'anime', 'ipas', 'infosec']
 
 function upcoming(slug) {
   const now = new Date(); now.setHours(0, 0, 0, 0)
