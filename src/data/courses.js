@@ -3210,9 +3210,9 @@ export const courses = {
         sub: '兩套都是室內設計必學的 3D 軟體，但用途不一樣：一個重速度與溝通，一個重擬真與質感。拖曳中間的把手比較看看。',
         note: '示意模擬圖：同一個客廳模型，左邊為 SketchUp 常見的線框上色風格，右邊為 3ds Max 搭配渲染器的擬真效果。實際成果依模型精細度與渲染設定而異。',
         tools: [
-          { name: 'SketchUp Pro', tag: '快速建模・提案溝通', img: 'compare/interior-su.webp', one: '像在電腦上「拉」出一個空間模型，快又直覺。',
+          { name: 'SketchUp Pro', tag: '快速建模・提案溝通', img: 'compare/interior-su-v2.webp', one: '像在電腦上「拉」出一個空間模型，快又直覺。',
             points: ['推拉建模，從平面圖很快長出 3D 空間', '線條清楚、色塊簡潔，適合初期提案與討論', '模型可隨時修改，現場就能和客戶一起調整', '搭配 V-Ray 等外掛，也能做出渲染效果'] },
-          { name: '3ds Max', tag: '擬真渲染・成品出圖', img: 'compare/interior-max.webp', one: '像在電腦上「拍」出一張照片，光影材質都很真實。',
+          { name: '3ds Max', tag: '擬真渲染・成品出圖', img: 'compare/interior-max-v2.webp', one: '像在電腦上「拍」出一張照片，光影材質都很真實。',
             points: ['精細的材質：木紋、布料、金屬、玻璃反光', '真實的燈光：日光、陰影、燈具暖光氛圍', '產出接近實景照片的效果圖，用於定案與成交', '也能做空間動畫、360 環景展示'] },
         ],
         rows: [
