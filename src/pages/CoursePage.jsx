@@ -378,7 +378,62 @@ function What({ d }) {
       {d.certs && <CertWall d={d.certs} />}
       {d.teams && <Teams d={d.teams} />}
       {d.exams && <Exams d={d.exams} />}
+      {d.toolCompare && <ToolCompare d={d.toolCompare} />}
     </Section>
+  )
+}
+
+function ToolCompare({ d }) {
+  const [pos, setPos] = useState(50)
+  const [a, b] = d.tools
+  const src = (f) => import.meta.env.BASE_URL + f
+  return (
+    <div className="mt-14">
+      <h3 className="text-[24px] sm:text-[28px] m-0">{d.title}</h3>
+      <p className="mt-2 mb-6 text-muted text-[15px]">{d.sub}</p>
+      <div className="card !p-0 overflow-hidden max-w-[960px] mx-auto">
+        <div className="relative select-none aspect-[16/10] bg-paper">
+          <img src={src(b.img)} alt={b.name + ' 示意圖'} className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+          <img src={src(a.img)} alt={a.name + ' 示意圖'} className="absolute inset-0 w-full h-full object-cover" loading="lazy"
+            style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }} />
+          <div className="absolute inset-y-0 w-[3px] bg-ink pointer-events-none" style={{ left: `calc(${pos}% - 1.5px)` }}>
+            <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 grid place-items-center w-11 h-11 rounded-full bg-paper border-2 border-ink font-extrabold text-[15px]">⇆</span>
+          </div>
+          <span className="chip ink absolute top-3 left-3 !text-[13px]">{a.name}</span>
+          <span className="chip gold absolute top-3 right-3 !text-[13px]">{b.name}</span>
+          <input type="range" min="0" max="100" value={pos} onChange={(e) => setPos(+e.target.value)} aria-label="左右拖曳比較"
+            className="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize" />
+        </div>
+        <p className="m-0 px-5 py-3 text-[13px] text-muted border-t-2 border-ink">{d.note}</p>
+      </div>
+      <div className="grid gap-[18px] md:grid-cols-2 mt-[18px]">
+        {d.tools.map((t, i) => (
+          <article key={t.name} className="card">
+            <span className={`chip ${i ? 'gold' : 'ink'} !text-[12px]`}>{t.tag}</span>
+            <h4 className="text-[22px] mt-2 mb-1">{t.name}</h4>
+            <p className="m-0 mb-3 font-bold text-[15px]">{t.one}</p>
+            <ul className="list-none p-0 m-0 grid gap-1 text-[14px]">
+              {t.points.map((x) => <li key={x} className="flex gap-2 items-start"><Icon name="star" size={16} className="text-gold shrink-0 mt-[5px]" />{x}</li>)}
+            </ul>
+          </article>
+        ))}
+      </div>
+      <div className="card !p-0 overflow-x-auto mt-[18px]">
+        <table className="w-full text-[14px] border-collapse min-w-[520px]">
+          <thead><tr className="bg-ink text-paper">
+            <th className="px-4 py-3 text-left">比較項目</th><th className="px-4 py-3 text-left">{a.name}</th><th className="px-4 py-3 text-left">{b.name}</th>
+          </tr></thead>
+          <tbody>{d.rows.map((r) => (
+            <tr key={r[0]}>
+              <td className="px-4 py-3 border-b border-rule font-extrabold whitespace-nowrap">{r[0]}</td>
+              <td className="px-4 py-3 border-b border-rule">{r[1]}</td>
+              <td className="px-4 py-3 border-b border-rule">{r[2]}</td>
+            </tr>
+          ))}</tbody>
+        </table>
+      </div>
+      <p className="mt-4 mb-0 px-4 py-2 text-[15px] border-l-[5px] border-gold bg-gold/10" style={{ borderRadius: '0 12px 12px 0' }}><b>一句話看懂：</b>{d.summary}</p>
+    </div>
   )
 }
 
