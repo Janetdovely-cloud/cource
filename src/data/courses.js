@@ -579,7 +579,7 @@ export const courses = {
       { q: '上班時間不固定，跟得上進度嗎？',
         a: '課程提供 24 小時彈性進修：錄播教學系統 24 小時隨時學，AI 隨身教練隨問隨答，遇到難題再由真人教練深度解題。' },
       { q: '結訓有證書嗎？',
-        a: '有。依照不同選修科目，頒發結訓合格數位證書。' },
+        a: '有。依照不同選修科目，考取相對應認證證照。' },
       { q: 'AI 工具變化很快，現在學會不會過時？',
         a: '工具會更新，但提示詞邏輯、判斷產出品質、把 AI 融入工作流程的能力不會過時，這正是課程的重點。' },
       { q: '學 AI 對工作真的有幫助嗎？',
@@ -743,7 +743,7 @@ export const courses = {
       ],
       certs: {
         title: '相關認證',
-        sub: '依照不同選修科目，頒發結訓合格數位證書。',
+        sub: '依照不同選修科目，考取相對應認證證照。',
         list: [
           { name: 'ACP Photoshop 國際證照', org: 'Adobe' },
           { name: 'ACP Illustrator 國際證照', org: 'Adobe' },
@@ -820,7 +820,7 @@ export const courses = {
       { q: '課程會用到哪些軟體？',
         a: 'Photoshop、Illustrator、XD、After Effects、Premiere、Cinema 4D，以及 HTML5、CSS3、JavaScript、RWD、Vue.js、Bootstrap、jQuery 等網頁技術。' },
       { q: '可以考哪些證照？',
-        a: '相關認證包含 ACP Photoshop、ACP Illustrator 國際證照、視覺設計專家、Google Ads 認證、LINE 成效型廣告專家、LINE 官方帳號專家與 TQC 色彩學。依照不同選修科目，頒發結訓合格數位證書。' },
+        a: '相關認證包含 ACP Photoshop、ACP Illustrator 國際證照、視覺設計專家、Google Ads 認證、LINE 成效型廣告專家、LINE 官方帳號專家與 TQC 色彩學。依照不同選修科目，考取相對應認證證照。' },
       { q: '上班時間不固定，跟得上進度嗎？',
         a: '有直播、錄播、實體等 5 大教學系統可以自由搭配，錄影檔 14 天免費看，AI 教練 24 小時在線複習。' },
       { q: '「延伸學習」是什麼？',
@@ -984,7 +984,7 @@ export const courses = {
       ],
       certs: {
         title: '相關認證',
-        sub: '依照不同選修科目，頒發結訓合格數位證書。',
+        sub: '依照不同選修科目，考取相對應認證證照。',
         list: [
           { name: 'Adobe 原廠證書', org: 'Adobe' },
           { name: 'Adobe ACP 國際認證', org: 'Adobe' },
@@ -1067,7 +1067,7 @@ export const courses = {
       { q: '課程會用到哪些軟體？',
         a: 'Photoshop、Illustrator、Premiere、After Effects、Davinci Resolve、Cinema 4D 與 Unity。' },
       { q: '可以考哪些證照？',
-        a: '相關認證包含 Adobe 原廠證書、Adobe ACP 國際認證、LINE 官方合作結訓證書、Unity UCU、Google Ads 認證，Photoshop、Premiere、After Effects、視覺設計、影音設計專家，以及 TQC 色彩學。依照不同選修科目，頒發結訓合格數位證書。' },
+        a: '相關認證包含 Adobe 原廠證書、Adobe ACP 國際認證、LINE 官方合作結訓證書、Unity UCU、Google Ads 認證，Photoshop、Premiere、After Effects、視覺設計、影音設計專家，以及 TQC 色彩學。依照不同選修科目，考取相對應認證證照。' },
       { q: '我不想露臉，也能做影音工作嗎？',
         a: '可以。影音產業分幕前與幕後，剪片、後製、特效、企劃都是幕後技能，正是這門課的重點。' },
       { q: '上班時間不固定，跟得上進度嗎？',
@@ -1225,7 +1225,7 @@ export const courses = {
       ],
       certs: {
         title: '相關認證',
-        sub: '依照不同選修科目，頒發結訓合格數位證書。',
+        sub: '依照不同選修科目，考取相對應認證證照。',
         list: [
           { name: 'ITS Python', org: 'ITS' },
           { name: 'TQC+ Python 3', org: 'TQC+' },
@@ -1302,7 +1302,7 @@ export const courses = {
       { q: '課程會用到哪些工具？',
         a: 'Python、HTML5、CSS3、Selenium、MATLAB、OpenCV、Django、scikit-learn，以及 PyTorch 等 AI 開發工具。' },
       { q: '可以考哪些證照？',
-        a: '相關認證包含 ITS Python、TQC+ Python 3、TQC+ 網頁資料擷取與分析、TQC+ 人工智慧：機器學習、TQC 軟體開發知識（PSK3），AI 熟練師課程另有產業證照加持。依照不同選修科目，頒發結訓合格數位證書。' },
+        a: '相關認證包含 ITS Python、TQC+ Python 3、TQC+ 網頁資料擷取與分析、TQC+ 人工智慧：機器學習、TQC 軟體開發知識（PSK3），AI 熟練師課程另有產業證照加持。依照不同選修科目，考取相對應認證證照。' },
       { q: '結訓會有哪些作品？',
         a: 'Python 商業資料分析報告、自動化爬蟲資料擷取工具、互動式數據視覺化儀表板、AI 視覺辨識專案與深度學習模型應用。' },
       { q: '學完還能往哪裡延伸？',
@@ -1468,7 +1468,7 @@ export const courses = {
       ],
       certs: {
         title: '相關認證',
-        sub: '依照不同選修科目，頒發結訓合格數位證書。',
+        sub: '依照不同選修科目，考取相對應認證證照。',
         list: [
           { name: 'ITS Python', org: 'ITS' },
           { name: 'TQC+ Python 3', org: 'TQC+' },
@@ -1547,7 +1547,7 @@ export const courses = {
       { q: '結訓會有哪些作品？',
         a: '資料分析實作專案、全自動資料採集機器人、RAG 智慧問答客服系統、專屬智能行動助理、垂直領域模型微調專案，以及 AI 解決方案企劃書。' },
       { q: '可以考哪些證照？',
-        a: '相關認證包含 ITS Python、TQC+ Python 3、TQC+ 網頁資料擷取與分析、生成式 AI 能力認證、人工智慧工程素養認證。依照不同選修科目，頒發結訓合格數位證書。' },
+        a: '相關認證包含 ITS Python、TQC+ Python 3、TQC+ 網頁資料擷取與分析、生成式 AI 能力認證、人工智慧工程素養認證。依照不同選修科目，考取相對應認證證照。' },
       { q: '學完還能往哪裡延伸？',
         a: '推薦延伸學習 Python 視覺辨識與機器學習、Python 深度學習與應用實務、Python Django Web 開發實務。' },
       { q: 'AI Agent 跟 ChatGPT 有什麼不同？',
@@ -1685,7 +1685,7 @@ export const courses = {
       ],
       certs: {
         title: '相關認證',
-        sub: '依照不同選修科目，頒發結訓合格數位證書。',
+        sub: '依照不同選修科目，考取相對應認證證照。',
         list: [
           { name: 'Autodesk 國際認證：AutoCAD', org: 'Autodesk' },
           { name: 'TQC+ 專業設計人才認證', org: 'TQC+' },
@@ -1758,7 +1758,7 @@ export const courses = {
       { q: '課程會用到哪些軟體？',
         a: 'AutoCAD、PTC Creo、SolidWorks，以及 Python 與 AI 工具。' },
       { q: '可以考哪些證照？',
-        a: '相關認證包含 Autodesk 國際認證 AutoCAD、TQC+ 專業設計人才認證，以及 PTC Creo Parametric 原廠證書。依照不同選修科目，頒發結訓合格數位證書。' },
+        a: '相關認證包含 Autodesk 國際認證 AutoCAD、TQC+ 專業設計人才認證，以及 PTC Creo Parametric 原廠證書。依照不同選修科目，考取相對應認證證照。' },
       { q: '工業 4.0 和工業 5.0 有什麼不同？',
         a: '工業 4.0 以「生產智慧化」為主，致力於用機器取代人類；工業 5.0 則強調「人機協作」，回歸人類本位與永續發展，重視人類的創造力與機械的靈活性。' },
       { q: '上班時間不固定，跟得上進度嗎？',
@@ -1899,7 +1899,7 @@ export const courses = {
       ],
       certs: {
         title: '相關認證',
-        sub: '依照不同選修科目，頒發結訓合格數位證書。',
+        sub: '依照不同選修科目，考取相對應認證證照。',
         list: [
           { name: 'ITS Java', org: 'ITS' },
           { name: 'TQC+ 物件導向程式語言 Java 17', org: 'TQC+' },
@@ -1974,7 +1974,7 @@ export const courses = {
       { q: '課程會用到哪些工具？',
         a: 'HTML5、CSS3、JavaScript、Java、MySQL、JSP 與 Kotlin。' },
       { q: '可以考哪些證照？',
-        a: '相關認證包含 ITS Java、TQC+ 物件導向程式語言 Java 17 與 TQC 軟體開發知識（PSK3）。依照不同選修科目，頒發結訓合格數位證書。' },
+        a: '相關認證包含 ITS Java、TQC+ 物件導向程式語言 Java 17 與 TQC 軟體開發知識（PSK3）。依照不同選修科目，考取相對應認證證照。' },
       { q: '結訓會有哪些作品？',
         a: '會員權限管理系統、商品庫存管理系統、人事薪資管理系統、MVC 企業網站、資料查詢介面與 Android 多頁 APP。' },
       { q: '學完還能往哪裡延伸？',
@@ -2151,7 +2151,7 @@ export const courses = {
       ],
       certs: {
         title: '相關認證',
-        sub: '課程內容與國際原廠認證體系接軌，所學技能可延伸挑戰下列認證，作為職涯進階的能力指標；依照不同選修科目，頒發結訓合格數位證書。',
+        sub: '課程內容與國際原廠認證體系接軌，所學技能可延伸挑戰下列認證，作為職涯進階的能力指標；依照不同選修科目，考取相對應認證證照。',
         list: [
           { name: 'AWS CCP 認證', org: 'AWS' },
           { name: 'RHCSA 紅帽認證系統管理員', org: 'Red Hat' },
@@ -2227,7 +2227,7 @@ export const courses = {
       { q: '沒有 Linux 經驗，可以學嗎？',
         a: '可以。課程先從程式設計先修與 Python 打底，Linux 伺服器維運也是免基礎入門課。' },
       { q: '課程可銜接哪些認證？',
-        a: '課程內容與國際認證體系接軌，學員可依個人規劃自行報考 Red Hat 原廠 RHCSA（初級）、RHCE（中級，需取得 RHCSA）、RHCA（高級，需取得 RHCE），以及 AWS CCP 認證。依照不同選修科目，頒發結訓合格數位證書。' },
+        a: '課程內容與國際認證體系接軌，學員可依個人規劃自行報考 Red Hat 原廠 RHCSA（初級）、RHCE（中級，需取得 RHCSA）、RHCA（高級，需取得 RHCE），以及 AWS CCP 認證。依照不同選修科目，考取相對應認證證照。' },
       { q: '上班時間不固定，跟得上進度嗎？',
         a: '有直播、錄播、實體等 5 大教學系統可以自由搭配，錄影檔 14 天免費看，AI 教練 24 小時在線複習。' },
       { q: '傳統 MIS 轉雲端有優勢嗎？',
@@ -2787,7 +2787,7 @@ export const courses = {
       ],
       certs: {
         title: '相關認證',
-        sub: '依照不同選修科目，頒發結訓合格數位證書。',
+        sub: '依照不同選修科目，考取相對應認證證照。',
         list: [
           { name: 'Adobe ACP Photoshop', org: 'Adobe' },
           { name: 'Adobe ACP Illustrator', org: 'Adobe' },
@@ -2863,7 +2863,7 @@ export const courses = {
       { q: '課程會用到哪些工具？',
         a: 'C#、Unity、Photon PUN、3ds Max 與 MAYA，並結合 AI 工具輔助概念生成、貼圖與除錯。' },
       { q: '可以考哪些證照？',
-        a: '相關認證包含 Adobe ACP Photoshop、Adobe ACP Illustrator、Autodesk ACU 3ds Max、TQC+ 物件導向程式語言 C# 與 TQC+ 程式語言 Python 3。依照不同選修科目，頒發結訓合格數位證書。' },
+        a: '相關認證包含 Adobe ACP Photoshop、Adobe ACP Illustrator、Autodesk ACU 3ds Max、TQC+ 物件導向程式語言 C# 與 TQC+ 程式語言 Python 3。依照不同選修科目，考取相對應認證證照。' },
       { q: '結訓會有哪些作品？',
         a: '遊戲互動系統開發、遊戲角色與場景建模、遊戲專案整合展示作品、Unity 跨平台遊戲專案、多人連線遊戲 Demo 與整合型遊戲作品集。' },
       { q: '上班族時間不夠，怎麼兼顧？',
@@ -3035,7 +3035,7 @@ export const courses = {
       ],
       certs: {
         title: '相關認證',
-        sub: '依照不同選修科目，頒發結訓合格數位證書。',
+        sub: '依照不同選修科目，考取相對應認證證照。',
         list: [
           { name: 'Adobe ACP Photoshop', org: 'Adobe' },
           { name: 'Adobe ACP Illustrator', org: 'Adobe' },
@@ -3107,7 +3107,7 @@ export const courses = {
       { q: '課程會用到哪些軟體？',
         a: 'Clip Studio Paint、CapCut、Photoshop、Illustrator、Premiere、After Effects、Adobe Firefly 與 Cinema 4D，並使用 Live2D 製作角色動畫。' },
       { q: '可以考哪些證照？',
-        a: '相關認證包含 Adobe ACP Photoshop、Adobe ACP Illustrator 與 TQC 色彩學。依照不同選修科目，頒發結訓合格數位證書。' },
+        a: '相關認證包含 Adobe ACP Photoshop、Adobe ACP Illustrator 與 TQC 色彩學。依照不同選修科目，考取相對應認證證照。' },
       { q: '學完可以做 VTuber 嗎？',
         a: '可以。Live2D 課程教你角色立繪、零件拆件、動畫綁定與直播設定，Cinema 4D 也有 VTuber 虛擬網紅製作單元。' },
       { q: '上班時間不固定，跟得上進度嗎？',
@@ -3300,7 +3300,7 @@ export const courses = {
       ],
       certs: {
         title: '相關認證',
-        sub: '依照不同選修科目，頒發結訓合格數位證書。',
+        sub: '依照不同選修科目，考取相對應認證證照。',
         list: [
           { name: 'Autodesk ACU AutoCAD', org: 'Autodesk' },
           { name: 'Autodesk ACU 3ds Max', org: 'Autodesk' },
@@ -3380,7 +3380,7 @@ export const courses = {
       { q: '乙級證照是什麼？為什麼重要？',
         a: '「建築物室內設計乙級（12500）」與「室內裝修工程管理乙級（12600）」是合法接案、開業與承攬工程的必備證照。乙級技術士雙證照班從基礎製圖到工安法規、裝修工法，應考攻略一次傳授。' },
       { q: '可以考哪些證照？',
-        a: 'Autodesk ACU AutoCAD、Autodesk ACU 3ds Max、SCE SketchUp、TQC 建築圖學，以及建築物室內設計乙級（12500）、建築物室內裝修工程管理乙級（12600）技術士證照。依照不同選修科目，頒發結訓合格數位證書。' },
+        a: 'Autodesk ACU AutoCAD、Autodesk ACU 3ds Max、SCE SketchUp、TQC 建築圖學，以及建築物室內設計乙級（12500）、建築物室內裝修工程管理乙級（12600）技術士證照。依照不同選修科目，考取相對應認證證照。' },
       { q: '上班時間不固定，跟得上進度嗎？',
         a: '有直播、錄播、實體等 5 大教學系統可以自由搭配，錄影檔 14 天免費看，AI 教練 24 小時在線複習。' },
       { q: '為什麼要學這麼多軟體？',
