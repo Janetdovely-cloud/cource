@@ -496,7 +496,7 @@ export const courses = {
       ],
       certs: {
         title: '10 張證照，對準企業選才新標準',
-        sub: '課程對應國際與國內證照；依照不同選修科目，另頒發結訓合格數位證書。',
+        sub: '課程對應國際與國內證照，依照不同選修科目，考取相對應認證證照。',
         list: [
           { name: 'ACP Photoshop 國際證照', org: 'Adobe' },
           { name: 'ACP Illustrator 國際證照', org: 'Adobe' },
