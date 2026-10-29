@@ -135,7 +135,7 @@ export const classes = {
    "name": "SketchUp Pro渲染應用",
    "start": "2026/10/03",
    "end": "2026/12/19",
-   "slot": "週六全天",
+   "slot": "特定",
    "time": "09:00 ~ 12:00, 13:00 ~ 16:00",
    "hours": "60",
    "branch": "線上直播"
@@ -152,7 +152,7 @@ export const classes = {
   {
    "name": "SketchUp Pro渲染應用",
    "start": "2026/10/14",
-   "end": "2026/12/23",
+   "end": "2026/12/28",
    "slot": "夜間 一三",
    "time": "18:40 ~ 21:40",
    "hours": "60",
@@ -572,6 +572,15 @@ export const classes = {
    "time": "18:40 ~ 21:40",
    "hours": "24",
    "branch": "中壢分校實體課"
+  },
+  {
+   "name": "生成式AI辦公室應用",
+   "start": "2026/12/30",
+   "end": "2027/01/15",
+   "slot": "日間 一三五",
+   "time": "09:10 ~ 12:10",
+   "hours": "21",
+   "branch": "線上直播"
   }
  ],
  "ptc": [
