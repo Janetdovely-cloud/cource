@@ -36,6 +36,11 @@ jobs:
       - name: 抓取近期開班
         run: npm run classes
         continue-on-error: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: 產生手寫字型子集（收錄網站所有用字）
+        run: pip install fonttools brotli && npm run font
       - run: npm run build
       - uses: actions/upload-pages-artifact@v3
         with:

@@ -10,8 +10,9 @@ import { works } from '../data/works'
 import { know } from '../data/know'
 import Know from '../components/Know'
 import { videos } from '../data/videos'
-import { classes } from '../data/classes'
+import { ONLINE_ONLY, upcoming, SALARY_AS_OF } from '../data/upcoming'
 import VideoGrid from '../components/VideoGrid'
+import { ZoomDemo, PhishQuiz } from '../components/CompareWidgets'
 
 const navLinks = (hasWorks, hasVideos, hasClasses, hasKnow) => [
   { id: 'why', name: '為什麼學' }, { id: 'who', name: '適合誰' }, { id: 'what', name: '學什麼' },
@@ -162,7 +163,7 @@ function Why({ d, color }) {
               </Item>
             ))}
           </Stagger>
-          <p className="note mt-3 mb-0 !text-[12px] opacity-80">{d.axes.note}</p>
+          <p className="note mt-3 mb-0 !text-[12px] opacity-80">{d.axes.note}（資料整理時間：{SALARY_AS_OF}）</p>
         </div>
       )}
 
@@ -183,7 +184,7 @@ function Why({ d, color }) {
             </div>
           ))}
         </div>
-        <p className="note mt-4 mb-0">{d.salaryNote}</p>
+        <p className="note mt-4 mb-0">{d.salaryNote}（資料整理時間：{SALARY_AS_OF}）</p>
       </div>
 
       {d.gigs && (
@@ -378,7 +379,7 @@ function What({ d }) {
       {d.certs && <CertWall d={d.certs} />}
       {d.teams && <Teams d={d.teams} />}
       {d.exams && <Exams d={d.exams} />}
-      {d.toolCompare && <ToolCompare d={d.toolCompare} />}
+      {[].concat(d.toolCompare ?? [], d.toolCompare2 ?? []).map((t) => <ToolCompare key={t.title} d={t} />)}
     </Section>
   )
 }
@@ -388,10 +389,12 @@ function ToolCompare({ d }) {
   const [a, b] = d.tools
   const src = (f) => import.meta.env.BASE_URL + f
   return (
-    <div className="mt-14">
+    <div className="mt-14" data-tc>
       <h3 className="text-[24px] sm:text-[28px] m-0">{d.title}</h3>
       <p className="mt-2 mb-6 text-muted text-[15px]">{d.sub}</p>
-      <div className="card !p-0 overflow-hidden max-w-[960px] mx-auto">
+      {d.widget === 'zoom' && <ZoomDemo />}
+      {d.widget === 'phish' && <PhishQuiz />}
+      {a.img && <div className="card !p-0 overflow-hidden max-w-[960px] mx-auto">
         <div className="relative select-none aspect-[16/10] bg-paper">
           <img src={src(b.img)} alt={b.name + ' 示意圖'} className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
           <img src={src(a.img)} alt={a.name + ' 示意圖'} className="absolute inset-0 w-full h-full object-cover" loading="lazy"
@@ -405,13 +408,14 @@ function ToolCompare({ d }) {
             className="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize" />
         </div>
         <p className="m-0 px-5 py-3 text-[13px] text-muted border-t-2 border-ink">{d.note}</p>
-      </div>
+      </div>}
       <div className="grid gap-[18px] md:grid-cols-2 mt-[18px]">
         {d.tools.map((t, i) => (
           <article key={t.name} className="card">
             <span className={`chip ${i ? 'gold' : 'ink'} !text-[12px]`}>{t.tag}</span>
             <h4 className="text-[22px] mt-2 mb-1">{t.name}</h4>
             <p className="m-0 mb-3 font-bold text-[15px]">{t.one}</p>
+            {t.example && <p className="m-0 mb-3 px-4 py-3 text-[14px] bg-ink/5 font-mono whitespace-pre-line" style={{ borderRadius: 12 }}>{t.example}</p>}
             <ul className="list-none p-0 m-0 grid gap-1 text-[14px]">
               {t.points.map((x) => <li key={x} className="flex gap-2 items-start"><Icon name="star" size={16} className="text-gold shrink-0 mt-[5px]" />{x}</li>)}
             </ul>
@@ -779,14 +783,6 @@ function Videos({ list }) {
 
 // 近三個月內開課的班級（以瀏覽當天計算）
 // 只有線上直播＋錄播、沒有實體課的課程
-const ONLINE_ONLY = ['ai-game', 'anime', 'ipas', 'infosec', 'java']
-
-function upcoming(slug) {
-  const now = new Date(); now.setHours(0, 0, 0, 0)
-  const until = new Date(now); until.setMonth(until.getMonth() + 3)
-  return (classes[slug] || []).filter((c) => { const d = new Date(c.start); return d >= now && d <= until && !(ONLINE_ONLY.includes(slug) && c.branch.includes('實體') && !c.name.includes('27001')) })
-}
-
 function Classes({ list, slug }) {
   const hl = { color: 'var(--color-gold)' }
   const md = (s) => s.slice(5).replace('/', '/')

@@ -159,6 +159,10 @@ export default function Home() {
             ))}
           </AnimatePresence>
         </motion.div>
+        <div className="flex flex-wrap gap-3 mt-8">
+          <Link to="/compare" className="btn primary">課程比較・用工作找課程 <Icon name="arrow" size={18} /></Link>
+          <Link to="/classes" className="btn ghost">全部近期開班 <Icon name="arrow" size={18} /></Link>
+        </div>
       </Section>
 
       {/* ── 就業服務 ── */}

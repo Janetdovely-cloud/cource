@@ -8,6 +8,8 @@ import CoursePage from './pages/CoursePage'
 import DiscPage from './pages/DiscPage'
 import InterestPage from './pages/InterestPage'
 import IdealPage from './pages/IdealPage'
+import ClassesPage from './pages/ClassesPage'
+import ComparePage from './pages/ComparePage'
 
 // 換頁過場：金色與青綠色兩層紙片由下往上掃過，內容淡入
 function Page({ children }) {
@@ -44,6 +46,8 @@ export default function App() {
           <Route path="/course/:slug" element={<Page><CoursePage /></Page>} />
           <Route path="/interest" element={<Page><InterestPage /></Page>} />
           <Route path="/ideal" element={<Page><IdealPage /></Page>} />
+          <Route path="/classes" element={<Page><ClassesPage /></Page>} />
+          <Route path="/compare" element={<Page><ComparePage /></Page>} />
           <Route path="/disc" element={<Page><DiscPage /></Page>} />
           <Route path="*" element={<Page><Home /></Page>} />
         </Routes>
