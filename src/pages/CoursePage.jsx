@@ -10,17 +10,19 @@ import { works } from '../data/works'
 import { know } from '../data/know'
 import Know from '../components/Know'
 import { videos } from '../data/videos'
+import { news } from '../data/news'
 import { ONLINE_ONLY, upcoming, SALARY_AS_OF } from '../data/upcoming'
 import VideoGrid from '../components/VideoGrid'
 import { ZoomDemo, PhishQuiz } from '../components/CompareWidgets'
 
-const navLinks = (hasWorks, hasVideos, hasClasses, hasKnow) => [
+const navLinks = (hasWorks, hasVideos, hasClasses, hasKnow, hasNews) => [
   { id: 'why', name: '為什麼學' }, { id: 'who', name: '適合誰' }, { id: 'what', name: '學什麼' },
   { id: 'how', name: '怎麼學' }, { id: 'format', name: '上課方式' }, { id: 'teacher', name: '師資' },
   ...(hasKnow ? [{ id: 'know', name: '小百科' }] : []),
   ...(hasWorks ? [{ id: 'works', name: '學員作品' }] : []),
   ...(hasVideos ? [{ id: 'videos', name: '就業影片' }] : []),
   ...(hasClasses ? [{ id: 'classes', name: '近期開班' }] : []),
+  ...(hasNews ? [{ id: 'news', name: '產業新聞' }] : []),
   { id: 'faq', name: 'FAQ' }, { id: 'apply', name: '全台分校' },
 ]
 
@@ -809,6 +811,24 @@ function Classes({ list, slug }) {
   )
 }
 
+function News({ list }) {
+  const ymd = (d) => d.replace(/-/g, '/')
+  return (
+    <Section id="news" label="產業新聞" title="最近的新聞怎麼說？" sub="整理和這門課相關的近期產業新聞，點擊可閱讀原文（需連網）。">
+      <div className="grid gap-[18px] md:grid-cols-2 lg:grid-cols-3">
+        {list.map((x) => (
+          <a key={x.url} href={x.url} target="_blank" rel="noopener noreferrer" className="card card-hover block no-underline text-ink h-full">
+            <p className="m-0 text-[13px] font-bold text-link">{x.src}・<span className="font-mono">{ymd(x.date)}</span></p>
+            <p className="m-0 mt-2 font-extrabold text-[17px] leading-snug">{x.t}</p>
+            <p className="m-0 mt-3 text-[14px] text-muted">{x.point}</p>
+            <p className="m-0 mt-3 text-[13px] font-extrabold text-link flex items-center gap-1">閱讀原文 <Icon name="arrow" size={16} /></p>
+          </a>
+        ))}
+      </div>
+    </Section>
+  )
+}
+
 function Faq({ items }) {
   const [open, setOpen] = useState(0)
   return (
@@ -848,7 +868,7 @@ export default function CoursePage() {
   if (!c) return <Navigate to="/" replace />
   return (
     <>
-      <Nav back links={navLinks(!!works[slug], !!videos[slug], upcoming(slug).length > 0, !!know[slug])} />
+      <Nav back links={navLinks(!!works[slug], !!videos[slug], upcoming(slug).length > 0, !!know[slug], !!news[slug])} />
       <Hero d={c.hero} color={c.color} slug={slug} />
       <Why d={c.why} color={c.color} />
       <Who d={c.who} color={c.color} />
@@ -860,6 +880,7 @@ export default function CoursePage() {
       {works[slug] && <Works list={works[slug]} />}
       {videos[slug] && <Videos list={videos[slug]} />}
       {upcoming(slug).length > 0 && <Classes list={upcoming(slug)} slug={slug} />}
+      {news[slug] && <News list={news[slug]} />}
       <Faq items={c.faq} />
       <ApplyCta courseName={c.hero.title} />
       <Footer />
