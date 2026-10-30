@@ -409,7 +409,7 @@ function ToolCompare({ d }) {
         </div>
         <p className="m-0 px-5 py-3 text-[13px] text-muted border-t-2 border-ink">{d.note}</p>
       </div>}
-      <div className="grid gap-[18px] md:grid-cols-2 mt-[18px]">
+      <div className={`grid gap-[18px] md:grid-cols-2 ${d.tools.length > 2 ? 'lg:grid-cols-3' : ''} mt-[18px]`}>
         {d.tools.map((t, i) => (
           <article key={t.name} className="card">
             <span className={`chip ${i ? 'gold' : 'ink'} !text-[12px]`}>{t.tag}</span>
@@ -419,19 +419,22 @@ function ToolCompare({ d }) {
             <ul className="list-none p-0 m-0 grid gap-1 text-[14px]">
               {t.points.map((x) => <li key={x} className="flex gap-2 items-start"><Icon name="star" size={16} className="text-gold shrink-0 mt-[5px]" />{x}</li>)}
             </ul>
+            {t.courses && <div className="mt-4 pt-3 border-t-2 border-dashed border-rule">
+              <p className="m-0 mb-2 text-[12px] font-extrabold text-link">對應課程</p>
+              <div className="flex flex-wrap gap-1.5">{t.courses.map((c) => <span key={c} className="chip !text-[12px]">{c}</span>)}</div>
+            </div>}
           </article>
         ))}
       </div>
       <div className="card !p-0 overflow-x-auto mt-[18px]">
         <table className="w-full text-[14px] border-collapse min-w-[520px]">
           <thead><tr className="bg-ink text-paper">
-            <th className="px-4 py-3 text-left">比較項目</th><th className="px-4 py-3 text-left">{a.name}</th><th className="px-4 py-3 text-left">{b.name}</th>
+            <th className="px-4 py-3 text-left">比較項目</th>{d.tools.map((t) => <th key={t.name} className="px-4 py-3 text-left">{t.name}</th>)}
           </tr></thead>
           <tbody>{d.rows.map((r) => (
             <tr key={r[0]}>
               <td className="px-4 py-3 border-b border-rule font-extrabold whitespace-nowrap">{r[0]}</td>
-              <td className="px-4 py-3 border-b border-rule">{r[1]}</td>
-              <td className="px-4 py-3 border-b border-rule">{r[2]}</td>
+              {r.slice(1).map((x, i) => <td key={i} className="px-4 py-3 border-b border-rule">{x}</td>)}
             </tr>
           ))}</tbody>
         </table>
