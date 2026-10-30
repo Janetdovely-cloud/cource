@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 import { Nav, Footer } from '../components/Layout'
 import { Section } from '../components/Motion'
 import Icon from '../components/Icon'
@@ -23,7 +23,8 @@ const jobs = (() => {
 })()
 
 export default function ComparePage() {
-  const [picked, setPicked] = useState([])
+  const [params] = useSearchParams()
+  const [picked, setPicked] = useState(() => (params.get('c') ?? '').split(',').filter((x) => courseIndex.some((c) => c.slug === x)).slice(0, MAX))
   const [job, setJob] = useState(null)
   const toggle = (slug) => setPicked((p) => p.includes(slug) ? p.filter((x) => x !== slug) : p.length >= MAX ? [...p.slice(1), slug] : [...p, slug])
   const pickJob = (j) => { setJob(j.role); setPicked(j.slugs.slice(0, MAX)) }

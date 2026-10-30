@@ -111,6 +111,7 @@ export default function Interest() {
               </li>
             ))}
           </ul>
+          <Link to={`/compare?c=${recs.slice(0, 3).map((c) => c.slug).join(',')}`} className="btn ghost mt-5">把推薦課程放進比較</Link>
         </div>
         {!fromUrl && <div className="card max-w-[520px]" style={{ '--c': 'var(--color-gold)' }}><ResultQR text={[
           '【聯成電腦｜職涯興趣測驗結果】',

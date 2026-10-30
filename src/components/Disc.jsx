@@ -143,6 +143,7 @@ export default function Disc() {
                   </li>
                 ))}
               </ul>
+              <Link to={`/compare?c=${[...new Set(res.top.flatMap((k) => REC[k].slugs))].filter((sl) => courseIndex.find((c) => c.slug === sl)?.ready).slice(0, 3).join(',')}`} className="btn ghost !text-[14px] mt-3">把推薦課程放進比較</Link>
               {!res.shared && <ResultQR text={[
                 '【聯成電腦｜DISC 職涯適性測驗結果】',
                 `主要風格：${res.top.map((k) => `${k} ${types[k].name}（${types[k].animal}）`).join('／')}`,

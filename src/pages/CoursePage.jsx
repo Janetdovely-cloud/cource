@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useParams, Navigate } from 'react-router-dom'
+import { useParams, Navigate, Link } from 'react-router-dom'
 import { motion, AnimatePresence, useScroll, useTransform, MotionConfig } from 'motion/react'
 import { Nav, Footer, scrollToId } from '../components/Layout'
 import { Section, Stagger, Item, TiltCard, CountUp, SplitTitle, Squiggle, Doodles, ph } from '../components/Motion'
@@ -24,7 +24,7 @@ const navLinks = (hasWorks, hasVideos, hasClasses, hasKnow) => [
   { id: 'faq', name: 'FAQ' }, { id: 'apply', name: '全台分校' },
 ]
 
-function Hero({ d, color }) {
+function Hero({ d, color, slug }) {
   const { scrollY } = useScroll()
   const imgY = useTransform(scrollY, [0, 700], [0, 90])
   return (
@@ -50,6 +50,7 @@ function Hero({ d, color }) {
                 查詢全台分校 <Icon name="arrow" size={18} />
               </button>
               <button type="button" className="btn ghost" data-cursor="往下" onClick={() => scrollToId('what')}>看課程大綱</button>
+              <Link to={`/compare?c=${slug}`} className="btn ghost">加入比較</Link>
             </Item>
             <Item className="flex flex-wrap gap-x-4 gap-y-1 mt-6 text-[14px] font-bold text-muted">
               {d.tags.map((t) => <span key={t} className="flex items-center gap-1"><Icon name="check" size={16} className="text-brand" />{t}</span>)}
@@ -848,7 +849,7 @@ export default function CoursePage() {
   return (
     <>
       <Nav back links={navLinks(!!works[slug], !!videos[slug], upcoming(slug).length > 0, !!know[slug])} />
-      <Hero d={c.hero} color={c.color} />
+      <Hero d={c.hero} color={c.color} slug={slug} />
       <Why d={c.why} color={c.color} />
       <Who d={c.who} color={c.color} />
       <What d={c.what} />
