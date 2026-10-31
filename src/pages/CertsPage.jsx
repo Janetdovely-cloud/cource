@@ -11,7 +11,7 @@ const nameOf = (slug) => courseIndex.find((c) => c.slug === slug)?.name ?? slug
 export default function CertsPage() {
   const [g, setG] = useState('all')
   const [zoom, setZoom] = useState(null)
-  const groups = CERT_GROUPS.filter((x) => certIndex.some((k) => k.group === x.id))
+  const groups = CERT_GROUPS.filter((x, i, a) => a.findIndex((y) => y.id === x.id) === i && certIndex.some((k) => k.group === x.id))
   const list = certIndex.filter((k) => g === 'all' || k.group === g)
   return (
     <>
@@ -29,7 +29,7 @@ export default function CertsPage() {
               {k.img ? (
                 <button type="button" onClick={() => setZoom(k)} className="p-0 border-0 bg-transparent cursor-zoom-in" aria-label={`放大 ${k.name} 證書樣式`}>
                   <img src={k.img} alt={`${k.name} 證書樣式`} className="w-full block bg-white border-2 border-ink" style={{ borderRadius: 10 }} loading="lazy" />
-                  <span className="block text-[12px] text-muted mt-1">證書樣式示意・點圖放大</span>
+                  <span className="block text-[12px] text-muted mt-1">{k.note ?? '證書樣式示意'}・點圖放大</span>
                 </button>
               ) : (
                 <div className="soft !shadow-none h-[120px] grid place-items-center text-center text-muted text-[13px] p-3">
@@ -58,7 +58,7 @@ export default function CertsPage() {
         <div className="fixed inset-0 z-[9500] bg-ink/80 grid place-items-center p-4" onClick={() => setZoom(null)} role="dialog" aria-label={`${zoom.name} 證書樣式`}>
           <figure className="m-0 max-w-[720px] w-full">
             <img src={zoom.img} alt="" className="w-full block bg-white" style={{ borderRadius: 12 }} />
-            <figcaption className="text-paper text-center mt-3 font-bold">{zoom.name}（證書樣式示意）・點任意處關閉</figcaption>
+            <figcaption className="text-paper text-center mt-3 font-bold">{zoom.name}（{zoom.note ?? '證書樣式示意'}）・點任意處關閉</figcaption>
           </figure>
         </div>
       )}
