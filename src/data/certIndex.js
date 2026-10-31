@@ -7,6 +7,7 @@ import tqcplus from '../assets/certs/tqcplus.webp'
 import autodesk from '../assets/certs/autodesk.webp'
 import iii from '../assets/certs/iii.webp'
 import ipas from '../assets/certs/ipas.webp'
+import iso from '../assets/certs/iso.webp'
 import license from '../assets/about/job-license.webp'
 
 // 證照價值速查：彙整各課程「證照小百科」，同名證照合併並列出對應課程
@@ -20,7 +21,7 @@ export const CERT_GROUPS = [
   { id: 'iii', name: '資策會', test: (n) => n.startsWith('生成式 AI'), img: iii },
   { id: 'license', name: '乙級技術士', test: (n) => n.includes('技術士'), img: license },
   { id: 'ipas', name: 'iPAS', test: (n) => n.startsWith('iPAS'), img: ipas },
-  { id: 'iso', name: 'ISO', test: (n) => n.startsWith('ISO'), img: null },
+  { id: 'iso', name: 'ISO', test: (n) => n.startsWith('ISO'), img: iso },
 ]
 
 export const certIndex = (() => {
