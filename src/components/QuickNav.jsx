@@ -57,7 +57,6 @@ export default function QuickNav() {
                 <button type="button" className={chip} onClick={() => go('/compare')}>課程比較</button>
                 <button type="button" className={chip} onClick={() => go('/classes')}>近期開班總表</button>
                 <button type="button" className={chip} onClick={() => go('/certs')}>證照價值速查</button>
-                <button type="button" className={chip} onClick={() => go('/summary')}>諮詢摘要</button>
               </div>
               </div></div>
             </motion.nav>

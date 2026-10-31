@@ -88,7 +88,6 @@ export default function ComparePage() {
             </table>
           </div>
         )}
-        {sel.length > 0 && <Link to={`/summary?c=${picked.join(',')}`} className="btn primary mt-5">把這幾門做成諮詢摘要 <Icon name="arrow" size={18} /></Link>}
         <p className="note mt-4 mb-0">薪資參考來源：人力銀行（單位：千元／月），僅供參考，實際依公司與個人條件而異（資料整理時間：{SALARY_AS_OF}）。</p>
       </Section>
       <Footer />

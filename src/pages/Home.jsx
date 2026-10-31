@@ -163,7 +163,6 @@ export default function Home() {
           <Link to="/compare" className="btn primary">課程比較・用工作找課程 <Icon name="arrow" size={18} /></Link>
           <Link to="/classes" className="btn ghost">全部近期開班 <Icon name="arrow" size={18} /></Link>
           <Link to="/certs" className="btn ghost">證照價值速查 <Icon name="arrow" size={18} /></Link>
-          <Link to="/summary" className="btn ghost">諮詢摘要帶回家 <Icon name="arrow" size={18} /></Link>
         </div>
       </Section>
 
