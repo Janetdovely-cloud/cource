@@ -5,7 +5,7 @@ import { Nav, Footer, scrollToId } from '../components/Layout'
 import { Section, Stagger, Item, TiltCard, CountUp, SplitTitle, Squiggle, Doodles, ph } from '../components/Motion'
 import Icon from '../components/Icon'
 import ApplyCta from '../components/ApplyCta'
-import { courses } from '../data/courses'
+import { courses, courseIndex } from '../data/courses'
 import { works } from '../data/works'
 import { know } from '../data/know'
 import Know from '../components/Know'
@@ -862,6 +862,33 @@ function Faq({ items }) {
   )
 }
 
+// 30 秒重點：業務開場用，三句話講完這門課（內容取自本頁的課程定位、適合誰、薪資表）
+function Pitch({ slug, c }) {
+  const idx = courseIndex.find((x) => x.slug === slug)
+  const roles = (c.why?.salary ?? []).slice(0, 3)
+  const certN = know[slug]?.certs?.length ?? 0
+  const items = [
+    ['學什麼', idx?.line ?? c.hero.line, (idx?.tags ?? c.hero.tags ?? []).map((t, j) => <span key={t} className="whitespace-nowrap">{j ? '・' : ''}{t}</span>)],
+    ['適合誰', (c.who?.cards ?? []).map((w) => w.title).join('、'), c.who?.title],
+    ['學完做什麼', roles.map((r) => r.role).join('、'), roles.length ? `月薪約 ${Math.min(...roles.map((r) => r.min))}K–${Math.max(...roles.map((r) => r.max))}K${certN ? `・可考 ${certN} 張證照` : ''}` : ''],
+  ]
+  return (
+    <section id="pitch" className="wrap mb-6 md:mb-10">
+      <div className="card">
+        <p className="hand-label m-0 mb-3">30 秒重點</p>
+        <ol className="m-0 p-0 list-none grid gap-4 md:grid-cols-3">
+          {items.map(([k, a, b], i) => (
+            <li key={k} className="flex gap-3">
+              <span className="shrink-0 w-9 h-9 rounded-full bg-ink text-paper grid place-items-center font-extrabold">{i + 1}</span>
+              <div><p className="m-0 font-extrabold text-[17px]">{k}</p><p className="m-0 mt-1 text-[15px]">{a}</p>{b && <p className="m-0 mt-1 text-[13px] text-muted">{b}</p>}</div>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+  )
+}
+
 export default function CoursePage() {
   const { slug } = useParams()
   const c = courses[slug]
@@ -870,6 +897,7 @@ export default function CoursePage() {
     <>
       <Nav back links={navLinks(!!works[slug], !!videos[slug], upcoming(slug).length > 0, !!know[slug], !!news[slug])} />
       <Hero d={c.hero} color={c.color} slug={slug} />
+      <Pitch slug={slug} c={c} />
       <Why d={c.why} color={c.color} />
       <Who d={c.who} color={c.color} />
       <What d={c.what} />
