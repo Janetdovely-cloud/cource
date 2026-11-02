@@ -5,19 +5,27 @@ import { Section } from '../components/Motion'
 import Icon from '../components/Icon'
 import { courseIndex } from '../data/courses'
 import { certIndex, CERT_GROUPS } from '../data/certIndex'
+import { ScopeTag, ScopeExplainer, scopeOf, SCOPES } from '../components/CertScope'
 
 const nameOf = (slug) => courseIndex.find((c) => c.slug === slug)?.name ?? slug
 
 export default function CertsPage() {
   const [g, setG] = useState('all')
+  const [sc, setSc] = useState('all')
   const [zoom, setZoom] = useState(null)
   const groups = CERT_GROUPS.filter((x, i, a) => a.findIndex((y) => y.id === x.id) === i && certIndex.some((k) => k.group === x.id))
-  const list = certIndex.filter((k) => g === 'all' || k.group === g)
+  const list = certIndex.filter((k) => (g === 'all' || k.group === g) && (sc === 'all' || scopeOf(k.name) === sc))
   return (
     <>
       <Nav back />
       <Section id="certs" label="證照價值速查" title="這張證照有什麼用？一頁看懂"
         sub="彙整各課程可考的證照：長什麼樣子、考什麼、適合誰、對求職的幫助，以及對應的課程與職務。">
+        <ScopeExplainer />
+        <div className="tabs mb-3 flex-wrap" role="tablist" aria-label="國際或台灣證照">
+          {[['all', '全部'], ['intl', SCOPES.intl], ['tw', SCOPES.tw]].map(([id, name]) => (
+            <button key={id} type="button" role="tab" aria-selected={sc === id} onClick={() => setSc(id)}>{name}</button>
+          ))}
+        </div>
         <div className="tabs mb-7 flex-wrap" role="tablist" aria-label="發證單位">
           {[{ id: 'all', name: '全部' }, ...groups].map((x) => (
             <button key={x.id} type="button" role="tab" aria-selected={g === x.id} onClick={() => setG(x.id)}>{x.name}</button>
@@ -38,7 +46,7 @@ export default function CertsPage() {
               )}
               <div>
                 <h3 className="text-[19px] m-0 leading-snug">{k.name}</h3>
-                <p className="m-0 mt-1 text-[13px] text-muted">{k.org}{k.level && `・${k.level}`}</p>
+                <p className="m-0 mt-1 text-[13px] text-muted flex flex-wrap items-center gap-2"><ScopeTag name={k.name} />{k.org}{k.level && `・${k.level}`}</p>
                 <dl className="m-0 mt-3 grid gap-1.5 text-[14px]">
                   <div><dt className="inline font-extrabold">考什麼：</dt><dd className="inline m-0">{k.what}</dd></div>
                   <div><dt className="inline font-extrabold">適合誰：</dt><dd className="inline m-0">{k.who}</dd></div>

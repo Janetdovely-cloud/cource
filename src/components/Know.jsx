@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
 import { Section, ph } from './Motion'
+import { ScopeTag, ScopeExplainer } from './CertScope'
 
 const TABS = [['path', '學習路徑'], ['certs', '證照小百科'], ['terms', '產業小知識']]
 
@@ -36,7 +37,8 @@ export default function Know({ d, color }) {
               </ol>
             </div>
           )}
-          {tab === 'certs' && (
+          {tab === 'certs' && (<>
+            <ScopeExplainer />
             <ul className="m-0 p-0 list-none grid gap-4 md:grid-cols-2 lg:grid-cols-3">{/* 只列可在聯成考的證照 */}
               {d.certs.map((c) => (
                 <li key={c.name} className="card h-full" style={{ '--c': color }}>
@@ -44,7 +46,7 @@ export default function Know({ d, color }) {
                     <p className="hand m-0 text-[22px]">{ph(c.name)}</p>
                     {c.level && <span className="shrink-0 rounded-full border-2 border-ink px-2 text-[13px] font-bold">{c.level}</span>}
                   </div>
-                  <p className="m-0 text-[13px] text-link">{c.org}</p>
+                  <p className="m-0 text-[13px] text-link flex flex-wrap items-center gap-2"><ScopeTag name={c.name} />{c.org}</p>
                   <dl className="m-0 mt-3 grid gap-2 text-[15px]">
                     <div><dt className="font-bold">考什麼</dt><dd className="m-0 text-muted">{c.what}</dd></div>
                     <div><dt className="font-bold">適合誰</dt><dd className="m-0 text-muted">{c.who}</dd></div>
@@ -53,7 +55,7 @@ export default function Know({ d, color }) {
                 </li>
               ))}
             </ul>
-          )}
+          </>)}
           {tab === 'terms' && (
             <ul className="m-0 p-0 list-none grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {d.terms.map((t) => (
