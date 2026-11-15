@@ -109,7 +109,6 @@ export default function Disc() {
   if (res?.shared) return (
     <div className="grid gap-6 max-w-[520px] mx-auto">
       <SharedShot name="DISC 測驗結果" width={520}>{cardEl}</SharedShot>
-      <button type="button" className="btn ghost justify-center" onClick={reset}>自己做一次測驗</button>
     </div>
   )
   return (

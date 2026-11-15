@@ -37,10 +37,11 @@ function Page({ children }) {
 
 export default function App() {
   const location = useLocation()
+  const shared = ['/disc', '/interest'].includes(location.pathname) && new URLSearchParams(location.search).get('r')
   return (
     <MotionConfig reducedMotion="user">
-      <BackToTop />
-      <QuickNav />
+      {!shared && <BackToTop />}
+      {!shared && <QuickNav />}
       <AnimatePresence mode="wait" onExitComplete={() => window.scrollTo({ top: 0, behavior: 'instant' })}>
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Page><Home /></Page>} />

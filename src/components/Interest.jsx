@@ -119,7 +119,6 @@ export default function Interest() {
     if (fromUrl) return (
       <div className="grid gap-6">
         <SharedShot name="職涯興趣測驗結果">{body}</SharedShot>
-        <div><button type="button" className="btn ghost" onClick={reset}>自己做一次測驗</button></div>
       </div>
     )
     return (
