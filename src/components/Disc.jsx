@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react'
 import { useSearchParams, useNavigate } from 'react-router-dom'
-import ResultQR from './ResultQR'
+import ResultQR, { SharedShot } from './ResultQR'
 import { motion, AnimatePresence } from 'motion/react'
 import { Link } from 'react-router-dom'
 import { ph } from './Motion'
@@ -68,6 +68,50 @@ export default function Disc() {
   }
   const reset = () => { setAns({}); setRes(null); if (params.get('r')) navigate('/disc', { replace: true }) }
 
+  const cardEl = res && (
+        <motion.div ref={resRef} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
+          className="card" style={{ '--c': types[res.top[0]].c }}>
+          <p className="hand-label m-0">你的主要風格</p>
+          <h3 className="m-0 mt-1 text-[30px]">{ph(res.top.map((k) => `${k} ${types[k].name}`).join('／'))}</h3>
+          <p className="m-0 mt-2">
+            {res.top.length === 1
+              ? `你偏向「${types[res.top[0]].name}（${types[res.top[0]].animal}）」，${types[res.top[0]].desc}`
+              : '你屬於跨界混合型，同時具備多重優勢特質。'}
+          </p>
+          <div className="grid gap-2 mt-4">
+            {Object.entries(res.s).map(([k, n]) => (
+              <div key={k} className="grid grid-cols-[88px_1fr_28px] items-center gap-2 text-[14px]">
+                <span className="font-bold">{k} {types[k].name}</span>
+                <div className="h-3 rounded-full border-2 border-ink overflow-hidden bg-paper">
+                  <motion.div className="h-full" style={{ background: types[k].c }} initial={{ width: 0 }} animate={{ width: `${(n / qs.length) * 100}%` }} transition={{ duration: 0.8 }} />
+                </div>
+                <span className="font-mono text-right">{n}</span>
+              </div>
+            ))}
+          </div>
+          <p className="hand m-0 mt-5 text-[22px]">{ph('推薦你優先了解的課程')}</p>
+          <p className="m-0 mt-1 text-muted text-[14px]">{res.top.map((k) => REC[k].why).join('；')}</p>
+          <ul className="m-0 mt-3 p-0 list-none grid gap-2">
+            {[...new Set(res.top.flatMap((k) => REC[k].slugs))].map((sl) => courseIndex.find((c) => c.slug === sl)).filter((c) => c?.ready).map((c) => (
+              <li key={c.slug}>
+                <Link to={`/course/${c.slug}`} className="soft card-hover block no-underline text-ink px-3 py-2">
+                  <span className="text-[12px] text-link block">{c.en}</span>
+                  <span className="hand text-[18px]">{ph(c.name)}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <Link data-noshot to={`/compare?c=${[...new Set(res.top.flatMap((k) => REC[k].slugs))].filter((sl) => courseIndex.find((c) => c.slug === sl)?.ready).slice(0, 3).join(',')}`} className="btn ghost !text-[14px] mt-3">把推薦課程放進比較</Link>
+          {!res.shared && <ResultQR url={`${window.location.origin}${window.location.pathname}#/disc?r=${['D', 'I', 'S', 'C'].map((k) => res.s[k]).join('-')}`} target={resRef} name="DISC 測驗結果" />}
+          {!res.shared && <button data-noshot type="button" className="btn ghost w-full mt-4 justify-center" onClick={reset}>重新測驗</button>}
+        </motion.div>
+  )
+  if (res?.shared) return (
+    <div className="grid gap-6 max-w-[520px] mx-auto">
+      <SharedShot name="DISC 測驗結果" width={520}>{cardEl}</SharedShot>
+      <button type="button" className="btn ghost justify-center" onClick={reset}>自己做一次測驗</button>
+    </div>
+  )
   return (
     <div className={res?.shared ? 'grid max-w-[480px] mx-auto' : 'grid gap-8 lg:grid-cols-[1fr_380px] items-start'}>
       <form onSubmit={submit} className={res?.shared ? 'hidden' : 'grid gap-3'}>
@@ -110,49 +154,7 @@ export default function Disc() {
         </div>
 
         <AnimatePresence>
-          {res && (
-            <motion.div ref={resRef} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
-              className="card" style={{ '--c': types[res.top[0]].c }}>
-              <p className="hand-label m-0">你的主要風格</p>
-              <h3 className="m-0 mt-1 text-[30px]">{ph(res.top.map((k) => `${k} ${types[k].name}`).join('／'))}</h3>
-              <p className="m-0 mt-2">
-                {res.top.length === 1
-                  ? `你偏向「${types[res.top[0]].name}（${types[res.top[0]].animal}）」，${types[res.top[0]].desc}`
-                  : '你屬於跨界混合型，同時具備多重優勢特質。'}
-              </p>
-              <div className="grid gap-2 mt-4">
-                {Object.entries(res.s).map(([k, n]) => (
-                  <div key={k} className="grid grid-cols-[88px_1fr_28px] items-center gap-2 text-[14px]">
-                    <span className="font-bold">{k} {types[k].name}</span>
-                    <div className="h-3 rounded-full border-2 border-ink overflow-hidden bg-paper">
-                      <motion.div className="h-full" style={{ background: types[k].c }} initial={{ width: 0 }} animate={{ width: `${(n / qs.length) * 100}%` }} transition={{ duration: 0.8 }} />
-                    </div>
-                    <span className="font-mono text-right">{n}</span>
-                  </div>
-                ))}
-              </div>
-              <p className="hand m-0 mt-5 text-[22px]">{ph('推薦你優先了解的課程')}</p>
-              <p className="m-0 mt-1 text-muted text-[14px]">{res.top.map((k) => REC[k].why).join('；')}</p>
-              <ul className="m-0 mt-3 p-0 list-none grid gap-2">
-                {[...new Set(res.top.flatMap((k) => REC[k].slugs))].map((sl) => courseIndex.find((c) => c.slug === sl)).filter((c) => c?.ready).map((c) => (
-                  <li key={c.slug}>
-                    <Link to={`/course/${c.slug}`} className="soft card-hover block no-underline text-ink px-3 py-2">
-                      <span className="text-[12px] text-link block">{c.en}</span>
-                      <span className="hand text-[18px]">{ph(c.name)}</span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-              <Link to={`/compare?c=${[...new Set(res.top.flatMap((k) => REC[k].slugs))].filter((sl) => courseIndex.find((c) => c.slug === sl)?.ready).slice(0, 3).join(',')}`} className="btn ghost !text-[14px] mt-3">把推薦課程放進比較</Link>
-              {!res.shared && <ResultQR text={[
-                '【聯成電腦｜DISC 職涯適性測驗結果】',
-                `主要風格：${res.top.map((k) => `${k} ${types[k].name}（${types[k].animal}）`).join('／')}`,
-                `分數：${Object.entries(res.s).map(([k, n]) => `${k} ${n}`).join('｜')}`,
-                `推薦課程：${[...new Set(res.top.flatMap((k) => REC[k].slugs))].map((sl) => courseIndex.find((c) => c.slug === sl)).filter((c) => c?.ready).map((c) => c.name).join('、')}`,
-              ].join('\n')} />}
-              <button type="button" className="btn ghost w-full mt-4 justify-center" onClick={reset}>重新測驗</button>
-            </motion.div>
-          )}
+          {res && cardEl}
         </AnimatePresence>
       </aside>
     </div>

@@ -1,9 +1,9 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { Link, useSearchParams, useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'motion/react'
 import { ph } from './Motion'
 import { courseIndex } from '../data/courses'
-import ResultQR from './ResultQR'
+import ResultQR, { SharedShot } from './ResultQR'
 
 // 何倫碼（Holland RIASEC）職涯興趣測驗：每型 4 題、1–5 分
 const HOLLAND = [
@@ -64,6 +64,7 @@ export default function Interest() {
   }
   const [params] = useSearchParams()
   const navigate = useNavigate()
+  const shotRef = useRef(null)
   const reset = () => { setAns([]); setI(0); if (params.get('r')) navigate('/interest', { replace: true }) }
 
   // 結果可由網址 ?r=六型分數 直接開啟（給 QR Code 用）
@@ -79,8 +80,8 @@ export default function Interest() {
     const w = {}; top.forEach((h, n) => h.cats.forEach((c) => { w[c] = (w[c] || 0) + (3 - n) }))
     const cats = Object.entries(w).sort((a, b) => b[1] - a[1]).map((x) => x[0]).slice(0, 3)
     const recs = [...new Set(cats.flatMap((c) => CAT[c].slugs))].map((sl) => courseIndex.find((c) => c.slug === sl)).filter((c) => c?.ready)
-    return (
-      <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="grid gap-8">
+    const body = (
+      <div className="grid gap-8">
         <div className="card grid gap-6 md:grid-cols-[340px_1fr] items-center" style={{ '--c': 'var(--color-brand)' }}>
           <Radar s={s} />
           <div>
@@ -111,15 +112,20 @@ export default function Interest() {
               </li>
             ))}
           </ul>
-          <Link to={`/compare?c=${recs.slice(0, 3).map((c) => c.slug).join(',')}`} className="btn ghost mt-5">把推薦課程放進比較</Link>
+          <Link data-noshot to={`/compare?c=${recs.slice(0, 3).map((c) => c.slug).join(',')}`} className="btn ghost mt-5">把推薦課程放進比較</Link>
         </div>
-        {!fromUrl && <div className="card max-w-[520px]" style={{ '--c': 'var(--color-gold)' }}><ResultQR text={[
-          '【聯成電腦｜職涯興趣測驗結果】',
-          `興趣代碼：${top.map((h) => h.k).join('')}`,
-          ...top.map((h, n) => `${n + 1}. ${h.name}（${h.v} 分）`),
-          `推薦方向：${cats.map((c) => CAT[c].name).join('、')}`,
-          `推薦課程：${recs.map((c) => c.name).join('、')}`,
-        ].join('\n')} /></div>}
+      </div>
+    )
+    if (fromUrl) return (
+      <div className="grid gap-6">
+        <SharedShot name="職涯興趣測驗結果">{body}</SharedShot>
+        <div><button type="button" className="btn ghost" onClick={reset}>自己做一次測驗</button></div>
+      </div>
+    )
+    return (
+      <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="grid gap-8">
+        <div ref={shotRef}>{body}</div>
+        <div className="card max-w-[520px]" style={{ '--c': 'var(--color-gold)' }}><ResultQR url={`${window.location.origin}${window.location.pathname}#/interest?r=${HOLLAND.map((h) => s[h.k]).join('-')}`} target={shotRef} name="職涯興趣測驗結果" /></div>
         <div><button type="button" className="btn ghost" onClick={reset}>重新測驗</button></div>
       </motion.div>
     )
