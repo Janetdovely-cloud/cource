@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'motion/react'
 import { Link } from 'react-router-dom'
 import { ph } from './Motion'
 import { courseIndex } from '../data/courses'
+import { RESULT_PAGE } from '../data/upcoming'
 
 // 奇數題：行動步調（慢／快）；偶數題：關注焦點（任務／人際）
 const qs = [
@@ -102,7 +103,7 @@ export default function Disc() {
             ))}
           </ul>
           <Link data-noshot to={`/compare?c=${[...new Set(res.top.flatMap((k) => REC[k].slugs))].filter((sl) => courseIndex.find((c) => c.slug === sl)?.ready).slice(0, 3).join(',')}`} className="btn ghost !text-[14px] mt-3">把推薦課程放進比較</Link>
-          {!res.shared && <ResultQR url={`${window.location.origin}${window.location.pathname}#/disc?r=${['D', 'I', 'S', 'C'].map((k) => res.s[k]).join('-')}`} target={resRef} name="DISC 測驗結果" />}
+          {!res.shared && <ResultQR url={`${RESULT_PAGE}?t=disc&r=${['D', 'I', 'S', 'C'].map((k) => res.s[k]).join('-')}`} target={resRef} name="DISC 測驗結果" />}
           {!res.shared && <button data-noshot type="button" className="btn ghost w-full mt-4 justify-center" onClick={reset}>重新測驗</button>}
         </motion.div>
   )

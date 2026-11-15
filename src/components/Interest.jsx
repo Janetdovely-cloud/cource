@@ -3,6 +3,7 @@ import { Link, useSearchParams, useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'motion/react'
 import { ph } from './Motion'
 import { courseIndex } from '../data/courses'
+import { RESULT_PAGE } from '../data/upcoming'
 import ResultQR, { SharedShot } from './ResultQR'
 
 // 何倫碼（Holland RIASEC）職涯興趣測驗：每型 4 題、1–5 分
@@ -124,7 +125,7 @@ export default function Interest() {
     return (
       <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="grid gap-8">
         <div ref={shotRef}>{body}</div>
-        <div className="card max-w-[520px]" style={{ '--c': 'var(--color-gold)' }}><ResultQR url={`${window.location.origin}${window.location.pathname}#/interest?r=${HOLLAND.map((h) => s[h.k]).join('-')}`} target={shotRef} name="職涯興趣測驗結果" /></div>
+        <div className="card max-w-[520px]" style={{ '--c': 'var(--color-gold)' }}><ResultQR url={`${RESULT_PAGE}?t=interest&r=${HOLLAND.map((h) => s[h.k]).join('-')}`} target={shotRef} name="職涯興趣測驗結果" /></div>
         <div><button type="button" className="btn ghost" onClick={reset}>重新測驗</button></div>
       </motion.div>
     )

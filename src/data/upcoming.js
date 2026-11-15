@@ -12,3 +12,6 @@ export function upcoming(slug) {
 
 // 薪資資料整理時間（各課程薪資圖共用）
 export const SALARY_AS_OF = '2026 年 10 月'
+
+// 測驗結果專用頁（Apps Script，原始檔在 apps-script/result）：QR Code 只開啟結果圖片
+export const RESULT_PAGE = 'https://script.google.com/macros/s/AKfycbxrNFp9U67yZnrXNoTlAlbO3V4-D0PYIpmqhBo0NBo88Di3JCumj550-WFhpxdCzWRqdQ/exec'
