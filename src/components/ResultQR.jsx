@@ -14,12 +14,14 @@ export async function shoot(el) {
   await document.fonts?.ready
   // 複製一份到畫面外、拿掉按鈕再截圖，高度才不會留白
   const box = document.createElement('div')
-  box.style.cssText = `position:fixed;left:-10000px;top:0;width:${el.offsetWidth + 48}px;padding:24px;background:#faf6ec;pointer-events:none`
+  box.style.cssText = `position:fixed;left:-10000px;top:0;width:${el.offsetWidth + 48}px;pointer-events:none`
+  const pad = document.createElement('div')
+  pad.style.cssText = 'padding:24px;background:#faf6ec'
   const clone = el.cloneNode(true)
   clone.querySelectorAll('[data-noshot]').forEach((n) => n.remove())
-  box.appendChild(clone); document.body.appendChild(box)
+  pad.appendChild(clone); box.appendChild(pad); document.body.appendChild(box)
   try {
-    return await toPng(box, { pixelRatio: 2, backgroundColor: '#faf6ec', fontEmbedCSS: await embedCSS() })
+    return await toPng(pad, { pixelRatio: 2, backgroundColor: '#faf6ec', fontEmbedCSS: await embedCSS() })
   } finally { box.remove() }
 }
 
