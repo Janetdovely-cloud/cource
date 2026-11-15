@@ -1,18 +1,25 @@
 import { useEffect, useRef, useState } from 'react'
 import QRCode from 'qrcode'
 import { toPng } from 'html-to-image'
+import handFont from '../assets/fonts/chenyuluoyan-subset.woff2?url'
+
+// 截圖只內嵌手寫字型（Google 字型跨網域讀不到，會讓整個字型內嵌失敗）
+let fontCSS
+const embedCSS = () => (fontCSS ??= fetch(handFont).then((r) => r.blob()).then((b) => new Promise((ok) => {
+  const fr = new FileReader(); fr.onload = () => ok(`@font-face{font-family:"ChenYuluoyan";src:url(${fr.result}) format("woff2");font-weight:400;font-style:normal;}`); fr.readAsDataURL(b)
+})))
 
 // 測驗結果截圖：把結果區塊轉成圖片（排除標了 data-noshot 的按鈕）
 export async function shoot(el) {
   await document.fonts?.ready
   // 複製一份到畫面外、拿掉按鈕再截圖，高度才不會留白
   const box = document.createElement('div')
-  box.style.cssText = `position:fixed;left:-10000px;top:0;width:${el.offsetWidth}px;pointer-events:none`
+  box.style.cssText = `position:fixed;left:-10000px;top:0;width:${el.offsetWidth + 48}px;padding:24px;background:#faf6ec;pointer-events:none`
   const clone = el.cloneNode(true)
   clone.querySelectorAll('[data-noshot]').forEach((n) => n.remove())
   box.appendChild(clone); document.body.appendChild(box)
   try {
-    return await toPng(clone, { pixelRatio: 2, backgroundColor: '#faf6ec', cacheBust: true })
+    return await toPng(box, { pixelRatio: 2, backgroundColor: '#faf6ec', fontEmbedCSS: await embedCSS() })
   } finally { box.remove() }
 }
 
