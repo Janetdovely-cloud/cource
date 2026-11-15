@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<base target="_top">
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #FBF6EA; color: #2B2822; font-family: "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif; }
+  .page { max-width: 760px; margin: 0 auto; padding: 16px; }
+  .msg { text-align: center; color: #6B645A; padding: 48px 0; }
+  .out img { width: 100%; display: block; border-radius: 12px; border: 2px solid #2B2822; }
+  .tip { text-align: center; color: #6B645A; font-size: 14px; margin: 10px 0 0; }
+  /* 截圖用的結果卡（畫在畫面外） */
+  #stage { position: fixed; left: -10000px; top: 0; width: 720px; }
+  #card { background: #FBF6EA; padding: 28px; }
+  .brand { font-weight: 900; font-size: 22px; letter-spacing: .08em; margin: 0 0 16px; }
+  .brand span { color: #11806F; }
+  .box { background: #FFFDF8; border: 2px dashed #1DAD97; border-left: 6px solid #1DAD97; border-radius: 14px; padding: 22px 24px; }
+  .label { color: #11806F; font-weight: 900; font-size: 15px; margin: 0; }
+  .big { font-weight: 900; font-size: 30px; margin: 4px 0 8px; }
+  .code { font-family: ui-monospace, Menlo, monospace; font-weight: 900; font-size: 46px; line-height: 1; margin: 6px 0 12px; }
+  .row { display: flex; gap: 22px; align-items: center; }
+  .bar { display: grid; grid-template-columns: 96px 1fr 30px; gap: 10px; align-items: center; font-size: 15px; margin: 8px 0; }
+  .bar b { white-space: nowrap; }
+  .track { height: 14px; border: 2px solid #2B2822; border-radius: 99px; background: #FBF6EA; overflow: hidden; }
+  .track i { display: block; height: 100%; }
+  .num { text-align: right; font-family: ui-monospace, Menlo, monospace; }
+  .top { padding-left: 12px; margin: 10px 0; }
+  .top p { margin: 0; }
+  .top .t { font-weight: 900; }
+  .top .d { color: #6B645A; font-size: 14px; }
+  .sub { font-weight: 900; font-size: 20px; margin: 22px 0 4px; }
+  .why { color: #6B645A; font-size: 14px; margin: 0 0 12px; }
+  .courses { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .course { background: #FFFDF8; border: 2px dashed #1DAD97; border-left: 5px solid #F2B134; border-radius: 12px; padding: 12px 14px; }
+  .course .en { color: #11806F; font-size: 12px; margin: 0; }
+  .course .n { font-weight: 900; font-size: 17px; margin: 2px 0 4px; }
+  .course .l { color: #6B645A; font-size: 13px; margin: 0; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div id="out" class="out"><p class="msg">結果圖片產生中…</p></div>
+</div>
+<div id="stage"><div id="card"></div></div>
+<script>/*LIB*/</script>
+<script>
+const P = <?!= params ?>;
+const D = /*DATA*/;
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const courseCards = (slugs) => '<div class="courses">' + slugs.filter((s) => D.COURSES[s]).map((s) => {
+  const c = D.COURSES[s]
+  return `<div class="course"><p class="en">${esc(c.en)}</p><p class="n">${esc(c.name)}</p><p class="l">${esc(c.line)}</p></div>`
+}).join('') + '</div>'
+
+function disc(v) {
+  if (v.length !== 4 || !v.every((n) => n >= 0 && n <= 18)) return ''
+  const s = { D: v[0], I: v[1], S: v[2], C: v[3] }, max = Math.max(...v)
+  const top = Object.keys(s).filter((k) => s[k] === max), T = D.types
+  const slugs = [...new Set(top.flatMap((k) => D.REC[k].slugs))]
+  return `<div class="box" style="border-left-color:${T[top[0]].c}">
+    <p class="label">你的主要風格</p>
+    <p class="big">${top.map((k) => `${k} ${T[k].name}`).join('／')}</p>
+    <p style="margin:0 0 10px">${top.length === 1 ? `你偏向「${T[top[0]].name}（${T[top[0]].animal}）」，${T[top[0]].desc}` : '你屬於跨界混合型，同時具備多重優勢特質。'}</p>
+    ${Object.entries(s).map(([k, n]) => `<div class="bar"><b>${k} ${T[k].name}</b><div class="track"><i style="width:${(n / 18) * 100}%;background:${T[k].c}"></i></div><span class="num">${n}</span></div>`).join('')}
+    <p class="sub">推薦你優先了解的課程</p>
+    <p class="why">${top.map((k) => esc(D.REC[k].why)).join('；')}</p>
+    ${courseCards(slugs)}
+  </div>`
+}
+
+function radar(s) {
+  const cx = 130, cy = 125, R = 82, n = 6
+  const pt = (i, r) => { const a = -Math.PI / 2 + (i * 2 * Math.PI) / n; return [cx + r * Math.cos(a), cy + r * Math.sin(a)] }
+  let g = ''
+  for (const l of [5, 4, 3, 2, 1]) g += `<polygon points="${[...Array(n)].map((_, i) => pt(i, (R * l) / 5).join(',')).join(' ')}" fill="${l % 2 ? '#F4EEDF' : '#FFFDF8'}" stroke="#E2D8C5"/>`
+  g += `<polygon points="${D.HOLLAND.map((h, i) => pt(i, (R * s[h.k]) / 10).join(',')).join(' ')}" fill="rgba(29,173,151,.22)" stroke="#1DAD97" stroke-width="2.5" stroke-linejoin="round"/>`
+  D.HOLLAND.forEach((h, i) => { const [x, y] = pt(i, R + 20); g += `<text x="${x}" y="${y + 4}" text-anchor="middle" font-size="12" font-weight="900" fill="${h.c}">${h.k} ${h.name} ${s[h.k]}</text>` })
+  return `<svg viewBox="0 0 260 255" width="260" height="255" xmlns="http://www.w3.org/2000/svg">${g}</svg>`
+}
+
+function interest(v) {
+  if (v.length !== 6 || !v.every((n) => n >= 0 && n <= 10)) return ''
+  const s = {}; D.HOLLAND.forEach((h, i) => { s[h.k] = v[i] })
+  const top = D.HOLLAND.map((h) => ({ ...h, v: s[h.k] })).filter((h) => h.v > 0).sort((a, b) => b.v - a.v).slice(0, 3)
+  const w = {}; top.forEach((h, n) => h.cats.forEach((c) => { w[c] = (w[c] || 0) + (3 - n) }))
+  const cats = Object.entries(w).sort((a, b) => b[1] - a[1]).map((x) => x[0]).slice(0, 3)
+  const slugs = [...new Set(cats.flatMap((c) => D.CAT[c].slugs))]
+  return `<div class="box"><div class="row">${radar(s)}<div style="flex:1">
+      <p class="label">你的興趣代碼</p>
+      <p class="code">${top.map((h) => `<span style="color:${h.c}">${h.k}</span>`).join('')}</p>
+      ${top.map((h, n) => `<div class="top" style="border-left:4px solid ${h.c}"><p class="t">${['①', '②', '③'][n]} ${esc(h.name)}（${h.v} 分）</p><p class="d">${esc(h.desc)}</p><p class="d">典型職業：${esc(h.job)}</p></div>`).join('')}
+    </div></div></div>
+    <p class="sub">推薦你優先了解的課程</p>
+    <p class="why">推薦方向：${cats.map((c) => esc(D.CAT[c].name)).join('、')}</p>
+    ${courseCards(slugs)}`
+}
+
+const v = P.r.split('-').map(Number)
+const body = P.t === 'disc' ? disc(v) : P.t === 'interest' ? interest(v) : ''
+const out = document.getElementById('out')
+if (!body) out.innerHTML = '<p class="msg">找不到測驗結果，請重新掃描 QR Code。</p>'
+else {
+  const card = document.getElementById('card')
+  card.innerHTML = `<p class="brand">聯成電腦<span>｜${P.t === 'disc' ? 'DISC 職涯適性測驗' : '職涯興趣測驗'}結果</span></p>` + body
+  htmlToImage.toPng(card, { pixelRatio: 2, backgroundColor: '#FBF6EA' }).then((src) => {
+    out.innerHTML = `<img src="${src}" alt="測驗結果"><p class="tip">長按圖片即可儲存到手機</p>`
+    document.getElementById('stage').remove()
+  }).catch(() => { out.innerHTML = '<p class="msg">圖片產生失敗，請重新整理再試一次。</p>' })
+}
+</script>
+</body>
+</html>
