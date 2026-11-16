@@ -29,6 +29,15 @@ export const classes = {
    "branch": "線上直播"
   },
   {
+   "name": "Python程式資料分析",
+   "start": "2026/11/17",
+   "end": "2027/01/28",
+   "slot": "夜間 二四",
+   "time": "18:50 ~ 21:50",
+   "hours": "63",
+   "branch": "線上直播"
+  },
+  {
    "name": "Python AI 深度學習與強化學習實戰",
    "start": "2026/11/22",
    "end": "2027/03/14",
@@ -624,7 +633,7 @@ export const classes = {
   {
    "name": "Frontend前端開發",
    "start": "2026/11/29",
-   "end": "2027/02/14",
+   "end": "2027/03/14",
    "slot": "週日全天",
    "time": "09:10 ~ 12:10, 13:10 ~ 16:10",
    "hours": "48",
